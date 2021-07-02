@@ -1,0 +1,588 @@
+{
+	"info": {
+		"_postman_id": "4e52960d-28e4-4597-9bad-69eb5c42c085",
+		"name": "zeusAuth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Boletas",
+			"item": [
+				{
+					"name": "Listar mensal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dtIniFornInicio\": \"2021-01-01T03:00:00.000Z\", \n    \"dtIniFornFinal\": \"2021-12-01T03:00:00.000Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/tradecapitale/datatable",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"tradecapitale",
+								"datatable"
+							]
+						},
+						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar boletas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dtOperInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtOperFinal\":\"2021-06-30T03:00:00.000Z\",\n    \"dtIniFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"dtFimFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtFimFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"submercadoId\":1,\n    \"energyType\":1\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/boletacapitale/datatable",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"boletacapitale",
+								"datatable"
+							]
+						},
+						"description": "API para retornar as boletas do portifolio após aprovação. Resultado equivalente a tela Boletas -> Listar Boletas  do Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Arquivos das boletas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/USER/ARQUIVO"
+								},
+								{
+									"key": "boletaId",
+									"value": "34",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/contractFile",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"contractFile"
+							]
+						},
+						"description": "API para inclusão de um arquivo atrelado a uma boleta no Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Export listar mensal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dtIniFornInicio\": \"2021-01-01T03:00:00.000Z\", \n    \"dtIniFornFinal\": \"2022-12-01T03:00:00.000Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/tradecapitale/export",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"tradecapitale",
+								"export"
+							]
+						},
+						"description": "API para retornar o caminho de uma planilha com os dados do listar mensal.\nRetorno similar ao do botão \"Exportar\" na tela Boletas -> Listar Mensal\nPara realizar o download do arquivo é necessario completar a URL com: https://{{URL}}.zeusenergia.com.br/resources/planilhas/export/{{nome_do_arquivo}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Export listar boletas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"dtOperInicio\":\"2021-01-01T03:00:00.000Z\",\n \"dtOperFinal\":\"2021-12-31T03:00:00.000Z\",\n \"dtIniFornInicio\":\"2021-01-01T03:00:00.000Z\",\n \"dtIniFornFinal\":\"2022-12-01T03:00:00.000Z\",\n \"parcialmenteCancelada\":true\n }"
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/boletacapitale/export",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"boletacapitale",
+								"export"
+							]
+						},
+						"description": "API para retornar o caminho de uma planilha com os dados do listar boletas.\nRetorno similar ao do botão \"Exportar\" na tela Boletas -> Listar Boletas.\nPara realizar o download do arquivo é necessario completar a URL com: https://{{URL}}.zeusenergia.com.br/resources/planilhas/export/{{nome_do_arquivo}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contrapartes",
+			"item": [
+				{
+					"name": "Listar Grupos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"draw\":1,\n    \"columns\":[{\"data\":\"nomCountGroup\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}]\n    ,\"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    ,\"search\":{\"value\":\"\",\"regex\":false}\n    ,\"start\":0\n    ,\"length\":12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/group/datatable",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"group",
+								"datatable"
+							]
+						},
+						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Unidades",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"unitName\": \"Zeus\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/unit/datatable",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"unit",
+								"datatable"
+							]
+						},
+						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Informações Gerais",
+			"item": [
+				{
+					"name": "Tipos de Energia",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/energy",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"energy"
+							]
+						},
+						"description": "Listagem dos tipos de energia utilizados no Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Submercados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/region",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"region"
+							]
+						},
+						"description": "Listagem dos tipos de energia utilizados no Zeus."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty",
+						"type": "text"
+					},
+					{
+						"key": "X-Login-Ajax-call",
+						"value": "true",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "username={{username}}&password={{password}}&code="
+				},
+				"url": {
+					"raw": "https://{{URL}}/authenticate",
+					"protocol": "https",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"authenticate"
+					]
+				},
+				"description": "Autenticação inicial do Zeus.\nAo final, um cookie de sessão será criado. \nUtilizar este cookie nas outras chamadas."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "URL"
+		},
+		{
+			"key": "username",
+			"value": "USERAPI"
+		},
+		{
+			"key": "password",
+			"value": "PASSAPI"
+		}
+	]
+}
