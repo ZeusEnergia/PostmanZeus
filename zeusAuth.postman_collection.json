@@ -574,15 +574,15 @@
 	"variable": [
 		{
 			"key": "URL",
-			"value": "URL"
+			"value": "zeus.miracleworks.com.br"
 		},
 		{
 			"key": "username",
-			"value": "USERAPI"
+			"value": "ROBO"
 		},
 		{
 			"key": "password",
-			"value": "PASSAPI"
+			"value": "Robo123#"
 		}
 	]
 }
