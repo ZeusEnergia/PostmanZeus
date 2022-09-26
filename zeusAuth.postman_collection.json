@@ -1,47 +1,42 @@
 {
 	"info": {
-		"_postman_id": "4e52960d-28e4-4597-9bad-69eb5c42c085",
+		"_postman_id": "60d67e22-073f-4f8c-ae61-b49ab587c47c",
 		"name": "zeusAuth",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "355184"
 	},
 	"item": [
 		{
 			"name": "Boletas",
 			"item": [
 				{
-					"name": "Listar mensal",
+					"name": "Inserção de boletas",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Strip JSON Comments",
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {",
+									"    const rawData = pm.request.body.toString();",
+									"    const strippedData = rawData.replace(",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,",
+									"        (m, g) => g ? \"\" : m",
+									"    );",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));",
+									"    pm.request.upsertHeader({key: 'Content-Type', value: 'application/json'});",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
-							},
-							{
-								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
-							},
-							{
-								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
-							},
-							{
-								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
-							},
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"dtIniFornInicio\": \"2021-01-01T03:00:00.000Z\", \n    \"dtIniFornFinal\": \"2021-12-01T03:00:00.000Z\"\n}",
+							"raw": "{\n  \"plataformaId\": 2,\n  \"pagType\": 2,\n  \"pagVal\": 6,\n  \"emitInvoiType\": 2,\n  \"emitInvoiVal\": 1,\n  \"emitInvoiCondPerioType\": 2,\n  \"pagMesType\": 2,\n  \"submercado\": 2,\n  \"energyTipo\": 2,\n  \"retusd\": 35,\n  \"distType\": {\n    \"numDistType\": 2\n  },\n  \"dataEntrada\": \"2022-09-20\",\n  \"datSeaso\": \"2023-11-30T03:00:00.000Z\",\n  \"dataInicio\": \"2023-01-01T03:00:00.000Z\",\n  \"dataFim\": \"2024-12-01T03:00:00.000Z\",\n  \"groupCompId\": 4912,\n  \"unidadeCompId\": 6511,\n  \"indConsu\": true,\n  \"volume\": 0,\n  \"precoTipo\": 1,\n  \"preco\": 0,\n  \"volumeTipo\": 1,\n  \"flexMin\": 10,\n  \"flexMax\": 10,\n  \"sazoMin\": 10,\n  \"sazoMax\": 10,\n  \"indexId\": 1,\n  \"datIndexBase\": \"2022-09-01T03:00:00.000Z\",\n  \"datIndexFirstAdjus\": \"2023-01-01T03:00:00.000Z\",\n  \"registroTipo\": 1,\n  \"garantiaTipo\": -1,\n  \"volumeSazoList\": [\n    {\n      \"dataInicio\": \"2023-01-01T03:00:00.000Z\",\n      \"dataFim\": \"2023-12-01T03:00:00.000Z\",\n      \"volume\": 2,\n      \"preco\": 200\n    },\n    {\n      \"dataInicio\": \"2024-01-01T03:00:00.000Z\",\n      \"dataFim\": \"2024-12-01T03:00:00.000Z\",\n      \"volume\": 1,\n      \"preco\": 100\n    }\n  ],\n  \"venda\": true,\n  \"extension\": {\n    \"representativade\": 100,\n    \"numContratoBBCE\": \"F123458\"\n  }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -49,20 +44,202 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{URL}}/rest/tradecapitale/datatable",
+							"raw": "https://{{URL}}/rest/boletacapitale",
 							"protocol": "https",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"rest",
-								"tradecapitale",
-								"datatable"
+								"boletacapitale"
 							]
-						},
-						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
+						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Curto Prazo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"plataformaId\": 1, //Id da plataforma que estão disponiveis na chamada \"Informações Gerais\" -> \"Plataformas\". No exemplo \"Balcão\"\n    \"pagType\": 2, //Id do \"Informações Gerais\" -> \"Tipo de pagamento\". No exemplo, \"Dias Uteis\"\n    \"pagMesType\": 2, //Id do \"Informações Gerais\" -> \"Tipo de Condição de Pagamento\". No exemplo, \"Mês Seguinte ao fornecimento\"\n    \"pagVal\": 6, //Dias para o pagamento. Em conjunto com o PagType e PagMesType, gerou um pagamento no 6ºDU do mês seguinte ao fornecimento\n    \"emitInvoiType\": 2, //Mesmo funcionamento do pagamento, porém para a data de emissão da nota.\n    \"emitInvoiCondPerioType\": 2,\n    \"emitInvoiVal\": 1, //Dias para a emissão. Em conjunto com o emitInvoiType e emitInvoiCondPerioType, gerou uma emissão no 1ºDU do mês seguinte ao fornecimento\n    \"submercado\": 1, //Id do \"Informações Gerais\" -> \"Submercados\". No exemplo \"SE/CO\"\n    \"energyTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipos de Energia\". No exemplo \"Convencional\"\n    \"retusd\": 0, // Valor da retusd, quando disponivel\n    \"distType\": { //Tipo de distribuição, objeto presente em \"Informações Gerais\" -> \"Tipos de Distribuição\". Apenas o id \"numDistType\" é necessario. No exemplo, \"Flat\"\n        \"numDistType\": 1\n    },\n    \"dataEntrada\": \"2022-09-20\", //Data de fechamento da boleta\n    \"dataInicio\": \"2022-09-01T03:00:00.000Z\", //Periodo de fornecimento. Por se tratar de uma operação de curto prazo (1 Mês) não é necessario o envio da dataFim\n    \"groupCompId\": 4912, //Id do grupo da contraparte. Dado presente em \"Contrapartes\" -> \"Listar Grupos\"\n    \"unidadeCompId\": 6500, //Id da unidade da contraparte. Dado presente em \"Contrapartes\" -> \"Listar Unidades\". Dado opcional. Para contratos que serão divididos de acordo com o consumo/geração ou distribuidos entre varios CNPJs/NF, este dado não deve ser enviado.\n    \"volumeTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipo de Volume\". No exemplo \"MWmed\"\n    \"volume\": 1, //Volume na unidade de medida escolhida no campo anterior. O campo aceita: para MWmed até 6 casas decimais e MWh até 3 casas decimais;\n    \"precoTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipo de Preço\". No exemplo \"Fixo\"\n    \"preco\": 201, // Preço em R$/MWh\n    \"venda\": true, //Tipo da boleta, compra ou venda. No caso, uma venda. Caso compra, enviar \"venda\": false.\n    \"extension\": {} //Propriedade que não é utilizada para contratos de curto prazo, porém precisa ser enviada.\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://zeus.miracleworks.com.br/rest/boletacapitale",
+									"protocol": "https",
+									"host": [
+										"zeus",
+										"miracleworks",
+										"com",
+										"br"
+									],
+									"path": [
+										"rest",
+										"boletacapitale"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Sep 2022 17:15:52 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<BoletaEnergia>\n    <id>140</id>   <<== Id da boleta criada.\n    \n    <dataEntrada>2022</dataEntrada>\n    <dataEntrada>9</dataEntrada>\n    <dataEntrada>20</dataEntrada>\n    <dataInicio>1662001200000</dataInicio>\n    <dataFim>1664506800000</dataFim>\n    <groupCompId>4912</groupCompId>\n    <unidadeCompId>6500</unidadeCompId>\n    <groupVendId>4912</groupVendId>\n    <unidadeVendId>6500</unidadeVendId>\n    <precoTipo>1</precoTipo>\n    <preco>201.0</preco>\n    <valComissao>0.0</valComissao>\n    <valPisoCollar/>\n    <valTetoCollar/>\n    <volumeTipo>1</volumeTipo>\n    <volume>1.0</volume>\n    <flexMin>0.0</flexMin>\n    <flexMax>0.0</flexMax>\n    <sazoMin>0.0</sazoMin>\n    <sazoMax>0.0</sazoMax>\n    <submercado>1</submercado>\n    <energyTipo>1</energyTipo>\n    <numDistType/>\n    <retusd>0.0</retusd>\n    <plataformaId>1</plataformaId>\n    <indexId>-1</indexId>\n    <datIndexBase>29348017200000</datIndexBase>\n    <datIndexFirstAdjus>29348017200000</datIndexFirstAdjus>\n    <registroTipo>1</registroTipo>\n    <garantiaTipo>-1</garantiaTipo>\n    <emitInvoiType>2</emitInvoiType>\n    <emitInvoiVal>1</emitInvoiVal>\n    <emitInvoiCondPerioType>2</emitInvoiCondPerioType>\n    <pagType>2</pagType>\n    <pagVal>6</pagVal>\n    <pagMesType>2</pagMesType>\n    <stateIcms_id/>\n    <comentario/>\n    <userId/>\n    <cancelada/>\n    <numRefId/>\n    <representatividade/>\n    <valPriceReaj/>\n    <indReajRealizado/>\n    <valReajRealizado/>\n    <datSeaso/>\n    <carteira/>\n    <tblCarteira/>\n    <indReajIniciForneCliente/>\n    <agenteVendedor/>\n    <agenteComprador/>\n    <aprovadoCliente/>\n    <datAprovCliente/>\n    <userAprovCliente/>\n    <precoTipoName/>\n    <volumeTipoName/>\n    <submercadoName/>\n    <energiaTipoName/>\n    <plataformaName/>\n    <registroTipoName/>\n    <garantiaTipoName/>\n    <pagamentoTipoName/>\n    <estadoIcmsName/>\n    <indiceName/>\n    <userName/>\n    <distType>\n        <numDistType>1</numDistType>\n        <nomDistType>FLAT</nomDistType>\n        <nomDistCcee>FLAT</nomDistCcee>\n    </distType>\n    <pagDate/>\n    <emitInvoiDate/>\n    <boletaType>true</boletaType>\n    <vigencia/>\n    <cobertura/>\n    <extension>\n        <idContract>140</idContract>\n        <numContratoBBCE/>\n        <numContratoEnbox/>\n        <nomEmailCliente/>\n        <opeHete>false</opeHete>\n        <encContas>false</encContas>\n        <indReajIniciForne/>\n        <compra>false</compra>\n        <representativade/>\n        <broker/>\n        <brokerName/>\n        <aprovado>false</aprovado>\n        <nomAprovMsg/>\n        <nomEditMsg/>\n        <datAprov/>\n        <userAprov/>\n        <cancelada>false</cancelada>\n        <datCancel/>\n        <userCancel/>\n        <recusada/>\n        <modulMin/>\n        <modulMax/>\n        <indReajusteHeterodoxo/>\n        <datRecusada/>\n        <potencialDuplicada>false</potencialDuplicada>\n        <boletasOrigemDaDuplicacao/>\n        <parte/>\n        <userRecusada/>\n        <datUpdate>1663642800000</datUpdate>\n        <userUpdate/>\n        <nomOrigem/>\n        <numRefId/>\n        <datEmitInvoi>-2208934412000</datEmitInvoi>\n        <numEmitInvoiMonth>2</numEmitInvoiMonth>\n        <emitInvoiType>\n            <numPaymeType>2</numPaymeType>\n            <nomPaymeType>Dias Uteis</nomPaymeType>\n        </emitInvoiType>\n        <indEntryInvoi/>\n        <contaBancaria/>\n        <contaBancariaParte/>\n        <agenteParte/>\n        <agenteContraparte/>\n        <negocioId/>\n        <perfilBBCECceeContraparte/>\n        <perfilBBCECceeParte/>\n        <oldVersionOfItself/>\n        <nomBBCEStatus/>\n    </extension>\n    <docStatusId/>\n    <docStatusName/>\n    <datDocumUpdat/>\n    <intDocumDays/>\n    <daysBetweenUpdate/>\n    <sazoRealizada/>\n    <parcialmenteCancelada/>\n    <dataInicioReajuste/>\n    <dataFimReajuste/>\n    <indBalancReali/>\n    <editable/>\n    <userUpdate/>\n    <datUpdate/>\n    <siglaEmitInvoi/>\n    <siglaPagamento/>\n    <indBoletaSemTrade/>\n    <dataCriacao/>\n    <comentarioEdicao/>\n    <forceUpdate/>\n    <parte/>\n    <contraparte/>\n    <agenteParte/>\n    <agenteContraparte/>\n    <comercializadora/>\n    <negocioBBCEId/>\n    <agenteParteExport/>\n    <agenteContraparteExport/>\n    <encContas/>\n    <temTradeFaturado/>\n    <indTodosTradesFaturados/>\n    <stateName/>\n    <numCount>0</numCount>\n    <venda>true</venda>\n    <stringPagamento>6 DU MS</stringPagamento>\n    <stringEmitInvoi>1 DU MS</stringEmitInvoi>\n    <compVend>Venda</compVend>\n    <nomCnpj>-</nomCnpj>\n    <groupCName/>\n    <distribuicaoTipo>FLAT</distribuicaoTipo>\n    <nomFull>-</nomFull>\n    <unidadeCName/>\n    <unidadeVName/>\n    <groupVName/>\n    <cpGroup/>\n    <pagMesName>Mês Seguinte</pagMesName>\n    <cpUnit/>\n    <volumeExport>-1.0</volumeExport>\n    <numberBBCE>-</numberBBCE>\n    <carteiraName>-</carteiraName>\n    <reajIniciForne>Não</reajIniciForne>\n    <reajIniciForneCliente>Não</reajIniciForneCliente>\n    <boletaParcialmenteCancelada>Não</boletaParcialmenteCancelada>\n    <operacaoHeterodoxa>Não</operacaoHeterodoxa>\n</BoletaEnergia>"
+						},
+						{
+							"name": "Longo prazo + Multiplos Valores",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"plataformaId\": 2, //Id da plataforma que estão disponiveis na chamada \"Informações Gerais\" -> \"Plataformas\". No exemplo \"BBCE\"\n  \"pagType\": 2, //Id do \"Informações Gerais\" -> \"Tipo de pagamento\". No exemplo, \"Dias Uteis\"\n  \"pagMesType\": 2, //Id do \"Informações Gerais\" -> \"Tipo de Condição de Pagamento\". No exemplo, \"Mês Seguinte ao fornecimento\"\n  \"pagVal\": 6, //Dias para o pagamento. Em conjunto com o PagType e PagMesType, gerou um pagamento no 6ºDU do mês seguinte ao fornecimento\n  \"emitInvoiType\": 2,//Mesmo funcionamento do pagamento, porém para a data de emissão da nota.\n  \"emitInvoiCondPerioType\": 2,\n  \"emitInvoiVal\": 1, //Dias para a emissão. Em conjunto com o emitInvoiType e emitInvoiCondPerioType, gerou uma emissão no 1ºDU do mês seguinte ao fornecimento\n  \"submercado\": 2, //Id do \"Informações Gerais\" -> \"Submercados\". No exemplo \"S\"\n  \"energyTipo\": 2, //Id do \"Informações Gerais\" -> \"Tipos de Energia\". No exemplo \"Incentivada 50%\"\n  \"retusd\": 35, // Valor da retusd, quando disponivel\n  \"distType\": { //Tipo de distribuição, objeto presente em \"Informações Gerais\" -> \"Tipos de Distribuição\". Apenas o id \"numDistType\" é necessario. No exemplo, \"Carga\"\n    \"numDistType\": 2\n  },\n  \"dataEntrada\": \"2022-09-20\", //Data de fechamento da boleta\n  \"datSeaso\": \"2023-11-30T03:00:00.000Z\", //Data limite para declaração da Sazo, utilizada para o Zeus enviar notificações\n  \"dataInicio\": \"2023-01-01T03:00:00.000Z\", // Inicio do periodo de fornecimento.\n  \"dataFim\": \"2024-12-01T03:00:00.000Z\", // Fim do periodo de fornecimento\n  \"groupCompId\": 4912, //Id do grupo da contraparte. Dado presente em \"Contrapartes\" -> \"Listar Grupos\"\n  \"unidadeCompId\": 6511, //Id da unidade da contraparte. Dado presente em \"Contrapartes\" -> \"Listar Unidades\". Dado opcional. Para contratos que serão divididos de acordo com o consumo/geração ou distribuidos entre varios CNPJs/NF, este dado não deve ser enviado.\n  \"volumeTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipo de Volume\". Irá impactar os dados dos multiplos valores. No exemplo \"MWmed\"\n  \"volume\": 0, // Sempre enviar volume = 0 para operações multiplos valores\n  \"precoTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipo de Preço\". Irá impactar os dados dos multiplos valores. No exemplo \"Fixo\"\n  \"preco\": 0, // Sempre enviar preço = 0 para operações multiplos valores\n  \"flexMin\": 10, //Limite minimo da flex\n  \"flexMax\": 10, //Limite maximo da flex. No exemplo, uma operação com flex de 90% a 110%\n  \"sazoMin\": 10, //Limite minimo da Sazo\n  \"sazoMax\": 10, //Limite maximo da sazo. No exemplo, uma operação com sazo variando entre 90% a 110% do contratado\n  \"indexId\": 1, //Id do \"Informações Gerais\" -> \"indexadores\". No exemplo, \"IPCA\"\n  \"datIndexBase\": \"2022-09-01T03:00:00.000Z\", //Data base para o calculo do reajuste\n  \"datIndexFirstAdjus\": \"2023-01-01T03:00:00.000Z\", // Data de aplicação do primeiro reajuste, com repetição a cada 12 meses\n  \"registroTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipo de Registro\". No caso, \"Registro contra pagamento\"\n  \"garantiaTipo\": -1, //Id do \"Informações Gerais\" -> \"Garantias\". No caso, \"NA\" (não terá garantia)\n  \"volumeSazoList\": [ // Array com os multiplos valores da operação.\n    {\n      \"dataInicio\": \"2023-01-01T03:00:00.000Z\", //Inicio do fornecimento deste periodo\n      \"dataFim\": \"2023-12-01T03:00:00.000Z\", //Final do fornecimento deste periodo\n      \"volume\": 2, //Volume na unidade de medida escolhida no campo \"volumeTipo\" para este periodo. O campo aceita: para MWmed até 6 casas decimais e MWh até 3 casas decimais;\n      \"preco\": 200 // Preço em R$/MWh para este periodo\n    },\n    {\n      \"dataInicio\": \"2024-01-01T03:00:00.000Z\",\n      \"dataFim\": \"2024-12-01T03:00:00.000Z\",\n      \"volume\": 1,\n      \"preco\": 100\n    }\n  ],\n  \"venda\": true, //Tipo da boleta, compra ou venda. No caso, uma venda. Caso compra, enviar \"venda\": false.\n  \"extension\": { \n    \"representativade\": 100, // No caso da Flex estar travada ao consumo/geração da contraparte, indicar a % de representatividade\n    \"numContratoBBCE\": \"F123458\" // Para as plataformas \"BBCE\" e \"Boleta Eletronica\" o envio deste campo é obrigatorio e será utilizado para validar se o contrato BBCE já foi integrado ou não, para evitar duplicações.\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/boletacapitale",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletacapitale"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Sep 2022 19:23:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<BoletaEnergia>\n    <id>152</id>\n    <dataEntrada>2022</dataEntrada>\n    <dataEntrada>9</dataEntrada>\n    <dataEntrada>20</dataEntrada>\n    <dataInicio>1672542000000</dataInicio>\n    <dataFim>1735614000000</dataFim>\n    <groupCompId>4912</groupCompId>\n    <unidadeCompId>6511</unidadeCompId>\n    <groupVendId/>\n    <unidadeVendId/>\n    <precoTipo>1</precoTipo>\n    <preco>0.0</preco>\n    <valComissao>0.0</valComissao>\n    <valPisoCollar/>\n    <valTetoCollar/>\n    <volumeTipo>1</volumeTipo>\n    <volume>0.0</volume>\n    <flexMin>10.0</flexMin>\n    <flexMax>10.0</flexMax>\n    <sazoMin>10.0</sazoMin>\n    <sazoMax>10.0</sazoMax>\n    <submercado>2</submercado>\n    <energyTipo>2</energyTipo>\n    <numDistType/>\n    <retusd>35.0</retusd>\n    <plataformaId>2</plataformaId>\n    <indexId>1</indexId>\n    <datIndexBase>1662001200000</datIndexBase>\n    <datIndexFirstAdjus>1672542000000</datIndexFirstAdjus>\n    <registroTipo>1</registroTipo>\n    <garantiaTipo>-1</garantiaTipo>\n    <emitInvoiType>2</emitInvoiType>\n    <emitInvoiVal>1</emitInvoiVal>\n    <emitInvoiCondPerioType>2</emitInvoiCondPerioType>\n    <pagType>2</pagType>\n    <pagVal>6</pagVal>\n    <pagMesType>2</pagMesType>\n    <stateIcms_id/>\n    <comentario/>\n    <userId/>\n    <cancelada/>\n    <numRefId/>\n    <representatividade/>\n    <valPriceReaj/>\n    <indReajRealizado/>\n    <valReajRealizado/>\n    <datSeaso>1701313200000</datSeaso>\n    <carteira/>\n    <tblCarteira/>\n    <indReajIniciForneCliente/>\n    <agenteVendedor/>\n    <agenteComprador/>\n    <aprovadoCliente/>\n    <datAprovCliente/>\n    <userAprovCliente/>\n    <precoTipoName/>\n    <volumeTipoName/>\n    <submercadoName/>\n    <energiaTipoName/>\n    <plataformaName/>\n    <registroTipoName/>\n    <garantiaTipoName/>\n    <pagamentoTipoName/>\n    <estadoIcmsName/>\n    <indiceName/>\n    <volumeSazoList>\n        <volumeSazoList>\n            <id/>\n            <dataInicio>1672542000000</dataInicio>\n            <dataFim>1703991600000</dataFim>\n            <volume>2.0</volume>\n            <preco>200.0</preco>\n        </volumeSazoList>\n        <volumeSazoList>\n            <id/>\n            <dataInicio>1704078000000</dataInicio>\n            <dataFim>1735614000000</dataFim>\n            <volume>1.0</volume>\n            <preco>100.0</preco>\n        </volumeSazoList>\n    </volumeSazoList>\n    <userName/>\n    <distType>\n        <numDistType>2</numDistType>\n        <nomDistType/>\n        <nomDistCcee/>\n    </distType>\n    <pagDate/>\n    <emitInvoiDate/>\n    <boletaType>true</boletaType>\n    <vigencia/>\n    <cobertura/>\n    <extension>\n        <idContract>152</idContract>\n        <numContratoBBCE>F123458</numContratoBBCE>\n        <numContratoEnbox/>\n        <nomEmailCliente/>\n        <opeHete>false</opeHete>\n        <encContas>false</encContas>\n        <indReajIniciForne/>\n        <compra>false</compra>\n        <representativade>100.0</representativade>\n        <broker/>\n        <brokerName/>\n        <aprovado>false</aprovado>\n        <nomAprovMsg/>\n        <nomEditMsg/>\n        <datAprov/>\n        <userAprov/>\n        <cancelada>false</cancelada>\n        <datCancel/>\n        <userCancel/>\n        <recusada/>\n        <modulMin/>\n        <modulMax/>\n        <indReajusteHeterodoxo/>\n        <datRecusada/>\n        <potencialDuplicada>false</potencialDuplicada>\n        <boletasOrigemDaDuplicacao/>\n        <parte/>\n        <userRecusada/>\n        <datUpdate>1663642800000</datUpdate>\n        <userUpdate/>\n        <nomOrigem/>\n        <numRefId/>\n        <datEmitInvoi>-2208934412000</datEmitInvoi>\n        <numEmitInvoiMonth>2</numEmitInvoiMonth>\n        <emitInvoiType>\n            <numPaymeType>2</numPaymeType>\n            <nomPaymeType>Dias Uteis</nomPaymeType>\n        </emitInvoiType>\n        <indEntryInvoi/>\n        <contaBancaria/>\n        <contaBancariaParte/>\n        <agenteParte/>\n        <agenteContraparte/>\n        <negocioId/>\n        <perfilBBCECceeContraparte/>\n        <perfilBBCECceeParte/>\n        <oldVersionOfItself/>\n        <nomBBCEStatus/>\n    </extension>\n    <docStatusId/>\n    <docStatusName/>\n    <datDocumUpdat/>\n    <intDocumDays/>\n    <daysBetweenUpdate/>\n    <sazoRealizada/>\n    <parcialmenteCancelada/>\n    <dataInicioReajuste/>\n    <dataFimReajuste/>\n    <indBalancReali/>\n    <editable/>\n    <userUpdate/>\n    <datUpdate/>\n    <siglaEmitInvoi/>\n    <siglaPagamento/>\n    <indBoletaSemTrade/>\n    <dataCriacao/>\n    <comentarioEdicao/>\n    <forceUpdate/>\n    <parte/>\n    <contraparte/>\n    <agenteParte/>\n    <agenteContraparte/>\n    <comercializadora/>\n    <negocioBBCEId/>\n    <agenteParteExport/>\n    <agenteContraparteExport/>\n    <encContas/>\n    <temTradeFaturado/>\n    <indTodosTradesFaturados/>\n    <stateName/>\n    <numCount>0</numCount>\n    <venda>true</venda>\n    <stringPagamento>6 DU MS</stringPagamento>\n    <stringEmitInvoi>1 DU MS</stringEmitInvoi>\n    <compVend>Venda</compVend>\n    <nomCnpj>-</nomCnpj>\n    <groupCName/>\n    <distribuicaoTipo/>\n    <nomFull>-</nomFull>\n    <unidadeCName/>\n    <unidadeVName/>\n    <groupVName/>\n    <cpGroup/>\n    <pagMesName>Mês Seguinte</pagMesName>\n    <cpUnit/>\n    <volumeExport>-0.0</volumeExport>\n    <numberBBCE>F123458</numberBBCE>\n    <carteiraName>-</carteiraName>\n    <reajIniciForne>Não</reajIniciForne>\n    <reajIniciForneCliente>Não</reajIniciForneCliente>\n    <boletaParcialmenteCancelada>Não</boletaParcialmenteCancelada>\n    <operacaoHeterodoxa>Não</operacaoHeterodoxa>\n</BoletaEnergia>"
+						}
+					]
 				},
 				{
 					"name": "Listar boletas",
@@ -112,6 +289,62 @@
 							]
 						},
 						"description": "API para retornar as boletas do portifolio após aprovação. Resultado equivalente a tela Boletas -> Listar Boletas  do Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar mensal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dtUpdateInicio\": \"2022-02-01T03:00:00.000Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/tradecapitale/datatable",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"tradecapitale",
+								"datatable"
+							]
+						},
+						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
 					},
 					"response": []
 				},
@@ -289,6 +522,439 @@
 			"name": "Contrapartes",
 			"item": [
 				{
+					"name": "Contatos",
+					"item": [
+						{
+							"name": "Listar Contatos",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/contact?unitId=6331",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"contact"
+									],
+									"query": [
+										{
+											"key": "unitId",
+											"value": "6331"
+										}
+									]
+								},
+								"description": "API para retornar lista de Contatos.  \nResultado equivalente a tela Contrapartes -> Unidades -> Editar Unidade do Zeus."
+							},
+							"response": []
+						},
+						{
+							"name": "Inserir Contato",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"grupo\": {\n        \"numCountGroup\": 1\n    },\n    \"unidade\": {\n        \"numCount\": 1\n    },\n    \"nome\": \"Contato Teste\",\n    \"telefone\": \"11111111111\",\n    \"email\": \"um_email@qualquer.com\",\n    \"celular\": \"00000000000\",\n    \"lstTipo\": [\n        {\n            \"id\": 1\n        },\n        {\n            \"id\": 3\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/contact",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"contact"
+									]
+								},
+								"description": "API para inserir novo Contato.  \nResultado equivalente a tela Contrapartes -> Unidades -> Editar Unidade do Zeus.\n\nInformação Adicional:  \n**lstTipo** é preenchido com os tipos de contatos, encontrados na API **Tipos de Contato**."
+							},
+							"response": []
+						},
+						{
+							"name": "Tipos de Contato",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/dadosSistema/contactType",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"dadosSistema",
+										"contactType"
+									]
+								},
+								"description": "API para retornar lista de Tipos de Contatos."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dados Geridos",
+					"item": [
+						{
+							"name": "Inserir Dados Gerais da Unidade",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"unidade_id\": 6528,\n    \"contratada_ponta\": 2,\n    \"contratada_fponta\": 4,\n    \"fator_perda\": 3,\n    \"faixa\": \"A1\",\n    \"cor\": \"Azul\",\n    \"distribuidora\": {\n        \"id\": 1\n    },\n    \"medNome\": \"AAAAAAAAAA000\",\n    \"nomCceeAtivo\": \"0000000\",\n    \"dtLigacao\": \"2022-09-22T03:00:00.000Z\",\n    \"tensao_kv\": 1,\n    \"dtMigracao\": \"2022-09-22T03:00:00.000Z\",\n    \"rep_com\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/dadosUnidade",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"dadosUnidade"
+									]
+								},
+								"description": "API para inserir dados adicionais da unidade.  \nResultado equivalente a tela Contrapartes -> Unidades -> Editar Unidade do Zeus.\n\nAlgumas informações adicionais:\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| contratada_ponta | double | Demanda Contratada Ponta |\n| contratada_fponta | double | Demanda Contratada Fora Ponta |\n| medNome | String | Nome Medidor (SCDE) |\n| nomCceeAtivo | String | Número do Contrato Proinfa |"
+							},
+							"response": [
+								{
+									"name": "Inserir Dados Gerais da Unidade",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Sec-Fetch-Site",
+												"type": "text",
+												"value": "same-origin"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"type": "text",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"type": "text",
+												"value": "empty"
+											},
+											{
+												"key": "X-Login-Ajax-call",
+												"type": "text",
+												"value": "true"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"unidade_id\": 6530,            //Id da unidade, presente em Contrapartes -> Listar Unidades\n    \"contratada_ponta\": 2,         //Demanda contratada Ponta e fora ponta\n    \"contratada_fponta\": 4,\n    \"fator_perda\": 3,              //Fator de perdas, pode ser atualizado até mensalmente\n    \"faixa\": \"A1\",                 //Faixas possiveis presentes em Contrapartes -> Dados Geridos -> Faixa\n    \"cor\": \"Azul\",                 //Cores possiveis presentes em Contrapartes -> Dados Geridos -> Cor\n    \"distribuidora\": { \n        \"id\": 1                    //Id da distribuidora, presente em Informações Gerais -> Distribuidora\n    },\n    \"medNome\": \"AAAAAAAAAA000\",    //Nome do medidor no SCDE, sem (L) no final\n    \"nomCceeAtivo\": \"0000000\",     //Codigo do contrato do proinfa\n    \"dtLigacao\": \"2022-09-22T03:00:00.000Z\",\n    \"tensao_kv\": 1,\n    \"dtMigracao\": \"2022-09-22T03:00:00.000Z\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://zeus.miracleworks.com.br/rest/dadosUnidade",
+											"protocol": "https",
+											"host": [
+												"zeus",
+												"miracleworks",
+												"com",
+												"br"
+											],
+											"path": [
+												"rest",
+												"dadosUnidade"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "xml",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000 ; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/xml;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 23 Sep 2022 16:06:01 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "<DadosGeraisUnidade>\n    <id>87</id>\n    <dataEntrada>2022</dataEntrada>\n    <dataEntrada>9</dataEntrada>\n    <dataEntrada>23</dataEntrada>\n    <unidade_id>6530</unidade_id>\n    <contratada_ponta>2.0</contratada_ponta>\n    <contratada_fponta>4.0</contratada_fponta>\n    <fator_perda>3.0</fator_perda>\n    <unidadeConsumidora/>\n    <faixa>A1</faixa>\n    <cor>Azul</cor>\n    <distribuidora>\n        <id>1</id>\n        <dataEntrada/>\n        <distNome/>\n        <inicioPonta>0.0</inicioPonta>\n        <fimPonta>0.0</fimPonta>\n        <indCance/>\n        <oldVersionOfItself/>\n    </distribuidora>\n    <distNome/>\n    <medNome>AAAAAAAAAA000</medNome>\n    <nomCceeAtivo>0000000</nomCceeAtivo>\n    <dtLigacao>1663815600000</dtLigacao>\n    <tensao_kv>1.0</tensao_kv>\n    <idUser/>\n    <dtMigracao>1663804800000</dtMigracao>\n    <rep_com/>\n    <oldVersionOfItself/>\n</DadosGeraisUnidade>"
+								}
+							]
+						},
+						{
+							"name": "Cor",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/tarifaDist/cor",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tarifaDist",
+										"cor"
+									]
+								},
+								"description": "API para retornar lista de Cor."
+							},
+							"response": []
+						},
+						{
+							"name": "Faixa",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/tarifaDist/faixa",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tarifaDist",
+										"faixa"
+									]
+								},
+								"description": "API para retornar lista de Faixas."
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Listar Grupos",
 					"request": {
 						"method": "POST",
@@ -342,11 +1008,190 @@
 						},
 						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
 					},
+					"response": [
+						{
+							"name": "Listar Grupos c/ Busca",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \n    \"draw\":1,\n    \"columns\":[{\"data\":\"nomCountGroup\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}]\n    ,\"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    ,\"search\":{\"value\":\"Teste Grupo\",\"regex\":false}  //Informar neste campo o criterio de busca pelo nome\n    ,\"start\":0  //Dados de paginação, registro inicial a ser buscado. A proxima pagina seria o start:12 no exemplo\n    ,\"length\":12  // Dados de paginação, numero de registros por pagina\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://zeus.miracleworks.com.br/rest/group/datatable",
+									"protocol": "https",
+									"host": [
+										"zeus",
+										"miracleworks",
+										"com",
+										"br"
+									],
+									"path": [
+										"rest",
+										"group",
+										"datatable"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Sep 2022 15:49:06 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<DataTablesOutput>\n    <draw>1</draw>\n    <recordsTotal>86</recordsTotal>\n    <recordsFiltered>2</recordsFiltered>  //Numero de retornos com o filtro de busca\n    <data>\n        <data>\n            <numCountGroup>4954</numCountGroup>  //Id do grupo encontrado\n            <nomCountGroup>TESTE GRUPO</nomCountGroup>\n            <indInact>false</indInact>\n            <nomLogoFile/>\n            <indEvitarOperacoes/>\n            <rating>\n                <numRating>1</numRating>\n                <nomRatin>E</nomRatin>\n                <numMesShortInit>1</numMesShortInit>\n                <numMesShortFinal>1</numMesShortFinal>\n                <valShort>5000.0</valShort>\n                <numMesMidInit>2</numMesMidInit>\n                <numMesMidFinal>6</numMesMidFinal>\n                <valMid>10000.0</valMid>\n                <numMesLongInit>6</numMesLongInit>\n                <numMesLongFinal>24</numMesLongFinal>\n                <valLong>15000.0</valLong>\n                <oldVersionOfItself/>\n            </rating>\n            <responsavel/>\n            <justificativa/>\n            <indForceUpdate/>\n            <oldVersionOfItself/>\n            <ratingName>E</ratingName>\n        </data>\n        <data>\n            <numCountGroup>4956</numCountGroup>\n            <nomCountGroup>TESTE GRUPO 2</nomCountGroup>\n            <indInact>false</indInact>\n            <nomLogoFile/>\n            <indEvitarOperacoes/>\n            <rating>\n                <numRating>1</numRating>\n                <nomRatin>E</nomRatin>\n                <numMesShortInit>1</numMesShortInit>\n                <numMesShortFinal>1</numMesShortFinal>\n                <valShort>5000.0</valShort>\n                <numMesMidInit>2</numMesMidInit>\n                <numMesMidFinal>6</numMesMidFinal>\n                <valMid>10000.0</valMid>\n                <numMesLongInit>6</numMesLongInit>\n                <numMesLongFinal>24</numMesLongFinal>\n                <valLong>15000.0</valLong>\n                <oldVersionOfItself/>\n            </rating>\n            <responsavel/>\n            <justificativa/>\n            <indForceUpdate/>\n            <oldVersionOfItself/>\n            <ratingName>E</ratingName>\n        </data>\n    </data>\n    <error/>\n</DataTablesOutput>"
+						}
+					]
+				},
+				{
+					"name": "Inserir Grupo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nomCountGroup\": \"Teste Grupo\",\n    \"rating\": {\n        \"numRating\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/group",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"group"
+							]
+						},
+						"description": "API para inserir novo grupo.  \nResultado equivalente a tela Contrapartes -> Grupos -> Novo Grupo do Zeus."
+					},
 					"response": []
 				},
 				{
 					"name": "Listar Unidades",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -399,12 +1244,932 @@
 						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
 					},
 					"response": []
+				},
+				{
+					"name": "Inserir Unidade",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nomCount\": \"NOME CONTRAPARTE 3\",\n    \"nomCnpj\": \"10790987000149\",\n    \"nomFull\": \"RAZÃO SOCIAL\",\n    \"nomAddre\": \"AVENIDA JOSÉ BONIFÁCIO\",\n    \"nomStateId\": \"074564575550\",\n    \"indConsu\": true,\n    \"nomAddreNumbe\": \"976\", \n    \"nomNeigh\": \"Jardim Flamboyant\",  \n    \"nomAddreSuppl\": null,\n    \"nomZipCode\": \"13091140\",\n    \"indExcepIcms\": false,\n    \"nomIcms\": 18,\n    \"nomCfop\": 1,\n    \"nomCst\": 1,\n    \"clienteGestao\": true,\n    \"nomSuframa\": null,\n    \"nomCnpjFatur\": \"10790987000149\",\n    \"nomCityId\": \"ISENTO\",\n    \"indMei\": false,\n    \"indSimples\": false,\n    \"tblCity\": {\n        \"numCity\": 3375\n    },\n    \"tblState\": {\n        \"numState\": 25\n    },\n    \"tblSector\": {\n        \"numSetor\": 2\n    },\n    \"tblCounterpartyGroup\": {\n        \"numCountGroup\": 4698\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/unit",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"unit"
+							]
+						},
+						"description": "API para inserir nova unidade.  \nResultado equivalente a tela Contrapartes -> Unidades do Zeus.\n\nAlgumas informações adicionais:\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| nomStateId | String | Inscrição Estadual |\n| indConsu | boolean | Indicador Consumidor Final |\n| clienteGestao | boolean | Indicador Unidade Representada |\n| nomSuframa | String | Número Suframa (Apenas para unidade do Amazonas) |\n| nomCityId | String | Inscrição Municipal |\n| indFinanSettlBol | boolean | Indicador Encontro de Contas |\n| inativo | String | Indicador de Unidade Inativa |"
+					},
+					"response": [
+						{
+							"name": "Inserir Unidade",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nomCount\": \"NOME CONTRAPARTE\",  //Nome da unidade, apelido dentro do Zeus\n    \"nomCnpj\": \"10790987000149\",       //CNPJ\n    \"nomFull\": \"RAZÃO SOCIAL\",         \n    \"nomAddre\": \"AVENIDA JOSÉ BONIFÁCIO\",\n    \"nomStateId\": \"074564575550\",     //Inscrição Estadual, sem caracteres especiais\n    \"indConsu\": true,                 // Consumidor ou não consumidor\n    \"nomAddreNumbe\": \"976\", \n    \"nomNeigh\": \"Jardim Flamboyant\",  \n    \"nomAddreSuppl\": null,            //Complemento\n    \"nomZipCode\": \"13091140\",         //CEP, somente os numeros\n    \"indExcepIcms\": false,            //Isento de ICMS\n    \"nomIcms\": 18,                    //Aliquota de ICMS, caso seja especifica desta unidade. Caso seja o padrão do estado, enviar nulo\n    \"nomCfop\": 1,                     //CFOP especifico desta unidade, caso seja padrão, enviar nulo\n    \"nomCst\": 1,                      //CST especifico desta unidade, caso seja padrão, enviar nulo\n    \"clienteGestao\": true,            // Gerido\n    \"nomSuframa\": null,               //Codigo suframa, para unidades de Manaus\n    \"nomCnpjFatur\": \"10790987000149\", // CNPJ de faturamento, opcional\n    \"nomCityId\": \"ISENTO\",            // Inscrição Municial\n    \"indMei\": false,\n    \"indSimples\": false,\n    \"tblCity\": {\n        \"numCity\": 3375               //Id da cidade, disponivel na chamada \"Informações gerais\" -> \"Cidades\"\n    },\n    \"tblState\": {\n        \"numState\": 25                //Id do estado, disponivel na chamada \"Informações gerais\" -> \"Estados\"\n    },\n    \"tblSector\": {\n        \"numSetor\": 2                 //Id do setor, disponivel na chamada \"Informações gerais\" -> \"Setor\"\n    },\n    \"tblCounterpartyGroup\": {\n        \"numCountGroup\": 4698         //Id do Grupo, disponivel em \"Contrapartes\" -> \"Listar Grupos\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://zeus.miracleworks.com.br/rest/unit",
+									"protocol": "https",
+									"host": [
+										"zeus",
+										"miracleworks",
+										"com",
+										"br"
+									],
+									"path": [
+										"rest",
+										"unit"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "Location",
+									"value": "https://zeus.miracleworks.com.br/unit/6529"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Sep 2022 15:54:47 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<Counterparty>\n    <numCount>6529</numCount>  //Id da unidade inserida\n    <nomCount>NOME CONTRAPARTE 2</nomCount>\n    <nomCnpj>10.790.987/0001-49</nomCnpj>\n    <nomFull>RAZÃO SOCIAL</nomFull>\n    <nomAddre>AVENIDA JOSÉ BONIFÁCIO</nomAddre>\n    <nomStateId>074564575550</nomStateId>\n    <indConsu>true</indConsu>\n    <nomAddreNumbe>976</nomAddreNumbe>\n    <nomNeigh>JARDIM FLAMBOYANT</nomNeigh>\n    <nomAddreSuppl></nomAddreSuppl>\n    <nomZipCode>13091-140</nomZipCode>\n    <indInact>false</indInact>\n    <indExcepIcms>false</indExcepIcms>\n    <indFinanSettl>1</indFinanSettl>\n    <nomIcms>18.0</nomIcms>\n    <nomCfop>1</nomCfop>\n    <nomCst>1</nomCst>\n    <clienteGestao>true</clienteGestao>\n    <omieId/>\n    <erpFornecedorId/>\n    <erpClienteId/>\n    <nomSuframa/>\n    <nomCnpjFatur>10.790.987/0001-49</nomCnpjFatur>\n    <nomGroup/>\n    <nomLogoFile/>\n    <parte/>\n    <parteDefault/>\n    <omieGestaoId/>\n    <nomCityId>ISENTO</nomCityId>\n    <indMei>true</indMei>\n    <indSimples>true</indSimples>\n    <indEvitarOperacoes/>\n    <tblCity>\n        <numCity>3375</numCity>\n        <nomCity/>\n        <numCityIbge/>\n        <numCodMun/>\n        <tblState/>\n    </tblCity>\n    <tblState>\n        <numState>25</numState>\n        <nomState/>\n        <codState/>\n        <numStateIbge/>\n        <valIcms/>\n        <valIcmsComerc/>\n        <valIcmsIndus/>\n        <indStateIcms/>\n        <nomNotaObs>NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00</nomNotaObs>\n        <nomNotaObsComercs/>\n        <submercado/>\n        <tblRegion/>\n    </tblState>\n    <tblSector>\n        <numSetor>2</numSetor>\n        <nomSetor/>\n        <indConsu/>\n    </tblSector>\n    <dadosGeraisUnidade/>\n    <indFinanSettlBol>true</indFinanSettlBol>\n    <indForceUpdate/>\n    <indUpdateAgentesCCEE/>\n    <oldVersionOfItself/>\n    <economiaTotal/>\n    <energiaReserva/>\n    <indBoletas/>\n    <indBalancoEnergetico/>\n    <indAgente/>\n    <indConsumo/>\n    <indProinfa/>\n    <boletaGestao/>\n    <valorDadoCceeProporcionalConsumo/>\n    <groupId>4698</groupId>\n    <cnpj>10.790.987/0001-49</cnpj>\n    <groupName/>\n    <cityName/>\n    <nomLogoGroup/>\n    <inativo>Não</inativo>\n    <stateName/>\n</Counterparty>"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Curva Forward",
+			"item": [
+				{
+					"name": "Inserção",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"dataInicio\": \"2022-01-01T03:00:00.000Z\",\n        \"dataFim\": \"2022-06-01T03:00:00.000Z\",\n        \"forwardSe\": 180,\n        \"agioSe\": 0,\n        \"swapS\": -5,\n        \"swapNE\": -35,\n        \"swapN\": -35,\n        \"swapI5\": 40,\n        \"swapI1\": 80,\n        \"swapI0\": 20,\n        \"swapI8\": 0,\n        \"swapCQ5\": 0,\n        \"swapCQ1\": 0\n    },\n    {\n        \"dataInicio\": \"2022-07-01T03:00:00.000Z\",\n        \"dataFim\": \"2022-12-01T03:00:00.000Z\",\n        \"forwardSe\": 210,\n        \"agioSe\": 0,\n        \"swapS\": -5,\n        \"swapNE\": -35,\n        \"swapN\": -35,\n        \"swapI5\": 40,\n        \"swapI1\": 80,\n        \"swapI0\": 20,\n        \"swapI8\": 0,\n        \"swapCQ5\": 0,\n        \"swapCQ1\": 0\n    },\n    {\n        \"dataInicio\": \"2023-01-01T03:00:00.000Z\",\n        \"dataFim\": \"2023-12-01T03:00:00.000Z\",\n        \"forwardSe\": 185,\n        \"agioSe\": 0,\n        \"swapS\": -5,\n        \"swapNE\": -35,\n        \"swapN\": -35,\n        \"swapI5\": 40,\n        \"swapI1\": 80,\n        \"swapI0\": 20,\n        \"swapI8\": 0,\n        \"swapCQ5\": 0,\n        \"swapCQ1\": 0\n    },\n    {\n        \"dataInicio\": \"2024-01-01T03:00:00.000Z\",\n        \"dataFim\": \"2024-12-01T03:00:00.000Z\",\n        \"forwardSe\": 180,\n        \"agioSe\": 0,\n        \"swapS\": -5,\n        \"swapNE\": -35,\n        \"swapN\": -35,\n        \"swapI5\": 40,\n        \"swapI1\": 80,\n        \"swapI0\": 20,\n        \"swapI8\": 0,\n        \"swapCQ5\": 0,\n        \"swapCQ1\": 0\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/indexValue/salvarCurva/2022-02-23T03:00:00.000Z/",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"indexValue",
+								"salvarCurva",
+								"2022-02-23T03:00:00.000Z",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"dtIniFornInicio\":\"2022-02-23T03:00:00.000Z\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/indexValue/consolidado",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"indexValue",
+								"consolidado"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Financeiro",
+			"item": [
+				{
+					"name": "Listar Faturamento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"countGroupId\":1,\n    \"counterId\": 1,\n    \"energyType\": 1,\n    \"indEntryInvoi\": false,\n    \"dtIniFornFinal\": \"2022-10-01T03:00:00.000Z\",\n    \"dtIniFornInicio\": \"2022-09-01T03:00:00.000Z\",\n    \"lstCarteiraIds\": [],\n    \"priceType\": 1,\n    \"tipoBoleta\": true,\n    \"vendas\": true\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/tradecapitale/dtFaturamento",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"tradecapitale",
+								"dtFaturamento"
+							]
+						},
+						"description": "API para retornar as os trades em faturamento. Resultado equivalente a tela Financeiro -> Faturamento do Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir Nota",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idContract\": 64,\n  \"tblTrade\": {\n    \"numTrade\": 1134\n  },\n  \"datExpir\": 1665370800000,\n  \"grupo\": \"2W ENERGIA\",\n  \"unidade\": \"2W ENERGIA\",\n  \"valInvoi\": 626400.0,\n  \"datIssua\": \"1663556400000\",\n  \"valIcms\": 3963.45,\n  \"nomInvoi\": 123\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/invoice",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"invoice"
+							]
+						},
+						"description": "API para inserir nota fiscal (invoice). Resultado equivalente a tela Financeiro -> Faturamento -> Adicionar Nota do Zeus.\n\nInformações Adicionais:\n\nNessa mesma tela, existe a opção de adicionar anexo ao invoice. Para fazer isso aqui na API, é preciso primeiro adicionar esse anexo através da API **Arquivos das boletas** na área de **Boletas**. Nessa API, será retornado algo parecido com o JSON abaixo:\n\n``` json\n{\n    \"id\": 1,\n    \"dataEntrada\": 1663620648024,\n    \"user\": {...},\n    \"nomeOriginal\": \"ARQUIVO.pdf\",\n    \"nome\": \"ARQUIVO.pdf\",\n    \"formato\": \"pdf\",\n    \"path\": \".../ARQUIVO.pdf\",\n    \"contract\": {...}\n}\n\n```\n\nCopie todo esse JSON retornado e coloque em um novo campo chamado **file** dentro da API **Inserir Nota**, ficando dessa forma:\n\n``` json\n{\n  \"idContract\": 4062,\n  \"tblTrade\": {\n    \"numTrade\": 7033\n  },\n  \"datExpir\": 1665370800000,\n  \"grupo\": \"2W ENERGIA\",\n  \"unidade\": \"2W ENERGIA\",\n  \"valInvoi\": 396345.6,\n  \"datIssua\": \"2022-09-16T03:00:00.000Z\",\n  \"valIcms\": 3963.45,\n  \"nomInvoi\": 123,\n  \"file\": {\n    \"id\": 1,\n    \"dataEntrada\": 1663620648024,\n    \"user\": {...},\n    \"nomeOriginal\": \"ARQUIVO.pdf\",\n    \"nome\": \"ARQUIVO.pdf\",\n    \"formato\": \"pdf\",\n    \"path\": \".../ARQUIVO.pdf\",\n    \"contract\": {...}\n  }\n}\n\n```\n\nE assim, o anexo foi adicionado ao invoice."
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir Pagamento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"datPayment\": \"2022-09-20T15:10:01.929Z\",\n    \"valInvoiPayment\": 626400.00,\n    \"tblInvoice\": {\n        \"id\": 65\n    },\n    \"comment\": \"Teste Comentário!\"\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/invPayment",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"invPayment"
+							]
+						},
+						"description": "API para inserir pagamento em uma nota (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Listar Pagamentos.\n\nO campo **id** dentro do objeto **tblInvoice** é o **id** que foi criado na API **Inserir Nota**."
+					},
+					"response": []
 				}
 			]
 		},
 		{
 			"name": "Informações Gerais",
 			"item": [
+				{
+					"name": "Cidades",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/cityByState?stateId=1",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"cityByState"
+							],
+							"query": [
+								{
+									"key": "stateId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "API para retornar lista de cidades baseada no ID de um Estado. Pode-se encontrar os IDs dos Estados através da API **Estados**."
+					},
+					"response": []
+				},
+				{
+					"name": "Distribuidora",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dist",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dist"
+							]
+						},
+						"description": "API para retornar lista de Distribuidoras.  \nResultado equivalente a tela Gestão -> Dados Esporádicos -> Distribuidoras do Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Estados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/estados",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"estados"
+							]
+						},
+						"description": "API para retornar lista de Estados."
+					},
+					"response": []
+				},
+				{
+					"name": "Garantias",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/garantia",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"garantia"
+							]
+						},
+						"description": "Listagem das garantias utilizados no Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Indexadores",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/index",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"index"
+							]
+						},
+						"description": "Listagem dos indexadores de reajuste utilizados no Zeus.\nPara as boletas utilizamos apenas os itens:\n-1 - NA\n1 - IPCA\n2 - IGPM"
+					},
+					"response": []
+				},
+				{
+					"name": "Plataformas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/trading",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"trading"
+							]
+						},
+						"description": "Listagem das plataformas de negociação utilizados no Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Rating",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/rating",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"rating"
+							]
+						},
+						"description": "API para retornar lista de Rating.  \nResultado equivalente a tela Contrapartes -> Rating do Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Setor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/setor",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"setor"
+							]
+						},
+						"description": "API para retornar lista de Setores.\n\n##### Informação Adicional:\n\nSetores com **indConsu** marcado como **true** são setores de consumidor final. Dessa forma, quando está sendo criada uma unidade consumidora final na API **Inserir Unidade** , seu setor deverá ser de consumidor final também."
+					},
+					"response": []
+				},
+				{
+					"name": "Submercados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/region",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"region"
+							]
+						},
+						"description": "Listagem dos tipos de energia utilizados no Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Tipo de Condição de pagamento",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/conditionPeriodType",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"conditionPeriodType"
+							]
+						},
+						"description": "Condição do pagamento utilizada para o calculo de alguns tipos de pagamento."
+					},
+					"response": []
+				},
+				{
+					"name": "Tipos de Distribuição",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/distributionType/",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"distributionType",
+								""
+							]
+						},
+						"description": "Listagem dos tipos de energia utilizados no Zeus."
+					},
+					"response": []
+				},
 				{
 					"name": "Tipos de Energia",
 					"request": {
@@ -453,7 +2218,7 @@
 					"response": []
 				},
 				{
-					"name": "Submercados",
+					"name": "Tipo de Pagamento",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -484,7 +2249,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{URL}}/rest/dadosSistema/region",
+							"raw": "https://{{URL}}/rest/dadosSistema/payment",
 							"protocol": "https",
 							"host": [
 								"{{URL}}"
@@ -492,10 +2257,413 @@
 							"path": [
 								"rest",
 								"dadosSistema",
-								"region"
+								"payment"
+							]
+						},
+						"description": "Listagem dos tipos de pagamento utilizados no Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Tipo de Preço",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/price",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"price"
+							]
+						},
+						"description": "Listagem dos tipos de preço utilizados no Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Tipo de Registro",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/registration",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"registration"
+							]
+						},
+						"description": "Listagem dos tipos de registros utilizados no Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Tipo de Volume",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/volume",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"volume"
+							]
+						},
+						"description": "Listagem dos tipos de volume utilizados no Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "Usuários",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/user?s=",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"user"
+							],
+							"query": [
+								{
+									"key": "s",
+									"value": ""
+								}
+							]
+						},
+						"description": "API para lista de usuários.  \nResultado equivalente a tela Administração -> Usuários do Zeus.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| ativos | boolean | Indicador de usuário ativo |\n| s | string | Nome ou e-mail do usuário |\n| adminOnly | boolean | Indicador de perfil administrador |\n\nCaso for procurar responsável para criação de grupo na API **Inserir Grupo**, basta apenas ter os parâmetros ativos=true?s= , conforme a URL abaixo:\n\nhttps://{{URL}}/rest/user?ativos=true&s="
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PLD",
+			"item": [
+				{
+					"name": "PLD Horario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dtIniFornInicio\":\"2021-12-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2021-12-02T03:00:00.000Z\"\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/pldHorario/list",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"pldHorario",
+								"list"
 							]
 						},
 						"description": "Listagem dos tipos de energia utilizados no Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "PLD Mensal",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/pld?anual=false&month=11&year=2021",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"pld"
+							],
+							"query": [
+								{
+									"key": "anual",
+									"value": "false"
+								},
+								{
+									"key": "month",
+									"value": "11"
+								},
+								{
+									"key": "year",
+									"value": "2021"
+								}
+							]
+						},
+						"description": "Listagem dos tipos de energia utilizados no Zeus."
+					},
+					"response": []
+				},
+				{
+					"name": "PLD Semanal",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"type": "text",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"type": "text",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"type": "text",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"type": "text",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/pldWeek?data_inicial=1641006000000&data_final=1641524400000",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"pldWeek"
+							],
+							"query": [
+								{
+									"key": "data_inicial",
+									"value": "1641006000000"
+								},
+								{
+									"key": "data_final",
+									"value": "1641524400000"
+								},
+								{
+									"key": "year",
+									"value": "2021",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Relatórios",
+			"item": [
+				{
+					"name": "Exposição por contraparte",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dtIniFornInicio\":\"2022-07-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2025-12-31T03:00:00.000Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/tradecapitale/volumeTotalByCP",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"tradecapitale",
+								"volumeTotalByCP"
+							]
+						}
 					},
 					"response": []
 				}
