@@ -71,13 +71,10 @@
 									}
 								},
 								"url": {
-									"raw": "https://zeus.miracleworks.com.br/rest/boletacapitale",
+									"raw": "https://{{URL}}/rest/boletacapitale",
 									"protocol": "https",
 									"host": [
-										"zeus",
-										"miracleworks",
-										"com",
-										"br"
+										"{{URL}}"
 									],
 									"path": [
 										"rest",
@@ -325,7 +322,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"dtUpdateInicio\": \"2022-02-01T03:00:00.000Z\"\n}",
+							"raw": "{\n    \"dtIniFornInicio\":\"2022-09-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2022-09-01T03:00:00.000Z\",\n    \"input\":{\n        \"draw\":0,\n        \"columns\":[{\"data\":\"contract.numContr\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}],\n        \"start\":0,\n        \"length\":12,\n        \"search\":{\"value\":\"\",\"regex\":false}\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -716,7 +713,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": null,\n    \"unidade_id\": 6528,\n    \"contratada_ponta\": 2,\n    \"contratada_fponta\": 4,\n    \"fator_perda\": 3,\n    \"faixa\": \"A1\",\n    \"cor\": \"Azul\",\n    \"distribuidora\": {\n        \"id\": 1\n    },\n    \"medNome\": \"AAAAAAAAAA000\",\n    \"nomCceeAtivo\": \"0000000\",\n    \"dtLigacao\": \"2022-09-22T03:00:00.000Z\",\n    \"tensao_kv\": 1,\n    \"dtMigracao\": \"2022-09-22T03:00:00.000Z\",\n    \"rep_com\": {\n        \"id\": 1\n    }\n}",
+									"raw": "{\n    \"unidade_id\": 6530,\n    \"contratada_ponta\": 2,\n    \"contratada_fponta\": 4,\n    \"fator_perda\": 3,\n    \"faixa\": \"A1\",\n    \"cor\": \"Azul\",\n    \"distribuidora\": {\n        \"id\": 1\n    },\n    \"medNome\": \"AAAAAAAAAA000\",\n    \"nomCceeAtivo\": \"0000000\",\n    \"dtLigacao\": \"2022-09-22T03:00:00.000Z\",\n    \"tensao_kv\": 1,\n    \"dtMigracao\": \"2022-09-22T03:00:00.000Z\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -778,13 +775,10 @@
 											}
 										},
 										"url": {
-											"raw": "https://zeus.miracleworks.com.br/rest/dadosUnidade",
+											"raw": "https://{{URL}}/rest/dadosUnidade",
 											"protocol": "https",
 											"host": [
-												"zeus",
-												"miracleworks",
-												"com",
-												"br"
+												"{{URL}}"
 											],
 											"path": [
 												"rest",
@@ -1050,13 +1044,10 @@
 									}
 								},
 								"url": {
-									"raw": "https://zeus.miracleworks.com.br/rest/group/datatable",
+									"raw": "https://{{URL}}/rest/group/datatable",
 									"protocol": "https",
 									"host": [
-										"zeus",
-										"miracleworks",
-										"com",
-										"br"
+										"{{URL}}"
 									],
 									"path": [
 										"rest",
@@ -1340,13 +1331,10 @@
 									}
 								},
 								"url": {
-									"raw": "https://zeus.miracleworks.com.br/rest/unit",
+									"raw": "https://{{URL}}/rest/unit",
 									"protocol": "https",
 									"host": [
-										"zeus",
-										"miracleworks",
-										"com",
-										"br"
+										"{{URL}}"
 									],
 									"path": [
 										"rest",
@@ -1527,7 +1515,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"countGroupId\":1,\n    \"counterId\": 1,\n    \"energyType\": 1,\n    \"indEntryInvoi\": false,\n    \"dtIniFornFinal\": \"2022-10-01T03:00:00.000Z\",\n    \"dtIniFornInicio\": \"2022-09-01T03:00:00.000Z\",\n    \"lstCarteiraIds\": [],\n    \"priceType\": 1,\n    \"tipoBoleta\": true,\n    \"vendas\": true\n}"
+							"raw": "{\n    \"countGroupId\":1,\n    \"counterId\": 1,\n    \"energyType\": 1,\n    \"indEntryInvoi\": false,\n    \"dtIniFornFinal\": \"2022-10-01T03:00:00.000Z\",\n    \"dtIniFornInicio\": \"2022-09-01T03:00:00.000Z\",\n    \"lstCarteiraIds\": [],\n    \"priceType\": 1,\n    \"vendas\": true,\n    \"compras\": true,\n    \"input\": {\n        \"draw\": 0,\n        \"start\": 0,\n        \"length\": 12,\n        \"columns\": [{\n            \"data\": \"idContract\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true\n        }],\n        \"order\": [{\n            \"column\": 0,\n            \"dir\": \"asc\"\n        }]\n    }\n}"
 						},
 						"url": {
 							"raw": "https://{{URL}}/rest/tradecapitale/dtFaturamento",
@@ -1543,7 +1531,244 @@
 						},
 						"description": "API para retornar as os trades em faturamento. Resultado equivalente a tela Financeiro -> Faturamento do Zeus."
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Compras por data de pagamento, com paginação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dtIniFornFinal\": \"2022-11-01T03:00:00.000Z\", //data de pagamento\n    \"compras\": true,  //compras\n    \"input\": {        //Paginação\n        \"draw\": 0,\n        \"start\": 0,   //numero do primeiro item\n        \"length\": 12, //Quantidade por pagina\n        \"columns\": [{\n            \"data\": \"idContract\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true\n        }],\n        \"order\": [{\n            \"column\": 0,\n            \"dir\": \"asc\"\n        }]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/tradecapitale/dtFaturamento",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tradecapitale",
+										"dtFaturamento"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 14 Oct 2022 14:47:40 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<DataTablesOutput>\n    <draw>0</draw>\n    <recordsTotal>309</recordsTotal>\n    <recordsFiltered>42</recordsFiltered> //Total para os filtros indicados\n    <data>\n        <data>\n            ... \n        </data>\n    </data>\n    <error/>\n</DataTablesOutput>"
+						},
+						{
+							"name": "Vendas por data de fornecimento, com paginação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dtIniFornInicio\": \"2022-11-01T03:00:00.000Z\", //data de fornecimento\n    \"vendas\": true,   //Vendas\n    \"input\": {        //Paginação\n        \"draw\": 0,\n        \"start\": 0,   //numero do primeiro item\n        \"length\": 12, //Quantidade por pagina\n        \"columns\": [{\n            \"data\": \"idContract\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true\n        }],\n        \"order\": [{\n            \"column\": 0,\n            \"dir\": \"asc\"\n        }]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/tradecapitale/dtFaturamento",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tradecapitale",
+										"dtFaturamento"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 14 Oct 2022 14:51:40 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<DataTablesOutput>\n    <draw>0</draw>\n    <recordsTotal>309</recordsTotal>\n    <recordsFiltered>8</recordsFiltered> //Total para os filtros indicados\n    <data>\n        <data>\n            ...\n        </data>\n    </data>\n    <error/>\n</DataTablesOutput>"
+						}
+					]
 				},
 				{
 					"name": "Inserir Nota",
