@@ -322,7 +322,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"dtIniFornInicio\":\"2022-09-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2022-09-01T03:00:00.000Z\",\n    \"input\":{\n        \"draw\":0,\n        \"columns\":[{\"data\":\"contract.numContr\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}],\n        \"start\":0,\n        \"length\":12,\n        \"search\":{\"value\":\"\",\"regex\":false}\n    }\n}",
+							"raw": "{\n    \"dtIniFornInicio\":\"2022-01-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2022-12-01T03:00:00.000Z\",\n    \"compra\": true,\n    \"venda\": true,\n    \"energyType\": 1,\n    \"precoTipo\": 1,\n    \"submercadoId\": 1,\n    \"volumeTipo\": 1,\n    \"contractId\": 12,\n    \"input\":{\n        \"draw\":0,\n        \"start\":0,\n        \"length\":12,\n        \"columns\":[{\"data\":\"contract.numContr\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -343,7 +343,359 @@
 						},
 						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Compras por data de fornecimento e tipo de energia, com paginação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dtIniFornInicio\":\"2022-01-01T03:00:00.000Z\", //Data de inicio do fornecimento\n    \"dtIniFornFinal\":\"2022-12-01T03:00:00.000Z\",  //Fornecimento até o mês de dezembro\n    \"compra\": true,        //Compras\n    \"energyType\": 1,       //Tipo de energia, pelo id presente em Informações gerais -> Tipos de Energia\n    \"input\": {        //Paginação\n        \"draw\": 0,\n        \"start\": 0,   //numero do primeiro item\n        \"length\": 12, //Quantidade por pagina\n        \"columns\":[{\"data\":\"contract.numContr\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/tradecapitale/datatable",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tradecapitale",
+										"datatable"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 14 Oct 2022 16:10:24 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<DataTablesOutput>\n    <draw>0</draw>\n    <recordsTotal>0</recordsTotal>\n    <recordsFiltered>0</recordsFiltered>\n    <data>\n        ...\n    </data>\n    <error/>\n</DataTablesOutput>"
+						},
+						{
+							"name": "Vendas por data de pagamento e submercado, com paginação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dtFimFornInicio\":\"2022-01-01T03:00:00.000Z\", //Data de inicio dos pagamentos\n    \"dtFimFornFinal\":\"2022-12-01T03:00:00.000Z\",  //Pagamentos até o mês de dezembro\n    \"venda\": true,        //Compras\n    \"submercadoId\": 1,    //Submercado, pelo id presente em Informações gerais -> Submercados\n    \"input\": {        //Paginação\n        \"draw\": 0,\n        \"start\": 0,   //numero do primeiro item\n        \"length\": 12, //Quantidade por pagina\n        \"columns\":[{\"data\":\"contract.numContr\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/tradecapitale/datatable",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tradecapitale",
+										"datatable"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 14 Oct 2022 16:10:24 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<DataTablesOutput>\n    <draw>0</draw>\n    <recordsTotal>0</recordsTotal>\n    <recordsFiltered>0</recordsFiltered>\n    <data>\n        ...\n    </data>\n    <error/>\n</DataTablesOutput>"
+						},
+						{
+							"name": "Meses de fornecimento de boleta(s) especifica(s)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contractId\": \"12 ,23\",  //buscar pelo id da boleta, separando por virgula. Para buscar por range, separar por traço (1-100)\n    \"input\": {        //Paginação\n        \"draw\": 0,\n        \"start\": 0,   //numero do primeiro item\n        \"length\": 12, //Quantidade por pagina\n        \"columns\":[{\"data\":\"contract.numContr\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/tradecapitale/datatable",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tradecapitale",
+										"datatable"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 14 Oct 2022 16:10:24 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<DataTablesOutput>\n    <draw>0</draw>\n    <recordsTotal>0</recordsTotal>\n    <recordsFiltered>0</recordsFiltered>\n    <data>\n        ...\n    </data>\n    <error/>\n</DataTablesOutput>"
+						}
+					]
 				},
 				{
 					"name": "Arquivos das boletas",
