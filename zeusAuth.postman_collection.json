@@ -1,14 +1,119 @@
 {
 	"info": {
-		"_postman_id": "60d67e22-073f-4f8c-ae61-b49ab587c47c",
+		"_postman_id": "426eee66-ddad-45de-b7f9-d8a42d6c4f46",
 		"name": "zeusAuth",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "355184"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Boletas",
 			"item": [
+				{
+					"name": "Logs da Boleta",
+					"item": [
+						{
+							"name": "Listar Logs",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contractId\": 1,\n    \"nomeDaClasseList\": [\n        \"Contract\",\n        \"ContractFile\",\n        \"Trade\",\n        \"Invoice\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/customLog",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"customLog"
+									]
+								},
+								"description": "API para lista de usuários.  \nResultado equivalente a tela Administração -> Usuários do Zeus.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| ativos | boolean | Indicador de usuário ativo |\n| s | string | Nome ou e-mail do usuário |\n| adminOnly | boolean | Indicador de perfil administrador |\n\nCaso for procurar responsável para criação de grupo na API **Inserir Grupo**, basta apenas ter os parâmetros ativos=true?s= , conforme a URL abaixo:\n\nhttps://{{URL}}/rest/user?ativos=true&s="
+							},
+							"response": []
+						},
+						{
+							"name": "Adicionar Comentário",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"boletaType\": \"comercializadora\",\n    \"strLog\": \"Teste Comentário\"\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/boletacapitale/log",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletacapitale",
+										"log"
+									]
+								},
+								"description": "API para lista de usuários.  \nResultado equivalente a tela Administração -> Usuários do Zeus.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| ativos | boolean | Indicador de usuário ativo |\n| s | string | Nome ou e-mail do usuário |\n| adminOnly | boolean | Indicador de perfil administrador |\n\nCaso for procurar responsável para criação de grupo na API **Inserir Grupo**, basta apenas ter os parâmetros ativos=true?s= , conforme a URL abaixo:\n\nhttps://{{URL}}/rest/user?ativos=true&s="
+							},
+							"response": []
+						}
+					]
+				},
 				{
 					"name": "Inserção de boletas",
 					"event": [
