@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "426eee66-ddad-45de-b7f9-d8a42d6c4f46",
+		"_postman_id": "b57dec68-7a43-4952-a5f5-a555cc553bff",
 		"name": "zeusAuth",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "355184"
 	},
 	"item": [
 		{
@@ -1670,7 +1671,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"unitName\": \"Zeus\"\n}",
+							"raw": "{\n    \"clienteGestao\": \"\",\n    \"indInact\": \"\",\n    \"unitName\": \"\",\n    \"input\": {\n        \"draw\": 0,\n        \"start\": 0,\n        \"length\": 12,\n        \"columns\": [\n            {\n                \"data\": \"nomCount\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            }\n        ],\n        \"order\": [{\"column\": 0,\"dir\": \"asc\"}]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1689,7 +1690,7 @@
 								"datatable"
 							]
 						},
-						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
+						"description": "API para retornar os valores das unidades presentes no Zeus  \nResultado equivalente a tela Contrapartes -> Unidades do Zeus."
 					},
 					"response": []
 				},
@@ -2273,7 +2274,7 @@
 								"invoice"
 							]
 						},
-						"description": "API para inserir nota fiscal (invoice). Resultado equivalente a tela Financeiro -> Faturamento -> Adicionar Nota do Zeus.\n\nInformações Adicionais:\n\nNessa mesma tela, existe a opção de adicionar anexo ao invoice. Para fazer isso aqui na API, é preciso primeiro adicionar esse anexo através da API **Arquivos das boletas** na área de **Boletas**. Nessa API, será retornado algo parecido com o JSON abaixo:\n\n``` json\n{\n    \"id\": 1,\n    \"dataEntrada\": 1663620648024,\n    \"user\": {...},\n    \"nomeOriginal\": \"ARQUIVO.pdf\",\n    \"nome\": \"ARQUIVO.pdf\",\n    \"formato\": \"pdf\",\n    \"path\": \".../ARQUIVO.pdf\",\n    \"contract\": {...}\n}\n\n```\n\nCopie todo esse JSON retornado e coloque em um novo campo chamado **file** dentro da API **Inserir Nota**, ficando dessa forma:\n\n``` json\n{\n  \"idContract\": 4062,\n  \"tblTrade\": {\n    \"numTrade\": 7033\n  },\n  \"datExpir\": 1665370800000,\n  \"grupo\": \"2W ENERGIA\",\n  \"unidade\": \"2W ENERGIA\",\n  \"valInvoi\": 396345.6,\n  \"datIssua\": \"2022-09-16T03:00:00.000Z\",\n  \"valIcms\": 3963.45,\n  \"nomInvoi\": 123,\n  \"file\": {\n    \"id\": 1,\n    \"dataEntrada\": 1663620648024,\n    \"user\": {...},\n    \"nomeOriginal\": \"ARQUIVO.pdf\",\n    \"nome\": \"ARQUIVO.pdf\",\n    \"formato\": \"pdf\",\n    \"path\": \".../ARQUIVO.pdf\",\n    \"contract\": {...}\n  }\n}\n\n```\n\nE assim, o anexo foi adicionado ao invoice."
+						"description": "API para inserir nota fiscal (invoice). Resultado equivalente a tela Financeiro -> Faturamento -> Adicionar Nota do Zeus.\n\nInformações Adicionais:\n\nNessa mesma tela, existe a opção de adicionar anexo ao invoice. Para fazer isso aqui na API, é preciso primeiro adicionar esse anexo através da API **Arquivos das boletas** na área de **Boletas**. Nessa API, será retornado algo parecido com o JSON abaixo:\n\n``` json\n{\n    \"id\": 1,\n    \"dataEntrada\": 1663620648024,\n    \"user\": {...},\n    \"nomeOriginal\": \"ARQUIVO.pdf\",\n    \"nome\": \"ARQUIVO.pdf\",\n    \"formato\": \"pdf\",\n    \"path\": \".../ARQUIVO.pdf\",\n    \"contract\": {...}\n}\n\n```\n\nCopie todo esse JSON retornado e coloque em um novo campo chamado **file** dentro da API **Inserir Nota**, ficando dessa forma:\n\n``` json\n{\n  \"idContract\": 4062,\n  \"tblTrade\": {\n    \"numTrade\": 7033\n  },\n  \"datExpir\": 1665370800000,\n  \"grupo\": \"2W ENERGIA\",\n  \"unidade\": \"2W ENERGIA\",\n  \"valInvoi\": 396345.6,\n  \"datIssua\": \"2022-09-16T03:00:00.000Z\",\n  \"valIcms\": 3963.45,\n  \"nomInvoi\": 123,\n  \"file\": {\n    \"id\": 1,\n    \"dataEntrada\": 1663620648024,\n    \"user\": {...},\n    \"nomeOriginal\": \"ARQUIVO.pdf\",\n    \"nome\": \"ARQUIVO.pdf\",\n    \"formato\": \"pdf\",\n    \"path\": \".../ARQUIVO.pdf\",\n    \"contract\": {...}\n  }\n}\n\n```\n\nE assim, o anexo será atrelado a nota fiscal inserida."
 					},
 					"response": []
 				},
@@ -3408,6 +3409,178 @@
 						"description": "Chamada para buscar a \"foto\" de uma data especifica do consolidado do portfólio para um período de tempo definido. O retorno é consolidado por tipo de energia, tipo de preço **E** submercado, não sendo possível o retorno dos dados consolidados para o total da empresa, este passo deve ser nas tratativas do retorno.\n\nParâmetros:\n\n**\"dtIniFornInicio\"**: Data de inicio do período de fornecimento a ser pesquisado  \n**\"dtIniFornFinal\"**: Data final do período de fornecimento a ser pesquisado  \n**\"datRef\"**: Data da curva forward a ser pesquisada e retornada junto aos dados. Caso a forward não exista para o dia indicado será utilizada a anterior mais recente possível.  \n**\"compras\"**: Compras ou vendas.  \n**\"dataEntrada\"**: Data de referencia para a foto que será carregada (data do book histórico)\n\nPara mais informações sobre o retorno, verificar a documentação de \"Buscar dados Book\" pois o retorno é no mesmo layout."
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gestão",
+			"item": [
+				{
+					"name": "Contratos de Serviços",
+					"item": [
+						{
+							"name": "Listar Faturamento Mês",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cancelados\":false,\n    \"dtVigenciaIniAte\":\"2023-01-01T03:00:00.000Z\",\n    \"dtVigenciaIniDe\": \"2023-01-01T03:00:00.000Z\",\n    \"status\": 1,\n    \"input\": {\n        \"draw\": 0,\n        \"start\": 0,\n        \"length\": 12,\n        \"columns\": [{\n            \"data\": \"idBoleta\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true\n        }],\n        \"order\": [{\n            \"column\": 0,\n            \"dir\": \"asc\"\n        }]\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/servicoTrade/datatable",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"servicoTrade",
+										"datatable"
+									]
+								},
+								"description": "API para retornar as os trades em faturamento. Resultado equivalente a tela Gestão -> Boletas Serviços -> Listar Mensal.\n\nO campo status controla o que a busca irá retornar:\n\nStatus = -1 -> Retorna todos os serviços com vigência dentro do período selecionado, independente se já esta faturado ou não.\n\nStatus = 1 -> Retorna todos os serviços com vigência dentro do período selecionado que ainda não foram faturados\n\nStatus = 2 -> Retorna todos os serviços com vigência dentro do período selecionado que já foram faturados"
+							},
+							"response": []
+						},
+						{
+							"name": "Inserir Nota",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idContract\": 5,\n  \"trade\": {\n    \"id\": 73\n  },\n  \"datExpir\": 1665370800000,\n  \"grupo\": \"Exibicao\",\n  \"unidade\": \"Exibicao 1\",\n  \"precoFinal\": 1200,\n  \"valInvoi\": 1000,\n  \"datIssua\": \"2023-02-01T03:00:00.000Z\",\n  \"nomInvoi\": 123,\n  \"num_file\": {\n    \"id\": 2,\n    \"nomeOriginal\": \"ARQUIVO.pdf\",\n    \"nome\": \"ARQUIVO.pdf\",\n    \"formato\": \"pdf\",\n    \"path\": \".../ARQUIVO.pdf\"\n  }\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/serviceInvoice",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"serviceInvoice"
+									]
+								},
+								"description": "API para inserir nota fiscal (invoice) ao serviço prestado no mês. Resultado equivalente a tela Gestão -> Boleta Serviços -> Listar Mensal.\n\nInformações Adicionais:\n\nNessa mesma tela, existe a opção de adicionar anexo ao invoice. Para fazer isso aqui na API, é preciso primeiro adicionar esse anexo através da API **Anexar arquivo ao Contrato de Serviço**. Nessa API, será retornado algo parecido com o JSON abaixo:\n\n``` json\n{\n    \"id\": 1,\n    \"dataEntrada\": 1663620648024,\n    \"user\": {...},\n    \"nomeOriginal\": \"ARQUIVO.pdf\",\n    \"nome\": \"ARQUIVO.pdf\",\n    \"formato\": \"pdf\",\n    \"path\": \".../ARQUIVO.pdf\",\n    \"contract\": {...}\n}\n\n```\n\nCopie todo esse JSON retornado e coloque em um novo campo chamado **num_file** dentro da API **Inserir Nota**, ficando dessa forma:\n\n``` json\n{\n  \"idContract\": 5,\n  \"tblTrade\": {\n    \"numTrade\": 73\n  },\n  \"datExpir\": 1665370800000,\n  \"grupo\": \"Exibicao\",\n  \"unidade\": \"Exibicao 1\",\n  \"valInvoi\": 1000,\n  \"datIssua\": \"2023-02-01T03:00:00.000Z\",\n  \"nomInvoi\": 123,\n  \"num_file\": {\n    \"id\": 1,\n    \"dataEntrada\": 1663620648024,\n    \"user\": {...},\n    \"nomeOriginal\": \"ARQUIVO.pdf\",\n    \"nome\": \"ARQUIVO.pdf\",\n    \"formato\": \"pdf\",\n    \"path\": \".../ARQUIVO.pdf\",\n    \"contract\": {...}\n  }\n}\n\n```\n\nE assim, o anexo foi adicionado ao invoice."
+							},
+							"response": []
+						},
+						{
+							"name": "Anexar arquivo ao Contrato de Serviço",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "boletaId",
+											"value": "5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/boletaServicoFile",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletaServicoFile"
+									]
+								},
+								"description": "API para inclusão de um arquivo atrelado a um contrato de serviço no Zeus."
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
