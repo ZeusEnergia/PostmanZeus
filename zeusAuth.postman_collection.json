@@ -1869,6 +1869,66 @@
 							"body": "<Counterparty>\n    <numCount>6529</numCount>  //Id da unidade inserida\n    <nomCount>NOME CONTRAPARTE 2</nomCount>\n    <nomCnpj>10.790.987/0001-49</nomCnpj>\n    <nomFull>RAZÃO SOCIAL</nomFull>\n    <nomAddre>AVENIDA JOSÉ BONIFÁCIO</nomAddre>\n    <nomStateId>074564575550</nomStateId>\n    <indConsu>true</indConsu>\n    <nomAddreNumbe>976</nomAddreNumbe>\n    <nomNeigh>JARDIM FLAMBOYANT</nomNeigh>\n    <nomAddreSuppl></nomAddreSuppl>\n    <nomZipCode>13091-140</nomZipCode>\n    <indInact>false</indInact>\n    <indExcepIcms>false</indExcepIcms>\n    <indFinanSettl>1</indFinanSettl>\n    <nomIcms>18.0</nomIcms>\n    <nomCfop>1</nomCfop>\n    <nomCst>1</nomCst>\n    <clienteGestao>true</clienteGestao>\n    <omieId/>\n    <erpFornecedorId/>\n    <erpClienteId/>\n    <nomSuframa/>\n    <nomCnpjFatur>10.790.987/0001-49</nomCnpjFatur>\n    <nomGroup/>\n    <nomLogoFile/>\n    <parte/>\n    <parteDefault/>\n    <omieGestaoId/>\n    <nomCityId>ISENTO</nomCityId>\n    <indMei>true</indMei>\n    <indSimples>true</indSimples>\n    <indEvitarOperacoes/>\n    <tblCity>\n        <numCity>3375</numCity>\n        <nomCity/>\n        <numCityIbge/>\n        <numCodMun/>\n        <tblState/>\n    </tblCity>\n    <tblState>\n        <numState>25</numState>\n        <nomState/>\n        <codState/>\n        <numStateIbge/>\n        <valIcms/>\n        <valIcmsComerc/>\n        <valIcmsIndus/>\n        <indStateIcms/>\n        <nomNotaObs>NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00</nomNotaObs>\n        <nomNotaObsComercs/>\n        <submercado/>\n        <tblRegion/>\n    </tblState>\n    <tblSector>\n        <numSetor>2</numSetor>\n        <nomSetor/>\n        <indConsu/>\n    </tblSector>\n    <dadosGeraisUnidade/>\n    <indFinanSettlBol>true</indFinanSettlBol>\n    <indForceUpdate/>\n    <indUpdateAgentesCCEE/>\n    <oldVersionOfItself/>\n    <economiaTotal/>\n    <energiaReserva/>\n    <indBoletas/>\n    <indBalancoEnergetico/>\n    <indAgente/>\n    <indConsumo/>\n    <indProinfa/>\n    <boletaGestao/>\n    <valorDadoCceeProporcionalConsumo/>\n    <groupId>4698</groupId>\n    <cnpj>10.790.987/0001-49</cnpj>\n    <groupName/>\n    <cityName/>\n    <nomLogoGroup/>\n    <inativo>Não</inativo>\n    <stateName/>\n</Counterparty>"
 						}
 					]
+				},
+				{
+					"name": "Dados Energia - Contraparte",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{URL}}/rest/unit/dadosenergia/?dataBase=2023-01-01T03:00:00.000Z&groupId=5796&unitId=7749&lstDadosEnergiaToGet=contratosMes&lstDadosEnergiaToGet=contribAssoc&lstDadosEnergiaToGet=energiaReserva&lstDadosEnergiaToGet=dri&lstDadosEnergiaToGet=consumoMes",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"unit",
+								"dadosenergia",
+								""
+							],
+							"query": [
+								{
+									"key": "dataBase",
+									"value": "2023-01-01T03:00:00.000Z"
+								},
+								{
+									"key": "groupId",
+									"value": "5796"
+								},
+								{
+									"key": "unitId",
+									"value": "7749"
+								},
+								{
+									"key": "lstDadosEnergiaToGet",
+									"value": "contratosMes",
+									"description": "Contratos de Energia"
+								},
+								{
+									"key": "lstDadosEnergiaToGet",
+									"value": "contribAssoc",
+									"description": "Contribuição associativa"
+								},
+								{
+									"key": "lstDadosEnergiaToGet",
+									"value": "energiaReserva",
+									"description": "Energia de reserva"
+								},
+								{
+									"key": "lstDadosEnergiaToGet",
+									"value": "dri",
+									"description": "Liquidação financeira"
+								},
+								{
+									"key": "lstDadosEnergiaToGet",
+									"value": "consumoMes",
+									"description": "Consumo do mês, com perdas + proinfa"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
