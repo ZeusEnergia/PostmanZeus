@@ -1407,6 +1407,74 @@
 					]
 				},
 				{
+					"name": "Agentes Cliq",
+					"item": [
+						{
+							"name": "Listar Agentes",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/unitCliq?unitId=6531&nomAgent=&groupId",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"unitCliq"
+									],
+									"query": [
+										{
+											"key": "unitId",
+											"value": "6531"
+										},
+										{
+											"key": "nomAgent",
+											"value": ""
+										},
+										{
+											"key": "groupId",
+											"value": null
+										}
+									]
+								},
+								"description": "API para retornar os valores dos agentes de uma unidade (unitId), grupo(groupId) ou com nome próximo ao preenchido(nomAgent)\nResultado equivalente a tela Contrapartes -> Editar Contraparte do Zeus."
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Listar Grupos",
 					"request": {
 						"method": "POST",
