@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b57dec68-7a43-4952-a5f5-a555cc553bff",
+		"_postman_id": "e4ff4e78-01d1-49a0-bc42-31ed732ec865",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "355184"
@@ -1464,7 +1464,7 @@
 										},
 										{
 											"key": "groupId",
-											"value": null
+											"value": ""
 										}
 									]
 								},
@@ -1944,7 +1944,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{URL}}/rest/unit/dadosenergia/?dataBase=2023-01-01T03:00:00.000Z&groupId=5796&unitId=7749&lstDadosEnergiaToGet=contratosMes&lstDadosEnergiaToGet=contribAssoc&lstDadosEnergiaToGet=energiaReserva&lstDadosEnergiaToGet=dri&lstDadosEnergiaToGet=consumoMes",
+							"raw": "https://{{URL}}/rest/unit/dadosenergia/?dataBase=2022-02-01T03:00:00.000Z&groupId=5691&unitId=7604&lstDadosEnergiaToGet=contratosMes&lstDadosEnergiaToGet=contribAssoc&lstDadosEnergiaToGet=energiaReserva&lstDadosEnergiaToGet=dri&lstDadosEnergiaToGet=consumoMes&lstDadosEnergiaToGet=proinfaMes&lstDadosEnergiaToGet=servicoCustoMes",
 							"protocol": "https",
 							"host": [
 								"{{URL}}"
@@ -1958,15 +1958,15 @@
 							"query": [
 								{
 									"key": "dataBase",
-									"value": "2023-01-01T03:00:00.000Z"
+									"value": "2022-02-01T03:00:00.000Z"
 								},
 								{
 									"key": "groupId",
-									"value": "5796"
+									"value": "5691"
 								},
 								{
 									"key": "unitId",
-									"value": "7749"
+									"value": "7604"
 								},
 								{
 									"key": "lstDadosEnergiaToGet",
@@ -1992,6 +1992,16 @@
 									"key": "lstDadosEnergiaToGet",
 									"value": "consumoMes",
 									"description": "Consumo do mês, com perdas + proinfa"
+								},
+								{
+									"key": "lstDadosEnergiaToGet",
+									"value": "proinfaMes",
+									"description": "Proinfa do cliente"
+								},
+								{
+									"key": "lstDadosEnergiaToGet",
+									"value": "servicoCustoMes",
+									"description": "Informações do custo de serviço do cliente"
 								}
 							]
 						}
@@ -2041,7 +2051,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"dtIniFornInicio\":\"2022-11-10T03:00:00.000Z\"\n}",
+							"raw": "{\n    \"dtIniFornInicio\":\"2023-04-24T03:00:00.000Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2453,6 +2463,29 @@
 							]
 						},
 						"description": "API para inserir pagamento em uma nota (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Listar Pagamentos.\n\nO campo **id** dentro do objeto **tblInvoice** é o **id** que foi criado na API **Inserir Nota**."
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Numero da nota",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://{{URL}}/rest/invoice/updateNota/1/1024",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"invoice",
+								"updateNota",
+								"1",
+								"1024"
+							]
+						},
+						"description": "API para inserir numero em uma nota (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Atualizar Numero NFE\n\nSão enviados 2 parâmetros diretamente na URL:\n\nEndpoint: https://{{URL}}/rest/invoice/updateNota/\n\n1º Parâmetro: Id do trade que será atualizado (Integer)\n\n2º Parâmetro: Numero da nota fiscal. (Integer)"
 					},
 					"response": []
 				}
