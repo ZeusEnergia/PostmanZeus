@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "e4ff4e78-01d1-49a0-bc42-31ed732ec865",
+		"_postman_id": "b16f8f40-e8e0-4c9b-869b-2b6f7bc32d3c",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "355184"
+		"_exporter_id": "27628360"
 	},
 	"item": [
 		{
@@ -58,7 +58,7 @@
 										"customLog"
 									]
 								},
-								"description": "API para lista de usuários.  \nResultado equivalente a tela Administração -> Usuários do Zeus.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| ativos | boolean | Indicador de usuário ativo |\n| s | string | Nome ou e-mail do usuário |\n| adminOnly | boolean | Indicador de perfil administrador |\n\nCaso for procurar responsável para criação de grupo na API **Inserir Grupo**, basta apenas ter os parâmetros ativos=true?s= , conforme a URL abaixo:\n\nhttps://{{URL}}/rest/user?ativos=true&s="
+								"description": "API para lista de logs.  \nResultado equivalente a tela Administração -> Log do Sistema do Zeus.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| contractId | int | ID da boleta |\n| nomeDaClasseList | array | Atributos a serem consultados |\n\n| **Atributo** | **Descrição** |\n| --- | --- |\n| Contract | Inserção/edição/remoção da Boleta |\n| ContractFile | Inserção/remoção dos arquivos da Boleta |\n| Trade | Inserção/edição/remoção das trades da boleta |\n| Invoice | Inserção/edição/remoção das invoices da boleta |\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
 							},
 							"response": []
 						},
@@ -377,7 +377,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"dtOperInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtOperFinal\":\"2021-06-30T03:00:00.000Z\",\n    \"dtIniFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"dtFimFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtFimFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"submercadoId\":1,\n    \"energyType\":1\n}"
+							"raw": "{\n    \"dtOperInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtOperFinal\":\"2021-06-30T03:00:00.000Z\",\n    \"dtIniFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"dtFimFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtFimFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"submercadoId\":1,\n    \"energyType\":1,\n    \"input\":{\n        \"draw\":0,\n        \"start\":0,\n        \"length\":12,\n        \"columns\":[{\"data\":\"id\",\"orderable\":true}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    }\n}"
 						},
 						"url": {
 							"raw": "https://{{URL}}/rest/boletacapitale/datatable",
@@ -391,9 +391,63 @@
 								"datatable"
 							]
 						},
-						"description": "API para retornar as boletas do portifolio após aprovação. Resultado equivalente a tela Boletas -> Listar Boletas  do Zeus."
+						"description": "API para retornar as boletas do portifolio após aprovação. Resultado equivalente a tela Boletas -> Listar Boletas  do Zeus.\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Filtrar as boletas de acordo com o CNPJ",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dtOperInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtOperFinal\":\"2021-06-30T03:00:00.000Z\",\n    \"dtIniFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"dtFimFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtFimFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"submercadoId\":1,\n    \"energyType\":1,\n    \"parte\": {\n        \"numCount\": 6286  // informar o id da parte desejada (obtido com a chamada \"Partes cadastradas no ambiente\")\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/boletacapitale/datatable",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletacapitale",
+										"datatable"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Listar mensal",
@@ -428,7 +482,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"contractId\": \"9196 ,9276\",\n    \"input\":{\n        \"draw\":0,\n        \"start\":0,\n        \"length\":12,\n        \"columns\":[{\"data\":\"contract.numContr\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    }\n}",
+							"raw": "{\n    \"contractId\": \"9196 ,9276\",\n    \"input\":{\n        \"draw\":0,\n        \"start\":0,\n        \"length\":12,\n        \"columns\":[{\"data\":\"contract.numContr\",\"orderable\":true}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -447,7 +501,7 @@
 								"datatable"
 							]
 						},
-						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
+						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus.\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
 					},
 					"response": [
 						{
@@ -800,6 +854,64 @@
 							],
 							"cookie": [],
 							"body": "<DataTablesOutput>\n    <draw>0</draw>\n    <recordsTotal>0</recordsTotal>\n    <recordsFiltered>0</recordsFiltered>\n    <data>\n        ...\n    </data>\n    <error/>\n</DataTablesOutput>"
+						},
+						{
+							"name": "Filtrar os trades de acordo com o CNPJ",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contractId\": \"\",\n    \"input\":{\n        \"draw\":0,\n        \"start\":0,\n        \"length\":12,\n        \"columns\":[{\"data\":\"contract.numContr\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    },\n    \"parte\": {\n        \"numCount\": 6286 // informar o id da parte desejada (obtido com a chamada \"Partes cadastradas no ambiente\")\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/tradecapitale/datatable",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tradecapitale",
+										"datatable"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
 						}
 					]
 				},
@@ -1464,7 +1576,7 @@
 										},
 										{
 											"key": "groupId",
-											"value": ""
+											"value": null
 										}
 									]
 								},
@@ -1526,7 +1638,7 @@
 								"datatable"
 							]
 						},
-						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
+						"description": "API para retornar os valores dos grupos.\nResultado equivalente a tela Contrapartes -> Grupos do Zeus.\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através dos campos **\"start\"** e **length**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
 					},
 					"response": [
 						{
@@ -1758,7 +1870,7 @@
 								"datatable"
 							]
 						},
-						"description": "API para retornar os valores das unidades presentes no Zeus  \nResultado equivalente a tela Contrapartes -> Unidades do Zeus."
+						"description": "API para retornar os valores das unidades presentes no Zeus  \nResultado equivalente a tela Contrapartes -> Unidades do Zeus.\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n**Atributos do Input**\n---\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
 					},
 					"response": []
 				},
@@ -1795,7 +1907,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nomCount\": \"NOME CONTRAPARTE 3\",\n    \"nomCnpj\": \"10790987000149\",\n    \"nomFull\": \"RAZÃO SOCIAL\",\n    \"nomAddre\": \"AVENIDA JOSÉ BONIFÁCIO\",\n    \"nomStateId\": \"074564575550\",\n    \"indConsu\": true,\n    \"nomAddreNumbe\": \"976\", \n    \"nomNeigh\": \"Jardim Flamboyant\",  \n    \"nomAddreSuppl\": null,\n    \"nomZipCode\": \"13091140\",\n    \"indExcepIcms\": false,\n    \"nomIcms\": 18,\n    \"nomCfop\": 1,\n    \"nomCst\": 1,\n    \"clienteGestao\": true,\n    \"nomSuframa\": null,\n    \"nomCnpjFatur\": \"10790987000149\",\n    \"nomCityId\": \"ISENTO\",\n    \"indMei\": false,\n    \"indSimples\": false,\n    \"tblCity\": {\n        \"numCity\": 3375\n    },\n    \"tblState\": {\n        \"numState\": 25\n    },\n    \"tblSector\": {\n        \"numSetor\": 2\n    },\n    \"tblCounterpartyGroup\": {\n        \"numCountGroup\": 4698\n    }\n}",
+							"raw": "{\n    \"nomCount\": \"TESTE DE CONTRAPARTE\",\n    \"nomCnpj\": \"10790987000149\",\n    \"nomFull\": \"RAZÃO SOCIAL\",\n    \"nomAddre\": \"AVENIDA JOSÉ BONIFÁCIO\",\n    \"nomStateId\": \"074564575550\",\n    \"indConsu\": true,\n    \"nomAddreNumbe\": \"976\", \n    \"nomNeigh\": \"Jardim Flamboyant\",  \n    \"nomAddreSuppl\": null,\n    \"nomZipCode\": \"13091140\",\n    \"indExcepIcms\": false,\n    \"nomIcms\": 18,\n    \"nomCfop\": 1,\n    \"nomCst\": 1,\n    \"clienteGestao\": true,\n    \"nomSuframa\": null,\n    \"nomCnpjFatur\": \"10790987000149\",\n    \"nomCityId\": \"ISENTO\",\n    \"indMei\": false,\n    \"indSimples\": false,\n    \"tblCity\": {\n        \"numCity\": 3375\n    },\n    \"tblState\": {\n        \"numState\": 25\n    },\n    \"tblSector\": {\n        \"numSetor\": 2\n    },\n    \"tblCounterpartyGroup\": {\n        \"numCountGroup\": 4698\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1849,7 +1961,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nomCount\": \"NOME CONTRAPARTE\",  //Nome da unidade, apelido dentro do Zeus\n    \"nomCnpj\": \"10790987000149\",       //CNPJ\n    \"nomFull\": \"RAZÃO SOCIAL\",         \n    \"nomAddre\": \"AVENIDA JOSÉ BONIFÁCIO\",\n    \"nomStateId\": \"074564575550\",     //Inscrição Estadual, sem caracteres especiais\n    \"indConsu\": true,                 // Consumidor ou não consumidor\n    \"nomAddreNumbe\": \"976\", \n    \"nomNeigh\": \"Jardim Flamboyant\",  \n    \"nomAddreSuppl\": null,            //Complemento\n    \"nomZipCode\": \"13091140\",         //CEP, somente os numeros\n    \"indExcepIcms\": false,            //Isento de ICMS\n    \"nomIcms\": 18,                    //Aliquota de ICMS, caso seja especifica desta unidade. Caso seja o padrão do estado, enviar nulo\n    \"nomCfop\": 1,                     //CFOP especifico desta unidade, caso seja padrão, enviar nulo\n    \"nomCst\": 1,                      //CST especifico desta unidade, caso seja padrão, enviar nulo\n    \"clienteGestao\": true,            // Gerido\n    \"nomSuframa\": null,               //Codigo suframa, para unidades de Manaus\n    \"nomCnpjFatur\": \"10790987000149\", // CNPJ de faturamento, opcional\n    \"nomCityId\": \"ISENTO\",            // Inscrição Municial\n    \"indMei\": false,\n    \"indSimples\": false,\n    \"tblCity\": {\n        \"numCity\": 3375               //Id da cidade, disponivel na chamada \"Informações gerais\" -> \"Cidades\"\n    },\n    \"tblState\": {\n        \"numState\": 25                //Id do estado, disponivel na chamada \"Informações gerais\" -> \"Estados\"\n    },\n    \"tblSector\": {\n        \"numSetor\": 2                 //Id do setor, disponivel na chamada \"Informações gerais\" -> \"Setor\"\n    },\n    \"tblCounterpartyGroup\": {\n        \"numCountGroup\": 4698         //Id do Grupo, disponivel em \"Contrapartes\" -> \"Listar Grupos\"\n    }\n}",
+									"raw": "{\n    \"nomCount\": \"NOME CONTRAPARTE\",  //Nome da unidade, apelido dentro do Zeus - ** OBRIGATÓRIO **\n    \"nomCnpj\": \"10790987000149\",       //CNPJ - ** OBRIGATÓRIO **\n    \"nomFull\": \"RAZÃO SOCIAL\", // ** OBRIGATÓRIO **        \n    \"nomAddre\": \"AVENIDA JOSÉ BONIFÁCIO\", // Logradouro - ** OBRIGATÓRIO **\n    \"nomStateId\": \"074564575550\",     //Inscrição Estadual, sem caracteres especiais ** OBRIGATÓRIO **\n    \"indConsu\": true,                 // Consumidor ou não consumidor\n    \"nomAddreNumbe\": \"976\", // número do endereço - ** OBRIGATÓRIO **\n    \"nomNeigh\": \"Jardim Flamboyant\",  // bairro - ** OBRIGATÓRIO **\n    \"nomAddreSuppl\": null,            //Complemento\n    \"nomZipCode\": \"13091140\",         //CEP, somente os numeros ** OBRIGATÓRIO **\n    \"indExcepIcms\": false,            //Isento de ICMS\n    \"nomIcms\": 18,                    //Aliquota de ICMS, caso seja especifica desta unidade. Caso seja o padrão do estado, enviar nulo\n    \"nomCfop\": 1,                     //CFOP especifico desta unidade, caso seja padrão, enviar nulo\n    \"nomCst\": 1,                      //CST especifico desta unidade, caso seja padrão, enviar nulo\n    \"clienteGestao\": true,            // Gerido\n    \"nomSuframa\": null,               //Codigo suframa, para unidades de Manaus\n    \"nomCnpjFatur\": \"10790987000149\", // CNPJ de faturamento, opcional\n    \"nomCityId\": \"ISENTO\",            // Inscrição Municial\n    \"indMei\": false,\n    \"indSimples\": false,\n    \"tblCity\": {\n        \"numCity\": 3375               //Id da cidade, disponivel na chamada \"Informações gerais\" -> \"Cidades\" - ** OBRIGATÓRIO **\n    },\n    \"tblState\": {\n        \"numState\": 25                //Id do estado, disponivel na chamada \"Informações gerais\" -> \"Estados\" - ** OBRIGATÓRIO **\n    },\n    \"tblSector\": {\n        \"numSetor\": 2                 //Id do setor, disponivel na chamada \"Informações gerais\" -> \"Setor\" - ** OBRIGATÓRIO **\n    },\n    \"tblCounterpartyGroup\": {\n        \"numCountGroup\": 4698         //Id do Grupo, disponivel em \"Contrapartes\" -> \"Listar Grupos\" - ** OBRIGATÓRIO **\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1939,12 +2051,41 @@
 					]
 				},
 				{
+					"name": "Editar Unidade",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nomCount\": \"NOME CONTRAPARTE TESTES\",\n    \"nomCnpj\": \"10790987000149\",\n    \"nomFull\": \"RAZÃO SOCIAL\",\n    \"nomAddre\": \"AVENIDA JOSÉ BONIFÁCIO\",\n    \"nomStateId\": \"074564575550\",\n    \"indConsu\": true,\n    \"nomAddreNumbe\": \"976\", \n    \"nomNeigh\": \"Jardim Flamboyant\",  \n    \"nomAddreSuppl\": null,\n    \"nomZipCode\": \"13091140\",\n    \"numCount\": {{idUnidade}},\n    \"indExcepIcms\": false,\n    \"nomIcms\": 18,\n    \"nomCfop\": 1,\n    \"nomCst\": 1,\n    \"clienteGestao\": true,\n    \"nomSuframa\": null,\n    \"nomCnpjFatur\": \"10790987000149\",\n    \"nomCityId\": \"ISENTO\",\n    \"indMei\": false,\n    \"indSimples\": false,\n    \"tblCity\": {\n        \"numCity\": 3375\n    },\n    \"tblState\": {\n        \"numState\": 25\n    },\n    \"tblSector\": {\n        \"numSetor\": 2\n    },\n    \"tblCounterpartyGroup\": {\n        \"numCountGroup\": 4698\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/unit/{{idUnidade}}",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"unit",
+								"{{idUnidade}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Dados Energia - Contraparte",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{URL}}/rest/unit/dadosenergia/?dataBase=2022-02-01T03:00:00.000Z&groupId=5691&unitId=7604&lstDadosEnergiaToGet=contratosMes&lstDadosEnergiaToGet=contribAssoc&lstDadosEnergiaToGet=energiaReserva&lstDadosEnergiaToGet=dri&lstDadosEnergiaToGet=consumoMes&lstDadosEnergiaToGet=proinfaMes&lstDadosEnergiaToGet=servicoCustoMes",
+							"raw": "https://{{URL}}/rest/unit/dadosenergia/?dataBase=2023-01-01T03:00:00.000Z&groupId=5796&unitId=7749&lstDadosEnergiaToGet=contratosMes&lstDadosEnergiaToGet=contribAssoc&lstDadosEnergiaToGet=energiaReserva&lstDadosEnergiaToGet=dri&lstDadosEnergiaToGet=consumoMes",
 							"protocol": "https",
 							"host": [
 								"{{URL}}"
@@ -1958,15 +2099,15 @@
 							"query": [
 								{
 									"key": "dataBase",
-									"value": "2022-02-01T03:00:00.000Z"
+									"value": "2023-01-01T03:00:00.000Z"
 								},
 								{
 									"key": "groupId",
-									"value": "5691"
+									"value": "5796"
 								},
 								{
 									"key": "unitId",
-									"value": "7604"
+									"value": "7749"
 								},
 								{
 									"key": "lstDadosEnergiaToGet",
@@ -1992,17 +2133,47 @@
 									"key": "lstDadosEnergiaToGet",
 									"value": "consumoMes",
 									"description": "Consumo do mês, com perdas + proinfa"
-								},
-								{
-									"key": "lstDadosEnergiaToGet",
-									"value": "proinfaMes",
-									"description": "Proinfa do cliente"
-								},
-								{
-									"key": "lstDadosEnergiaToGet",
-									"value": "servicoCustoMes",
-									"description": "Informações do custo de serviço do cliente"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Localizar unidade pelo ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{URL}}/rest/unit/{{idUnidade}}",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"unit",
+								"{{idUnidade}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Desativar unidade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{URL}}/rest/unit/{{idUnidade}}",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"unit",
+								"{{idUnidade}}"
 							]
 						}
 					},
@@ -2051,7 +2222,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"dtIniFornInicio\":\"2023-04-24T03:00:00.000Z\"\n}",
+							"raw": "{\n    \"dtIniFornInicio\":\"2022-11-10T03:00:00.000Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2125,7 +2296,7 @@
 								"dtFaturamento"
 							]
 						},
-						"description": "API para retornar as os trades em faturamento. Resultado equivalente a tela Financeiro -> Faturamento do Zeus."
+						"description": "API para retornar as os trades em faturamento. Resultado equivalente a tela Financeiro -> Faturamento do Zeus.\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
 					},
 					"response": [
 						{
@@ -2363,6 +2534,59 @@
 							],
 							"cookie": [],
 							"body": "<DataTablesOutput>\n    <draw>0</draw>\n    <recordsTotal>309</recordsTotal>\n    <recordsFiltered>8</recordsFiltered> //Total para os filtros indicados\n    <data>\n        <data>\n            ...\n        </data>\n    </data>\n    <error/>\n</DataTablesOutput>"
+						},
+						{
+							"name": "Filtrar as notas fiscais pelo CNPJ",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"countGroupId\":1,\n    \"counterId\": 1,\n    \"energyType\": 1,\n    \"indEntryInvoi\": false,\n    \"dtIniFornFinal\": \"2022-10-01T03:00:00.000Z\",\n    \"dtIniFornInicio\": \"2022-09-01T03:00:00.000Z\",\n    \"lstCarteiraIds\": [],\n    \"priceType\": 1,\n    \"vendas\": true,\n    \"compras\": true,\n    \"input\": {\n        \"draw\": 0,\n        \"start\": 0,\n        \"length\": 12,\n        \"columns\": [{\n            \"data\": \"idContract\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true\n        }],\n        \"order\": [{\n            \"column\": 0,\n            \"dir\": \"asc\"\n        }]\n    },\n     \"parte\": {\n        \"numCount\": 6286 // informar o id da parte desejada (obtido com a chamada \"Partes cadastradas no ambiente\")\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/tradecapitale/dtFaturamento",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tradecapitale",
+										"dtFaturamento"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
 						}
 					]
 				},
@@ -2463,29 +2687,6 @@
 							]
 						},
 						"description": "API para inserir pagamento em uma nota (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Listar Pagamentos.\n\nO campo **id** dentro do objeto **tblInvoice** é o **id** que foi criado na API **Inserir Nota**."
-					},
-					"response": []
-				},
-				{
-					"name": "Atualizar Numero da nota",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "https://{{URL}}/rest/invoice/updateNota/1/1024",
-							"protocol": "https",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"rest",
-								"invoice",
-								"updateNota",
-								"1",
-								"1024"
-							]
-						},
-						"description": "API para inserir numero em uma nota (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Atualizar Numero NFE\n\nSão enviados 2 parâmetros diretamente na URL:\n\nEndpoint: https://{{URL}}/rest/invoice/updateNota/\n\n1º Parâmetro: Id do trade que será atualizado (Integer)\n\n2º Parâmetro: Numero da nota fiscal. (Integer)"
 					},
 					"response": []
 				}
@@ -3300,6 +3501,26 @@
 						"description": "API para lista de usuários.  \nResultado equivalente a tela Administração -> Usuários do Zeus.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| ativos | boolean | Indicador de usuário ativo |\n| s | string | Nome ou e-mail do usuário |\n| adminOnly | boolean | Indicador de perfil administrador |\n\nCaso for procurar responsável para criação de grupo na API **Inserir Grupo**, basta apenas ter os parâmetros ativos=true?s= , conforme a URL abaixo:\n\nhttps://{{URL}}/rest/user?ativos=true&s="
 					},
 					"response": []
+				},
+				{
+					"name": "Partes cadastradas no ambiente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{URL}}/rest/unit/findPartes",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"unit",
+								"findPartes"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -3626,7 +3847,7 @@
 										"datatable"
 									]
 								},
-								"description": "API para retornar as os trades em faturamento. Resultado equivalente a tela Gestão -> Boletas Serviços -> Listar Mensal.\n\nO campo status controla o que a busca irá retornar:\n\nStatus = -1 -> Retorna todos os serviços com vigência dentro do período selecionado, independente se já esta faturado ou não.\n\nStatus = 1 -> Retorna todos os serviços com vigência dentro do período selecionado que ainda não foram faturados\n\nStatus = 2 -> Retorna todos os serviços com vigência dentro do período selecionado que já foram faturados"
+								"description": "API para retornar as os trades em faturamento. Resultado equivalente a tela Gestão -> Boletas Serviços -> Listar Mensal.\n\nO campo status controla o que a busca irá retornar:\n\nStatus = -1 -> Retorna todos os serviços com vigência dentro do período selecionado, independente se já esta faturado ou não.\n\nStatus = 1 -> Retorna todos os serviços com vigência dentro do período selecionado que ainda não foram faturados\n\nStatus = 2 -> Retorna todos os serviços com vigência dentro do período selecionado que já foram faturados\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
 							},
 							"response": []
 						},
@@ -3746,6 +3967,152 @@
 			]
 		},
 		{
+			"name": "Migração",
+			"item": [
+				{
+					"name": "Listar migrações",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"indCance\": false,\n    \"indFinish\": null,\n    \"indModeloMigracao\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/migracao/datatable/",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"migracao",
+								"datatable",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exibir fluxos por ID da migração",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{URL}}/rest/migracao/{{idMigracao}}",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"migracao",
+								"{{idMigracao}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exibição de fluxos por ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{URL}}/rest/migracao/{{idMigracao}}",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"migracao",
+										"{{idMigracao}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Jun 2023 13:15:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8, // Obtido com a chamada Listar migrações\n    \"dataEntrada\": 1630349052000,\n    \"indCance\": false,\n    \"counterpartyGroup\": {\n        \"numCountGroup\": 4912,\n        \"nomCountGroup\": \"EXIBIÇÃO\", // Grupo\n        \"indInact\": false,\n        \"nomLogoFile\": null,\n        \"indEvitarOperacoes\": null,\n        \"rating\": {\n            \"numRating\": 3,\n            \"nomRatin\": \"A\",\n            \"numMesShortInit\": 0, \n            \"numMesShortFinal\": 6,\n            \"valShort\": 0,\n            \"numMesMidInit\": 3,\n            \"numMesMidFinal\": 0,\n            \"valMid\": 30,\n            \"numMesLongInit\": 2,\n            \"numMesLongFinal\": 0,\n            \"valLong\": 7,\n            \"oldVersionOfItself\": null\n        },\n        \"listOfTblCounterparty\": null,\n        \"responsavel\": null,\n        \"justificativa\": null,\n        \"indForceUpdate\": null,\n        \"oldVersionOfItself\": null,\n        \"ratingName\": \"A\"\n    },\n    \"counterparty\": [\n        {\n            \"numCount\": 6500,\n            \"nomCount\": \"EXIBIÇÃO 1\", // Unidade\n            \"nomCnpj\": \"13.249.654/0001-03\", // CNPJ\n            \"nomFull\": \"EXIBIÇÃO 1 LTDA\", // Razão Social\n            \"nomAddre\": \"AVENIDA PAULISTA\",\n            \"nomStateId\": \"ISENTO\",\n            \"indConsu\": true,\n            \"indVarej\": null,\n            \"nomAddreNumbe\": \"S/N\",\n            \"nomNeigh\": \"BELA VISTA\",\n            \"nomAddreSuppl\": \"\",\n            \"nomZipCode\": \"01311-000\",\n            \"indInact\": false,\n            \"indExcepIcms\": false,\n            \"indFinanSettl\": 1,\n            \"nomIcms\": null,\n            \"nomCfop\": null,\n            \"nomCst\": null,\n            \"clienteGestao\": false,\n            \"omieId\": null,\n            \"erpFornecedorId\": null,\n            \"erpClienteId\": null,\n            \"nomSuframa\": null,\n            \"nomCnpjFatur\": null,\n            \"nomGroup\": null,\n            \"nomLogoFile\": null,\n            \"parte\": null,\n            \"parteDefault\": null,\n            \"omieGestaoId\": null,\n            \"nomCityId\": null,\n            \"indMei\": null,\n            \"indSimples\": null,\n            \"indEvitarOperacoes\": null,\n            \"tblCity\": {\n                \"numCity\": 3831,\n                \"nomCity\": \"SÃO PAULO   \",\n                \"numCityIbge\": 3550308,\n                \"numCodMun\": 5344,\n                \"tblState\": {\n                    \"numState\": 25,\n                    \"nomState\": \"\\tSÃO PAULO\",\n                    \"codState\": \"SP\",\n                    \"numStateIbge\": 35,\n                    \"valIcms\": 0.18,\n                    \"valIcmsComerc\": 0,\n                    \"valIcmsIndus\": 0,\n                    \"indStateIcms\": true,\n                    \"nomNotaObs\": \"Emitida nos termos do inciso I do artigo 14 da Portaria SRE 14/2022\",\n                    \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                    \"submercado\": null,\n                    \"tblRegion\": {\n                        \"numRegio\": 1,\n                        \"codRegio\": \"SE\"\n                    }\n                }\n            },\n            \"tblState\": {\n                \"numState\": 25,\n                \"nomState\": \"\\tSÃO PAULO\",\n                \"codState\": \"SP\",\n                \"numStateIbge\": 35,\n                \"valIcms\": 0.18,\n                \"valIcmsComerc\": 0,\n                \"valIcmsIndus\": 0,\n                \"indStateIcms\": true,\n                \"nomNotaObs\": \"Emitida nos termos do inciso I do artigo 14 da Portaria SRE 14/2022\",\n                \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                \"submercado\": null,\n                \"tblRegion\": {\n                    \"numRegio\": 1,\n                    \"codRegio\": \"SE\"\n                }\n            },\n            \"tblSector\": {\n                \"numSetor\": 2,\n                \"nomSetor\": \"COMERCIAL\",\n                \"indConsu\": true\n            },\n            \"dadosGeraisUnidade\": null,\n            \"indFinanSettlBol\": null,\n            \"indForceUpdate\": null,\n            \"indUpdateAgentesCCEE\": null,\n            \"lstContacts\": null,\n            \"oldVersionOfItself\": null,\n            \"economiaTotal\": null,\n            \"lstConsumo\": null,\n            \"lstConsumoHorario\": null,\n            \"lstDemanda\": null,\n            \"lstDri\": null,\n            \"lstEnergiaCusto\": null,\n            \"energiaReserva\": null,\n            \"contribAssoc\": null,\n            \"lstEnergiaContratada\": null,\n            \"lstContratos\": null,\n            \"lstProinfa\": null,\n            \"indBoletas\": null,\n            \"indBalancoEnergetico\": null,\n            \"indAgente\": null,\n            \"indConsumo\": null,\n            \"indProinfa\": null,\n            \"boletaGestao\": null,\n            \"valorDadoCceeProporcionalConsumo\": null,\n            \"lstServicoMensal\": null,\n            \"stateName\": \"\\tSÃO PAULO\",\n            \"cnpj\": \"13.249.654/0001-03\",\n            \"stateIcms\": 0.18,\n            \"groupId\": 4912,\n            \"groupName\": \"EXIBIÇÃO\",\n            \"cityName\": \"SÃO PAULO   \",\n            \"nomLogoGroup\": null,\n            \"inativo\": \"Não\"\n        },\n        {\n            \"numCount\": 6501,\n            \"nomCount\": \"EXIBIÇÃO - UNIDADE 2\",\n            \"nomCnpj\": \"63.566.069/0001-05\",\n            \"nomFull\": \"UNIDADE 2 LTDA\",\n            \"nomAddre\": \"AVENIDA PAULISTA\",\n            \"nomStateId\": \"ISENTO\",\n            \"indConsu\": false,\n            \"indVarej\": null,\n            \"nomAddreNumbe\": \"S/N\",\n            \"nomNeigh\": \"BELA VISTA\",\n            \"nomAddreSuppl\": \"\",\n            \"nomZipCode\": \"01311---------000\",\n            \"indInact\": false,\n            \"indExcepIcms\": false,\n            \"indFinanSettl\": -1,\n            \"nomIcms\": null,\n            \"nomCfop\": null,\n            \"nomCst\": null,\n            \"clienteGestao\": false,\n            \"omieId\": null,\n            \"erpFornecedorId\": null,\n            \"erpClienteId\": null,\n            \"nomSuframa\": null,\n            \"nomCnpjFatur\": null,\n            \"nomGroup\": null,\n            \"nomLogoFile\": null,\n            \"parte\": null,\n            \"parteDefault\": null,\n            \"omieGestaoId\": null,\n            \"nomCityId\": null,\n            \"indMei\": null,\n            \"indSimples\": null,\n            \"indEvitarOperacoes\": null,\n            \"tblCity\": {\n                \"numCity\": 3831,\n                \"nomCity\": \"SÃO PAULO   \",\n                \"numCityIbge\": 3550308,\n                \"numCodMun\": 5344,\n                \"tblState\": {\n                    \"numState\": 25,\n                    \"nomState\": \"\\tSÃO PAULO\",\n                    \"codState\": \"SP\",\n                    \"numStateIbge\": 35,\n                    \"valIcms\": 0.18,\n                    \"valIcmsComerc\": 0,\n                    \"valIcmsIndus\": 0,\n                    \"indStateIcms\": true,\n                    \"nomNotaObs\": \"Emitida nos termos do inciso I do artigo 14 da Portaria SRE 14/2022\",\n                    \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                    \"submercado\": null,\n                    \"tblRegion\": {\n                        \"numRegio\": 1,\n                        \"codRegio\": \"SE\"\n                    }\n                }\n            },\n            \"tblState\": {\n                \"numState\": 25,\n                \"nomState\": \"\\tSÃO PAULO\",\n                \"codState\": \"SP\",\n                \"numStateIbge\": 35,\n                \"valIcms\": 0.18,\n                \"valIcmsComerc\": 0,\n                \"valIcmsIndus\": 0,\n                \"indStateIcms\": true,\n                \"nomNotaObs\": \"Emitida nos termos do inciso I do artigo 14 da Portaria SRE 14/2022\",\n                \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                \"submercado\": null,\n                \"tblRegion\": {\n                    \"numRegio\": 1,\n                    \"codRegio\": \"SE\"\n                }\n            },\n            \"tblSector\": {\n                \"numSetor\": -1,\n                \"nomSetor\": \"NA\",\n                \"indConsu\": false\n            },\n            \"dadosGeraisUnidade\": null,\n            \"indFinanSettlBol\": null,\n            \"indForceUpdate\": null,\n            \"indUpdateAgentesCCEE\": null,\n            \"lstContacts\": null,\n            \"oldVersionOfItself\": null,\n            \"economiaTotal\": null,\n            \"lstConsumo\": null,\n            \"lstConsumoHorario\": null,\n            \"lstDemanda\": null,\n            \"lstDri\": null,\n            \"lstEnergiaCusto\": null,\n            \"energiaReserva\": null,\n            \"contribAssoc\": null,\n            \"lstEnergiaContratada\": null,\n            \"lstContratos\": null,\n            \"lstProinfa\": null,\n            \"indBoletas\": null,\n            \"indBalancoEnergetico\": null,\n            \"indAgente\": null,\n            \"indConsumo\": null,\n            \"indProinfa\": null,\n            \"boletaGestao\": null,\n            \"valorDadoCceeProporcionalConsumo\": null,\n            \"lstServicoMensal\": null,\n            \"stateName\": \"\\tSÃO PAULO\",\n            \"cnpj\": \"63.566.069/0001-05\",\n            \"stateIcms\": 0.18,\n            \"groupId\": 4912,\n            \"groupName\": \"EXIBIÇÃO\",\n            \"cityName\": \"SÃO PAULO   \",\n            \"nomLogoGroup\": null,\n            \"inativo\": \"Não\"\n        }\n    ],\n    \"dataInicio\": 1627786800000, // Início da migração\n    \"dataFim\": 1640919600000, // Data prevista fim da migração\n    \"indModeloMigracao\": false,\n    \"nomModeloMigracao\": null,\n    \"indFinish\": null,\n    \"fluxos\": null,\n    \"dropzones\": [ // Fluxos de migração\n        {\n            \"id\": 1,\n            \"nomFluxo\": \"CCEE\",\n            \"migracao\": null,\n            \"indCance\": false,\n            \"numOrder\": 1,\n            \"indModeloFluxo\": false,\n            \"processos\": [ // Processos contidos no fluxo atual\n                {\n                    \"id\": 1,\n                    \"nomProcesso\": \"Habilitação Tecnica\",\n                    \"fluxo\": null,\n                    \"indCance\": false,\n                    \"numOrder\": 0,\n                    \"indModeloProcesso\": false,\n                    \"idFluxo\": 1,\n                    \"type\": \"container\",\n                    \"columns\": [ //Tarefas contidas no processo atual\n                        {\n                            \"id\": 1,\n                            \"nomTarefa\": \"Apresentar documentos\",\n                            \"processo\": null,\n                            \"indCance\": false,\n                            \"indFinish\": true,\n                            \"userRespo\": {\n                                \"id\": 1,\n                                \"name\": \"ADMINISTRADOR\",\n                                \"nameBBCE\": \"ZEUS\",\n                                \"nameEnbox\": null,\n                                \"login\": \"ADMIN\",\n                                \"password\": \"b9ba7380b14e8e8343186cc0f09596563b8506b9c0281efce4b1a3485ea086b2\",\n                                \"email\": \"THIAGO.OLIVEIRA@MIRACLEWORKS.CO\",\n                                \"indCancel\": false,\n                                \"indConfi\": true,\n                                \"indTrade\": true,\n                                \"indAdmin\": true,\n                                \"indContr\": true,\n                                \"indFinan\": true,\n                                \"indCount\": true,\n                                \"indLawye\": true,\n                                \"indBack\": true,\n                                \"signatureUser\": \"<p><img src=\\\"https://zeus.miracleworks.com.br/resources/planilhas/upload/20220408180518_mceclip0.png\\\" /></p>\",\n                                \"nomFileUserSign\": null,\n                                \"indUsing2FA\": false,\n                                \"nomSecret\": \"EDZESP43RCEUEVGE\",\n                                \"perfil\": {\n                                    \"id\": 1,\n                                    \"nomPerfil\": \"Admin\",\n                                    \"oldVersionOfItself\": null,\n                                    \"textoPermissoes\": \" <b>Financeiro</b> Visualizar + Inserir + Editar<br> <b>Registro</b> Visualizar + Inserir + Editar<br> <b>PLD</b> Visualizar + Inserir + Editar<br> <b>Contraparte</b> Visualizar + Inserir + Editar<br> <b>Administração</b> Visualizar + Inserir + Editar<br> <b>Relatorio</b> Visualizar + Inserir + Editar<br> <b>Relatorio Externo</b> Visualizar + Inserir + Editar<br> <b>Gestão</b> Visualizar + Inserir + Editar<br> <b>Viabilidade</b> Visualizar + Inserir + Editar<br> <b>Boletas</b> Visualizar + Inserir + Editar<br> <b>Garantias</b> Visualizar + Inserir + Editar<br> <b>Juridico</b> Visualizar + Inserir + Editar<br> <b>Aprovador</b> Visualizar + Inserir + Editar<br> <b>Migração</b> Visualizar + Inserir + Editar<br> <b>Derivativos</b> Visualizar + Inserir + Editar<br> <b>Modelo Migração</b> Visualizar + Inserir + Editar<br> <b>Super Aprovador</b> Visualizar + Inserir + Editar<br> <b>Arquivos</b> Visualizar + Inserir + Editar<br><br>\",\n                                    \"dashboard\": {\n                                        \"id\": 1,\n                                        \"nomArea\": \"Boletas\",\n                                        \"tipo\": 1,\n                                        \"nomStateDash\": \"app.boletacapitale.dashboard\",\n                                        \"indCance\": false\n                                    }\n                                },\n                                \"dashboard\": null,\n                                \"oldVersionOfItself\": null,\n                                \"nomQURL\": null,\n                                \"nomLogin\": \"ADMIN\"\n                            },\n                            \"datPrevisao\": 1632970800000,\n                            \"numOrder\": 1,\n                            \"descricaoTarefa\": null,\n                            \"numPeso\": {\n                                \"numPeso\": 1,\n                                \"valorPeso\": 1,\n                                \"corPeso\": \"#007BFF\",\n                                \"indCance\": false,\n                                \"oldVersionOfItself\": null\n                            },\n                            \"datFinal\": 1636399328000,\n                            \"indModeloTarefa\": false,\n                            \"indDtPrevisaoEqualFimMigracao\": null,\n                            \"type\": \"item\",\n                            \"indUpadateMigracao\": false,\n                            \"datFinishMigracao\": null,\n                            \"start\": null,\n                            \"end\": null,\n                            \"allDay\": null,\n                            \"title\": null,\n                            \"color\": null,\n                            \"tarefaAtrasada\": false,\n                            \"oldVersionOfItself\": null\n                        }\n                    ],\n                    \"idFluxoModelo\": 0,\n                    \"tipoCopia\": 0,\n                    \"oldVersionOfItself\": null\n                },\n                {\n                    \"id\": 2,\n                    \"nomProcesso\": \"Teste 1\",\n                    \"fluxo\": null,\n                    \"indCance\": false,\n                    \"numOrder\": 1,\n                    \"indModeloProcesso\": false,\n                    \"idFluxo\": 1,\n                    \"type\": \"container\",\n                    \"columns\": [\n                        {\n                            \"id\": 4,\n                            \"nomTarefa\": \"Tarefa 1\",\n                            \"processo\": null,\n                            \"indCance\": false,\n                            \"indFinish\": true,\n                            \"userRespo\": {\n                                \"id\": 1,\n                                \"name\": \"ADMINISTRADOR\",\n                                \"nameBBCE\": \"ZEUS\",\n                                \"nameEnbox\": null,\n                                \"login\": \"ADMIN\",\n                                \"password\": \"b9ba7380b14e8e8343186cc0f09596563b8506b9c0281efce4b1a3485ea086b2\",\n                                \"email\": \"THIAGO.OLIVEIRA@MIRACLEWORKS.CO\",\n                                \"indCancel\": false,\n                                \"indConfi\": true,\n                                \"indTrade\": true,\n                                \"indAdmin\": true,\n                                \"indContr\": true,\n                                \"indFinan\": true,\n                                \"indCount\": true,\n                                \"indLawye\": true,\n                                \"indBack\": true,\n                                \"signatureUser\": \"<p><img src=\\\"https://zeus.miracleworks.com.br/resources/planilhas/upload/20220408180518_mceclip0.png\\\" /></p>\",\n                                \"nomFileUserSign\": null,\n                                \"indUsing2FA\": false,\n                                \"nomSecret\": \"EDZESP43RCEUEVGE\",\n                                \"perfil\": {\n                                    \"id\": 1,\n                                    \"nomPerfil\": \"Admin\",\n                                    \"oldVersionOfItself\": null,\n                                    \"textoPermissoes\": \" <b>Financeiro</b> Visualizar + Inserir + Editar<br> <b>Registro</b> Visualizar + Inserir + Editar<br> <b>PLD</b> Visualizar + Inserir + Editar<br> <b>Contraparte</b> Visualizar + Inserir + Editar<br> <b>Administração</b> Visualizar + Inserir + Editar<br> <b>Relatorio</b> Visualizar + Inserir + Editar<br> <b>Relatorio Externo</b> Visualizar + Inserir + Editar<br> <b>Gestão</b> Visualizar + Inserir + Editar<br> <b>Viabilidade</b> Visualizar + Inserir + Editar<br> <b>Boletas</b> Visualizar + Inserir + Editar<br> <b>Garantias</b> Visualizar + Inserir + Editar<br> <b>Juridico</b> Visualizar + Inserir + Editar<br> <b>Aprovador</b> Visualizar + Inserir + Editar<br> <b>Migração</b> Visualizar + Inserir + Editar<br> <b>Derivativos</b> Visualizar + Inserir + Editar<br> <b>Modelo Migração</b> Visualizar + Inserir + Editar<br> <b>Super Aprovador</b> Visualizar + Inserir + Editar<br> <b>Arquivos</b> Visualizar + Inserir + Editar<br><br>\",\n                                    \"dashboard\": {\n                                        \"id\": 1,\n                                        \"nomArea\": \"Boletas\",\n                                        \"tipo\": 1,\n                                        \"nomStateDash\": \"app.boletacapitale.dashboard\",\n                                        \"indCance\": false\n                                    }\n                                },\n                                \"dashboard\": null,\n                                \"oldVersionOfItself\": null,\n                                \"nomQURL\": null,\n                                \"nomLogin\": \"ADMIN\"\n                            },\n                            \"datPrevisao\": 1635562800000,\n                            \"numOrder\": 1,\n                            \"descricaoTarefa\": null,\n                            \"numPeso\": {\n                                \"numPeso\": 1,\n                                \"valorPeso\": 1,\n                                \"corPeso\": \"#007BFF\",\n                                \"indCance\": false,\n                                \"oldVersionOfItself\": null\n                            },\n                            \"datFinal\": 1649874524000,\n                            \"indModeloTarefa\": false,\n                            \"indDtPrevisaoEqualFimMigracao\": null,\n                            \"type\": \"item\",\n                            \"indUpadateMigracao\": false,\n                            \"datFinishMigracao\": null,\n                            \"start\": null,\n                            \"end\": null,\n                            \"allDay\": null,\n                            \"title\": null,\n                            \"color\": null,\n                            \"tarefaAtrasada\": false,\n                            \"oldVersionOfItself\": null\n                        }\n                    ],\n                    \"idFluxoModelo\": 0,\n                    \"tipoCopia\": 0,\n                    \"oldVersionOfItself\": null\n                }\n            ],\n            \"sizeProcesso\": 2,\n            \"oldVersionOfItself\": null\n        },\n        {\n            \"id\": 2,\n            \"nomFluxo\": \"Distribuidora\",\n            \"migracao\": null,\n            \"indCance\": false,\n            \"numOrder\": 2,\n            \"indModeloFluxo\": false,\n            \"processos\": [],\n            \"sizeProcesso\": 0,\n            \"oldVersionOfItself\": null\n        },\n        {\n            \"id\": 3,\n            \"nomFluxo\": \"Comercializadora\",\n            \"migracao\": null,\n            \"indCance\": false,\n            \"numOrder\": 3,\n            \"indModeloFluxo\": false,\n            \"processos\": [],\n            \"sizeProcesso\": 0,\n            \"oldVersionOfItself\": null\n        }\n    ],\n    \"templates\": [\n        {\n            \"id\": 2,\n            \"type\": \"item\"\n        },\n        {\n            \"columns\": [\n                [],\n                []\n            ],\n            \"id\": 1,\n            \"type\": \"container\"\n        }\n    ],\n    \"selected\": null,\n    \"porcentagemTarefas\": 0, // Progresso da migração em percentual\n    \"oldVersionOfItself\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Authenticate",
 			"request": {
 				"method": "POST",
@@ -3778,7 +4145,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "username={{username}}&password={{password}}&code="
+					"raw": "username={{username}}&password={{password}}&code=",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
 				},
 				"url": {
 					"raw": "https://{{URL}}/authenticate",
@@ -3827,6 +4199,15 @@
 		{
 			"key": "password",
 			"value": "Robo123#"
+		},
+		{
+			"key": "idUnidade",
+			"value": "6546",
+			"type": "string"
+		},
+		{
+			"key": "idMigracao",
+			"value": "8"
 		}
 	]
 }
