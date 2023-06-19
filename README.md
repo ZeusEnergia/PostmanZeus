@@ -3,7 +3,7 @@ Biblioteca do Postman com exemplos de como acessar dados do sistema Zeus via API
 
 # Utilização:
 
- 1. O primeiro passo de utilização é a atualização das variáveis de ambiente dentro do Postman. Caso ainda não tenha os dados de login e senha para utilização da API em seu ambiente, entre em contato com a equipe de suporte;
+ 1. O primeiro passo de utilização é a atualização das variáveis de ambiente dentro do Postman. Caso ainda não tenha os dados de login e senha para utilização da API em seu ambiente, entre em contato com a equipe de suporte. O idMigracao é obtido pela API com a chamada "Listar migrações". o idUnidade é obtido pela API com a chamada "Partes cadastradas no ambiente";
  
 ![Variaveis do postman para atualizar.](https://miracleworks.co/images/github/gitDoc1.png)
 
