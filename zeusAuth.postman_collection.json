@@ -58,7 +58,7 @@
 										"customLog"
 									]
 								},
-								"description": "API para lista de logs.  \nResultado equivalente a tela Administração -> Log do Sistema do Zeus.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| contractId | int | ID da boleta |\n| nomeDaClasseList | array | Atributos a serem consultados |\n\n| **Atributo** | **Descrição** |\n| --- | --- |\n| Contract | Inserção/edição/remoção da Boleta |\n| ContractFile | Inserção/remoção dos arquivos da Boleta |\n| Trade | Inserção/edição/remoção das trades da boleta |\n| Invoice | Inserção/edição/remoção das invoices da boleta |\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
+								"description": "API para lista de usuários.  \nResultado equivalente a tela Administração -> Usuários do Zeus.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| ativos | boolean | Indicador de usuário ativo |\n| s | string | Nome ou e-mail do usuário |\n| adminOnly | boolean | Indicador de perfil administrador |\n\nCaso for procurar responsável para criação de grupo na API **Inserir Grupo**, basta apenas ter os parâmetros ativos=true?s= , conforme a URL abaixo:\n\nhttps://{{URL}}/rest/user?ativos=true&s="
 							},
 							"response": []
 						},
@@ -377,7 +377,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"dtOperInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtOperFinal\":\"2021-06-30T03:00:00.000Z\",\n    \"dtIniFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"dtFimFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtFimFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"submercadoId\":1,\n    \"energyType\":1,\n    \"input\":{\n        \"draw\":0,\n        \"start\":0,\n        \"length\":12,\n        \"columns\":[{\"data\":\"id\",\"orderable\":true}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    }\n}"
+							"raw": "{\n    \"dtOperInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtOperFinal\":\"2021-06-30T03:00:00.000Z\",\n    \"dtIniFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"dtFimFornInicio\":\"2021-01-01T03:00:00.000Z\",\n    \"dtFimFornFinal\":\"2021-12-01T03:00:00.000Z\",\n    \"submercadoId\":1,\n    \"energyType\":1\n}"
 						},
 						"url": {
 							"raw": "https://{{URL}}/rest/boletacapitale/datatable",
@@ -391,7 +391,7 @@
 								"datatable"
 							]
 						},
-						"description": "API para retornar as boletas do portifolio após aprovação. Resultado equivalente a tela Boletas -> Listar Boletas  do Zeus.\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
+						"description": "API para retornar as boletas do portifolio após aprovação. Resultado equivalente a tela Boletas -> Listar Boletas  do Zeus."
 					},
 					"response": [
 						{
@@ -482,7 +482,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"contractId\": \"9196 ,9276\",\n    \"input\":{\n        \"draw\":0,\n        \"start\":0,\n        \"length\":12,\n        \"columns\":[{\"data\":\"contract.numContr\",\"orderable\":true}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    }\n}",
+							"raw": "{\n    \"contractId\": \"9196 ,9276\",\n    \"input\":{\n        \"draw\":0,\n        \"start\":0,\n        \"length\":12,\n        \"columns\":[{\"data\":\"contract.numContr\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}],\n        \"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -501,7 +501,7 @@
 								"datatable"
 							]
 						},
-						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus.\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
+						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
 					},
 					"response": [
 						{
@@ -1638,7 +1638,7 @@
 								"datatable"
 							]
 						},
-						"description": "API para retornar os valores dos grupos.\nResultado equivalente a tela Contrapartes -> Grupos do Zeus.\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através dos campos **\"start\"** e **length**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
+						"description": "API para retornar os valores das operações, em formato de entrega de energia mensal.\nResultado equivalente a tela Boletas -> Listar Mensal do Zeus."
 					},
 					"response": [
 						{
@@ -1870,7 +1870,7 @@
 								"datatable"
 							]
 						},
-						"description": "API para retornar os valores das unidades presentes no Zeus  \nResultado equivalente a tela Contrapartes -> Unidades do Zeus.\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n**Atributos do Input**\n---\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
+						"description": "API para retornar os valores das unidades presentes no Zeus  \nResultado equivalente a tela Contrapartes -> Unidades do Zeus."
 					},
 					"response": []
 				},
@@ -2296,7 +2296,7 @@
 								"dtFaturamento"
 							]
 						},
-						"description": "API para retornar as os trades em faturamento. Resultado equivalente a tela Financeiro -> Faturamento do Zeus.\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
+						"description": "API para retornar as os trades em faturamento. Resultado equivalente a tela Financeiro -> Faturamento do Zeus."
 					},
 					"response": [
 						{
@@ -3847,7 +3847,7 @@
 										"datatable"
 									]
 								},
-								"description": "API para retornar as os trades em faturamento. Resultado equivalente a tela Gestão -> Boletas Serviços -> Listar Mensal.\n\nO campo status controla o que a busca irá retornar:\n\nStatus = -1 -> Retorna todos os serviços com vigência dentro do período selecionado, independente se já esta faturado ou não.\n\nStatus = 1 -> Retorna todos os serviços com vigência dentro do período selecionado que ainda não foram faturados\n\nStatus = 2 -> Retorna todos os serviços com vigência dentro do período selecionado que já foram faturados\n\n**Obs.**: Paginação e limite de linhas (até o máximo de 1000 linhas) por página é obrigatório através do objeto **\"input\"**.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| draw | int | Número da página |\n| start | int | Início da página |\n| length | int | Quantidade de linhas da página |\n| columns | array | Lista de colunas que podem ser usadas na ordenação |\n| order | array | **dir** é o tipo de ordenação (asc ou desc) e **column** é a posição da coluna da qual será ordenada (0 é a posição da primeira coluna do array **columns** mencionado acima |"
+								"description": "API para retornar as os trades em faturamento. Resultado equivalente a tela Gestão -> Boletas Serviços -> Listar Mensal.\n\nO campo status controla o que a busca irá retornar:\n\nStatus = -1 -> Retorna todos os serviços com vigência dentro do período selecionado, independente se já esta faturado ou não.\n\nStatus = 1 -> Retorna todos os serviços com vigência dentro do período selecionado que ainda não foram faturados\n\nStatus = 2 -> Retorna todos os serviços com vigência dentro do período selecionado que já foram faturados"
 							},
 							"response": []
 						},
@@ -3961,6 +3961,146 @@
 								"description": "API para inclusão de um arquivo atrelado a um contrato de serviço no Zeus."
 							},
 							"response": []
+						}
+					]
+				},
+				{
+					"name": "Relatórios",
+					"item": [
+						{
+							"name": "Listagem Economia",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://{{URL}}/rest/energiaCusto/getAllRelatorioEconomia/?dtInicio={{aaaa-mm-dd}}T03:00:00.000Z&valueMonth=true",
+									"protocol": "http",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"energiaCusto",
+										"getAllRelatorioEconomia",
+										""
+									],
+									"query": [
+										{
+											"key": "dtInicio",
+											"value": "{{aaaa-mm-dd}}T03:00:00.000Z"
+										},
+										{
+											"key": "valueMonth",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Listagem Economia",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "http://{{URL}}/rest/energiaCusto/getAllRelatorioEconomia/?dtInicio={{aaaa-mm-dd}}T03:00:00.000Z&valueMonth=true",
+											"protocol": "http",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"energiaCusto",
+												"getAllRelatorioEconomia",
+												""
+											],
+											"query": [
+												{
+													"key": "dtInicio",
+													"value": "{{aaaa-mm-dd}}T03:00:00.000Z"
+												},
+												{
+													"key": "valueMonth",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "xml",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/xml;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 20 Jun 2023 14:06:15 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "<List>\n    <item>\n        <id>803</id> \n        <dataEntrada>2023</dataEntrada> // ano informado na consulta\n        <dataEntrada>2</dataEntrada> // mês informado na consulta\n        <dataEntrada>6</dataEntrada>\n        <unidade_id>7941</unidade_id>\n        <ano>2023</ano> // ano de referência\n        <mes>2</mes> // mês de referência\n        <demandaCativo>0.0</demandaCativo>\n        <demandaUltCativo>0.0</demandaUltCativo>\n        <encargoCativo>0.0</encargoCativo>\n        <energiaCativo>0.0</energiaCativo>\n        <energiaCativoPonta>0.0</energiaCativoPonta>\n        <energiaCativoFPonta>0.0</energiaCativoFPonta>\n        <custosExtrasCativo>0.0</custosExtrasCativo>\n        <impostosCativo>0.0</impostosCativo>\n        <icmsCativo>0.0</icmsCativo>\n        <custoMedioCativo>0.0</custoMedioCativo>\n        <custoTotalCativo>49028.24</custoTotalCativo> // Custo total cativo\n        <demandaLivre>0.0</demandaLivre>\n        <demandaUltLivre>0.0</demandaUltLivre>\n        <encargoLivre>0.0</encargoLivre>\n        <energiaLivre>0.0</energiaLivre>\n        <custosExtrasLivre>0.0</custosExtrasLivre>\n        <impostosLivre>0.0</impostosLivre>\n        <impostosLivreCalculado>0.0</impostosLivreCalculado>\n        <icmsLivre>0.0</icmsLivre>\n        <icmsLivreCalculado>0.0</icmsLivreCalculado>\n        <custoCCEELivre>0.0</custoCCEELivre>\n        <custoMedioLivre>0.0</custoMedioLivre>\n        <custoTotalLivre>43538.26</custoTotalLivre> // Custo total livre\n        <custoServicoLivre>0.0</custoServicoLivre>\n        <fatorGrupo>1.0</fatorGrupo>\n        <economia>5489.98</economia> // Economia\n        <valueMonth>true</valueMonth>\n        <demandaLivrePonta>0.0</demandaLivrePonta>\n        <demandaLivreFPonta>0.0</demandaLivreFPonta>\n        <demandaIsentaLivrePonta>0.0</demandaIsentaLivrePonta>\n        <demandaIsentaLivreFPonta>0.0</demandaIsentaLivreFPonta>\n        <demandaUltLivrePonta>0.0</demandaUltLivrePonta>\n        <demandaUltLivreFPonta>0.0</demandaUltLivreFPonta>\n        <encargoLivrePonta>0.0</encargoLivrePonta>\n        <encargoLivreFPonta>0.0</encargoLivreFPonta>\n        <demandaCativoPonta>0.0</demandaCativoPonta>\n        <demandaCativoFPonta>0.0</demandaCativoFPonta>\n        <demandaIsentaCativoPonta>0.0</demandaIsentaCativoPonta>\n        <demandaIsentaCativoFPonta>0.0</demandaIsentaCativoFPonta>\n        <demandaUltCativoPonta>0.0</demandaUltCativoPonta>\n        <demandaUltCativoFPonta>0.0</demandaUltCativoFPonta>\n        <encargoCativoPonta>0.0</encargoCativoPonta>\n        <encargoCativoFPonta>0.0</encargoCativoFPonta>\n        <demandaLivrePontaImpostos>0.0</demandaLivrePontaImpostos>\n        <demandaLivreFPontaImpostos>0.0</demandaLivreFPontaImpostos>\n        <demandaIsentaLivrePontaImpostos>0.0</demandaIsentaLivrePontaImpostos>\n        <demandaIsentaLivreFPontaImpostos>0.0</demandaIsentaLivreFPontaImpostos>\n        <demandaUltLivrePontaImpostos>0.0</demandaUltLivrePontaImpostos>\n        <demandaUltLivreFPontaImpostos>0.0</demandaUltLivreFPontaImpostos>\n        <encargoLivrePontaImpostos>0.0</encargoLivrePontaImpostos>\n        <encargoLivreFPontaImpostos>0.0</encargoLivreFPontaImpostos>\n        <demandaCativoPontaImpostos>0.0</demandaCativoPontaImpostos>\n        <demandaCativoFPontaImpostos>0.0</demandaCativoFPontaImpostos>\n        <demandaIsentaCativoPontaImpostos>0.0</demandaIsentaCativoPontaImpostos>\n        <demandaIsentaCativoFPontaImpostos>0.0</demandaIsentaCativoFPontaImpostos>\n        <demandaUltCativoPontaImpostos>0.0</demandaUltCativoPontaImpostos>\n        <demandaUltCativoFPontaImpostos>0.0</demandaUltCativoFPontaImpostos>\n        <encargoCativoPontaImpostos>0.0</encargoCativoPontaImpostos>\n        <encargoCativoFPontaImpostos>0.0</encargoCativoFPontaImpostos>\n        <energiaCativoPontaImpostos>0.0</energiaCativoPontaImpostos>\n        <energiaCativoFPontaImpostos>0.0</energiaCativoFPontaImpostos>\n        <incentivadaPorc>0.0</incentivadaPorc>\n        <icmsEnergiaComercializadora>0.0</icmsEnergiaComercializadora>\n        <memCalPath/>\n        <tblCounterParty>\n            <numCount>7941</numCount>\n            <nomCount>UNIDADE</nomCount> // Unidade\n            <nomCnpj>00.000.000/0001-23</nomCnpj> // CNPJ\n            <nomFull>RAZÃO SOCIAL UNIDADE LTDA</nomFull> // RAZÃO SOCIAL\n            <nomAddre>LOGRADOURO DO ENDEREÇO</nomAddre>\n            <nomStateId>255914075</nomStateId>\n            <indConsu>true</indConsu>\n            <indVarej/>\n            <nomAddreNumbe>4455</nomAddreNumbe>\n            <nomNeigh>BAIRRO </nomNeigh>\n            <nomAddreSuppl></nomAddreSuppl>\n            <nomZipCode>88812-850</nomZipCode> // CEP\n            <indInact>false</indInact>\n            <indExcepIcms>false</indExcepIcms>\n            <indFinanSettl>-1</indFinanSettl>\n            <nomIcms/>\n            <nomCfop/>\n            <nomCst/>\n            <clienteGestao>true</clienteGestao>\n            <omieId>3.75452743E1</omieId>\n            <erpFornecedorId/>\n            <erpClienteId/>\n            <nomSuframa/>\n            <nomCnpjFatur/>\n            <nomGroup/>\n            <nomLogoFile/>\n            <parte/>\n            <parteDefault/>\n            <omieGestaoId/>\n            <nomCityId/>\n            <indMei/>\n            <indSimples/>\n            <indEvitarOperacoes/>\n            <tblCity>\n                <numCity>4386</numCity>\n                <nomCity>CRICIÚMA</nomCity>\n                <numCityIbge>4204608</numCityIbge>\n                <numCodMun/>\n                <tblState>\n                    <numState>24</numState>\n                    <nomState>\tSANTA CATARINA   </nomState>\n                    <codState>SC</codState>\n                    <numStateIbge>42</numStateIbge>\n                    <valIcms>0.0</valIcms>\n                    <valIcmsComerc/>\n                    <valIcmsIndus/>\n                    <indStateIcms>false</indStateIcms>\n                    <nomNotaObs>NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00</nomNotaObs>\n                    <nomNotaObsComercs/>\n                    <submercado/>\n                    <tblRegion>\n                        <numRegio>2</numRegio>\n                        <codRegio>S</codRegio>\n                    </tblRegion>\n                </tblState>\n            </tblCity>\n            <tblState>\n                <numState>24</numState>\n                <nomState>\tSANTA CATARINA   </nomState>\n                <codState>SC</codState>\n                <numStateIbge>42</numStateIbge>\n                <valIcms>0.0</valIcms>\n                <valIcmsComerc/>\n                <valIcmsIndus/>\n                <indStateIcms>false</indStateIcms>\n                <nomNotaObs>NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00</nomNotaObs>\n                <nomNotaObsComercs/>\n                <submercado/>\n                <tblRegion>\n                    <numRegio>2</numRegio>\n                    <codRegio>S</codRegio>\n                </tblRegion>\n            </tblState>\n            <tblSector>\n                <numSetor>1</numSetor>\n                <nomSetor>INDUSTRIAL</nomSetor>\n                <indConsu>true</indConsu>\n            </tblSector>\n            <dadosGeraisUnidade/>\n            <indFinanSettlBol/>\n            <indForceUpdate/>\n            <indUpdateAgentesCCEE/>\n            <oldVersionOfItself/>\n            <economiaTotal/>\n            <lstConsumo/>\n            <lstConsumoHorario/>\n            <lstDemanda/>\n            <lstDri/>\n            <lstEnergiaCusto/>\n            <energiaReserva/>\n            <contribAssoc/>\n            <lstEnergiaContratada/>\n            <lstContratos/>\n            <lstProinfa/>\n            <indBoletas/>\n            <indBalancoEnergetico/>\n            <indAgente/>\n            <indConsumo/>\n            <indProinfa/>\n            <boletaGestao/>\n            <valorDadoCceeProporcionalConsumo/>\n            <lstCalendarioCCEE/>\n            <garantiaFinanceira/>\n            <lstServicoMensal/>\n            <cnpj>10.633.811/0001-83</cnpj>\n            <stateIcms>0.0</stateIcms>\n            <groupId>5373</groupId>\n            <groupName>TOTALPLAST</groupName>\n            <cityName>CRICIÚMA</cityName>\n            <nomLogoGroup/>\n            <inativo>Não</inativo>\n            <stateName>\tSANTA CATARINA   </stateName>\n        </tblCounterParty>\n        <percentualEconomiaCativo>11.197587349658074</percentualEconomiaCativo>\n        <demandaIsentaCativo>0.0</demandaIsentaCativo>\n        <custosExtrasIcms/>\n        <custosExtrasPisCofins/>\n        <demanda/>\n        <dgu/>\n        <consumo/>\n        <distImp/>\n        <tarifa/>\n        <tarifaLivre/>\n        <tarifaCativo/>\n        <demandaLivrePontaIcms>0.0</demandaLivrePontaIcms>\n        <demandaLivreFPontaIcms>0.0</demandaLivreFPontaIcms>\n        <demandaUltLivrePontaIcms>0.0</demandaUltLivrePontaIcms>\n        <demandaUltLivreFPontaIcms>0.0</demandaUltLivreFPontaIcms>\n        <encargoLivrePontaIcms>0.0</encargoLivrePontaIcms>\n        <encargoLivreFPontaIcms>0.0</encargoLivreFPontaIcms>\n        <demandaCativoPontaIcms>0.0</demandaCativoPontaIcms>\n        <demandaCativoFPontaIcms>0.0</demandaCativoFPontaIcms>\n        <demandaUltCativoPontaIcms>0.0</demandaUltCativoPontaIcms>\n        <demandaUltCativoFPontaIcms>0.0</demandaUltCativoFPontaIcms>\n        <encargoCativoPontaIcms>0.0</encargoCativoPontaIcms>\n        <encargoCativoFPontaIcms>0.0</encargoCativoFPontaIcms>\n        <energiaCativoPontaIcms>0.0</energiaCativoPontaIcms>\n        <energiaCativoFPontaIcms>0.0</energiaCativoFPontaIcms>\n        <demandaLivrePontaPis>0.0</demandaLivrePontaPis>\n        <demandaLivreFPontaPis>0.0</demandaLivreFPontaPis>\n        <demandaIsentaLivrePontaPis>0.0</demandaIsentaLivrePontaPis>\n        <demandaIsentaLivreFPontaPis>0.0</demandaIsentaLivreFPontaPis>\n        <demandaUltLivrePontaPis>0.0</demandaUltLivrePontaPis>\n        <demandaUltLivreFPontaPis>0.0</demandaUltLivreFPontaPis>\n        <encargoLivrePontaPis>0.0</encargoLivrePontaPis>\n        <encargoLivreFPontaPis>0.0</encargoLivreFPontaPis>\n        <demandaCativoPontaPis>0.0</demandaCativoPontaPis>\n        <demandaCativoFPontaPis>0.0</demandaCativoFPontaPis>\n        <demandaIsentaCativoPontaPis>0.0</demandaIsentaCativoPontaPis>\n        <demandaIsentaCativoFPontaPis>0.0</demandaIsentaCativoFPontaPis>\n        <demandaUltCativoPontaPis>0.0</demandaUltCativoPontaPis>\n        <demandaUltCativoFPontaPis>0.0</demandaUltCativoFPontaPis>\n        <encargoCativoPontaPis>0.0</encargoCativoPontaPis>\n        <encargoCativoFPontaPis>0.0</encargoCativoFPontaPis>\n        <energiaCativoPontaPis>0.0</energiaCativoPontaPis>\n        <energiaCativoFPontaPis>0.0</energiaCativoFPontaPis>\n        <demandaLivrePontaCofins>0.0</demandaLivrePontaCofins>\n        <demandaLivreFPontaCofins>0.0</demandaLivreFPontaCofins>\n        <demandaIsentaLivrePontaCofins>0.0</demandaIsentaLivrePontaCofins>\n        <demandaIsentaLivreFPontaCofins>0.0</demandaIsentaLivreFPontaCofins>\n        <demandaUltLivrePontaCofins>0.0</demandaUltLivrePontaCofins>\n        <demandaUltLivreFPontaCofins>0.0</demandaUltLivreFPontaCofins>\n        <encargoLivrePontaCofins>0.0</encargoLivrePontaCofins>\n        <encargoLivreFPontaCofins>0.0</encargoLivreFPontaCofins>\n        <demandaCativoPontaCofins>0.0</demandaCativoPontaCofins>\n        <demandaCativoFPontaCofins>0.0</demandaCativoFPontaCofins>\n        <demandaIsentaCativoPontaCofins>0.0</demandaIsentaCativoPontaCofins>\n        <demandaIsentaCativoFPontaCofins>0.0</demandaIsentaCativoFPontaCofins>\n        <demandaUltCativoPontaCofins>0.0</demandaUltCativoPontaCofins>\n        <demandaUltCativoFPontaCofins>0.0</demandaUltCativoFPontaCofins>\n        <encargoCativoPontaCofins>0.0</encargoCativoPontaCofins>\n        <encargoCativoFPontaCofins>0.0</encargoCativoFPontaCofins>\n        <energiaCativoPontaCofins>0.0</energiaCativoPontaCofins>\n        <energiaCativoFPontaCofins>0.0</energiaCativoFPontaCofins>\n        <bandeiraMes/>\n        <nomCount/>\n        <custoTotalLivreSemHonorario>43538.26</custoTotalLivreSemHonorario>\n        <economiaSemHonorario>5489.98</economiaSemHonorario>\n        <dataRefFormat>1675220400000</dataRefFormat>\n    </item>\n</List>"
+								}
+							]
 						}
 					]
 				}
@@ -4208,6 +4348,10 @@
 		{
 			"key": "idMigracao",
 			"value": "8"
+		},
+		{
+			"key": "aaaa-mm-dd",
+			"value": "2023-02-01"
 		}
 	]
 }
