@@ -3980,8 +3980,8 @@
 									}
 								],
 								"url": {
-									"raw": "http://{{URL}}/rest/energiaCusto/getAllRelatorioEconomia/?dtInicio={{aaaa-mm-dd}}T03:00:00.000Z&valueMonth=true",
-									"protocol": "http",
+									"raw": "https://{{URL}}/rest/energiaCusto/getAllRelatorioEconomia/?dtInicio={{aaaa-mm-dd}}T03:00:00.000Z&valueMonth=true",
+									"protocol": "https",
 									"host": [
 										"{{URL}}"
 									],
@@ -4017,8 +4017,8 @@
 											}
 										],
 										"url": {
-											"raw": "http://{{URL}}/rest/energiaCusto/getAllRelatorioEconomia/?dtInicio={{aaaa-mm-dd}}T03:00:00.000Z&valueMonth=true",
-											"protocol": "http",
+											"raw": "https://{{URL}}/rest/energiaCusto/getAllRelatorioEconomia/?dtInicio={{aaaa-mm-dd}}T03:00:00.000Z&valueMonth=true",
+											"protocol": "https",
 											"host": [
 												"{{URL}}"
 											],
