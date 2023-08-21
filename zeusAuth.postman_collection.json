@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "b16f8f40-e8e0-4c9b-869b-2b6f7bc32d3c",
+		"_postman_id": "75df965a-21d3-416e-b77b-002239d89f53",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27628360"
+		"_exporter_id": "1212405"
 	},
 	"item": [
 		{
@@ -110,6 +110,37 @@
 									]
 								},
 								"description": "API para lista de usuários.  \nResultado equivalente a tela Administração -> Usuários do Zeus.\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| ativos | boolean | Indicador de usuário ativo |\n| s | string | Nome ou e-mail do usuário |\n| adminOnly | boolean | Indicador de perfil administrador |\n\nCaso for procurar responsável para criação de grupo na API **Inserir Grupo**, basta apenas ter os parâmetros ativos=true?s= , conforme a URL abaixo:\n\nhttps://{{URL}}/rest/user?ativos=true&s="
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Carteiras",
+					"item": [
+						{
+							"name": "Listar Carteiras",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/carteira",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"carteira"
+									]
+								}
 							},
 							"response": []
 						}
@@ -442,10 +473,10 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"_postman_previewlanguage": "Text",
+							"header": [],
 							"cookie": [],
-							"body": null
+							"body": ""
 						}
 					]
 				},
@@ -908,10 +939,10 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"_postman_previewlanguage": "Text",
+							"header": [],
 							"cookie": [],
-							"body": null
+							"body": ""
 						}
 					]
 				},
@@ -2250,6 +2281,61 @@
 			"name": "Financeiro",
 			"item": [
 				{
+					"name": "Comissionados",
+					"item": [
+						{
+							"name": "Listar Comissionados",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/broker",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"broker"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Comissões",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dtIniFornFinal\": \"2023-08-01T03:00:00.000Z\",\n    \"dtIniFornInicio\": \"2023-01-01T03:00:00.000Z\",\n    \"idBroker\": 1,\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/broker/comissaoMensal",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"broker",
+										"comissaoMensal"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Listar Faturamento",
 					"request": {
 						"method": "POST",
@@ -2583,10 +2669,10 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"_postman_previewlanguage": "Text",
+							"header": [],
 							"cookie": [],
-							"body": null
+							"body": ""
 						}
 					]
 				},
