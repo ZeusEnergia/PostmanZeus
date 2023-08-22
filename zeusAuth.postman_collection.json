@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "64eb2fa0-5731-4d3f-ade1-e4ac4928cf26",
+		"_postman_id": "84560d52-1bfc-4683-a317-cc0534d1e2cf",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "355184"
+		"_exporter_id": "27628360"
 	},
 	"item": [
 		{
@@ -2697,6 +2697,225 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Incluir Comissionado",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=UTF-8"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:9000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:9000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nomBroke\": \"Nome Comissionado\",\n    \"nomBrokeCnpj\": \"20059889000190\",\n    \"nomBrokeAddre\": \"Rua Exemplo, nº 123\",\n    \"numBrokeAddreState\": 25,\n    \"nomBrokeAddreCity\": \"São Paulo\",\n    \"nomBrokeConta\": \"Nome do Contato\",\n    \"nomBrokeEmail\": \"email@teste.com.br\",\n    \"nomBrokePhone\": \"1199999999\",\n    \"nomContrato\": \"Contrato123456\",\n    \"nomAtvEconomica\": \"Atividade Exemplo\",\n    \"indAprCompliance\": true,\n    \"indAprCredito\": true\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/broker",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"broker"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Incluir Comissionado",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json;charset=UTF-8"
+											},
+											{
+												"key": "Origin",
+												"value": "http://localhost:9000"
+											},
+											{
+												"key": "Referer",
+												"value": "http://localhost:9000/"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-site"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"nomBroke\": \"Nome Comissionado\", // Nome\n    \"nomBrokeCnpj\": \"20060889000340\", // CNPJ\n    \"nomBrokeAddre\": \"Rua Exemplo, nº 123\", // Endereço\n    \"numBrokeAddreState\": 25, // Número do Estado -> Pode ser obtido na chamada Estados em Informações Gerais\n    \"nomBrokeAddreCity\": \"São Paulo\", // Estado\n    \"nomBrokeConta\": \"Nome do Contato\", // Nome do Contato\n    \"nomBrokeEmail\": \"email@teste.com.br\", // Email \n    \"nomBrokePhone\": \"1199999999\", // Telefone\n    \"nomContrato\": \"Contrato123456\", // Identificação do contrato\n    \"nomAtvEconomica\": \"Atividade Exemplo\", // Atividade econômica\n    \"indAprCompliance\": true, // Indicador de Aprovado na Compliance, aceita true ou false\n    \"indAprCredito\": true // Indicador de Aprovado no Crédito, aceita true ou false\n}"
+										},
+										"url": {
+											"raw": "https://{{URL}}/rest/broker",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"broker"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000 ; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 22 Aug 2023 21:09:04 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
 						}
 					]
 				},
