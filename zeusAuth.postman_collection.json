@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "84560d52-1bfc-4683-a317-cc0534d1e2cf",
+		"_postman_id": "70b1c203-735f-4f42-aabd-cedd822a017f",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27628360"
+		"_exporter_id": "355184"
 	},
 	"item": [
 		{
@@ -2913,7 +2913,7 @@
 										}
 									],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						}
@@ -3311,6 +3311,48 @@
 					"response": []
 				},
 				{
+					"name": "Deletar Nota",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/invoice/{{idNota}}",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"invoice",
+								"{{idNota}}"
+							]
+						},
+						"description": "API para deletar nota fiscal (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Adicionar Nota do Zeus.\n\nO campo **idNota** é o **id** que foi criado na API **Inserir Nota**."
+					},
+					"response": []
+				},
+				{
 					"name": "Inserir Pagamento",
 					"request": {
 						"method": "POST",
@@ -3357,6 +3399,99 @@
 							]
 						},
 						"description": "API para inserir pagamento em uma nota (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Listar Pagamentos.\n\nO campo **id** dentro do objeto **tblInvoice** é o **id** que foi criado na API **Inserir Nota**."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Pagamentos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/invPayment?s={{idNota}}",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"invPayment"
+							],
+							"query": [
+								{
+									"key": "s",
+									"value": "{{idNota}}"
+								}
+							]
+						},
+						"description": "API para listar pagamento de uma nota (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Listar Pagamentos.\n\nO campo **idNota** é o **id** que foi criado na API **Inserir Nota**."
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Pagamento",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"datPayment\": \"2022-09-20T15:10:01.929Z\",\n    \"valInvoiPayment\": 626400.00,\n    \"tblInvoice\": {\n        \"id\": 65\n    },\n    \"comment\": \"Teste Comentário!\"\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/invPayment/{{idPagamento}}",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"invPayment",
+								"{{idPagamento}}"
+							]
+						},
+						"description": "API para deletar um pagamento em uma nota (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Listar Pagamentos, excluir pagamento.\n\nO campo **idPagamento** pode ser recuperado a partir do endpoint \"Listar Pagamento\" utilizando o numero da nota fiscal."
 					},
 					"response": []
 				}
