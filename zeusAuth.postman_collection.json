@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "cc6886b9-3d95-41f5-aac8-dec98e2cab1d",
-		"name": "zeusAuth",
+		"_postman_id": "8e08c825-d14b-4464-bfbf-3800ca667bf1",
+		"name": "Zeus",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "1212405"
+		"_exporter_id": "27628360"
 	},
 	"item": [
 		{
@@ -4543,6 +4543,640 @@
 			"name": "Relatórios",
 			"item": [
 				{
+					"name": "Gerencial das UC's",
+					"item": [
+						{
+							"name": "Tarifas ANEEL",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:9000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:9000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/zeus/rest/tarifaDist/tarifa?cor=Azul&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"zeus",
+										"rest",
+										"tarifaDist",
+										"tarifa"
+									],
+									"query": [
+										{
+											"key": "cor",
+											"value": "Azul",
+											"description": "Obtida na chamada \"Informações UC\""
+										},
+										{
+											"key": "dataInicio",
+											"value": "2023-07-01T03:00:00.000Z",
+											"description": "Alterar dia, mês e ano para obter outros períodos"
+										},
+										{
+											"key": "distNome",
+											"value": "LIGHT",
+											"description": "Obtida na chamada \"Informações UC\""
+										},
+										{
+											"key": "faixa",
+											"value": "A4",
+											"description": "Obtida na chamada \"Informações UC\""
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Exemplo - Verde",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "http://localhost:9000"
+											},
+											{
+												"key": "Referer",
+												"value": "http://localhost:9000/"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-site"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8080/zeus/rest/tarifaDist/tarifa?cor=Verde&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"zeus",
+												"rest",
+												"tarifaDist",
+												"tarifa"
+											],
+											"query": [
+												{
+													"key": "cor",
+													"value": "Verde"
+												},
+												{
+													"key": "dataInicio",
+													"value": "2023-07-01T03:00:00.000Z"
+												},
+												{
+													"key": "distNome",
+													"value": "LIGHT"
+												},
+												{
+													"key": "faixa",
+													"value": "A4"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "JSESSIONID=2C45E58F28D3FD0E4F8936BC8981EEEC; Path=/zeus; HttpOnly"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 31 Aug 2023 19:15:01 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 105008,\n    \"dataEntrada\": [\n        2023,\n        7,\n        2\n    ],\n    \"cor\": \"Verde\", // Obtida na chamada \"Informações UC\"\n    \"faixa\": \"A4\", // Obtida na chamada \"Informações UC\"\n    \"distNome\": \"LIGHT\", // Obtida na chamada \"Informações UC\"\n    \"inicioVigencia\": [\n        2023,\n        3,\n        15\n    ],\n    \"reajuste\": [\n        2024,\n        3,\n        15\n    ],\n    \"resolucao\": \"RESOLUÇÃO HOMOLOGATÓRIA Nº 3.176, DE 14 DE MARÇO DE 2023\",\n    \"distribuidora\": {\n        \"id\": 110,\n        \"dataEntrada\": [\n            2023,\n            1,\n            25\n        ],\n        \"distNome\": \"LIGHT\",\n        \"inicioPonta\": 0,\n        \"fimPonta\": 0,\n        \"indCance\": false,\n        \"indICMSDemanda\": false,\n        \"indICMSEncargos\": false,\n        \"indPisCofinsSemIcms\": true,\n        \"indBasePisCofinsComIcms\": null,\n        \"indSubvencaoTarifariaIcmsDemanda\": null,\n        \"indSubvencaoTarifariaPisCofinsDemanda\": null,\n        \"indSubvencaoTarifariaIcmsEncargo\": null,\n        \"indSubvencaoTarifariaPisCofinsEncargo\": null,\n        \"indDemandaIsenta\": false,\n        \"indDemandaIsentaPonta\": null,\n        \"indIcmsEnergiaNaFaturaDistribuidora\": null,\n        \"oldVersionOfItself\": null\n    },\n    \"valor1\": 22.78, // NA kW TUSD\n    \"valor2\": 945.56, // Ponta MWh TUSD\n    \"valor3\": 161.87, // Fora Ponta MWh TUSD\n    \"valor4\": 530.28, // Ponta MWh TE\n    \"valor5\": 346.72, // Fora Ponta MWh TE\n    \"valor6\": 161.87, // Fora Ponta MWh TUSD\n    \"valContaCovid\": 20.07,\n    \"valEscassezHidrica\": null,\n    \"demandaPonta\": 0,\n    \"demandaFPonta\": 0,\n    \"encargoPonta\": 0,\n    \"encargoFPonta\": 0,\n    \"energiaPonta\": 0,\n    \"energiaFPonta\": 0,\n    \"custoGesracaoUnidade\": 0,\n    \"demandaPontaDescTusd\": 0,\n    \"demandaFPontaDescTusd\": 0,\n    \"encargoPontaDescTusd\": 0,\n    \"encargoFPontaDescTusd\": 0,\n    \"demandaPontaImpostos\": 0,\n    \"demandaFPontaImpostos\": 0,\n    \"demandaIsentaPontaImpostos\": 0,\n    \"demandaIsentaFPontaImpostos\": 0,\n    \"encargoPontaImpostos\": 0,\n    \"encargoFPontaImpostos\": 0,\n    \"energiaPontaImpostos\": 0,\n    \"energiaFPontaImpostos\": 0\n}"
+								},
+								{
+									"name": "Exemplo - Azul",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "http://localhost:9000"
+											},
+											{
+												"key": "Referer",
+												"value": "http://localhost:9000/"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-site"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8080/zeus/rest/tarifaDist/tarifa?cor=Azul&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"zeus",
+												"rest",
+												"tarifaDist",
+												"tarifa"
+											],
+											"query": [
+												{
+													"key": "cor",
+													"value": "Azul"
+												},
+												{
+													"key": "dataInicio",
+													"value": "2023-07-01T03:00:00.000Z"
+												},
+												{
+													"key": "distNome",
+													"value": "LIGHT"
+												},
+												{
+													"key": "faixa",
+													"value": "A4"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 31 Aug 2023 19:18:27 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 105007,\n    \"dataEntrada\": [\n        2023,\n        7,\n        2\n    ],\n    \"cor\": \"Azul\", // Obtida na chamada \"Informações UC\"\n    \"faixa\": \"A4\", // Obtida na chamada \"Informações UC\"\n    \"distNome\": \"LIGHT\", // Obtida na chamada \"Informações UC\"\n    \"inicioVigencia\": [\n        2023,\n        3,\n        15\n    ],\n    \"reajuste\": [\n        2024,\n        3,\n        15\n    ],\n    \"resolucao\": \"RESOLUÇÃO HOMOLOGATÓRIA Nº 3.176, DE 14 DE MARÇO DE 2023\",\n    \"distribuidora\": {\n        \"id\": 110,\n        \"dataEntrada\": [\n            2023,\n            1,\n            25\n        ],\n        \"distNome\": \"LIGHT\",\n        \"inicioPonta\": 0,\n        \"fimPonta\": 0,\n        \"indCance\": false,\n        \"indICMSDemanda\": false,\n        \"indICMSEncargos\": false,\n        \"indPisCofinsSemIcms\": true,\n        \"indBasePisCofinsComIcms\": null,\n        \"indSubvencaoTarifariaIcmsDemanda\": null,\n        \"indSubvencaoTarifariaPisCofinsDemanda\": null,\n        \"indSubvencaoTarifariaIcmsEncargo\": null,\n        \"indSubvencaoTarifariaPisCofinsEncargo\": null,\n        \"indDemandaIsenta\": false,\n        \"indDemandaIsentaPonta\": null,\n        \"indIcmsEnergiaNaFaturaDistribuidora\": null,\n        \"oldVersionOfItself\": null\n    },\n    \"valor1\": 32.37, // Ponta kW TUSD\n    \"valor2\": 22.78, // Fora Ponta kW TUSD\n    \"valor3\": 161.87, // Fora Ponta MWh TUSD\n    \"valor4\": 530.28, // Ponta MWh TE\n    \"valor5\": 346.72, // Fora Ponta MWh TE\n    \"valor6\": 0,\n    \"valContaCovid\": 20.07,\n    \"valEscassezHidrica\": null,\n    \"demandaPonta\": 0,\n    \"demandaFPonta\": 0,\n    \"encargoPonta\": 0,\n    \"encargoFPonta\": 0,\n    \"energiaPonta\": 0,\n    \"energiaFPonta\": 0,\n    \"custoGesracaoUnidade\": 0,\n    \"demandaPontaDescTusd\": 0,\n    \"demandaFPontaDescTusd\": 0,\n    \"encargoPontaDescTusd\": 0,\n    \"encargoFPontaDescTusd\": 0,\n    \"demandaPontaImpostos\": 0,\n    \"demandaFPontaImpostos\": 0,\n    \"demandaIsentaPontaImpostos\": 0,\n    \"demandaIsentaFPontaImpostos\": 0,\n    \"encargoPontaImpostos\": 0,\n    \"encargoFPontaImpostos\": 0,\n    \"energiaPontaImpostos\": 0,\n    \"energiaFPontaImpostos\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Informações UC",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:9000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:9000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/zeus/rest/dadosUnidade?unidade_id=8490",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"zeus",
+										"rest",
+										"dadosUnidade"
+									],
+									"query": [
+										{
+											"key": "unidade_id",
+											"value": "8490",
+											"description": "ID da unidade a ser pesquisada"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Informações UC - Exemplo",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "http://localhost:9000"
+											},
+											{
+												"key": "Referer",
+												"value": "http://localhost:9000/"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-site"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8080/zeus/rest/dadosUnidade?unidade_id=8490",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"zeus",
+												"rest",
+												"dadosUnidade"
+											],
+											"query": [
+												{
+													"key": "unidade_id",
+													"value": "8490",
+													"description": "ID da unidade a ser pesquisada"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 31 Aug 2023 19:28:08 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 254,\n    \"dataEntrada\": [\n        2023,\n        2,\n        10\n    ],\n    \"unidade_id\": 8490,\n    \"contratada_ponta\": 0,\n    \"contratada_fponta\": 880,\n    \"contratada_ponta_cativo\": 0,\n    \"contratada_fponta_cativo\": 0,\n    \"fator_perda\": 3,\n    \"unidadeConsumidora\": null,\n    \"faixa\": \"A4\",\n    \"cor\": \"Verde\",\n    \"faixaCativo\": null,\n    \"corCativo\": null,\n    \"distribuidora\": {\n        \"id\": 110,\n        \"dataEntrada\": [\n            2023,\n            1,\n            25\n        ],\n        \"distNome\": \"LIGHT\",\n        \"inicioPonta\": 0,\n        \"fimPonta\": 0,\n        \"indCance\": false,\n        \"indICMSDemanda\": false,\n        \"indICMSEncargos\": false,\n        \"indPisCofinsSemIcms\": true,\n        \"indBasePisCofinsComIcms\": null,\n        \"indSubvencaoTarifariaIcmsDemanda\": null,\n        \"indSubvencaoTarifariaPisCofinsDemanda\": null,\n        \"indSubvencaoTarifariaIcmsEncargo\": null,\n        \"indSubvencaoTarifariaPisCofinsEncargo\": null,\n        \"indDemandaIsenta\": false,\n        \"indDemandaIsentaPonta\": null,\n        \"indIcmsEnergiaNaFaturaDistribuidora\": null,\n        \"oldVersionOfItself\": null\n    },\n    \"distNome\": \"LIGHT\",\n    \"medNome\": \"RJAAVRENTR101\",\n    \"nomCceeAtivo\": \"1047538\",\n    \"nomInstalacaoUnidade\": null,\n    \"valGeracaoCusto\": null,\n    \"valGeracaoPotencia\": null,\n    \"dtLigacao\": null,\n    \"tensao_kv\": 0,\n    \"idUser\": null,\n    \"dtMigracao\": null,\n    \"indContaCovid\": null,\n    \"indEscassezHidrica\": null,\n    \"rep_com\": null,\n    \"tarifaIcms\": null,\n    \"oldVersionOfItself\": null\n}"
+								}
+							]
+						}
+					]
+				},
+				{
 					"name": "Exposição por contraparte",
 					"request": {
 						"method": "POST",
@@ -5172,12 +5806,13 @@
 			"value": "zeus.miracleworks.com.br"
 		},
 		{
-			"key": "username",
-			"value": "ROBO"
-		},
-		{
 			"key": "password",
 			"value": "Robo123#"
+		},
+		{
+			"key": "username",
+			"value": "ROBO",
+			"type": "string"
 		},
 		{
 			"key": "idUnidade",
