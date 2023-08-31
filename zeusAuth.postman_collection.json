@@ -2510,66 +2510,6 @@
 					"response": []
 				},
 				{
-					"name": "Dados Energia - Contraparte",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{URL}}/rest/unit/dadosenergia/?dataBase=2023-01-01T03:00:00.000Z&groupId=5796&unitId=7749&lstDadosEnergiaToGet=contratosMes&lstDadosEnergiaToGet=contribAssoc&lstDadosEnergiaToGet=energiaReserva&lstDadosEnergiaToGet=dri&lstDadosEnergiaToGet=consumoMes",
-							"protocol": "https",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"rest",
-								"unit",
-								"dadosenergia",
-								""
-							],
-							"query": [
-								{
-									"key": "dataBase",
-									"value": "2023-01-01T03:00:00.000Z"
-								},
-								{
-									"key": "groupId",
-									"value": "5796"
-								},
-								{
-									"key": "unitId",
-									"value": "7749"
-								},
-								{
-									"key": "lstDadosEnergiaToGet",
-									"value": "contratosMes",
-									"description": "Contratos de Energia"
-								},
-								{
-									"key": "lstDadosEnergiaToGet",
-									"value": "contribAssoc",
-									"description": "Contribuição associativa"
-								},
-								{
-									"key": "lstDadosEnergiaToGet",
-									"value": "energiaReserva",
-									"description": "Energia de reserva"
-								},
-								{
-									"key": "lstDadosEnergiaToGet",
-									"value": "dri",
-									"description": "Liquidação financeira"
-								},
-								{
-									"key": "lstDadosEnergiaToGet",
-									"value": "consumoMes",
-									"description": "Consumo do mês, com perdas + proinfa"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Localizar unidade pelo ID",
 					"request": {
 						"method": "GET",
@@ -4600,14 +4540,12 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/zeus/rest/tarifaDist/tarifa?cor=Azul&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
+									"raw": "http://{{URL}}/rest/tarifaDist/tarifa?cor=Azul&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{URL}}"
 									],
-									"port": "8080",
 									"path": [
-										"zeus",
 										"rest",
 										"tarifaDist",
 										"tarifa"
@@ -4692,14 +4630,12 @@
 											}
 										],
 										"url": {
-											"raw": "http://localhost:8080/zeus/rest/tarifaDist/tarifa?cor=Verde&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
+											"raw": "http://{{URL}}/rest/tarifaDist/tarifa?cor=Verde&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
 											"protocol": "http",
 											"host": [
-												"localhost"
+												"{{URL}}"
 											],
-											"port": "8080",
 											"path": [
-												"zeus",
 												"rest",
 												"tarifaDist",
 												"tarifa"
@@ -4851,14 +4787,12 @@
 											}
 										],
 										"url": {
-											"raw": "http://localhost:8080/zeus/rest/tarifaDist/tarifa?cor=Azul&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
+											"raw": "http://{{URL}}/rest/tarifaDist/tarifa?cor=Azul&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
 											"protocol": "http",
 											"host": [
-												"localhost"
+												"{{URL}}"
 											],
-											"port": "8080",
 											"path": [
-												"zeus",
 												"rest",
 												"tarifaDist",
 												"tarifa"
@@ -5008,14 +4942,12 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/zeus/rest/dadosUnidade?unidade_id=8490",
+									"raw": "http://{{URL}}/rest/dadosUnidade?unidade_id=8490",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{URL}}"
 									],
-									"port": "8080",
 									"path": [
-										"zeus",
 										"rest",
 										"dadosUnidade"
 									],
@@ -5084,14 +5016,12 @@
 											}
 										],
 										"url": {
-											"raw": "http://localhost:8080/zeus/rest/dadosUnidade?unidade_id=8490",
+											"raw": "http://{{URL}}/rest/dadosUnidade?unidade_id=8490",
 											"protocol": "http",
 											"host": [
-												"localhost"
+												"{{URL}}"
 											],
-											"port": "8080",
 											"path": [
-												"zeus",
 												"rest",
 												"dadosUnidade"
 											],
@@ -5574,6 +5504,252 @@
 									"body": "<List>\n    <item>\n        <id>803</id> \n        <dataEntrada>2023</dataEntrada> // ano informado na consulta\n        <dataEntrada>2</dataEntrada> // mês informado na consulta\n        <dataEntrada>6</dataEntrada>\n        <unidade_id>7941</unidade_id>\n        <ano>2023</ano> // ano de referência\n        <mes>2</mes> // mês de referência\n        <demandaCativo>0.0</demandaCativo>\n        <demandaUltCativo>0.0</demandaUltCativo>\n        <encargoCativo>0.0</encargoCativo>\n        <energiaCativo>0.0</energiaCativo>\n        <energiaCativoPonta>0.0</energiaCativoPonta>\n        <energiaCativoFPonta>0.0</energiaCativoFPonta>\n        <custosExtrasCativo>0.0</custosExtrasCativo>\n        <impostosCativo>0.0</impostosCativo>\n        <icmsCativo>0.0</icmsCativo>\n        <custoMedioCativo>0.0</custoMedioCativo>\n        <custoTotalCativo>49028.24</custoTotalCativo> // Custo total cativo\n        <demandaLivre>0.0</demandaLivre>\n        <demandaUltLivre>0.0</demandaUltLivre>\n        <encargoLivre>0.0</encargoLivre>\n        <energiaLivre>0.0</energiaLivre>\n        <custosExtrasLivre>0.0</custosExtrasLivre>\n        <impostosLivre>0.0</impostosLivre>\n        <impostosLivreCalculado>0.0</impostosLivreCalculado>\n        <icmsLivre>0.0</icmsLivre>\n        <icmsLivreCalculado>0.0</icmsLivreCalculado>\n        <custoCCEELivre>0.0</custoCCEELivre>\n        <custoMedioLivre>0.0</custoMedioLivre>\n        <custoTotalLivre>43538.26</custoTotalLivre> // Custo total livre\n        <custoServicoLivre>0.0</custoServicoLivre>\n        <fatorGrupo>1.0</fatorGrupo>\n        <economia>5489.98</economia> // Economia\n        <valueMonth>true</valueMonth>\n        <demandaLivrePonta>0.0</demandaLivrePonta>\n        <demandaLivreFPonta>0.0</demandaLivreFPonta>\n        <demandaIsentaLivrePonta>0.0</demandaIsentaLivrePonta>\n        <demandaIsentaLivreFPonta>0.0</demandaIsentaLivreFPonta>\n        <demandaUltLivrePonta>0.0</demandaUltLivrePonta>\n        <demandaUltLivreFPonta>0.0</demandaUltLivreFPonta>\n        <encargoLivrePonta>0.0</encargoLivrePonta>\n        <encargoLivreFPonta>0.0</encargoLivreFPonta>\n        <demandaCativoPonta>0.0</demandaCativoPonta>\n        <demandaCativoFPonta>0.0</demandaCativoFPonta>\n        <demandaIsentaCativoPonta>0.0</demandaIsentaCativoPonta>\n        <demandaIsentaCativoFPonta>0.0</demandaIsentaCativoFPonta>\n        <demandaUltCativoPonta>0.0</demandaUltCativoPonta>\n        <demandaUltCativoFPonta>0.0</demandaUltCativoFPonta>\n        <encargoCativoPonta>0.0</encargoCativoPonta>\n        <encargoCativoFPonta>0.0</encargoCativoFPonta>\n        <demandaLivrePontaImpostos>0.0</demandaLivrePontaImpostos>\n        <demandaLivreFPontaImpostos>0.0</demandaLivreFPontaImpostos>\n        <demandaIsentaLivrePontaImpostos>0.0</demandaIsentaLivrePontaImpostos>\n        <demandaIsentaLivreFPontaImpostos>0.0</demandaIsentaLivreFPontaImpostos>\n        <demandaUltLivrePontaImpostos>0.0</demandaUltLivrePontaImpostos>\n        <demandaUltLivreFPontaImpostos>0.0</demandaUltLivreFPontaImpostos>\n        <encargoLivrePontaImpostos>0.0</encargoLivrePontaImpostos>\n        <encargoLivreFPontaImpostos>0.0</encargoLivreFPontaImpostos>\n        <demandaCativoPontaImpostos>0.0</demandaCativoPontaImpostos>\n        <demandaCativoFPontaImpostos>0.0</demandaCativoFPontaImpostos>\n        <demandaIsentaCativoPontaImpostos>0.0</demandaIsentaCativoPontaImpostos>\n        <demandaIsentaCativoFPontaImpostos>0.0</demandaIsentaCativoFPontaImpostos>\n        <demandaUltCativoPontaImpostos>0.0</demandaUltCativoPontaImpostos>\n        <demandaUltCativoFPontaImpostos>0.0</demandaUltCativoFPontaImpostos>\n        <encargoCativoPontaImpostos>0.0</encargoCativoPontaImpostos>\n        <encargoCativoFPontaImpostos>0.0</encargoCativoFPontaImpostos>\n        <energiaCativoPontaImpostos>0.0</energiaCativoPontaImpostos>\n        <energiaCativoFPontaImpostos>0.0</energiaCativoFPontaImpostos>\n        <incentivadaPorc>0.0</incentivadaPorc>\n        <icmsEnergiaComercializadora>0.0</icmsEnergiaComercializadora>\n        <memCalPath/>\n        <tblCounterParty>\n            <numCount>7941</numCount>\n            <nomCount>UNIDADE</nomCount> // Unidade\n            <nomCnpj>00.000.000/0001-23</nomCnpj> // CNPJ\n            <nomFull>RAZÃO SOCIAL UNIDADE LTDA</nomFull> // RAZÃO SOCIAL\n            <nomAddre>LOGRADOURO DO ENDEREÇO</nomAddre>\n            <nomStateId>255914075</nomStateId>\n            <indConsu>true</indConsu>\n            <indVarej/>\n            <nomAddreNumbe>4455</nomAddreNumbe>\n            <nomNeigh>BAIRRO </nomNeigh>\n            <nomAddreSuppl></nomAddreSuppl>\n            <nomZipCode>88812-850</nomZipCode> // CEP\n            <indInact>false</indInact>\n            <indExcepIcms>false</indExcepIcms>\n            <indFinanSettl>-1</indFinanSettl>\n            <nomIcms/>\n            <nomCfop/>\n            <nomCst/>\n            <clienteGestao>true</clienteGestao>\n            <omieId>3.75452743E1</omieId>\n            <erpFornecedorId/>\n            <erpClienteId/>\n            <nomSuframa/>\n            <nomCnpjFatur/>\n            <nomGroup/>\n            <nomLogoFile/>\n            <parte/>\n            <parteDefault/>\n            <omieGestaoId/>\n            <nomCityId/>\n            <indMei/>\n            <indSimples/>\n            <indEvitarOperacoes/>\n            <tblCity>\n                <numCity>4386</numCity>\n                <nomCity>CRICIÚMA</nomCity>\n                <numCityIbge>4204608</numCityIbge>\n                <numCodMun/>\n                <tblState>\n                    <numState>24</numState>\n                    <nomState>\tSANTA CATARINA   </nomState>\n                    <codState>SC</codState>\n                    <numStateIbge>42</numStateIbge>\n                    <valIcms>0.0</valIcms>\n                    <valIcmsComerc/>\n                    <valIcmsIndus/>\n                    <indStateIcms>false</indStateIcms>\n                    <nomNotaObs>NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00</nomNotaObs>\n                    <nomNotaObsComercs/>\n                    <submercado/>\n                    <tblRegion>\n                        <numRegio>2</numRegio>\n                        <codRegio>S</codRegio>\n                    </tblRegion>\n                </tblState>\n            </tblCity>\n            <tblState>\n                <numState>24</numState>\n                <nomState>\tSANTA CATARINA   </nomState>\n                <codState>SC</codState>\n                <numStateIbge>42</numStateIbge>\n                <valIcms>0.0</valIcms>\n                <valIcmsComerc/>\n                <valIcmsIndus/>\n                <indStateIcms>false</indStateIcms>\n                <nomNotaObs>NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00</nomNotaObs>\n                <nomNotaObsComercs/>\n                <submercado/>\n                <tblRegion>\n                    <numRegio>2</numRegio>\n                    <codRegio>S</codRegio>\n                </tblRegion>\n            </tblState>\n            <tblSector>\n                <numSetor>1</numSetor>\n                <nomSetor>INDUSTRIAL</nomSetor>\n                <indConsu>true</indConsu>\n            </tblSector>\n            <dadosGeraisUnidade/>\n            <indFinanSettlBol/>\n            <indForceUpdate/>\n            <indUpdateAgentesCCEE/>\n            <oldVersionOfItself/>\n            <economiaTotal/>\n            <lstConsumo/>\n            <lstConsumoHorario/>\n            <lstDemanda/>\n            <lstDri/>\n            <lstEnergiaCusto/>\n            <energiaReserva/>\n            <contribAssoc/>\n            <lstEnergiaContratada/>\n            <lstContratos/>\n            <lstProinfa/>\n            <indBoletas/>\n            <indBalancoEnergetico/>\n            <indAgente/>\n            <indConsumo/>\n            <indProinfa/>\n            <boletaGestao/>\n            <valorDadoCceeProporcionalConsumo/>\n            <lstCalendarioCCEE/>\n            <garantiaFinanceira/>\n            <lstServicoMensal/>\n            <cnpj>10.633.811/0001-83</cnpj>\n            <stateIcms>0.0</stateIcms>\n            <groupId>5373</groupId>\n            <groupName>TOTALPLAST</groupName>\n            <cityName>CRICIÚMA</cityName>\n            <nomLogoGroup/>\n            <inativo>Não</inativo>\n            <stateName>\tSANTA CATARINA   </stateName>\n        </tblCounterParty>\n        <percentualEconomiaCativo>11.197587349658074</percentualEconomiaCativo>\n        <demandaIsentaCativo>0.0</demandaIsentaCativo>\n        <custosExtrasIcms/>\n        <custosExtrasPisCofins/>\n        <demanda/>\n        <dgu/>\n        <consumo/>\n        <distImp/>\n        <tarifa/>\n        <tarifaLivre/>\n        <tarifaCativo/>\n        <demandaLivrePontaIcms>0.0</demandaLivrePontaIcms>\n        <demandaLivreFPontaIcms>0.0</demandaLivreFPontaIcms>\n        <demandaUltLivrePontaIcms>0.0</demandaUltLivrePontaIcms>\n        <demandaUltLivreFPontaIcms>0.0</demandaUltLivreFPontaIcms>\n        <encargoLivrePontaIcms>0.0</encargoLivrePontaIcms>\n        <encargoLivreFPontaIcms>0.0</encargoLivreFPontaIcms>\n        <demandaCativoPontaIcms>0.0</demandaCativoPontaIcms>\n        <demandaCativoFPontaIcms>0.0</demandaCativoFPontaIcms>\n        <demandaUltCativoPontaIcms>0.0</demandaUltCativoPontaIcms>\n        <demandaUltCativoFPontaIcms>0.0</demandaUltCativoFPontaIcms>\n        <encargoCativoPontaIcms>0.0</encargoCativoPontaIcms>\n        <encargoCativoFPontaIcms>0.0</encargoCativoFPontaIcms>\n        <energiaCativoPontaIcms>0.0</energiaCativoPontaIcms>\n        <energiaCativoFPontaIcms>0.0</energiaCativoFPontaIcms>\n        <demandaLivrePontaPis>0.0</demandaLivrePontaPis>\n        <demandaLivreFPontaPis>0.0</demandaLivreFPontaPis>\n        <demandaIsentaLivrePontaPis>0.0</demandaIsentaLivrePontaPis>\n        <demandaIsentaLivreFPontaPis>0.0</demandaIsentaLivreFPontaPis>\n        <demandaUltLivrePontaPis>0.0</demandaUltLivrePontaPis>\n        <demandaUltLivreFPontaPis>0.0</demandaUltLivreFPontaPis>\n        <encargoLivrePontaPis>0.0</encargoLivrePontaPis>\n        <encargoLivreFPontaPis>0.0</encargoLivreFPontaPis>\n        <demandaCativoPontaPis>0.0</demandaCativoPontaPis>\n        <demandaCativoFPontaPis>0.0</demandaCativoFPontaPis>\n        <demandaIsentaCativoPontaPis>0.0</demandaIsentaCativoPontaPis>\n        <demandaIsentaCativoFPontaPis>0.0</demandaIsentaCativoFPontaPis>\n        <demandaUltCativoPontaPis>0.0</demandaUltCativoPontaPis>\n        <demandaUltCativoFPontaPis>0.0</demandaUltCativoFPontaPis>\n        <encargoCativoPontaPis>0.0</encargoCativoPontaPis>\n        <encargoCativoFPontaPis>0.0</encargoCativoFPontaPis>\n        <energiaCativoPontaPis>0.0</energiaCativoPontaPis>\n        <energiaCativoFPontaPis>0.0</energiaCativoFPontaPis>\n        <demandaLivrePontaCofins>0.0</demandaLivrePontaCofins>\n        <demandaLivreFPontaCofins>0.0</demandaLivreFPontaCofins>\n        <demandaIsentaLivrePontaCofins>0.0</demandaIsentaLivrePontaCofins>\n        <demandaIsentaLivreFPontaCofins>0.0</demandaIsentaLivreFPontaCofins>\n        <demandaUltLivrePontaCofins>0.0</demandaUltLivrePontaCofins>\n        <demandaUltLivreFPontaCofins>0.0</demandaUltLivreFPontaCofins>\n        <encargoLivrePontaCofins>0.0</encargoLivrePontaCofins>\n        <encargoLivreFPontaCofins>0.0</encargoLivreFPontaCofins>\n        <demandaCativoPontaCofins>0.0</demandaCativoPontaCofins>\n        <demandaCativoFPontaCofins>0.0</demandaCativoFPontaCofins>\n        <demandaIsentaCativoPontaCofins>0.0</demandaIsentaCativoPontaCofins>\n        <demandaIsentaCativoFPontaCofins>0.0</demandaIsentaCativoFPontaCofins>\n        <demandaUltCativoPontaCofins>0.0</demandaUltCativoPontaCofins>\n        <demandaUltCativoFPontaCofins>0.0</demandaUltCativoFPontaCofins>\n        <encargoCativoPontaCofins>0.0</encargoCativoPontaCofins>\n        <encargoCativoFPontaCofins>0.0</encargoCativoFPontaCofins>\n        <energiaCativoPontaCofins>0.0</energiaCativoPontaCofins>\n        <energiaCativoFPontaCofins>0.0</energiaCativoFPontaCofins>\n        <bandeiraMes/>\n        <nomCount/>\n        <custoTotalLivreSemHonorario>43538.26</custoTotalLivreSemHonorario>\n        <economiaSemHonorario>5489.98</economiaSemHonorario>\n        <dataRefFormat>1675220400000</dataRefFormat>\n    </item>\n</List>"
 								}
 							]
+						}
+					]
+				},
+				{
+					"name": "Dados Energia",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:9000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:9000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Linux\""
+							}
+						],
+						"url": {
+							"raw": "http://{{URL}}/rest/unit/dadosenergia/?dataBase=2023-07-01T03:00:00.000Z&groupId=6380&lstDadosEnergiaToGet=contratosMes&unitId=8490",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"unit",
+								"dadosenergia",
+								""
+							],
+							"query": [
+								{
+									"key": "dataBase",
+									"value": "2023-07-01T03:00:00.000Z"
+								},
+								{
+									"key": "groupId",
+									"value": "6380"
+								},
+								{
+									"key": "lstDadosEnergiaToGet",
+									"value": "contratosMes"
+								},
+								{
+									"key": "unitId",
+									"value": "8490"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Dados Energia",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:9000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:9000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"url": {
+									"raw": "http://{{URL}}/rest/unit/dadosenergia/?dataBase=2023-07-01T03:00:00.000Z&groupId=6380&lstDadosEnergiaToGet=contratosMes,contribAssoc,calendarioCceeAno,consumoAno&unitId=8490",
+									"protocol": "http",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"unit",
+										"dadosenergia",
+										""
+									],
+									"query": [
+										{
+											"key": "dataBase",
+											"value": "2023-07-01T03:00:00.000Z"
+										},
+										{
+											"key": "groupId",
+											"value": "6380",
+											"description": "Id do grupo"
+										},
+										{
+											"key": "lstDadosEnergiaToGet",
+											"value": "contratosMes,contribAssoc,calendarioCceeAno,consumoAno",
+											"description": "Dados que se deseja retornar. Pode usar mais de um tipo, separados por vírgula "
+										},
+										{
+											"key": "unitId",
+											"value": "8490",
+											"description": "Id da unidade"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 31 Aug 2023 20:40:37 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "// O exemplo abaixo retorna os dados conforme solicitado em lstDadosEnergiaToGet. Deve-se usar virgula entre os dados desejados e não colocar vírgula após o último. \n// Exemplos de informações que podem ser obtidas e como solicita-las são:\n//     Dado desejado            Incluir em lstDadosEnergiaToGet                Retorno na propriedade\n// CALENDARIO CCEE - ANO             calendarioCceeAno                           lstCalendarioCCEE\n// CALENDARIO CCEE - MES             calendarioCceeMes                           lstCalendarioCCEE\n// CONSUMO - ANO                        consumoAno                                  lstConsumo\n// CONSUMO - MES                        consumoMes                                  lstConsumo\n// CONSUMO - ÚLTIMO ANO              consumoUltimoAno                               lstConsumo\n// CONSUMO HORARIO - ANO             consumoHorarioAno                              lstConsumo\n// CONSUMO HORARIO - MES             consumoHorarioMes                              lstConsumo\n// CONTRATOS - ANO                     contratosAno                                lstContratos\n// CONTRATOS - MES                     contratosMes                                lstContratos\n// CONTRATOS - MES CONSOLIDADO    contratosMesConsolidado                          lstContratos\n// CONTRIBUIÇÃO ASSOCIATIVA            contribAssoc                                contribAssoc\n// DADOS GERAIS UNIDADE             dadosGeraisUnidade                          dadosGeraisUnidade\n// DEMANDA - ANO                        demandaAno                                  lstDemanda\n// DEMANDA - MES                        demandaMes                                  lstDemanda\n// DEMANDA - ÚLTIMO ANO              demandaUltimoAno                               lstDemanda\n// DRI/LIQUIDAÇÃO FINANCEIRA - MÊS         dri                                        lstDri\n// ENERGIA CONTRATADA - ANO        energiaContratadaAno                         lstEnergiaContratada\n// ENERGIA CUSTO - ANO               energiaCustoAno                              lstEnergiaCusto\n// ENERGIA CUSTO - ÚLTIMO ANO      energiaCustoUltimoAno                          lstEnergiaCusto\n// ENERGIA RESERVA                    energiaReserva                               energiaReserva\n// ECONOMIA TOTAL                      economiaTotal                               economiaTotal\n// GARANTIA FINANCEIRA - MÊS        garantiaFinanceiraMes                        garantiaFinanceira\n// PROINFA - MÊS                         proinfaMes                                  lstProinfa\n// SERVIÇO CUSTO - MÊS                servicoCustoMes                              lstServicoMensal\n\n{\n    \"numCount\": 8490,\n    \"nomCount\": \"TESTE\",\n    \"nomCnpj\": \"01.000.111/0001-00\",\n    \"nomFull\": \"UNIDADE DE TESTE LTDA\",\n    \"nomAddre\": \"RUA ENDEREÇO\",\n    \"nomStateId\": \"86058154\",\n    \"indConsu\": true,\n    \"indVarej\": null,\n    \"nomAddreNumbe\": \"4800\",\n    \"nomNeigh\": \"BAIRRO\",\n    \"nomAddreSuppl\": \"\",\n    \"nomZipCode\": \"12345-000\",\n    \"indInact\": false,\n    \"indExcepIcms\": false,\n    \"indFinanSettl\": -1,\n    \"nomIcms\": null,\n    \"nomCfop\": null,\n    \"nomCst\": null,\n    \"clienteGestao\": true,\n    \"omieId\": null,\n    \"erpFornecedorId\": null,\n    \"erpClienteId\": null,\n    \"nomSuframa\": null,\n    \"nomCnpjFatur\": null,\n    \"nomGroup\": null,\n    \"nomLogoFile\": null,\n    \"parte\": null,\n    \"parteDefault\": null,\n    \"omieGestaoId\": null,\n    \"nomCityId\": null,\n    \"indMei\": null,\n    \"indSimples\": null,\n    \"indCondominio\": null,\n    \"indEvitarOperacoes\": null,\n    \"tblCity\": {\n        \"numCity\": 3266,\n        \"nomCity\": \"VOLTA REDONDA   \",\n        \"numCityIbge\": 3306305,\n        \"numCodMun\": 3680,\n        \"tblState\": {\n            \"numState\": 19,\n            \"nomState\": \"\\tRIO DE JANEIRO   \",\n            \"codState\": \"RJ\",\n            \"numStateIbge\": 33,\n            \"valIcms\": 0.22,\n            \"valIcmsComerc\": 0,\n            \"valIcmsIndus\": 0,\n            \"indStateIcms\": false,\n            \"nomNotaObs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n            \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n            \"submercado\": null,\n            \"tblRegion\": {\n                \"numRegio\": 1,\n                \"codRegio\": \"SE\"\n            }\n        }\n    },\n    \"tblState\": {\n        \"numState\": 19,\n        \"nomState\": \"\\tRIO DE JANEIRO   \",\n        \"codState\": \"RJ\",\n        \"numStateIbge\": 33,\n        \"valIcms\": 0.22,\n        \"valIcmsComerc\": 0,\n        \"valIcmsIndus\": 0,\n        \"indStateIcms\": false,\n        \"nomNotaObs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n        \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n        \"submercado\": null,\n        \"tblRegion\": {\n            \"numRegio\": 1,\n            \"codRegio\": \"SE\"\n        }\n    },\n    \"tblSector\": {\n        \"numSetor\": 1,\n        \"nomSetor\": \"INDUSTRIAL\",\n        \"indConsu\": true\n    },\n    \"dadosGeraisUnidade\": {\n        \"id\": 254,\n        \"dataEntrada\": [\n            2023,\n            2,\n            10\n        ],\n        \"unidade_id\": 8490,\n        \"contratada_ponta\": 0,\n        \"contratada_fponta\": 880,\n        \"contratada_ponta_cativo\": 0,\n        \"contratada_fponta_cativo\": 0,\n        \"fator_perda\": 3,\n        \"unidadeConsumidora\": null,\n        \"faixa\": \"A4\",\n        \"cor\": \"Verde\",\n        \"faixaCativo\": null,\n        \"corCativo\": null,\n        \"distribuidora\": {\n            \"id\": 110,\n            \"dataEntrada\": [\n                2023,\n                1,\n                25\n            ],\n            \"distNome\": \"LIGHT\",\n            \"inicioPonta\": 0,\n            \"fimPonta\": 0,\n            \"indCance\": false,\n            \"indICMSDemanda\": false,\n            \"indICMSEncargos\": false,\n            \"indPisCofinsSemIcms\": true,\n            \"indBasePisCofinsComIcms\": null,\n            \"indSubvencaoTarifariaIcmsDemanda\": null,\n            \"indSubvencaoTarifariaPisCofinsDemanda\": null,\n            \"indSubvencaoTarifariaIcmsEncargo\": null,\n            \"indSubvencaoTarifariaPisCofinsEncargo\": null,\n            \"indDemandaIsenta\": false,\n            \"indDemandaIsentaPonta\": null,\n            \"indIcmsEnergiaNaFaturaDistribuidora\": null,\n            \"oldVersionOfItself\": null\n        },\n        \"distNome\": \"LIGHT\",\n        \"medNome\": \"RJAAVRENTR101\",\n        \"nomCceeAtivo\": \"1047538\",\n        \"nomInstalacaoUnidade\": null,\n        \"valGeracaoCusto\": null,\n        \"valGeracaoPotencia\": null,\n        \"dtLigacao\": null,\n        \"tensao_kv\": 0,\n        \"idUser\": null,\n        \"dtMigracao\": null,\n        \"indContaCovid\": null,\n        \"indEscassezHidrica\": null,\n        \"rep_com\": null,\n        \"tarifaIcms\": null,\n        \"oldVersionOfItself\": null\n    },\n    \"indFinanSettlBol\": null,\n    \"indForceUpdate\": null,\n    \"indUpdateAgentesCCEE\": null,\n    \"lstContacts\": null,\n    \"oldVersionOfItself\": null,\n    \"economiaTotal\": null,\n    \"lstConsumo\": [\n        {\n            \"id\": 5,\n            \"dataEntrada\": 1665630000000,\n            \"dataUltimoConsumo\": 1664506800000,\n            \"agente\": \"TESTE\",\n            \"medidor\": \"012354687\",\n            \"unidade_id\": 8490,\n            \"ano\": 2022,\n            \"mes\": 9,\n            \"valorPontaSCDE\": 11.357372250000004,\n            \"valorFPontaSCDE\": 140.04397575000004,\n            \"valorPontaDistr\": 11.357372250000004,\n            \"valorFPontaDistr\": 140.04397575000004,\n            \"valorDemandaMedidaPonta\": null,\n            \"valorDemandaMedidaFPonta\": null,\n            \"horasFaltantes\": false,\n            \"numHorasFaltantes\": 0,\n            \"fatorPerda\": 3,\n            \"nomOrigem\": \"INTEGRACAO_CCEE\",\n            \"oldVersionOfItself\": null,\n            \"contraparte\": null,\n            \"consumoAusente\": null,\n            \"valProinfa\": 0,\n            \"valorPontaOriginal\": 0,\n            \"valorFPontaOriginal\": 0,\n            \"tipoConsumo\": null,\n            \"lstUnidadesV\": null,\n            \"contratado\": null,\n            \"consumido\": null,\n            \"totalComPerdas\": null,\n            \"requisitoFinal\": null,\n            \"totalVolConsumoEstimadoSomPerdas\": null,\n            \"totalVolConsumoEstimadoComPerdasEProinfa\": null,\n            \"pendencia\": null,\n            \"contratoTipoValue\": null,\n            \"dataConsumo\": 1662064837314\n        },\n        {\n            \"id\": 7,\n            \"dataEntrada\": 1674183600000,\n            \"dataUltimoConsumo\": 1667185200000,\n            \"agente\": \"TESTE\",\n            \"medidor\": \"00000000000\",\n            \"unidade_id\": 8490,\n            \"ano\": 2022,\n            \"mes\": 10,\n            \"valorPontaSCDE\": 9.832132799999998,\n            \"valorFPontaSCDE\": 117.71208224999995,\n            \"valorPontaDistr\": 9.832132799999998,\n            \"valorFPontaDistr\": 117.71208224999995,\n            \"valorDemandaMedidaPonta\": 312.165,\n            \"valorDemandaMedidaFPonta\": 638.82,\n            \"horasFaltantes\": false,\n            \"numHorasFaltantes\": 0,\n            \"fatorPerda\": 3,\n            \"nomOrigem\": \"INTEGRACAO_CCEE\",\n            \"oldVersionOfItself\": null,\n            \"contraparte\": null,\n            \"consumoAusente\": null,\n            \"valProinfa\": 0,\n            \"valorPontaOriginal\": 0,\n            \"valorFPontaOriginal\": 0,\n            \"tipoConsumo\": null,\n            \"lstUnidadesV\": null,\n            \"contratado\": null,\n            \"consumido\": null,\n            \"totalComPerdas\": null,\n            \"requisitoFinal\": null,\n            \"totalVolConsumoEstimadoSomPerdas\": null,\n            \"totalVolConsumoEstimadoComPerdasEProinfa\": null,\n            \"pendencia\": null,\n            \"contratoTipoValue\": null,\n            \"dataConsumo\": 1664656837314\n        },\n        {\n            \"id\": 10,\n            \"dataEntrada\": 1670900400000,\n            \"dataUltimoConsumo\": 1669777200000,\n            \"agente\": \"TESTE\",\n            \"medidor\": \"0000000\",\n            \"unidade_id\": 8490,\n            \"ano\": 2022,\n            \"mes\": 11,\n            \"valorPontaSCDE\": 11.206503,\n            \"valorFPontaSCDE\": 111.05079929999988,\n            \"valorPontaDistr\": 11.206503,\n            \"valorFPontaDistr\": 111.05079929999988,\n            \"valorDemandaMedidaPonta\": 312.795,\n            \"valorDemandaMedidaFPonta\": 644.49,\n            \"horasFaltantes\": false,\n            \"numHorasFaltantes\": 0,\n            \"fatorPerda\": 3,\n            \"nomOrigem\": \"INTEGRACAO_CCEE\",\n            \"oldVersionOfItself\": null,\n            \"contraparte\": null,\n            \"consumoAusente\": null,\n            \"valProinfa\": 0,\n            \"valorPontaOriginal\": 0,\n            \"valorFPontaOriginal\": 0,\n            \"tipoConsumo\": null,\n            \"lstUnidadesV\": null,\n            \"contratado\": null,\n            \"consumido\": null,\n            \"totalComPerdas\": null,\n            \"requisitoFinal\": null,\n            \"totalVolConsumoEstimadoSomPerdas\": null,\n            \"totalVolConsumoEstimadoComPerdasEProinfa\": null,\n            \"pendencia\": null,\n            \"contratoTipoValue\": null,\n            \"dataConsumo\": 1667335237314\n        }\n    ],\n    \"lstConsumoHorario\": null,\n    \"lstDemanda\": null,\n    \"lstDri\": null,\n    \"lstEnergiaCusto\": null,\n    \"energiaReserva\": null,\n    \"contribAssoc\": {\n        \"id\": 0,\n        \"dataEntrada\": null,\n        \"ano\": 0,\n        \"mes\": 0,\n        \"grupo_id\": 0,\n        \"nom_group\": null,\n        \"valor\": 0,\n        \"nomeAgente\": null,\n        \"codigoAgente\": null,\n        \"emails\": null,\n        \"numCount\": null,\n        \"type\": null,\n        \"oldVersionOfItself\": null\n    },\n    \"lstEnergiaContratada\": null,\n    \"lstContratos\": [\n        {\n            \"id\": 4092,\n            \"dataEntrada\": [\n                2023,\n                2,\n                1\n            ],\n            \"dataInicio\": 1688180400000,\n            \"dataFim\": 1690772400000,\n            \"dataPagamento\": 1692586800000,\n            \"volume\": 148.8,\n            \"preco\": 183.65,\n            \"datIndexBase\": 1598929200000,\n            \"datIndexFirstAdjus\": 1672542000000,\n            \"garantiaTipo\": -1,\n            \"valComissao\": 0,\n            \"groupCompId\": 6380,\n            \"groupVendId\": 197,\n            \"unidadeCompId\": 8490,\n            \"unidadeVendId\": 5897,\n            \"submercado\": 1,\n            \"energyTipo\": 2,\n            \"precoTipo\": 1,\n            \"indexId\": 1,\n            \"registroTipo\": 2,\n            \"contratoId\": 4,\n            \"valVolumSazo\": 148.8,\n            \"valVolumAdjus\": 0,\n            \"valPriceAdjus\": 221.93,\n            \"valPriceReajuAplic\": null,\n            \"indCance\": false,\n            \"datCance\": null,\n            \"indAdjus\": null,\n            \"userId\": 1,\n            \"flexMin\": 30,\n            \"flexMax\": 30,\n            \"sazoMin\": 20,\n            \"sazoMax\": 20,\n            \"indBalancReali\": false,\n            \"valRetus\": 35,\n            \"numContrCcee\": null,\n            \"consumo\": null,\n            \"agenteComprador\": null,\n            \"agenteVendedor\": null,\n            \"lstUnidadesV\": null,\n            \"cpGroup\": \"TESTE                                                       \",\n            \"precoTipoName\": \"Fixo\",\n            \"submercadoName\": \"SE\",\n            \"stateName\": \"PR\",\n            \"registroTipoName\": \"Registro antecipado\",\n            \"garantiaTipoName\": \"NA\",\n            \"indiceName\": \"IPCA\",\n            \"distributionTypeName\": \"FLAT\",\n            \"userName\": null,\n            \"extension\": null,\n            \"contraParte\": {\n                \"numCount\": 1234,\n                \"nomCount\": \"TESTE                                       \",\n                \"nomCnpj\": \"19.111.999/0001-00                                          \",\n                \"nomFull\": \"TESTE\",\n                \"nomAddre\": \"RUA ENDEREÇO\",\n                \"nomStateId\": \"90719349-74                                                 \",\n                \"indConsu\": false,\n                \"indVarej\": null,\n                \"nomAddreNumbe\": \"800                                                         \",\n                \"nomNeigh\": \"BAIRRO                                                       \",\n                \"nomAddreSuppl\": \"4 ANDAR                                                     \",\n                \"nomZipCode\": \"12345-170                                                  \",\n                \"indInact\": false,\n                \"indExcepIcms\": false,\n                \"indFinanSettl\": -1,\n                \"nomIcms\": null,\n                \"nomCfop\": null,\n                \"nomCst\": null,\n                \"clienteGestao\": null,\n                \"omieId\": null,\n                \"erpFornecedorId\": null,\n                \"erpClienteId\": null,\n                \"nomSuframa\": null,\n                \"nomCnpjFatur\": null,\n                \"nomGroup\": null,\n                \"nomLogoFile\": null,\n                \"parte\": null,\n                \"parteDefault\": null,\n                \"omieGestaoId\": null,\n                \"nomCityId\": null,\n                \"indMei\": null,\n                \"indSimples\": null,\n                \"indCondominio\": null,\n                \"indEvitarOperacoes\": null,\n                \"tblCity\": {\n                    \"numCity\": 4006,\n                    \"nomCity\": \"CURITIBA\",\n                    \"numCityIbge\": 4106902,\n                    \"numCodMun\": 3283,\n                    \"tblState\": {\n                        \"numState\": 16,\n                        \"nomState\": \"\\tPARANÁ   \",\n                        \"codState\": \"PR\",\n                        \"numStateIbge\": 41,\n                        \"valIcms\": 0.18,\n                        \"valIcmsComerc\": 0,\n                        \"valIcmsIndus\": 0,\n                        \"indStateIcms\": false,\n                        \"nomNotaObs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                        \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                        \"submercado\": null,\n                        \"tblRegion\": {\n                            \"numRegio\": 2,\n                            \"codRegio\": \"S\"\n                        }\n                    }\n                },\n                \"tblState\": {\n                    \"numState\": 16,\n                    \"nomState\": \"\\tPARANÁ   \",\n                    \"codState\": \"PR\",\n                    \"numStateIbge\": 41,\n                    \"valIcms\": 0.18,\n                    \"valIcmsComerc\": 0,\n                    \"valIcmsIndus\": 0,\n                    \"indStateIcms\": false,\n                    \"nomNotaObs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                    \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                    \"submercado\": null,\n                    \"tblRegion\": {\n                        \"numRegio\": 2,\n                        \"codRegio\": \"S\"\n                    }\n                },\n                \"tblSector\": {\n                    \"numSetor\": -1,\n                    \"nomSetor\": \"NA\",\n                    \"indConsu\": false\n                },\n                \"dadosGeraisUnidade\": null,\n                \"indFinanSettlBol\": null,\n                \"indForceUpdate\": null,\n                \"indUpdateAgentesCCEE\": null,\n                \"lstContacts\": null,\n                \"oldVersionOfItself\": null,\n                \"economiaTotal\": null,\n                \"lstConsumo\": null,\n                \"lstConsumoHorario\": null,\n                \"lstDemanda\": null,\n                \"lstDri\": null,\n                \"lstEnergiaCusto\": null,\n                \"energiaReserva\": null,\n                \"contribAssoc\": null,\n                \"lstEnergiaContratada\": null,\n                \"lstContratos\": null,\n                \"lstProinfa\": null,\n                \"indBoletas\": null,\n                \"indBalancoEnergetico\": null,\n                \"indAgente\": null,\n                \"indConsumo\": null,\n                \"indProinfa\": null,\n                \"boletaGestao\": null,\n                \"valorDadoCceeProporcionalConsumo\": null,\n                \"lstCalendarioCCEE\": null,\n                \"garantiaFinanceira\": null,\n                \"lstServicoMensal\": null,\n                \"cnpj\": \"19.111.000/0001-00                                          \",\n                \"stateIcms\": 0.18,\n                \"nomLogoGroup\": null,\n                \"groupId\": 197,\n                \"rating\": \"E\",\n                \"groupName\": \"TESTE                                                       \",\n                \"cityName\": \"CURITIBA\",\n                \"varejista\": \"Não\",\n                \"inativo\": \"Não\",\n                \"mei\": \"Não\",\n                \"simples\": \"Não\",\n                \"evitarOperacoes\": \"Não\",\n                \"stateName\": \"\\tPARANÁ   \"\n            },\n            \"parte\": {\n                \"numCount\": 8490,\n                \"nomCount\": \"TESTE                                       \",\n                \"nomCnpj\": \"01.000.111/0001-00\",\n                \"nomFull\": \"UNIDADE DE TESTE LTDA\",\n                \"nomAddre\": \"RUA ENDEREÇO\",\n                \"nomStateId\": \"86058154\",\n                \"indConsu\": true,\n                \"indVarej\": null,\n                \"nomAddreNumbe\": \"4800\",\n                \"nomNeigh\": \"BAIRRO\",\n                \"nomAddreSuppl\": \"\",\n                \"nomZipCode\": \"12345-000\",\n                \"indInact\": false,\n                \"indExcepIcms\": false,\n                \"indFinanSettl\": -1,\n                \"nomIcms\": null,\n                \"nomCfop\": null,\n                \"nomCst\": null,\n                \"clienteGestao\": true,\n                \"omieId\": null,\n                \"erpFornecedorId\": null,\n                \"erpClienteId\": null,\n                \"nomSuframa\": null,\n                \"nomCnpjFatur\": null,\n                \"nomGroup\": null,\n                \"nomLogoFile\": null,\n                \"parte\": null,\n                \"parteDefault\": null,\n                \"omieGestaoId\": 1279700665,\n                \"nomCityId\": null,\n                \"indMei\": null,\n                \"indSimples\": null,\n                \"indCondominio\": null,\n                \"indEvitarOperacoes\": null,\n                \"tblCity\": {\n                    \"numCity\": 3266,\n                    \"nomCity\": \"VOLTA REDONDA   \",\n                    \"numCityIbge\": 3306305,\n                    \"numCodMun\": 3680,\n                    \"tblState\": {\n                        \"numState\": 19,\n                        \"nomState\": \"\\tRIO DE JANEIRO   \",\n                        \"codState\": \"RJ\",\n                        \"numStateIbge\": 33,\n                        \"valIcms\": 0.22,\n                        \"valIcmsComerc\": 0,\n                        \"valIcmsIndus\": 0,\n                        \"indStateIcms\": false,\n                        \"nomNotaObs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                        \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                        \"submercado\": null,\n                        \"tblRegion\": {\n                            \"numRegio\": 1,\n                            \"codRegio\": \"SE\"\n                        }\n                    }\n                },\n                \"tblState\": {\n                    \"numState\": 19,\n                    \"nomState\": \"\\tRIO DE JANEIRO   \",\n                    \"codState\": \"RJ\",\n                    \"numStateIbge\": 33,\n                    \"valIcms\": 0.22,\n                    \"valIcmsComerc\": 0,\n                    \"valIcmsIndus\": 0,\n                    \"indStateIcms\": false,\n                    \"nomNotaObs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                    \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                    \"submercado\": null,\n                    \"tblRegion\": {\n                        \"numRegio\": 1,\n                        \"codRegio\": \"SE\"\n                    }\n                },\n                \"tblSector\": {\n                    \"numSetor\": 1,\n                    \"nomSetor\": \"INDUSTRIAL\",\n                    \"indConsu\": true\n                },\n                \"dadosGeraisUnidade\": {\n                    \"id\": 254,\n                    \"dataEntrada\": [\n                        2023,\n                        2,\n                        10\n                    ],\n                    \"unidade_id\": 8490,\n                    \"contratada_ponta\": 0,\n                    \"contratada_fponta\": 880,\n                    \"contratada_ponta_cativo\": 0,\n                    \"contratada_fponta_cativo\": 0,\n                    \"fator_perda\": 3,\n                    \"unidadeConsumidora\": null,\n                    \"faixa\": \"A4\",\n                    \"cor\": \"Verde\",\n                    \"faixaCativo\": null,\n                    \"corCativo\": null,\n                    \"distribuidora\": {\n                        \"id\": 110,\n                        \"dataEntrada\": [\n                            2023,\n                            1,\n                            25\n                        ],\n                        \"distNome\": \"LIGHT\",\n                        \"inicioPonta\": 0,\n                        \"fimPonta\": 0,\n                        \"indCance\": false,\n                        \"indICMSDemanda\": false,\n                        \"indICMSEncargos\": false,\n                        \"indPisCofinsSemIcms\": true,\n                        \"indBasePisCofinsComIcms\": null,\n                        \"indSubvencaoTarifariaIcmsDemanda\": null,\n                        \"indSubvencaoTarifariaPisCofinsDemanda\": null,\n                        \"indSubvencaoTarifariaIcmsEncargo\": null,\n                        \"indSubvencaoTarifariaPisCofinsEncargo\": null,\n                        \"indDemandaIsenta\": false,\n                        \"indDemandaIsentaPonta\": null,\n                        \"indIcmsEnergiaNaFaturaDistribuidora\": null,\n                        \"oldVersionOfItself\": null\n                    },\n                    \"distNome\": \"LIGHT\",\n                    \"medNome\": \"00000000\",\n                    \"nomCceeAtivo\": \"000000000\",\n                    \"nomInstalacaoUnidade\": null,\n                    \"valGeracaoCusto\": null,\n                    \"valGeracaoPotencia\": null,\n                    \"dtLigacao\": null,\n                    \"tensao_kv\": 0,\n                    \"idUser\": null,\n                    \"dtMigracao\": null,\n                    \"indContaCovid\": null,\n                    \"indEscassezHidrica\": null,\n                    \"rep_com\": null,\n                    \"tarifaIcms\": null,\n                    \"oldVersionOfItself\": null\n                },\n                \"indFinanSettlBol\": null,\n                \"indForceUpdate\": null,\n                \"indUpdateAgentesCCEE\": null,\n                \"lstContacts\": null,\n                \"oldVersionOfItself\": null,\n                \"economiaTotal\": null,\n                \"lstConsumo\": null,\n                \"lstConsumoHorario\": null,\n                \"lstDemanda\": null,\n                \"lstDri\": null,\n                \"lstEnergiaCusto\": null,\n                \"energiaReserva\": null,\n                \"contribAssoc\": null,\n                \"lstEnergiaContratada\": null,\n                \"lstContratos\": null,\n                \"lstProinfa\": null,\n                \"indBoletas\": null,\n                \"indBalancoEnergetico\": null,\n                \"indAgente\": null,\n                \"indConsumo\": null,\n                \"indProinfa\": null,\n                \"boletaGestao\": null,\n                \"valorDadoCceeProporcionalConsumo\": null,\n                \"lstCalendarioCCEE\": null,\n                \"garantiaFinanceira\": null,\n                \"lstServicoMensal\": null,\n                \"cnpj\": \"01.585.178/0001-04\",\n                \"stateIcms\": 0.22,\n                \"nomLogoGroup\": null,\n                \"groupId\": 6380,\n                \"rating\": \"-\",\n                \"groupName\": \"TESTE\",\n                \"cityName\": \"VOLTA REDONDA   \",\n                \"varejista\": \"Não\",\n                \"inativo\": \"Não\",\n                \"mei\": \"Não\",\n                \"simples\": \"Não\",\n                \"evitarOperacoes\": \"Não\",\n                \"stateName\": \"\\tRIO DE JANEIRO   \"\n            },\n            \"icmsVal\": 0.22,\n            \"cfop\": \"5252\",\n            \"cst\": \"51\",\n            \"valPriceTrade\": 33023.18,\n            \"valPriceIcms\": 9314.230256410257,\n            \"valPriceIcmsGestao\": 9314.230256410257,\n            \"valPriceTotal\": 42337.41025641026,\n            \"problema\": \"VOLUME\",\n            \"iest\": null,\n            \"contract\": null,\n            \"representatividade\": 100,\n            \"boletaEnergia\": {\n                \"id\": 4,\n                \"dataEntrada\": [\n                    2023,\n                    2,\n                    1\n                ],\n                \"dataInicio\": 1609470000000,\n                \"dataFim\": 1703991600000,\n                \"groupCompId\": 6380,\n                \"unidadeCompId\": 8490,\n                \"groupVendId\": 197,\n                \"unidadeVendId\": 5897,\n                \"precoTipo\": 1,\n                \"preco\": 183.65,\n                \"valComissao\": 0,\n                \"valPisoCollar\": null,\n                \"valTetoCollar\": null,\n                \"volumeTipo\": 1,\n                \"volume\": 0.2,\n                \"flexMin\": 30,\n                \"flexMax\": 30,\n                \"sazoMin\": 20,\n                \"sazoMax\": 20,\n                \"submercado\": 1,\n                \"energyTipo\": 2,\n                \"numDistType\": 1,\n                \"retusd\": 35,\n                \"plataformaId\": 1,\n                \"indexId\": 1,\n                \"datIndexBase\": 1598929200000,\n                \"datIndexFirstAdjus\": 1609470000000,\n                \"registroTipo\": 2,\n                \"garantiaTipo\": -1,\n                \"emitInvoiType\": null,\n                \"emitInvoiVal\": null,\n                \"emitInvoiCondPerioType\": null,\n                \"pagType\": 2,\n                \"pagVal\": 15,\n                \"pagMesType\": 2,\n                \"stateIcms_id\": null,\n                \"comentario\": \"\",\n                \"userId\": 1,\n                \"cancelada\": false,\n                \"numRefId\": 0,\n                \"representatividade\": 100,\n                \"numContrCcee\": null,\n                \"valPriceReaj\": null,\n                \"valPriceContratado\": null,\n                \"indReajRealizado\": null,\n                \"valReajRealizado\": null,\n                \"datSeaso\": 1669777200000,\n                \"carteira\": null,\n                \"tblCarteira\": null,\n                \"indReajIniciForneCliente\": null,\n                \"agenteVendedor\": null,\n                \"agenteComprador\": null,\n                \"aprovadoCliente\": true,\n                \"datAprovCliente\": 1675257806000,\n                \"userAprovCliente\": {\n                    \"id\": 8,\n                    \"name\": \"\",\n                    \"nameBBCE\": null,\n                    \"nameEnbox\": null,\n                    \"login\": \"\",\n                    \"password\": \"6124e069f4d067e9f7cbe8c010c9\",\n                    \"email\": \"\",\n                    \"indCancel\": false,\n                    \"indConfi\": false,\n                    \"indTrade\": false,\n                    \"indAdmin\": false,\n                    \"indContr\": false,\n                    \"indFinan\": false,\n                    \"indCount\": false,\n                    \"indLawye\": false,\n                    \"indBack\": false,\n                    \"signatureUser\": \"\",\n                    \"nomFileUserSign\": null,\n                    \"indUsing2FA\": null,\n                    \"nomSecret\": \"JFCLWQUFIEDJEZHH\",\n                    \"perfil\": {\n                        \"id\": 1,\n                        \"nomPerfil\": \"ADMIN\",\n                        \"oldVersionOfItself\": null,\n                        \"textoPermissoes\": \" <b>Boletas</b> Visualizar + Inserir + Editar<br> <b>Garantias</b> Visualizar + Inserir + Editar<br> <b>Financeiro</b> Visualizar + Inserir + Editar<br> <b>Registro</b> Visualizar + Inserir + Editar<br> <b>PLD</b> Visualizar + Inserir + Editar<br> <b>Contraparte</b> Visualizar + Inserir + Editar<br> <b>Administração</b> Visualizar + Inserir + Editar<br> <b>Juridico</b> Visualizar + Inserir + Editar<br> <b>Aprovador</b> Visualizar + Inserir + Editar<br> <b>Relatorio</b> Visualizar + Inserir + Editar<br> <b>Relatorio Externo</b> Visualizar + Inserir + Editar<br> <b>Gestão</b> Visualizar + Inserir + Editar<br> <b>Viabilidade</b> Visualizar + Inserir + Editar<br> <b>Arquivos</b> Visualizar + Inserir + Editar<br> <b>Derivativos</b> Visualizar + Inserir + Editar<br> <b>Migração</b> Visualizar + Inserir + Editar<br> <b>Modelo Migração</b> Visualizar + Inserir + Editar<br> <b>Middle</b> Visualizar + Inserir + Editar<br><br>\",\n                        \"dashboard\": null\n                    },\n                    \"dashboard\": null,\n                    \"oldVersionOfItself\": null,\n                    \"nomQURL\": null,\n                    \"nomLogin\": \"\"\n                },\n                \"precoTipoName\": null,\n                \"volumeTipoName\": null,\n                \"submercadoName\": null,\n                \"energiaTipoName\": null,\n                \"plataformaName\": null,\n                \"registroTipoName\": null,\n                \"garantiaTipoName\": null,\n                \"pagamentoTipoName\": null,\n                \"estadoIcmsName\": null,\n                \"indiceName\": null,\n                \"volumeSazoList\": null,\n                \"userName\": null,\n                \"distType\": {\n                    \"numDistType\": 1,\n                    \"nomDistType\": \"FLAT\",\n                    \"nomDistCcee\": \"FLAT\"\n                },\n                \"pagDate\": null,\n                \"emitInvoiDate\": null,\n                \"boletaType\": false,\n                \"vigencia\": null,\n                \"cobertura\": null,\n                \"extension\": null,\n                \"docStatusId\": null,\n                \"docStatusName\": null,\n                \"datDocumUpdat\": null,\n                \"intDocumDays\": null,\n                \"daysBetweenUpdate\": null,\n                \"sazoRealizada\": null,\n                \"parcialmenteCancelada\": null,\n                \"dataInicioReajuste\": null,\n                \"dataFimReajuste\": null,\n                \"indBalancReali\": null,\n                \"editable\": null,\n                \"userUpdate\": null,\n                \"datUpdate\": null,\n                \"siglaEmitInvoi\": null,\n                \"siglaPagamento\": null,\n                \"indBoletaSemTrade\": null,\n                \"dataCriacao\": null,\n                \"comentarioEdicao\": null,\n                \"forceUpdate\": null,\n                \"parte\": null,\n                \"contraparte\": null,\n                \"agenteParte\": null,\n                \"agenteContraparte\": null,\n                \"comercializadora\": null,\n                \"contratosCliqMensalList\": null,\n                \"negocioBBCEId\": null,\n                \"agenteParteExport\": null,\n                \"agenteContraparteExport\": null,\n                \"encContas\": null,\n                \"temTradeFaturado\": null,\n                \"betNaoCanceladoList\": null,\n                \"indTodosTradesFaturados\": null,\n                \"tradesFaturados\": null,\n                \"stateName\": null,\n                \"forcarReajuste\": null,\n                \"numCount\": 0,\n                \"unidadeCName\": null,\n                \"groupVName\": null,\n                \"unidadeVName\": null,\n                \"groupCName\": null,\n                \"venda\": false,\n                \"nomFull\": \"-\",\n                \"nomCnpj\": \"-\",\n                \"pagMesName\": \"Mês Seguinte\",\n                \"stringPagamento\": \"15 DU MS\",\n                \"cpUnit\": null,\n                \"cpGroup\": null,\n                \"distribuicaoTipo\": \"FLAT\",\n                \"stringEmitInvoi\": \"\",\n                \"compVend\": \"Compra\",\n                \"volumeExport\": 0.2,\n                \"numberBBCE\": \"-\",\n                \"carteiraName\": \"-\",\n                \"reajIniciForne\": \"Não\",\n                \"reajIniciForneCliente\": \"Não\",\n                \"boletaParcialmenteCancelada\": \"Não\",\n                \"operacaoHeterodoxa\": \"Não\"\n            },\n            \"numRefId\": 0,\n            \"valVolumFlexMin\": 104.16,\n            \"valVolumFlexMax\": 193.44,\n            \"valVolumFlexMinRepresentatividade\": null,\n            \"valVolumFlexMaxRepresentatividade\": null,\n            \"volBalancoEnergetico\": null,\n            \"indSendEmail\": null,\n            \"indInvoice\": null,\n            \"comercializadora\": false,\n            \"hasNotForkedNaContracts\": false,\n            \"valVolumFinal\": 148.8,\n            \"valPriceFinal\": 221.93,\n            \"valPriceExposicao\": null,\n            \"valMtM\": 0,\n            \"valIndex\": 0,\n            \"indOficial\": false,\n            \"valIndexSwapEnergia\": 0,\n            \"valAgio\": 0,\n            \"numBroke\": null,\n            \"nomBroke\": null,\n            \"forceUpdateTradeFaturado\": null,\n            \"nomNFE\": null,\n            \"notForkedNaContract\": null,\n            \"valProjAjuste\": null,\n            \"agenteParte\": null,\n            \"agenteContraparte\": null,\n            \"numHoras\": 744,\n            \"partialTradeFaturamento\": null,\n            \"valProjFutura\": null,\n            \"horasMes\": null,\n            \"volumeHorarioList\": null,\n            \"contratosCliqMensalList\": null,\n            \"valPriceTotalCompra\": null,\n            \"valPriceTotalVenda\": null,\n            \"numContratoBBCE\": null,\n            \"valVolumSazoAtual\": 148.8,\n            \"valVolumAtual\": 148.8,\n            \"volFlexMin\": 104.16,\n            \"volFlexMax\": 193.44,\n            \"valPriceAtual\": 221.93,\n            \"numCount\": 5897,\n            \"unidadeCName\": \"TESTE\",\n            \"groupVName\": \"TESTE                                                       \",\n            \"unidadeVName\": \"TESTE COMERCIALIZAÇÃO                                       \",\n            \"groupCName\": \"TESTE\",\n            \"nomFull\": \"TESTE COMERCIALIZAÇÃO SA\",\n            \"nomCnpj\": \"19.111.999/0001-00                                          \",\n            \"nomCnpjFatur\": null,\n            \"cpUnit\": \"TESTE COMERCIALIZAÇÃO                                       \",\n            \"comentario\": \"\",\n            \"userUpdate\": \"-\",\n            \"compVend\": \"Compra\",\n            \"energiatipoName\": \"INCENTIVADA 50%\",\n            \"dataUpdate\": null,\n            \"valVolumeSazo\": 0,\n            \"valVolumeFlex\": 0,\n            \"datContractIniti\": null,\n            \"datContractFinal\": null,\n            \"representatividadeExport\": 100,\n            \"carteiraName\": \"NA\",\n            \"operacaoHeterodoxa\": \"Não\"\n        }\n    ],\n    \"lstProinfa\": null,\n    \"indBoletas\": null,\n    \"indBalancoEnergetico\": null,\n    \"indAgente\": null,\n    \"indConsumo\": null,\n    \"indProinfa\": null,\n    \"boletaGestao\": null,\n    \"valorDadoCceeProporcionalConsumo\": null,\n    \"lstCalendarioCCEE\": [\n        {\n            \"id\": 305,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 1,\n            \"titulo\": \"Contribuição Associativa\",\n            \"acao\": \"Pgto Boleto\",\n            \"data\": 1674788400000\n        },\n        {\n            \"id\": 306,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 2,\n            \"titulo\": \"Contribuição Associativa\",\n            \"acao\": \"Pgto Boleto\",\n            \"data\": 1677639600000\n        },\n        {\n            \"id\": 307,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 3,\n            \"titulo\": \"Contribuição Associativa\",\n            \"acao\": \"Pgto Boleto\",\n            \"data\": 1679972400000\n        },\n        {\n            \"id\": 308,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 4,\n            \"titulo\": \"Contribuição Associativa\",\n            \"acao\": \"Pgto Boleto\",\n            \"data\": 1683082800000\n        },\n        {\n            \"id\": 309,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 5,\n            \"titulo\": \"Contribuição Associativa\",\n            \"acao\": \"Pgto Boleto\",\n            \"data\": 1685329200000\n        },\n        {\n            \"id\": 310,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 6,\n            \"titulo\": \"Contribuição Associativa\",\n            \"acao\": \"Pgto Boleto\",\n            \"data\": 1688007600000\n        },\n        {\n            \"id\": 312,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 1,\n            \"titulo\": \"Garantia Financeira\",\n            \"acao\": \"Aporte\",\n            \"data\": 1677121200000\n        },\n        {\n            \"id\": 313,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 2,\n            \"titulo\": \"Garantia Financeira\",\n            \"acao\": \"Aporte\",\n            \"data\": 1679367600000\n        },\n        {\n            \"id\": 314,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 3,\n            \"titulo\": \"Garantia Financeira\",\n            \"acao\": \"Aporte\",\n            \"data\": 1682391600000\n        },\n        {\n            \"id\": 315,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 4,\n            \"titulo\": \"Garantia Financeira\",\n            \"acao\": \"Aporte\",\n            \"data\": 1684724400000\n        },\n        {\n            \"id\": 316,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 5,\n            \"titulo\": \"Garantia Financeira\",\n            \"acao\": \"Aporte\",\n            \"data\": 1687402800000\n        },\n        {\n            \"id\": 319,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 1,\n            \"titulo\": \"Liquidação Energia de Reserva\",\n            \"acao\": \"Débito\",\n            \"data\": 1676516400000\n        },\n        {\n            \"id\": 320,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 1,\n            \"titulo\": \"Liquidação Energia de Reserva\",\n            \"acao\": \"Crédito\",\n            \"data\": 1676602800000\n        },\n        {\n            \"id\": 321,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 2,\n            \"titulo\": \"Liquidação Energia de Reserva\",\n            \"acao\": \"Débito\",\n            \"data\": 1679281200000\n        },\n        {\n            \"id\": 322,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 2,\n            \"titulo\": \"Liquidação Energia de Reserva\",\n            \"acao\": \"Crédito\",\n            \"data\": 1679367600000\n        },\n        {\n            \"id\": 323,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 3,\n            \"titulo\": \"Liquidação Energia de Reserva\",\n            \"acao\": \"Crédito\",\n            \"data\": 1682305200000\n        },\n        {\n            \"id\": 324,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 3,\n            \"titulo\": \"Liquidação Energia de Reserva\",\n            \"acao\": \"Débito\",\n            \"data\": 1682391600000\n        },\n        {\n            \"id\": 325,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 4,\n            \"titulo\": \"Liquidação Energia de Reserva\",\n            \"acao\": \"Crédito\",\n            \"data\": 1684378800000\n        },\n        {\n            \"id\": 326,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 4,\n            \"titulo\": \"Liquidação Energia de Reserva\",\n            \"acao\": \"Débito\",\n            \"data\": 1684465200000\n        },\n        {\n            \"id\": 327,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 5,\n            \"titulo\": \"Liquidação Energia de Reserva\",\n            \"acao\": \"Débito\",\n            \"data\": 1687230000000\n        },\n        {\n            \"id\": 328,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 5,\n            \"titulo\": \"Liquidação Energia de Reserva\",\n            \"acao\": \"Crédito\",\n            \"data\": 1687316400000\n        },\n        {\n            \"id\": 333,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 1,\n            \"titulo\": \"Liquidação Financeira\",\n            \"acao\": \"Débito\",\n            \"data\": 1678330800000\n        },\n        {\n            \"id\": 334,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 1,\n            \"titulo\": \"Liquidação Financeira\",\n            \"acao\": \"Crédito\",\n            \"data\": 1678417200000\n        },\n        {\n            \"id\": 335,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 2,\n            \"titulo\": \"Liquidação Financeira\",\n            \"acao\": \"Débito\",\n            \"data\": 1680663600000\n        },\n        {\n            \"id\": 336,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 2,\n            \"titulo\": \"Liquidação Financeira\",\n            \"acao\": \"Crédito\",\n            \"data\": 1680750000000\n        },\n        {\n            \"id\": 337,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 3,\n            \"titulo\": \"Liquidação Financeira\",\n            \"acao\": \"Débito\",\n            \"data\": 1683774000000\n        },\n        {\n            \"id\": 338,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 3,\n            \"titulo\": \"Liquidação Financeira\",\n            \"acao\": \"Crédito\",\n            \"data\": 1683860400000\n        },\n        {\n            \"id\": 339,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 4,\n            \"titulo\": \"Liquidação Financeira\",\n            \"acao\": \"Débito\",\n            \"data\": 1686020400000\n        },\n        {\n            \"id\": 340,\n            \"dataEntrada\": [\n                2023,\n                3,\n                6\n            ],\n            \"ano_ref\": 2023,\n            \"mes_ref\": 4,\n            \"titulo\": \"Liquidação Financeira\",\n            \"acao\": \"Crédito\",\n            \"data\": 1686106800000\n        }\n    ],\n    \"garantiaFinanceira\": null,\n    \"lstServicoMensal\": null,\n    \"cnpj\": \"19.111.000/0001-00                                          \",\n    \"stateIcms\": 0.22,\n    \"nomLogoGroup\": null,\n    \"groupId\": 6380,\n    \"rating\": \"-\",\n    \"groupName\": \"TESTE\",\n    \"cityName\": \"VOLTA REDONDA   \",\n    \"varejista\": \"Não\",\n    \"inativo\": \"Não\",\n    \"mei\": \"Não\",\n    \"simples\": \"Não\",\n    \"evitarOperacoes\": \"Não\",\n    \"stateName\": \"\\tRIO DE JANEIRO   \"\n}"
 						}
 					]
 				}
