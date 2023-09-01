@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "35443f05-3e53-4f8e-99c9-33ebb6898350",
+		"_postman_id": "5b79a9cc-83a3-42d0-87e2-ba83c179cd73",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27628360"
+		"_exporter_id": "1212405"
 	},
 	"item": [
 		{
@@ -4140,7 +4140,7 @@
 					"response": []
 				},
 				{
-					"name": "Tarifas ANEEL",
+					"name": "Tarifas da Distribuidora",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -4227,7 +4227,7 @@
 								}
 							]
 						},
-						"description": "API para retornar lista de tarifas ANEEL referentes a uma determinada distribuidora, tensão e horo-sazo.\n\nCaso se deseje obter as tarifas de uma unidade em específico, seus dados podem ser obtidos na chamada **Informações UC**.\n\nCorresponde à tela Gestão > Relatórios > Gerencial UC's.\n\nA API retorna uma lista de valores que corresponde às tarifas abaixo indicadas:\n\n| Horo-Sazo | Retorno da API | **Tarifa** |\n| --- | --- | --- |\n| Azul | valor1 | Ponta kW TUSD |\n| Azul | valor2 | Fora Ponta kW TUSD |\n| Azul | valor3 | Fora Ponta MWh TUSD |\n| Azul | valor4 | Ponta MWh TE |\n| Azul | valor5 | Fora Ponta MWh TE |\n| Verde | valor1 | NA kW TUSD |\n| Verde | valor2 | Ponta MWh TUSD |\n| Verde | valor3 | Fora Ponta MWh TUSD |\n| Verde | valor4 | Ponta MWh TE |\n| Verde | valor5 | Fora Ponta MWh TE |\n| Verde | valor6 | Fora Ponta MWh TUSD |"
+						"description": "API para retornar lista de tarifas ANEEL referentes a uma determinada distribuidora, tensão e horo-sazo.\n\nCaso se deseje obter as tarifas de uma unidade em específico, seus dados podem ser obtidos na chamada **Informações UC**.\n\nCorresponde à tela Gestão > Relatórios > Gerencial UC's.\n\nA API retorna uma lista de valores que corresponde às tarifas abaixo indicadas:\n\n## Azul\n\n| Retorno da API |  |  |  |\n| --- | --- | --- | --- |\n| valor1 | Ponta | kW | TUSD |\n| valor2 | Fora Ponta | kW | TUSD |\n| valor3 | Fora Ponta | MWh | TUSD |\n| valor4 | Ponta | MWh | TE |\n| valor5 | Fora Ponta | MWh | TE |\n\n## Verde\n\n| Retorno da API |  |  |  |\n| --- | --- | --- | --- |\n| valor1 | NA | kW | TUSD |\n| valor2 | Ponta | MWh | TUSD |\n| valor3 | Fora Ponta | MWh | TUSD |\n| valor4 | Ponta | MWh | TE |\n| valor5 | Fora Ponta | MWh | TE |\n| valor6 | Fora Ponta | MWh | TUSD |"
 					},
 					"response": [
 						{
