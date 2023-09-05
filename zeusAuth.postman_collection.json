@@ -2515,7 +2515,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{URL}}/rest/unit/dadosenergia/?dataBase=2023-01-01T03:00:00.000Z&groupId=5796&unitId=7749&lstDadosEnergiaToGet=contratosMes&lstDadosEnergiaToGet=contribAssoc&lstDadosEnergiaToGet=energiaReserva&lstDadosEnergiaToGet=dri&lstDadosEnergiaToGet=consumoMes",
+							"raw": "https://{{URL}}/rest/unit/dadosenergia/?dataBase=2023-01-01T03:00:00.000Z&groupId=6380&unitId=8490&lstDadosEnergiaToGet=contratosMes&lstDadosEnergiaToGet=contribAssoc&lstDadosEnergiaToGet=energiaReserva&lstDadosEnergiaToGet=dri&lstDadosEnergiaToGet=consumoMes",
 							"protocol": "https",
 							"host": [
 								"{{URL}}"
@@ -2533,36 +2533,31 @@
 								},
 								{
 									"key": "groupId",
-									"value": "5796"
+									"value": "6380"
 								},
 								{
 									"key": "unitId",
-									"value": "7749"
+									"value": "8490"
 								},
 								{
 									"key": "lstDadosEnergiaToGet",
-									"value": "contratosMes",
-									"description": "Contratos de Energia"
+									"value": "contratosMes"
 								},
 								{
 									"key": "lstDadosEnergiaToGet",
-									"value": "contribAssoc",
-									"description": "Contribuição associativa"
+									"value": "contribAssoc"
 								},
 								{
 									"key": "lstDadosEnergiaToGet",
-									"value": "energiaReserva",
-									"description": "Energia de reserva"
+									"value": "energiaReserva"
 								},
 								{
 									"key": "lstDadosEnergiaToGet",
-									"value": "dri",
-									"description": "Liquidação financeira"
+									"value": "dri"
 								},
 								{
 									"key": "lstDadosEnergiaToGet",
-									"value": "consumoMes",
-									"description": "Consumo do mês, com perdas + proinfa"
+									"value": "consumoMes"
 								}
 							]
 						},
@@ -2874,7 +2869,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"dtIniFornInicio\": \"2023-01-01T03:00:00.000Z\",\n    \"dtIniFornFinal\": \"2023-12-01T03:00:00.000Z\",\n    \"idBroker\": 1\n}",
+									"raw": "{\n    \"dtIniFornInicio\": \"2024-01-01T03:00:00.000Z\",\n    \"dtIniFornFinal\": \"2024-12-01T03:00:00.000Z\",\n    \"idBroker\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4199,8 +4194,8 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{URL}}/rest/tarifaDist/tarifa?cor=Azul&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
-							"protocol": "http",
+							"raw": "https://{{URL}}/rest/tarifaDist/tarifa?cor=Verde&dataInicio=2022-08-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
+							"protocol": "https",
 							"host": [
 								"{{URL}}"
 							],
@@ -4212,23 +4207,19 @@
 							"query": [
 								{
 									"key": "cor",
-									"value": "Azul",
-									"description": "Pode ser obtida na chamada \"Informações UC\""
+									"value": "Verde"
 								},
 								{
 									"key": "dataInicio",
-									"value": "2023-07-01T03:00:00.000Z",
-									"description": "Alterar dia, mês e ano para obter outros períodos"
+									"value": "2022-08-01T03:00:00.000Z"
 								},
 								{
 									"key": "distNome",
-									"value": "LIGHT",
-									"description": "Pode ser obtida na chamada \"Informações UC\""
+									"value": "LIGHT"
 								},
 								{
 									"key": "faixa",
-									"value": "A4",
-									"description": "Pode ser obtida na chamada \"Informações UC\""
+									"value": "A4"
 								}
 							]
 						},
