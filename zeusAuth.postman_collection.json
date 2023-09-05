@@ -2874,7 +2874,12 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"dtIniFornFinal\": \"2023-08-01T03:00:00.000Z\",\n    \"dtIniFornInicio\": \"2023-01-01T03:00:00.000Z\",\n    \"idBroker\": 1,\n}"
+									"raw": "{\n    \"dtIniFornInicio\": \"2023-01-01T03:00:00.000Z\",\n    \"dtIniFornFinal\": \"2023-12-01T03:00:00.000Z\",\n    \"idBroker\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
 								"url": {
 									"raw": "https://{{URL}}/rest/broker/comissaoMensal",
