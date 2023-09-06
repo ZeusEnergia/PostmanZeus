@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5b79a9cc-83a3-42d0-87e2-ba83c179cd73",
+		"_postman_id": "c5e070a1-b614-4ad0-958f-113d06138236",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "1212405"
+		"_exporter_id": "355184"
 	},
 	"item": [
 		{
@@ -139,6 +139,40 @@
 									"path": [
 										"rest",
 										"carteira"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Trades",
+					"item": [
+						{
+							"name": "Edição de trade",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1159, // ID do trade\n    \"dataInicio\": 1690858800000, // Data início do fornecimento\n    \"dataFim\": 1693450800000, // Data fim do fornecimento\n    \"dataPagamento\": 1694401200000,\n    \"datIndexBase\": 1577847600000, // Data base reajuste\n    \"datIndexFirstAdjus\": 1672542000000, // Data do primeiro do reajuste\n    \"garantiaTipo\": 1, // ID do tipo de garantia\n    \"valComissao\": 0, // Valor da comissão\n    \"groupCompId\": 4912, // ID do grupo comprador\n    \"groupVendId\": 4698, // ID do grupo vendedor\n    \"unidadeCompId\": 6500, // ID da unidade compradora\n    \"unidadeVendId\": 6286, // ID da unidade vendedora\n    \"submercado\": 1, // Submercado\n    \"energyTipo\": 1, // Tipo Energia\n    \"precoTipo\": 1, // Tipo Preço\n    \"indexId\": 1,\n    \"registroTipo\": 2,\n    \"contratoId\": 65,\n    \"valVolumSazo\": -730,\n    \"valVolumAdjus\": 0,\n    \"valPriceAdjus\": 243.37,\n    \"valPriceReajuAplic\": null,\n    \"indCance\": false,\n    \"datCance\": 29348055640000,\n    \"indAdjus\": null,\n    \"userId\": 1,\n    \"flexMin\": 10,\n    \"flexMax\": 10,\n    \"sazoMin\": 10,\n    \"sazoMax\": 10,\n    \"indBalancReali\": false,\n    \"valRetus\": 0, // Valor Retusd\n    \"numContrCcee\": null,\n    \"consumo\": null,\n    \"agenteComprador\": null,\n    \"agenteVendedor\": null,\n    \"lstUnidadesV\": null,\n    \"cpGroup\": \"EXIBIÇÃO\",\n    \"precoTipoName\": \"Fixo\",\n    \"submercadoName\": \"SE\",\n    \"stateName\": \"SP\",\n    \"registroTipoName\": \"Registro antecipado\",\n    \"garantiaTipoName\": \"FIANÇA BANCARIA\",\n    \"indiceName\": \"IPCA\",\n    \"distributionTypeName\": \"FLAT\",\n    \"userName\": \"ADMINISTRADOR\",\n    \"extension\": {\n        \"idTrade\": 1159,\n        \"valVolumSazo\": 730,\n        \"valVolumFlex\": 0,\n        \"opeHete\": false,\n        \"opeConsu\": false,\n        \"liberadoFatur\": false,\n        \"consumo\": null,\n        \"nomObsInvoi\": null,\n        \"indBalancReali\": false,\n        \"valProjAjuste\": 243.37,\n        \"valProjFutura\": 243.37,\n        \"dataUpdate\": 1693409597000,\n        \"datEmitInvoi\": 1693537200000,\n        \"encontroEnergetico\": true,\n        \"agenteParte\": null,\n        \"agenteContraparte\": null,\n        \"broker\": null,\n        \"oldVersionOfItself\": null\n    },\n    \"parte\": {\n        \"numCount\": 6286\n    },\n    \"icmsVal\": 0.18,\n    \"cfop\": \"5123\",\n    \"cst\": \"0\",\n    \"valPriceTrade\": null,\n    \"valPriceIcms\": null,\n    \"valPriceIcmsGestao\": null,\n    \"valPriceTotal\": null,\n    \"problema\": null,\n    \"iest\": null,\n    \"representatividade\": null,\n    \"numRefId\": null,\n    \"valVolumFlexMin\": -657,\n    \"valVolumFlexMax\": -803,\n    \"valVolumFlexMinRepresentatividade\": null,\n    \"valVolumFlexMaxRepresentatividade\": null,\n    \"volBalancoEnergetico\": null,\n    \"indSendEmail\": true,\n    \"indInvoice\": null,\n    \"comercializadora\": true,\n    \"hasNotForkedNaContracts\": false,\n    \"valVolumFinal\": null,\n    \"valPriceFinal\": null,\n    \"valPriceExposicao\": null,\n    \"valMtM\": null,\n    \"valIndex\": 0,\n    \"indOficial\": false,\n    \"valIndexSwapEnergia\": 0,\n    \"valAgio\": 0,\n    \"numBroke\": null, // ID do comissionado\n    \"nomBroke\": null, // Nome do comissionado\n    \"forceUpdateTradeFaturado\": null,\n    \"nomNFE\": null,\n    \"notForkedNaContract\": null,\n    \"valProjAjuste\": 243.37,\n    \"agenteParte\": null,\n    \"agenteContraparte\": null,\n    \"numHoras\": 744,\n    \"partialTradeFaturamento\": null,\n    \"valProjFutura\": 243.37,\n    \"horasMes\": null,\n    \"volumeHorarioList\": null,\n    \"contratosCliqMensalList\": [],\n    \"valPriceTotalCompra\": null,\n    \"valPriceTotalVenda\": null,\n    \"valVolumAtual\": -730,\n    \"groupCName\": \"EXIBIÇÃO\",\n    \"cpUnit\": \"EXIBIÇÃO 1\",\n    \"volFlexMin\": 657,\n    \"volFlexMax\": 803,\n    \"unidadeVName\": \"ZEUS ENERGIA\",\n    \"nomFull\": \"EXIBIÇÃO 1 LTDA\",\n    \"nomCnpj\": \"13.249.654/0001-03\",\n    \"numCount\": 6500,\n    \"numContratoBBCE\": null,\n    \"groupVName\": \"ZEUS ENERGIA\",\n    \"unidadeCName\": \"EXIBIÇÃO 1\",\n    \"valVolumSazoAtual\": -730,\n    \"valPriceAtual\": 243.37,\n    \"nomCnpjFatur\": null,\n    \"compVend\": \"Venda\",\n    \"energiatipoName\": \"CONVENCIONAL\",\n    \"userUpdate\": \"ADMINISTRADOR\",\n    \"comentario\": \"\",\n    \"carteiraName\": \"CLIENTES\",\n    \"operacaoHeterodoxa\": \"Não\",\n    \"dataUpdate\": 1693409597000,\n    \"valVolumeSazo\": -730,\n    \"valVolumeFlex\": 0,\n    \"datContractIniti\": 1627786800000,\n    \"datContractFinal\": 1703991600000,\n    \"representatividadeExport\": 0,\n    \"volConsumo\": null\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/tradecapitale/{{idTrade}}",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tradecapitale",
+										"{{idTrade}}"
 									]
 								}
 							},
@@ -2888,6 +2922,36 @@
 										"comissaoMensal"
 									]
 								}
+							},
+							"response": []
+						},
+						{
+							"name": "Detalhes Comissão",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idBroker\":1,\n    \"dtIniFornInicio\":\"2024-01-01T03:00:00.000Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/broker/comissaoDetails",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"broker",
+										"comissaoDetails"
+									]
+								},
+								"description": "Endpoint para o detalhamento de uma comissão, obtida na \"Listar Comissões\"\n\nOs parametros enviados são apenas dois, o id do comissionado e a data de referencia."
 							},
 							"response": []
 						},
