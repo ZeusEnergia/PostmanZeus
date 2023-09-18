@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c5e070a1-b614-4ad0-958f-113d06138236",
+		"_postman_id": "1e09b40e-19b6-431d-aae4-e7404a2ca10e",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "355184"
+		"_exporter_id": "27653573"
 	},
 	"item": [
 		{
@@ -198,8 +198,8 @@
 									}
 								},
 								"url": {
-									"raw": "https://{{URL}}/rest/tradecapitale/{{idTrade}}",
-									"protocol": "https",
+									"raw": "http://{{URL}}/rest/tradecapitale/{{idTrade}}",
+									"protocol": "http",
 									"host": [
 										"{{URL}}"
 									],
@@ -354,7 +354,7 @@
 						{
 							"name": "Longo prazo + Multiplos Valores",
 							"originalRequest": {
-								"method": "POST",
+								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
@@ -439,9 +439,58 @@
 								}
 							],
 							"cookie": [],
-							"body": "<BoletaEnergia>\n    <id>152</id>\n    <dataEntrada>2022</dataEntrada>\n    <dataEntrada>9</dataEntrada>\n    <dataEntrada>20</dataEntrada>\n    <dataInicio>1672542000000</dataInicio>\n    <dataFim>1735614000000</dataFim>\n    <groupCompId>4912</groupCompId>\n    <unidadeCompId>6511</unidadeCompId>\n    <groupVendId/>\n    <unidadeVendId/>\n    <precoTipo>1</precoTipo>\n    <preco>0.0</preco>\n    <valComissao>0.0</valComissao>\n    <valPisoCollar/>\n    <valTetoCollar/>\n    <volumeTipo>1</volumeTipo>\n    <volume>0.0</volume>\n    <flexMin>10.0</flexMin>\n    <flexMax>10.0</flexMax>\n    <sazoMin>10.0</sazoMin>\n    <sazoMax>10.0</sazoMax>\n    <submercado>2</submercado>\n    <energyTipo>2</energyTipo>\n    <numDistType/>\n    <retusd>35.0</retusd>\n    <plataformaId>2</plataformaId>\n    <indexId>1</indexId>\n    <datIndexBase>1662001200000</datIndexBase>\n    <datIndexFirstAdjus>1672542000000</datIndexFirstAdjus>\n    <registroTipo>1</registroTipo>\n    <garantiaTipo>-1</garantiaTipo>\n    <emitInvoiType>2</emitInvoiType>\n    <emitInvoiVal>1</emitInvoiVal>\n    <emitInvoiCondPerioType>2</emitInvoiCondPerioType>\n    <pagType>2</pagType>\n    <pagVal>6</pagVal>\n    <pagMesType>2</pagMesType>\n    <stateIcms_id/>\n    <comentario/>\n    <userId/>\n    <cancelada/>\n    <numRefId/>\n    <representatividade/>\n    <valPriceReaj/>\n    <indReajRealizado/>\n    <valReajRealizado/>\n    <datSeaso>1701313200000</datSeaso>\n    <carteira/>\n    <tblCarteira/>\n    <indReajIniciForneCliente/>\n    <agenteVendedor/>\n    <agenteComprador/>\n    <aprovadoCliente/>\n    <datAprovCliente/>\n    <userAprovCliente/>\n    <precoTipoName/>\n    <volumeTipoName/>\n    <submercadoName/>\n    <energiaTipoName/>\n    <plataformaName/>\n    <registroTipoName/>\n    <garantiaTipoName/>\n    <pagamentoTipoName/>\n    <estadoIcmsName/>\n    <indiceName/>\n    <volumeSazoList>\n        <volumeSazoList>\n            <id/>\n            <dataInicio>1672542000000</dataInicio>\n            <dataFim>1703991600000</dataFim>\n            <volume>2.0</volume>\n            <preco>200.0</preco>\n        </volumeSazoList>\n        <volumeSazoList>\n            <id/>\n            <dataInicio>1704078000000</dataInicio>\n            <dataFim>1735614000000</dataFim>\n            <volume>1.0</volume>\n            <preco>100.0</preco>\n        </volumeSazoList>\n    </volumeSazoList>\n    <userName/>\n    <distType>\n        <numDistType>2</numDistType>\n        <nomDistType/>\n        <nomDistCcee/>\n    </distType>\n    <pagDate/>\n    <emitInvoiDate/>\n    <boletaType>true</boletaType>\n    <vigencia/>\n    <cobertura/>\n    <extension>\n        <idContract>152</idContract>\n        <numContratoBBCE>F123458</numContratoBBCE>\n        <numContratoEnbox/>\n        <nomEmailCliente/>\n        <opeHete>false</opeHete>\n        <encContas>false</encContas>\n        <indReajIniciForne/>\n        <compra>false</compra>\n        <representativade>100.0</representativade>\n        <broker/>\n        <brokerName/>\n        <aprovado>false</aprovado>\n        <nomAprovMsg/>\n        <nomEditMsg/>\n        <datAprov/>\n        <userAprov/>\n        <cancelada>false</cancelada>\n        <datCancel/>\n        <userCancel/>\n        <recusada/>\n        <modulMin/>\n        <modulMax/>\n        <indReajusteHeterodoxo/>\n        <datRecusada/>\n        <potencialDuplicada>false</potencialDuplicada>\n        <boletasOrigemDaDuplicacao/>\n        <parte/>\n        <userRecusada/>\n        <datUpdate>1663642800000</datUpdate>\n        <userUpdate/>\n        <nomOrigem/>\n        <numRefId/>\n        <datEmitInvoi>-2208934412000</datEmitInvoi>\n        <numEmitInvoiMonth>2</numEmitInvoiMonth>\n        <emitInvoiType>\n            <numPaymeType>2</numPaymeType>\n            <nomPaymeType>Dias Uteis</nomPaymeType>\n        </emitInvoiType>\n        <indEntryInvoi/>\n        <contaBancaria/>\n        <contaBancariaParte/>\n        <agenteParte/>\n        <agenteContraparte/>\n        <negocioId/>\n        <perfilBBCECceeContraparte/>\n        <perfilBBCECceeParte/>\n        <oldVersionOfItself/>\n        <nomBBCEStatus/>\n    </extension>\n    <docStatusId/>\n    <docStatusName/>\n    <datDocumUpdat/>\n    <intDocumDays/>\n    <daysBetweenUpdate/>\n    <sazoRealizada/>\n    <parcialmenteCancelada/>\n    <dataInicioReajuste/>\n    <dataFimReajuste/>\n    <indBalancReali/>\n    <editable/>\n    <userUpdate/>\n    <datUpdate/>\n    <siglaEmitInvoi/>\n    <siglaPagamento/>\n    <indBoletaSemTrade/>\n    <dataCriacao/>\n    <comentarioEdicao/>\n    <forceUpdate/>\n    <parte/>\n    <contraparte/>\n    <agenteParte/>\n    <agenteContraparte/>\n    <comercializadora/>\n    <negocioBBCEId/>\n    <agenteParteExport/>\n    <agenteContraparteExport/>\n    <encContas/>\n    <temTradeFaturado/>\n    <indTodosTradesFaturados/>\n    <stateName/>\n    <numCount>0</numCount>\n    <venda>true</venda>\n    <stringPagamento>6 DU MS</stringPagamento>\n    <stringEmitInvoi>1 DU MS</stringEmitInvoi>\n    <compVend>Venda</compVend>\n    <nomCnpj>-</nomCnpj>\n    <groupCName/>\n    <distribuicaoTipo/>\n    <nomFull>-</nomFull>\n    <unidadeCName/>\n    <unidadeVName/>\n    <groupVName/>\n    <cpGroup/>\n    <pagMesName>Mês Seguinte</pagMesName>\n    <cpUnit/>\n    <volumeExport>-0.0</volumeExport>\n    <numberBBCE>F123458</numberBBCE>\n    <carteiraName>-</carteiraName>\n    <reajIniciForne>Não</reajIniciForne>\n    <reajIniciForneCliente>Não</reajIniciForneCliente>\n    <boletaParcialmenteCancelada>Não</boletaParcialmenteCancelada>\n    <operacaoHeterodoxa>Não</operacaoHeterodoxa>\n</BoletaEnergia>"
+							"body": "<BoletaEnergia>\n    <id>801</id>\n    <dataEntrada>2022</dataEntrada>\n    <dataEntrada>9</dataEntrada>\n    <dataEntrada>20</dataEntrada>\n    <dataInicio>1672542000000</dataInicio>\n    <dataFim>1735614000000</dataFim>\n    <groupCompId>4912</groupCompId>\n    <unidadeCompId>6511</unidadeCompId>\n    <groupVendId/>\n    <unidadeVendId/>\n    <precoTipo>1</precoTipo>\n    <preco>123123123123123.123</preco>\n    <valComissao>0.0</valComissao>\n    <valPisoCollar/>\n    <valTetoCollar/>\n    <volumeTipo>1</volumeTipo>\n    <volume>123123213123123.123123123</volume>\n    <flexMin>10.0</flexMin>\n    <flexMax>10.0</flexMax>\n    <sazoMin>10.0</sazoMin>\n    <sazoMax>10.0</sazoMax>\n    <submercado>2</submercado>\n    <energyTipo>2</energyTipo>\n    <numDistType/>\n    <retusd>35.0</retusd>\n    <plataformaId>2</plataformaId>\n    <indexId>1</indexId>\n    <datIndexBase>1662001200000</datIndexBase>\n    <datIndexFirstAdjus>1672542000000</datIndexFirstAdjus>\n    <registroTipo>1</registroTipo>\n    <garantiaTipo>-1</garantiaTipo>\n    <emitInvoiType>2</emitInvoiType>\n    <emitInvoiVal>1</emitInvoiVal>\n    <emitInvoiCondPerioType>2</emitInvoiCondPerioType>\n    <pagType>2</pagType>\n    <pagVal>6</pagVal>\n    <pagMesType>2</pagMesType>\n    <stateIcms_id/>\n    <comentario/>\n    <userId/>\n    <cancelada/>\n    <numRefId/>\n    <representatividade/>\n    <valPriceReaj/>\n    <indReajRealizado/>\n    <valReajRealizado/>\n    <datSeaso>1701313200000</datSeaso>\n    <carteira/>\n    <tblCarteira/>\n    <indReajIniciForneCliente/>\n    <agenteVendedor/>\n    <agenteComprador/>\n    <aprovadoCliente/>\n    <datAprovCliente/>\n    <userAprovCliente/>\n    <precoTipoName/>\n    <volumeTipoName/>\n    <submercadoName/>\n    <energiaTipoName/>\n    <plataformaName/>\n    <registroTipoName/>\n    <garantiaTipoName/>\n    <pagamentoTipoName/>\n    <estadoIcmsName/>\n    <indiceName/>\n    <volumeSazoList>\n        <volumeSazoList>\n            <id/>\n            <dataInicio>1672542000000</dataInicio>\n            <dataFim>1703991600000</dataFim>\n            <volume>2.0</volume>\n            <preco>200.0</preco>\n        </volumeSazoList>\n        <volumeSazoList>\n            <id/>\n            <dataInicio>1704078000000</dataInicio>\n            <dataFim>1735614000000</dataFim>\n            <volume>1.0</volume>\n            <preco>100.0</preco>\n        </volumeSazoList>\n    </volumeSazoList>\n    <userName/>\n    <distType>\n        <numDistType>2</numDistType>\n        <nomDistType/>\n        <nomDistCcee/>\n    </distType>\n    <pagDate/>\n    <emitInvoiDate/>\n    <boletaType>true</boletaType>\n    <vigencia/>\n    <cobertura/>\n    <extension>\n        <idContract>152</idContract>\n        <numContratoBBCE>F123458</numContratoBBCE>\n        <numContratoEnbox/>\n        <nomEmailCliente/>\n        <opeHete>false</opeHete>\n        <encContas>false</encContas>\n        <indReajIniciForne/>\n        <compra>false</compra>\n        <representativade>100.0</representativade>\n        <broker/>\n        <brokerName/>\n        <aprovado>false</aprovado>\n        <nomAprovMsg/>\n        <nomEditMsg/>\n        <datAprov/>\n        <userAprov/>\n        <cancelada>false</cancelada>\n        <datCancel/>\n        <userCancel/>\n        <recusada/>\n        <modulMin/>\n        <modulMax/>\n        <indReajusteHeterodoxo/>\n        <datRecusada/>\n        <potencialDuplicada>false</potencialDuplicada>\n        <boletasOrigemDaDuplicacao/>\n        <parte/>\n        <userRecusada/>\n        <datUpdate>1663642800000</datUpdate>\n        <userUpdate/>\n        <nomOrigem/>\n        <numRefId/>\n        <datEmitInvoi>-2208934412000</datEmitInvoi>\n        <numEmitInvoiMonth>2</numEmitInvoiMonth>\n        <emitInvoiType>\n            <numPaymeType>2</numPaymeType>\n            <nomPaymeType>Dias Uteis</nomPaymeType>\n        </emitInvoiType>\n        <indEntryInvoi/>\n        <contaBancaria/>\n        <contaBancariaParte/>\n        <agenteParte/>\n        <agenteContraparte/>\n        <negocioId/>\n        <perfilBBCECceeContraparte/>\n        <perfilBBCECceeParte/>\n        <oldVersionOfItself/>\n        <nomBBCEStatus/>\n    </extension>\n    <docStatusId/>\n    <docStatusName/>\n    <datDocumUpdat/>\n    <intDocumDays/>\n    <daysBetweenUpdate/>\n    <sazoRealizada/>\n    <parcialmenteCancelada/>\n    <dataInicioReajuste/>\n    <dataFimReajuste/>\n    <indBalancReali/>\n    <editable/>\n    <userUpdate/>\n    <datUpdate/>\n    <siglaEmitInvoi/>\n    <siglaPagamento/>\n    <indBoletaSemTrade/>\n    <dataCriacao/>\n    <comentarioEdicao/>\n    <forceUpdate/>\n    <parte/>\n    <contraparte/>\n    <agenteParte/>\n    <agenteContraparte/>\n    <comercializadora/>\n    <negocioBBCEId/>\n    <agenteParteExport/>\n    <agenteContraparteExport/>\n    <encContas/>\n    <temTradeFaturado/>\n    <indTodosTradesFaturados/>\n    <stateName/>\n    <numCount>0</numCount>\n    <venda>true</venda>\n    <stringPagamento>6 DU MS</stringPagamento>\n    <stringEmitInvoi>1 DU MS</stringEmitInvoi>\n    <compVend>Venda</compVend>\n    <nomCnpj>-</nomCnpj>\n    <groupCName/>\n    <distribuicaoTipo/>\n    <nomFull>-</nomFull>\n    <unidadeCName/>\n    <unidadeVName/>\n    <groupVName/>\n    <cpGroup/>\n    <pagMesName>Mês Seguinte</pagMesName>\n    <cpUnit/>\n    <volumeExport>-0.0</volumeExport>\n    <numberBBCE>F123458</numberBBCE>\n    <carteiraName>-</carteiraName>\n    <reajIniciForne>Não</reajIniciForne>\n    <reajIniciForneCliente>Não</reajIniciForneCliente>\n    <boletaParcialmenteCancelada>Não</boletaParcialmenteCancelada>\n    <operacaoHeterodoxa>Não</operacaoHeterodoxa>\n</BoletaEnergia>"
 						}
 					]
+				},
+				{
+					"name": "Edição de boleta",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Strip JSON Comments",
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {",
+									"    const rawData = pm.request.body.toString();",
+									"    const strippedData = rawData.replace(",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,",
+									"        (m, g) => g ? \"\" : m",
+									"    );",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));",
+									"    pm.request.upsertHeader({key: 'Content-Type', value: 'application/json'});",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"plataformaId\": 2, //Id da plataforma que estão disponiveis na chamada \"Informações Gerais\" -> \"Plataformas\". No exemplo \"BBCE\"\n  \"pagType\": 2, //Id do \"Informações Gerais\" -> \"Tipo de pagamento\". No exemplo, \"Dias Uteis\"\n  \"pagMesType\": 2, //Id do \"Informações Gerais\" -> \"Tipo de Condição de Pagamento\". No exemplo, \"Mês Seguinte ao fornecimento\"\n  \"pagVal\": 6, //Dias para o pagamento. Em conjunto com o PagType e PagMesType, gerou um pagamento no 6ºDU do mês seguinte ao fornecimento\n  \"emitInvoiType\": 2,//Mesmo funcionamento do pagamento, porém para a data de emissão da nota.\n  \"emitInvoiCondPerioType\": 2,\n  \"emitInvoiVal\": 1, //Dias para a emissão. Em conjunto com o emitInvoiType e emitInvoiCondPerioType, gerou uma emissão no 1ºDU do mês seguinte ao fornecimento\n  \"submercado\": 2, //Id do \"Informações Gerais\" -> \"Submercados\". No exemplo \"S\"\n  \"energyTipo\": 2, //Id do \"Informações Gerais\" -> \"Tipos de Energia\". No exemplo \"Incentivada 50%\"\n  \"retusd\": 35, // Valor da retusd, quando disponivel\n  \"distType\": { //Tipo de distribuição, objeto presente em \"Informações Gerais\" -> \"Tipos de Distribuição\". Apenas o id \"numDistType\" é necessario. No exemplo, \"Carga\"\n    \"numDistType\": 2\n  },\n  \"dataEntrada\": \"2022-09-20\", //Data de fechamento da boleta\n  \"datSeaso\": \"2023-11-30T03:00:00.000Z\", //Data limite para declaração da Sazo, utilizada para o Zeus enviar notificações\n  \"dataInicio\": \"2023-01-01T03:00:00.000Z\", // Inicio do periodo de fornecimento.\n  \"dataFim\": \"2024-12-01T03:00:00.000Z\", // Fim do periodo de fornecimento\n  \"groupCompId\": 6398, //Id do grupo da contraparte. Dado presente em \"Contrapartes\" -> \"Listar Grupos\"\n  \"unidadeCompId\": 0, //Id da unidade da contraparte. Dado presente em \"Contrapartes\" -> \"Listar Unidades\". Dado opcional. Para contratos que serão divididos de acordo com o consumo/geração ou distribuidos entre varios CNPJs/NF, este dado não deve ser enviado.\n  \"volumeTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipo de Volume\". Irá impactar os dados dos multiplos valores. No exemplo \"MWmed\"\n  \"volume\": 0, // Sempre enviar volume = 0 para operações multiplos valores\n  \"precoTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipo de Preço\". Irá impactar os dados dos multiplos valores. No exemplo \"Fixo\"\n  \"preco\": 0, // Sempre enviar preço = 0 para operações multiplos valores\n  \"flexMin\": 10, //Limite minimo da flex\n  \"flexMax\": 10, //Limite maximo da flex. No exemplo, uma operação com flex de 90% a 110%\n  \"sazoMin\": 10, //Limite minimo da Sazo\n  \"sazoMax\": 10, //Limite maximo da sazo. No exemplo, uma operação com sazo variando entre 90% a 110% do contratado\n  \"indexId\": 1, //Id do \"Informações Gerais\" -> \"indexadores\". No exemplo, \"IPCA\"\n  \"datIndexBase\": \"2022-09-01T03:00:00.000Z\", //Data base para o calculo do reajuste\n  \"datIndexFirstAdjus\": \"2023-01-01T03:00:00.000Z\", // Data de aplicação do primeiro reajuste, com repetição a cada 12 meses\n  \"registroTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipo de Registro\". No caso, \"Registro contra pagamento\"\n  \"garantiaTipo\": -1, //Id do \"Informações Gerais\" -> \"Garantias\". No caso, \"NA\" (não terá garantia)\n  \"volumeSazoList\": [ // Array com os multiplos valores da operação.\n    {\n      \"dataInicio\": \"2023-01-01T03:00:00.000Z\", //Inicio do fornecimento deste periodo\n      \"dataFim\": \"2023-12-01T03:00:00.000Z\", //Final do fornecimento deste periodo\n      \"volume\": 2, //Volume na unidade de medida escolhida no campo \"volumeTipo\" para este periodo. O campo aceita: para MWmed até 6 casas decimais e MWh até 3 casas decimais;\n      \"preco\": 200 // Preço em R$/MWh para este periodo\n    },\n    {\n      \"dataInicio\": \"2024-01-01T03:00:00.000Z\",\n      \"dataFim\": \"2024-12-01T03:00:00.000Z\",\n      \"volume\": 1,\n      \"preco\": 100\n    }\n  ],\n  \"venda\": true, //Tipo da boleta, compra ou venda. No caso, uma venda. Caso compra, enviar \"venda\": false.\n  \"extension\": { \n    \"representativade\": 100, // No caso da Flex estar travada ao consumo/geração da contraparte, indicar a % de representatividade\n    \"numContratoBBCE\": \"F123458\" // Para as plataformas \"BBCE\" e \"Boleta Eletronica\" o envio deste campo é obrigatorio e será utilizado para validar se o contrato BBCE já foi integrado ou não, para evitar duplicações.\n  },\n  \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/boletacapitale/{{idBoleta}}",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"boletacapitale",
+								"{{idBoleta}}"
+							]
+						}
+					},
+					"response": []
 				},
 				{
 					"name": "Listar boletas",
@@ -6041,6 +6090,11 @@
 		{
 			"key": "idTrade",
 			"value": "1159",
+			"type": "string"
+		},
+		{
+			"key": "idBoleta",
+			"value": "1",
 			"type": "string"
 		}
 	]
