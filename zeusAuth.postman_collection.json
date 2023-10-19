@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "cc4b43ce-ab13-404a-95df-1141b9997f8d",
+		"_postman_id": "48f782b1-f61d-41cd-8698-e8bd693bfab4",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "1212405"
+		"_exporter_id": "355184"
 	},
 	"item": [
 		{
@@ -797,10 +797,10 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"_postman_previewlanguage": "Text",
+							"header": [],
 							"cookie": [],
-							"body": null
+							"body": ""
 						}
 					]
 				},
@@ -3658,7 +3658,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"datPayment\": \"2022-09-20T15:10:01.929Z\",\n    \"valInvoiPayment\": 626400.00,\n    \"tblInvoice\": {\n        \"id\": 65\n    },\n    \"comment\": \"Teste Comentário!\"\n}"
+							"raw": "{\n    \"datPayment\": \"2022-09-20T15:10:01.929Z\",\n    \"valInvoiPayment\": 626400.00,\n    \"tblInvoice\": {\n        \"id\": 337\n    },\n    \"comment\": \"Teste Comentário!\",\n    \"nomErp\": \"123\"\n}"
 						},
 						"url": {
 							"raw": "https://{{URL}}/rest/invPayment",
@@ -3762,6 +3762,52 @@
 								"rest",
 								"invPayment",
 								"{{idPagamento}}"
+							]
+						},
+						"description": "API para deletar um pagamento em uma nota (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Listar Pagamentos, excluir pagamento.\n\nO campo **idPagamento** pode ser recuperado a partir do endpoint \"Listar Pagamento\" utilizando o numero da nota fiscal."
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Pagamento por codigo ERP",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nomErp\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/invPayment/",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"invPayment",
+								""
 							]
 						},
 						"description": "API para deletar um pagamento em uma nota (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Listar Pagamentos, excluir pagamento.\n\nO campo **idPagamento** pode ser recuperado a partir do endpoint \"Listar Pagamento\" utilizando o numero da nota fiscal."
@@ -6065,10 +6111,10 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"_postman_previewlanguage": "Text",
+							"header": [],
 							"cookie": [],
-							"body": null
+							"body": ""
 						},
 						{
 							"name": "IGPM de Ago/2023",
@@ -6123,10 +6169,10 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"_postman_previewlanguage": "Text",
+							"header": [],
 							"cookie": [],
-							"body": null
+							"body": ""
 						}
 					]
 				}
