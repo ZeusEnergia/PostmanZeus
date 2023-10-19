@@ -2878,6 +2878,26 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Consulta Data Ultima curva inserida",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{URL}}/rest/indexValue/last",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"indexValue",
+								"last"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
