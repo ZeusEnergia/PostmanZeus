@@ -2555,7 +2555,8 @@
 								"unit",
 								"{{idUnidade}}"
 							]
-						}
+						},
+						"description": "Retornos possiveis:\n\n| **Codigo** | **Comentario** |\n| --- | --- |\n| 200 | Sucesso |\n| 424 | Existem boletas ativas para a contraparte.  <br>Para suprimir a validação, enviar um parametro extra: \"indForceUpdate: true\" no body da edição |"
 					},
 					"response": []
 				},
