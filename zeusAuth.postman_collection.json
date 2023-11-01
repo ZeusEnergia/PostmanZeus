@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fe409f63-eb92-4b30-9664-e8726d50dd67",
+		"_postman_id": "6b5d29fd-a881-42e1-9f61-ccdae8985d11",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27628360"
@@ -2388,6 +2388,119 @@
 							],
 							"cookie": [],
 							"body": "<DataTablesOutput>\n    <draw>1</draw>\n    <recordsTotal>86</recordsTotal>\n    <recordsFiltered>2</recordsFiltered>  //Numero de retornos com o filtro de busca\n    <data>\n        <data>\n            <numCountGroup>4954</numCountGroup>  //Id do grupo encontrado\n            <nomCountGroup>TESTE GRUPO</nomCountGroup>\n            <indInact>false</indInact>\n            <nomLogoFile/>\n            <indEvitarOperacoes/>\n            <rating>\n                <numRating>1</numRating>\n                <nomRatin>E</nomRatin>\n                <numMesShortInit>1</numMesShortInit>\n                <numMesShortFinal>1</numMesShortFinal>\n                <valShort>5000.0</valShort>\n                <numMesMidInit>2</numMesMidInit>\n                <numMesMidFinal>6</numMesMidFinal>\n                <valMid>10000.0</valMid>\n                <numMesLongInit>6</numMesLongInit>\n                <numMesLongFinal>24</numMesLongFinal>\n                <valLong>15000.0</valLong>\n                <oldVersionOfItself/>\n            </rating>\n            <responsavel/>\n            <justificativa/>\n            <indForceUpdate/>\n            <oldVersionOfItself/>\n            <ratingName>E</ratingName>\n        </data>\n        <data>\n            <numCountGroup>4956</numCountGroup>\n            <nomCountGroup>TESTE GRUPO 2</nomCountGroup>\n            <indInact>false</indInact>\n            <nomLogoFile/>\n            <indEvitarOperacoes/>\n            <rating>\n                <numRating>1</numRating>\n                <nomRatin>E</nomRatin>\n                <numMesShortInit>1</numMesShortInit>\n                <numMesShortFinal>1</numMesShortFinal>\n                <valShort>5000.0</valShort>\n                <numMesMidInit>2</numMesMidInit>\n                <numMesMidFinal>6</numMesMidFinal>\n                <valMid>10000.0</valMid>\n                <numMesLongInit>6</numMesLongInit>\n                <numMesLongFinal>24</numMesLongFinal>\n                <valLong>15000.0</valLong>\n                <oldVersionOfItself/>\n            </rating>\n            <responsavel/>\n            <justificativa/>\n            <indForceUpdate/>\n            <oldVersionOfItself/>\n            <ratingName>E</ratingName>\n        </data>\n    </data>\n    <error/>\n</DataTablesOutput>"
+						},
+						{
+							"name": "Listar grupos por data de atualização",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \n    \"dtUpdateFinal\": \"2023-11-01T03:00:00.000Z\",\n    \"dtUpdateInicio\": \"2023-11-01T03:00:00.000Z\",\n    \"draw\":1,\n    \"columns\":[{\"data\":\"nomCountGroup\",\"name\":\"\",\"searchable\":true,\"orderable\":true,\"search\":{\"value\":\"\",\"regex\":false}}]\n    ,\"order\":[{\"column\":0,\"dir\":\"asc\"}]\n    ,\"search\":{\"value\":\"\",\"regex\":false}\n    ,\"start\":0\n    ,\"length\":12\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/group/datatable",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"group",
+										"datatable"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 01 Nov 2023 18:25:27 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<DataTablesOutput>\n    <draw>1</draw>\n    <recordsTotal>1308</recordsTotal>\n    <recordsFiltered>0</recordsFiltered>\n    <data/>\n    <error/>\n</DataTablesOutput>"
 						}
 					]
 				},
@@ -2503,7 +2616,125 @@
 						},
 						"description": "API para retornar os valores das unidades presentes no Zeus  \nResultado equivalente a tela Contrapartes -> Unidades do Zeus."
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Listar unidades por data de atualização",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"type": "text",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"type": "text",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"type": "text",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"type": "text",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dtUpdateFinal\": \"2023-11-01T03:00:00.000Z\",\n    \"dtUpdateInicio\": \"2023-11-01T03:00:00.000Z\",\n    \"clienteGestao\": \"\",\n    \"indInact\": \"\",\n    \"unitName\": \"\",\n    \"input\": {\n        \"draw\": 0,\n        \"start\": 0,\n        \"length\": 12,\n        \"columns\": [\n            {\n                \"data\": \"nomCount\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            }\n        ],\n        \"order\": [{\"column\": 0,\"dir\": \"asc\"}]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/unit/datatable",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"unit",
+										"datatable"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "JSESSIONID=BEDD8EE19731A229C05932559B88941A; Path=/zeus; HttpOnly"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 01 Nov 2023 19:42:04 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<DataTablesOutput>\n    <draw>0</draw>\n    <recordsTotal>1725</recordsTotal>\n    <recordsFiltered>0</recordsFiltered>\n    <data/>\n    <error/>\n</DataTablesOutput>"
+						}
+					]
 				},
 				{
 					"name": "Inserir Unidade",
