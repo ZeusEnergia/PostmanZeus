@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6b5d29fd-a881-42e1-9f61-ccdae8985d11",
+		"_postman_id": "82641024-99e8-4106-9c50-fb5c2a0b79e0",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27628360"
@@ -2939,6 +2939,84 @@
 							]
 						},
 						"description": "Retornos possiveis:\n\n| **Codigo** | **Comentario** |\n| --- | --- |\n| 200 | Sucesso |\n| 424 | Existem boletas ativas para a contraparte.  <br>Para suprimir a validação, enviar um parametro extra: \"indForceUpdate: true\" no body da edição |"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Grupo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=UTF-8"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:9000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:9000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Linux\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numCountGroup\": {{idGrupo}},\n    \"nomCountGroup\": \"Teste Alteração Grupo\",\n    \"indInact\": true,\n    \"nomLogoFile\": null,\n    \"indEvitarOperacoes\": null,\n    \"createdAt\": null,\n    \"updatedAt\": null,\n    \"rating\": {\n        \"numRating\": 3,\n        \"nomRatin\": \"A\",\n        \"numMesShortInit\": 0,\n        \"numMesShortFinal\": 6,\n        \"valShort\": 0,\n        \"numMesMidInit\": 3,\n        \"numMesMidFinal\": 0,\n        \"valMid\": 30,\n        \"numMesLongInit\": 2,\n        \"numMesLongFinal\": 0,\n        \"valLong\": 7,\n        \"oldVersionOfItself\": null\n    },\n    \"listOfTblCounterparty\": [],\n    \"responsavel\": {\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"ADMINISTRADOR\",\n            \"nameBBCE\": null,\n            \"nameEnbox\": null,\n            \"login\": \"ADMIN\",\n            \"password\": \"b9ba7380*******e4b1a3485ea086b2\",\n            \"email\": \"THIAGO.OLIVEIRA@MIRACLEWORKS.CO\",\n            \"indCancel\": false,\n            \"indConfi\": true,\n            \"indTrade\": true,\n            \"indAdmin\": true,\n            \"indContr\": true,\n            \"indFinan\": true,\n            \"indCount\": true,\n            \"indLawye\": true,\n            \"indBack\": true,\n            \"signatureUser\": null,\n            \"nomFileUserSign\": null,\n            \"indUsing2FA\": null,\n            \"nomSecret\": \"CO7LQAU7B226XXYE\",\n            \"perfil\": {\n                \"id\": 1,\n                \"nomPerfil\": \"ADMIN\",\n                \"oldVersionOfItself\": null,\n                \"textoPermissoes\": \" <b>Boletas</b> Visualizar + Inserir + Editar<br> <b>Garantias</b> Visualizar + Inserir + Editar<br> <b>Financeiro</b> Visualizar + Inserir + Editar<br> <b>Registro</b> Visualizar + Inserir + Editar<br> <b>PLD</b> Visualizar + Inserir + Editar<br> <b>Contraparte</b> Visualizar + Inserir + Editar<br> <b>Administração</b> Visualizar + Inserir + Editar<br> <b>Juridico</b> Visualizar + Inserir + Editar<br> <b>Aprovador</b> Visualizar + Inserir + Editar<br> <b>Relatorio</b> Visualizar + Inserir + Editar<br> <b>Relatorio Externo</b> Visualizar + Inserir + Editar<br> <b>Gestão</b> Visualizar + Inserir + Editar<br> <b>Viabilidade</b> Visualizar + Inserir + Editar<br> <b>Arquivos</b> Visualizar + Inserir + Editar<br> <b>Derivativos</b> Visualizar + Inserir + Editar<br> <b>Migração</b> Visualizar + Inserir + Editar<br> <b>Modelo Migração</b> Visualizar + Inserir + Editar<br> <b>Middle</b> Visualizar + Inserir + Editar<br><br>\",\n                \"dashboard\": null\n            },\n            \"dashboard\": null,\n            \"oldVersionOfItself\": null,\n            \"nomQURL\": null,\n            \"nomLogin\": \"ADMIN\"\n        }\n    },\n    \"justificativa\": null,\n    \"indForceUpdate\": null,\n    \"oldVersionOfItself\": null,\n    \"ratingName\": \"A\"\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/group/{{idGrupo}}",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"group",
+								"{{idGrupo}}"
+							]
+						},
+						"description": "API para alterar os dados de um grupo.\n\nInformar o ID do grupo que será alterado na propriedade \"numCountGroup\".\n\nEsse dado pode ser obtido através da chamada: Listar Grupos."
 					},
 					"response": []
 				},
@@ -9009,6 +9087,11 @@
 		{
 			"key": "idBoleta",
 			"value": "165",
+			"type": "string"
+		},
+		{
+			"key": "idGrupo",
+			"value": "4987",
 			"type": "string"
 		}
 	]
