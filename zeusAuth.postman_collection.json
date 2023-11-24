@@ -4065,6 +4065,84 @@
 					"response": []
 				},
 				{
+					"name": "Inserir Nota com Código de Pedido Omie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=UTF-8"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:9000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:9000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Linux\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idContract\": 2723, // id da boleta\n    \"tblTrade\": {\n        \"numTrade\": 22302 // id do trade mensal\n    },\n    \"valInvoi\": 2976.56, // valor da nota\n    \"nomInvoi\": \"-\", // nº da nota se já emitida\n    \"datExpir\": \"2023-11-24T03:00:00.000Z\", // data de vencimento\n    \"datIssua\": \"2023-11-24T03:00:00.000Z\", // data de emissão\n    \"nomErpCode\": \"223021175\" // nº do código do pedido na integração \n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/invoice/atualizarCodigoIntegracao",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"invoice",
+								"atualizarCodigoIntegracao"
+							]
+						},
+						"description": "API para informar faturamento externo ao Zeus nos casos de integração com o Omie vinda de outros sistemas.\n\nAbaixo há uma descrição das propriedades a serem preenchidas, bem como onde podem ser obtidos os dados necessários.\n\n| Propriedade | Descrição | Exemplos de Formato |\n| --- | --- | --- |\n| \"idContract\" | Trata-se do ID da boleta que originou a nota. | 2723 |\n| \"numTrade\" | ID do trade mensal que está sendo faturado. Pode ser consultado na chamada \"Listar Mensal\", filtrando por boleta e por mês desejado. | 22302 |\n| \"valInvoi\" | Valor da nota a ser emitida. Os decimais, se houver, devem ser indicados utilizando ponto como separador. | 2976.56  <br>2976 |\n| \"nomInvoi\" | Número da nota fiscal, se já emitida. Caso não tenha sido emitida, deve ser preenchido da forma como apresentado, com um hífen entre aspas duplas -> \"-\" | \"123456789\"  <br>\"-\" |\n| \"datExpir\" | Data de vencimento da nota. Trocar os valores DD, MM e AAAA pelo dia, mês e ano, respectivamente. | \"AAAA-MM-DDT03:00:00.000Z\" |\n| \"datIssua\" | Data de emissão da nota. Trocar os valores DD, MM e AAAA pelo dia, mês e ano, respectivamente. | \"AAAA-MM-DDT03:00:00.000Z\" |\n| \"nomErpCode\" | Código do pedido na integração com o Omie. Trata-se do campo \"codigo_pedido_integracao\" retornado na call \"ListarPedidos\". | \"223021175\" |"
+					},
+					"response": []
+				},
+				{
 					"name": "Deletar Nota",
 					"request": {
 						"method": "DELETE",
