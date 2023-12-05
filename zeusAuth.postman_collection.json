@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "82641024-99e8-4106-9c50-fb5c2a0b79e0",
+		"_postman_id": "fa13912f-d8f7-4d26-a105-0742219282c8",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27628360"
+		"_exporter_id": "355184"
 	},
 	"item": [
 		{
@@ -6044,7 +6044,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{   \n    \"dtIniFornInicio\":\"2022-12-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2022-12-01T03:00:00.000Z\",\n    \"datRef\":\"2022-11-17T03:00:00.000Z\",\n    \"compras\":true\n}",
+							"raw": "{   \n    \"dtIniFornInicio\":\"2022-12-01T03:00:00.000Z\",\n    \"dtIniFornFinal\":\"2022-12-01T03:00:00.000Z\",\n    \"datRef\":\"2022-11-17T03:00:00.000Z\",\n    \"compras\":true,\n    \"indTipoCurva\": 0,\n    \"semBoletaFicticia\": true\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6063,7 +6063,7 @@
 								"volumeTotal"
 							]
 						},
-						"description": "Chamada para buscar os dados consolidados do portfólio para um período de tempo definido. O retorno é consolidado por tipo de energia, tipo de preço **E** submercado, não sendo possível o retorno dos dados consolidados para o total da empresa, este passo deve ser nas tratativas do retorno.\n\nParâmetros:\n\n**\"dtIniFornInicio\"**: Data de inicio do período de fornecimento a ser pesquisado  \n**\"dtIniFornFinal\"**: Data final do período de fornecimento a ser pesquisado  \n**\"datRef\"**: Data da curva forward a ser pesquisada e retornada junto aos dados. Caso a forward não exista para o dia indicado será utilizada a anterior mais recente possível.  \n**\"compras\"**: Compras ou vendas.\n\n**Retorno:**\n\n**Os dados relevantes do retorno são**:  \n**volume:** Volume consolidado calculado para o cenário do Item  \n**valTotalFinal:** Valor financeiro consolidado do cenário  \n**numHoras:** Numero de horas do mês, utilizado para calculo do MWMed\n\n**Cenario:**  \n**dataInicio:** Mês de fornecimento  \n**submercadoId**: Id do submercado  \n**energyTypeId**: Id do tipo de energia  \n**priceTypeId**: Id do preço  \n**compra**: Compras ou vendas\n\n**Forward:**  \n**valIndex:** Forward final calculada do \"cenário\"  \n**valAgio:** Agio SE  \n**valPriceExpo:** Forward SE  \n**valIndexSwapSub:** Swap de submercado, caso necessário  \n**valIndexSwapEnergia:** Swap de energia, caso necessário  \n**indOficial:** Caso true, indica que foi utilizado o PLD para o calculo e não a forward. Caso contrario, os valores vieram da forward."
+						"description": "Chamada para buscar os dados consolidados do portfólio para um período de tempo definido. O retorno é consolidado por tipo de energia, tipo de preço **E** submercado, não sendo possível o retorno dos dados consolidados para o total da empresa, este passo deve ser nas tratativas do retorno.\n\nParâmetros:\n\n**\"dtIniFornInicio\"**: Data de inicio do período de fornecimento a ser pesquisado  \n**\"dtIniFornFinal\"**: Data final do período de fornecimento a ser pesquisado  \n**\"datRef\"**: Data da curva forward a ser pesquisada e retornada junto aos dados. Caso a forward não exista para o dia indicado será utilizada a anterior mais recente possível.  \n**\"compras\"**: Compras ou vendas.  \n**\"semBoletaFicticia\":** Remoção de boletas ficticias caso existam no ambiente, terá um resultado igual o flag \"Sem Fictícias\" na tela,  \n**\"indTipoCurva\":** indicador para qual o tipo de Reajuste será utilizado, com as seguintes opções:\n\n| Valor do indice | Resultado |\n| --- | --- |\n| 0 | Sem Reajuste |\n| 1 | Índices Oficiais |\n| 2 | Projeção Futura |\n\n**Retorno:**\n\n**Os dados relevantes do retorno são**:  \n**volume:** Volume consolidado calculado para o cenário do Item  \n**valTotalFinal:** Valor financeiro consolidado do cenário  \n**numHoras:** Numero de horas do mês, utilizado para calculo do MWMed  \n**comissao:** Valor da comissão nas boletas do cenário\n\n**Cenario:**  \n**dataInicio:** Mês de fornecimento  \n**submercadoId**: Id do submercado  \n**energyTypeId**: Id do tipo de energia  \n**priceTypeId**: Id do preço  \n**compra**: Compras ou vendas\n\n**Forward:**  \n**valIndex:** Forward final calculada do \"cenário\"  \n**valAgio:** Agio SE  \n**valPriceExpo:** Forward SE  \n**valIndexSwapSub:** Swap de submercado, caso necessário  \n**valIndexSwapEnergia:** Swap de energia, caso necessário  \n**indOficial:** Caso true, indica que foi utilizado o PLD para o calculo e não a forward. Caso contrario, os valores vieram da forward."
 					},
 					"response": []
 				},
