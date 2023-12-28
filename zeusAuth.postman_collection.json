@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "fa13912f-d8f7-4d26-a105-0742219282c8",
+		"_postman_id": "9823fb7f-418c-4a65-ada9-61364710777c",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "355184"
+		"_exporter_id": "1212405"
 	},
 	"item": [
 		{
@@ -3273,6 +3273,27 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Listar Partes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{URL}}/rest/unit/findPartes",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"unit",
+								"findPartes"
+							]
+						},
+						"description": "Lista as contrapartes que são consideradas \"Partes\" no sistema, ou seja, os múltiplos CNPJs da empresa."
+					},
+					"response": []
 				}
 			]
 		},
@@ -4370,6 +4391,57 @@
 							]
 						},
 						"description": "API para deletar um pagamento em uma nota (invoice). Resultado equivalente a tela Financeiro -> Pagamentos e Recebimentos -> Listar Pagamentos, excluir pagamento.\n\nO campo **idPagamento** pode ser recuperado a partir do endpoint \"Listar Pagamento\" utilizando o numero da nota fiscal."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Pagamentos e Recebimentos Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"dtFimFornInicio\": \"2023-12-01T03:00:00.000Z\",\n  \"dtFimFornFinal\": \"2023-12-31T03:00:00.000Z\",\n  \"cancelados\": false, // \"true\" - Lista itens cancelados | \"false\" - Para lista itens ativos\n  \"parte\": {\n    \"numCount\": 6286 // ID da \"parte\" que deseja listar os itens de pagamentos e recebimentos\n  },\n  \"contaBancaria\": null, // \n  \"input\": {\n    \"draw\": 3,\n    \"columns\": [\n      {\n        \"data\": null,\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"idContract\",\n        \"name\": \"\",\n        \"searchable\": true,\n        \"orderable\": true,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"nomInvoi\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"groupName\",\n        \"name\": \"\",\n        \"searchable\": true,\n        \"orderable\": true,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"unitName\",\n        \"name\": \"\",\n        \"searchable\": true,\n        \"orderable\": true,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"datIniti\",\n        \"name\": \"\",\n        \"searchable\": true,\n        \"orderable\": true,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"datIssua\",\n        \"name\": \"\",\n        \"searchable\": true,\n        \"orderable\": true,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"datExpir\",\n        \"name\": \"\",\n        \"searchable\": true,\n        \"orderable\": true,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"valDescSuframa\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"valIcms\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"valInvoi\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"valDescontos\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"valMultas\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"valJuros\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"valPago\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"net\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"dtPagamento\",\n        \"name\": \"\",\n        \"searchable\": true,\n        \"orderable\": true,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"volTrade\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"priceTrade\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"nomCnpj\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"nomState\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"nomCity\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"nomStateId\",\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": \"indFinan\",\n        \"name\": \"\",\n        \"searchable\": true,\n        \"orderable\": true,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      },\n      {\n        \"data\": null,\n        \"name\": \"\",\n        \"searchable\": false,\n        \"orderable\": false,\n        \"search\": {\n          \"value\": \"\",\n          \"regex\": false\n        }\n      }\n    ],\n    \"order\": [\n      {\n        \"column\": 1,\n        \"dir\": \"asc\"\n      }\n    ],\n    \"start\": 0,\n    \"length\": 12\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/invoice/datatable",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"invoice",
+								"datatable"
+							]
+						},
+						"description": "API para listar os itens da tela \"Financeira > Pagamentos e Recebimentos.  \nAbaixo, segue a descrição dos parâmetros da chamada:\n\n| Parâmetro | Exemplo | Descrição |\n| --- | --- | --- |\n| dtFimFornInicio | \"2023-12-01T03:00:00.000Z\" | Data de início do fornecimento |\n| dtFimFornFinal | \"2023-12-31T03:00:00.000Z\" | Data de fim do fornecimento |\n| cancelados | false | \"true\" - Lista itens cancelados  <br>\"false\" - Para lista itens ativos |\n| parte | { \"numCount\": 1234 } | ID da \"parte\" que deseja listar os itens de pagamentos e recebimentos.  <br>O ID da parte pode ser obtido através da API \"Contrapartes > Listar Partes\". |\n| contaBancaria | null | \"null\" - Todos  <br>\"true\" - Cadastradas  <br>\"false\" - Não cadastradas |\n| input | {  <br>\"draw\": 3,  <br>\"columns\": \\[  <br>{  <br>\"data\": null,  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"idContract\",  <br>\"name\": \"\",  <br>\"searchable\": true,  <br>\"orderable\": true,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"nomInvoi\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"groupName\",  <br>\"name\": \"\",  <br>\"searchable\": true,  <br>\"orderable\": true,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"unitName\",  <br>\"name\": \"\",  <br>\"searchable\": true,  <br>\"orderable\": true,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"datIniti\",  <br>\"name\": \"\",  <br>\"searchable\": true,  <br>\"orderable\": true,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"datIssua\",  <br>\"name\": \"\",  <br>\"searchable\": true,  <br>\"orderable\": true,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"datExpir\",  <br>\"name\": \"\",  <br>\"searchable\": true,  <br>\"orderable\": true,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"valDescSuframa\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"valIcms\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"valInvoi\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"valDescontos\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"valMultas\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"valJuros\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"valPago\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"net\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"dtPagamento\",  <br>\"name\": \"\",  <br>\"searchable\": true,  <br>\"orderable\": true,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"volTrade\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"priceTrade\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"nomCnpj\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"nomState\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"nomCity\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"nomStateId\",  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": \"indFinan\",  <br>\"name\": \"\",  <br>\"searchable\": true,  <br>\"orderable\": true,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>},  <br>{  <br>\"data\": null,  <br>\"name\": \"\",  <br>\"searchable\": false,  <br>\"orderable\": false,  <br>\"search\": {  <br>\"value\": \"\",  <br>\"regex\": false  <br>}  <br>}  <br>\\],  <br>\"order\": \\[  <br>{  <br>\"column\": 1,  <br>\"dir\": \"asc\"  <br>}  <br>\\],  <br>\"start\": 0,  <br>\"length\": 12  <br>} | Manter o objeto \"input\" com a configuração original, mudando apenas as propriedades \"start\" e \"length\" para fins de controle de paginação. |"
 					},
 					"response": []
 				}
