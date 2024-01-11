@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "418da0fa-0752-451c-8d22-828c633c3d4a",
+		"_postman_id": "5b202dfc-4bf6-4833-b8ca-939290b38f95",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "1212405"
+		"_exporter_id": "355184"
 	},
 	"item": [
 		{
@@ -7455,6 +7455,682 @@
 								"description": "API para inclusão de um arquivo atrelado a um contrato de serviço no Zeus."
 							},
 							"response": []
+						}
+					]
+				},
+				{
+					"name": "Fatura Unica",
+					"item": [
+						{
+							"name": "Listar Faturas Emitidas",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/javascript, */*; q=0.01"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:9000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:9000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"datRef\": \"2023-12-01T03:00:00.000Z\",\n    \"status\": 2,\n    \"input\": {\n        \"start\": 0,\n        \"length\": 0,\n        \"draw\": 1,\n        \"columns\": [\n            {\n                \"data\": null,\n                \"name\": \"\",\n                \"searchable\": false,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": null,\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"consumo\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"valorTotal\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"valorEnergia\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"valorOutros\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"valorTotalFatura\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": null,\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": null,\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": null,\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            }\n        ],\n        \"order\": [\n            {\n                \"column\": 1,\n                \"dir\": \"asc\"\n            }\n        ],\n        \"search\": {\n            \"value\": \"\",\n            \"regex\": false\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/varejista/listaFaturar",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"varejista",
+										"listaFaturar"
+									]
+								},
+								"description": "API para retornar as notas de debito já enviadas para o ERP.\n\nPara buscar, basta trocar a datRef com a data de referencia do fornecimento de energia.\n\nA paginação é feita atraves das variaveis \"start\" e \"length\" do objeto \"input\". Length recebe o numero de registros por pagina e start o primeiro registro que deve ser carregado."
+							},
+							"response": [
+								{
+									"name": "Listar boletas de serviço",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/javascript, */*; q=0.01"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Origin",
+												"value": "http://localhost:9000"
+											},
+											{
+												"key": "Referer",
+												"value": "http://localhost:9000/"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-site"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"dtVigenciaIniDe\": null,\n    \"input\": { // Paginação\n        \"draw\": 1,\n        \"columns\": [\n            {\n                \"data\": \"id\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dataInicio\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dataFim\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"group_name\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"unidade_name\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"nomPriceType\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"valPrice\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"renovacaoName\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"responsavel\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"indResci\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dtRescisao\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dtLastRenew\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": null,\n                \"name\": \"\",\n                \"searchable\": false,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            }\n        ],\n        \"order\": [\n            {\n                \"column\": 0,\n                \"dir\": \"asc\"\n            }\n        ],\n        \"start\": 0, // Índice do primeiro item\n        \"length\": 1, // Quantidade por página\n        \"search\": {\n            \"value\": \"\",\n            \"regex\": false\n        }\n    }\n}"
+										},
+										"url": {
+											"raw": "https://{{URL}}/rest/servico/datatable/",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"servico",
+												"datatable",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000 ; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Oct 2023 16:58:29 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"draw\": 1,\n    \"recordsTotal\": 3,\n    \"recordsFiltered\": 3,\n    \"data\": [    ],\n    \"error\": null\n}"
+								},
+								{
+									"name": "Filtrar por ID da boleta",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/javascript, */*; q=0.01"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Origin",
+												"value": "http://localhost:9000"
+											},
+											{
+												"key": "Referer",
+												"value": "http://localhost:9000/"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-site"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"dtVigenciaIniDe\": null,\n    \"contractId\": \"2380\", // Id da boleta\n    \"input\": { // Paginação\n        \"draw\": 1,\n        \"columns\": [\n            {\n                \"data\": \"id\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dataInicio\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dataFim\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"group_name\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"unidade_name\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"nomPriceType\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"valPrice\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"renovacaoName\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"responsavel\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"indResci\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dtRescisao\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dtLastRenew\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": null,\n                \"name\": \"\",\n                \"searchable\": false,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            }\n        ],\n        \"order\": [\n            {\n                \"column\": 0,\n                \"dir\": \"asc\"\n            }\n        ],\n        \"start\": 0, // Índice do primeiro item\n        \"length\": 1, // Quantidade por página\n        \"search\": {\n            \"value\": \"\",\n            \"regex\": false\n        }\n    }\n}"
+										},
+										"url": {
+											"raw": "https://{{URL}}/rest/servico/datatable/",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"servico",
+												"datatable",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000 ; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Oct 2023 17:16:04 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"draw\": 1,\n    \"recordsTotal\": 3,\n    \"recordsFiltered\": 0,\n    \"data\": [],\n    \"error\": null\n}"
+								},
+								{
+									"name": "Filtrar por data de início do contrato",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/javascript, */*; q=0.01"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Origin",
+												"value": "http://localhost:9000"
+											},
+											{
+												"key": "Referer",
+												"value": "http://localhost:9000/"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-site"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"dtVigenciaIniDe\": null,\n    \"dtIniFornFinal\": \"2023-10-01T03:00:00.000Z\", // Início desde \n    \"dtIniFornInicio\": \"2023-10-01T03:00:00.000Z\", // Início até\n    \"input\": { // Paginação\n        \"draw\": 1,\n        \"columns\": [\n            {\n                \"data\": \"id\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dataInicio\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dataFim\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"group_name\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"unidade_name\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"nomPriceType\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"valPrice\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"renovacaoName\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"responsavel\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"indResci\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dtRescisao\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dtLastRenew\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": null,\n                \"name\": \"\",\n                \"searchable\": false,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            }\n        ],\n        \"order\": [\n            {\n                \"column\": 0,\n                \"dir\": \"asc\"\n            }\n        ],\n        \"start\": 0, // Índice do primeiro item\n        \"length\": 1, // Quantidade por página\n        \"search\": {\n            \"value\": \"\",\n            \"regex\": false\n        }\n    }\n}"
+										},
+										"url": {
+											"raw": "https://{{URL}}/rest/servico/datatable/",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"servico",
+												"datatable",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000 ; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Oct 2023 17:18:36 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"draw\": 1,\n    \"recordsTotal\": 3,\n    \"recordsFiltered\": 3,\n    \"data\": [\n        {\n            \"id\": 5,\n            \"dataEntrada\": [\n                2023,\n                1,\n                25\n            ],\n            \"dataInicio\": 1672542000000,\n            \"dataFim\": 1703991600000,\n            \"group_id\": 4912,\n            \"unidade_id\": 6500,\n            \"valPrice\": 1200,\n            \"indexId\": -1,\n            \"datIndexBase\": null,\n            \"datIndexFirstAdjus\": null,\n            \"pagType\": 3,\n            \"pagVal\": 10,\n            \"pagMesType\": 2,\n            \"fatType\": 3,\n            \"fatVal\": 1,\n            \"fatMesType\": 2,\n            \"comentario\": null,\n            \"userId\": 1,\n            \"indCance\": false,\n            \"indResci\": null,\n            \"priceType\": 1,\n            \"indSemImps\": null,\n            \"valPiso\": null,\n            \"nomObsPrice\": null,\n            \"prazoRenovacao\": 60,\n            \"mesesRenovacao\": 12,\n            \"regraContrato\": null,\n            \"regraReajuste\": null,\n            \"dtInicioPagamento\": null,\n            \"idBoletaPai\": null,\n            \"indRenew\": false,\n            \"dtLastRenew\": null,\n            \"dtRescisao\": null,\n            \"observacao\": null,\n            \"inicioPagamento\": {\n                \"id\": 1,\n                \"nomPaymeStart\": \"Imediato\"\n            },\n            \"tipoRenovacao\": {\n                \"id\": 1,\n                \"nomRenew\": \"Automática\"\n            },\n            \"paymentModel\": null,\n            \"aprovadoServico\": true,\n            \"datAprovServico\": 1691069537000,\n            \"userAprovServico\": {\n                \"id\": 1,\n                \"name\": \"ADMINISTRADOR\",\n                \"nameBBCE\": \"ZEUS\",\n                \"nameEnbox\": null,\n                \"login\": \"ADMIN\",\n                \"password\": \"b9ba7380b14e8e8343186cc0f09596563b8506b9c0281efce4b1a3485ea086b2\",\n                \"email\": \"THIAGO.OLIVEIRA@MIRACLEWORKS.CO\",\n                \"indCancel\": false,\n                \"indConfi\": true,\n                \"indTrade\": true,\n                \"indAdmin\": true,\n                \"indContr\": true,\n                \"indFinan\": true,\n                \"indCount\": true,\n                \"indLawye\": true,\n                \"indBack\": true,\n                \"signatureUser\": \"<p><img src=\\\"https://zeus.miracleworks.com.br/resources/planilhas/upload/20220408180518_mceclip0.png\\\" /></p>\",\n                \"nomFileUserSign\": null,\n                \"indUsing2FA\": false,\n                \"nomSecret\": \"EDZESP43RCEUEVGE\",\n                \"perfil\": {\n                    \"id\": 1,\n                    \"nomPerfil\": \"Admin\",\n                    \"oldVersionOfItself\": null,\n                    \"textoPermissoes\": \" <b>Financeiro</b> Visualizar + Inserir + Editar<br> <b>Registro</b> Visualizar + Inserir + Editar<br> <b>PLD</b> Visualizar + Inserir + Editar<br> <b>Contraparte</b> Visualizar + Inserir + Editar<br> <b>Administração</b> Visualizar + Inserir + Editar<br> <b>Relatorio</b> Visualizar + Inserir + Editar<br> <b>Relatorio Externo</b> Visualizar + Inserir + Editar<br> <b>Gestão</b> Visualizar + Inserir + Editar<br> <b>Viabilidade</b> Visualizar + Inserir + Editar<br> <b>Boletas</b> Visualizar + Inserir + Editar<br> <b>Garantias</b> Visualizar + Inserir + Editar<br> <b>Juridico</b> Visualizar + Inserir + Editar<br> <b>Aprovador</b> Visualizar + Inserir + Editar<br> <b>Migração</b> Visualizar + Inserir + Editar<br> <b>Derivativos</b> Visualizar + Inserir + Editar<br> <b>Modelo Migração</b> Visualizar + Inserir + Editar<br> <b>Super Aprovador</b> Visualizar + Inserir + Editar<br> <b>Arquivos</b> Visualizar + Inserir + Editar<br><br>\",\n                    \"dashboard\": {\n                        \"id\": 1,\n                        \"nomArea\": \"Boletas\",\n                        \"tipo\": 1,\n                        \"nomStateDash\": \"app.boletacapitale.dashboard\",\n                        \"indCance\": false\n                    }\n                },\n                \"dashboard\": null,\n                \"oldVersionOfItself\": null,\n                \"nomQURL\": null,\n                \"nomLogin\": \"ADMIN\"\n            },\n            \"group_name\": \"EXIBIÇÃO\",\n            \"unidade_name\": \"EXIBIÇÃO 1\",\n            \"userName\": null,\n            \"tipoPagamentoName\": null,\n            \"valPriceReaj\": null,\n            \"valReajRealizado\": null,\n            \"aplicado\": null,\n            \"responsavel\": null,\n            \"indBoletaSemTrade\": null,\n            \"preco\": \"R$1,200.00\",\n            \"periodo\": null,\n            \"dtVigencia\": null,\n            \"oldVersionOfItself\": null,\n            \"groupName\": \"EXIBIÇÃO\",\n            \"nomPriceType\": \"Preço Fixo\",\n            \"indexName\": null,\n            \"patamentoInicioName\": \"Imediato\",\n            \"renovacaoName\": \"Automática\",\n            \"unidadeName\": \"EXIBIÇÃO 1\"\n        }\n    ],\n    \"error\": null\n}"
+								},
+								{
+									"name": "Filtrar por data de fim do contrato",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/javascript, */*; q=0.01"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Origin",
+												"value": "http://localhost:9000"
+											},
+											{
+												"key": "Referer",
+												"value": "http://localhost:9000/"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-site"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"dtVigenciaIniDe\": null,\n    \"dtFimFornFinal\": \"2020-11-01T03:00:00.000Z\",\n    \"dtFimFornInicio\": \"2020-11-01T03:00:00.000Z\",\n    \"input\": { // Paginação\n        \"draw\": 1,\n        \"columns\": [\n            {\n                \"data\": \"id\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dataInicio\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dataFim\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"group_name\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"unidade_name\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"nomPriceType\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"valPrice\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"renovacaoName\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"responsavel\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"indResci\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dtRescisao\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"dtLastRenew\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": null,\n                \"name\": \"\",\n                \"searchable\": false,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            }\n        ],\n        \"order\": [\n            {\n                \"column\": 0,\n                \"dir\": \"asc\"\n            }\n        ],\n        \"start\": 0, // Índice do primeiro item\n        \"length\": 1, // Quantidade por página\n        \"search\": {\n            \"value\": \"\",\n            \"regex\": false\n        }\n    }\n}"
+										},
+										"url": {
+											"raw": "https://{{URL}}/rest/servico/datatable/",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"servico",
+												"datatable",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000 ; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Oct 2023 17:23:46 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"draw\": 1,\n    \"recordsTotal\": 3,\n    \"recordsFiltered\": 0,\n    \"data\": [],\n    \"error\": null\n}"
+								}
+							]
 						}
 					]
 				},
