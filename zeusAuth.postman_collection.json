@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5b202dfc-4bf6-4833-b8ca-939290b38f95",
+		"_postman_id": "2d1643ed-5e5f-4921-9412-921dc806b305",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "355184"
+		"_exporter_id": "34775311"
 	},
 	"item": [
 		{
@@ -19,28 +19,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "1a53346b-5a4e-4090-a77c-ae4ae1dd0f6f"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "1cb5d4df-ed57-4e51-8916-38c32df5441f"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "4a82db95-630c-44a8-80c6-b3c461dc4d33"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "54c4527b-6415-443b-a456-f842d6937c2c"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "9ad9478e-2afb-4c4e-a4cb-b4bf11e1c23e"
 									}
 								],
 								"body": {
@@ -69,28 +69,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "ac70c849-9f28-4768-a53f-2e23e53b0bdb"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "fb97f9be-75f2-4143-9ed4-90fa98fdb4a9"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "15ce90f9-86f4-4d45-a7be-5c087f2268ae"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "39eb98f6-c123-494f-9139-bcec764079b4"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "59e58541-8caa-4706-860b-73b46efec28d"
 									}
 								],
 								"body": {
@@ -224,7 +224,8 @@
 								"rest",
 								"boletacapitale"
 							]
-						}
+						},
+						"description": "# Encargos CCEE - Varejistas\n\nOs três dados utilizados nesse bloco da boleta são propriedades do objeto BoletaEnergia. As propriedades utilizadas dependendo do tipo de encargo:\n\n## **1\\. INTEGRAL**\n\nencargoVarejistaTipo: {  \n\"id\": 1,  \n\"nomEncargoVarejistaTipo\": \"Integral\",  \n\"oldVersionOfItself\": null  \n}\n\n## **2\\. PARCIAL**\n\nencargoVarejistaTipo: {  \n\"id\": 2,  \n\"nomEncargoVarejistaTipo\": \"Parcial\",  \n\"oldVersionOfItself\": null  \n},  \nvalPisoEncargo : 20,  \nvalTetoEncargo : 150\n\n## **3\\. PRÉ FIXADO**\n\nencargoVarejistaTipo: {  \n\"id\": 3,  \n\"nomEncargoVarejistaTipo\": \"Pré-fixado\",  \n\"oldVersionOfItself\": null  \n},  \nvalPisoEncargo : 100\n\n## **4\\. NENHUM**\n\nencargoVarejistaTipo: {  \n\"id\": 4,  \n\"nomEncargoVarejistaTipo\": \"Nenhum\",  \n\"oldVersionOfItself\": null  \n}\n\nA lista dos tipos de repasse de encargo pode ser adquirida através da chamada exemplificada em Informações Gerais > Tipo Repasse Encargos Varejistas na documentação da API."
 					},
 					"response": [
 						{
@@ -406,6 +407,96 @@
 							],
 							"cookie": [],
 							"body": "<BoletaEnergia>\n    <id>152</id>\n    <dataEntrada>2022</dataEntrada>\n    <dataEntrada>9</dataEntrada>\n    <dataEntrada>20</dataEntrada>\n    <dataInicio>1672542000000</dataInicio>\n    <dataFim>1735614000000</dataFim>\n    <groupCompId>4912</groupCompId>\n    <unidadeCompId>6511</unidadeCompId>\n    <groupVendId/>\n    <unidadeVendId/>\n    <precoTipo>1</precoTipo>\n    <preco>0.0</preco>\n    <valComissao>0.0</valComissao>\n    <valPisoCollar/>\n    <valTetoCollar/>\n    <volumeTipo>1</volumeTipo>\n    <volume>0.0</volume>\n    <flexMin>10.0</flexMin>\n    <flexMax>10.0</flexMax>\n    <sazoMin>10.0</sazoMin>\n    <sazoMax>10.0</sazoMax>\n    <submercado>2</submercado>\n    <energyTipo>2</energyTipo>\n    <numDistType/>\n    <retusd>35.0</retusd>\n    <plataformaId>2</plataformaId>\n    <indexId>1</indexId>\n    <datIndexBase>1662001200000</datIndexBase>\n    <datIndexFirstAdjus>1672542000000</datIndexFirstAdjus>\n    <registroTipo>1</registroTipo>\n    <garantiaTipo>-1</garantiaTipo>\n    <emitInvoiType>2</emitInvoiType>\n    <emitInvoiVal>1</emitInvoiVal>\n    <emitInvoiCondPerioType>2</emitInvoiCondPerioType>\n    <pagType>2</pagType>\n    <pagVal>6</pagVal>\n    <pagMesType>2</pagMesType>\n    <stateIcms_id/>\n    <comentario/>\n    <userId/>\n    <cancelada/>\n    <numRefId/>\n    <representatividade/>\n    <valPriceReaj/>\n    <indReajRealizado/>\n    <valReajRealizado/>\n    <datSeaso>1701313200000</datSeaso>\n    <carteira/>\n    <tblCarteira/>\n    <indReajIniciForneCliente/>\n    <agenteVendedor/>\n    <agenteComprador/>\n    <aprovadoCliente/>\n    <datAprovCliente/>\n    <userAprovCliente/>\n    <precoTipoName/>\n    <volumeTipoName/>\n    <submercadoName/>\n    <energiaTipoName/>\n    <plataformaName/>\n    <registroTipoName/>\n    <garantiaTipoName/>\n    <pagamentoTipoName/>\n    <estadoIcmsName/>\n    <indiceName/>\n    <volumeSazoList>\n        <volumeSazoList>\n            <id/>\n            <dataInicio>1672542000000</dataInicio>\n            <dataFim>1703991600000</dataFim>\n            <volume>2.0</volume>\n            <preco>200.0</preco>\n        </volumeSazoList>\n        <volumeSazoList>\n            <id/>\n            <dataInicio>1704078000000</dataInicio>\n            <dataFim>1735614000000</dataFim>\n            <volume>1.0</volume>\n            <preco>100.0</preco>\n        </volumeSazoList>\n    </volumeSazoList>\n    <userName/>\n    <distType>\n        <numDistType>2</numDistType>\n        <nomDistType/>\n        <nomDistCcee/>\n    </distType>\n    <pagDate/>\n    <emitInvoiDate/>\n    <boletaType>true</boletaType>\n    <vigencia/>\n    <cobertura/>\n    <extension>\n        <idContract>152</idContract>\n        <numContratoBBCE>F123458</numContratoBBCE>\n        <numContratoEnbox/>\n        <nomEmailCliente/>\n        <opeHete>false</opeHete>\n        <encContas>false</encContas>\n        <indReajIniciForne/>\n        <compra>false</compra>\n        <representativade>100.0</representativade>\n        <broker/>\n        <brokerName/>\n        <aprovado>false</aprovado>\n        <nomAprovMsg/>\n        <nomEditMsg/>\n        <datAprov/>\n        <userAprov/>\n        <cancelada>false</cancelada>\n        <datCancel/>\n        <userCancel/>\n        <recusada/>\n        <modulMin/>\n        <modulMax/>\n        <indReajusteHeterodoxo/>\n        <datRecusada/>\n        <potencialDuplicada>false</potencialDuplicada>\n        <boletasOrigemDaDuplicacao/>\n        <parte/>\n        <userRecusada/>\n        <datUpdate>1663642800000</datUpdate>\n        <userUpdate/>\n        <nomOrigem/>\n        <numRefId/>\n        <datEmitInvoi>-2208934412000</datEmitInvoi>\n        <numEmitInvoiMonth>2</numEmitInvoiMonth>\n        <emitInvoiType>\n            <numPaymeType>2</numPaymeType>\n            <nomPaymeType>Dias Uteis</nomPaymeType>\n        </emitInvoiType>\n        <indEntryInvoi/>\n        <contaBancaria/>\n        <contaBancariaParte/>\n        <agenteParte/>\n        <agenteContraparte/>\n        <negocioId/>\n        <perfilBBCECceeContraparte/>\n        <perfilBBCECceeParte/>\n        <oldVersionOfItself/>\n        <nomBBCEStatus/>\n    </extension>\n    <docStatusId/>\n    <docStatusName/>\n    <datDocumUpdat/>\n    <intDocumDays/>\n    <daysBetweenUpdate/>\n    <sazoRealizada/>\n    <parcialmenteCancelada/>\n    <dataInicioReajuste/>\n    <dataFimReajuste/>\n    <indBalancReali/>\n    <editable/>\n    <userUpdate/>\n    <datUpdate/>\n    <siglaEmitInvoi/>\n    <siglaPagamento/>\n    <indBoletaSemTrade/>\n    <dataCriacao/>\n    <comentarioEdicao/>\n    <forceUpdate/>\n    <parte/>\n    <contraparte/>\n    <agenteParte/>\n    <agenteContraparte/>\n    <comercializadora/>\n    <negocioBBCEId/>\n    <agenteParteExport/>\n    <agenteContraparteExport/>\n    <encContas/>\n    <temTradeFaturado/>\n    <indTodosTradesFaturados/>\n    <stateName/>\n    <numCount>0</numCount>\n    <venda>true</venda>\n    <stringPagamento>6 DU MS</stringPagamento>\n    <stringEmitInvoi>1 DU MS</stringEmitInvoi>\n    <compVend>Venda</compVend>\n    <nomCnpj>-</nomCnpj>\n    <groupCName/>\n    <distribuicaoTipo/>\n    <nomFull>-</nomFull>\n    <unidadeCName/>\n    <unidadeVName/>\n    <groupVName/>\n    <cpGroup/>\n    <pagMesName>Mês Seguinte</pagMesName>\n    <cpUnit/>\n    <volumeExport>-0.0</volumeExport>\n    <numberBBCE>F123458</numberBBCE>\n    <carteiraName>-</carteiraName>\n    <reajIniciForne>Não</reajIniciForne>\n    <reajIniciForneCliente>Não</reajIniciForneCliente>\n    <boletaParcialmenteCancelada>Não</boletaParcialmenteCancelada>\n    <operacaoHeterodoxa>Não</operacaoHeterodoxa>\n</BoletaEnergia>"
+						},
+						{
+							"name": "Longo prazo + Unidade Varejista",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"plataformaId\": 2, //Id da plataforma que estão disponiveis na chamada \"Informações Gerais\" -> \"Plataformas\". No exemplo \"BBCE\"\n  \"pagType\": 2, //Id do \"Informações Gerais\" -> \"Tipo de pagamento\". No exemplo, \"Dias Uteis\"\n  \"pagMesType\": 2, //Id do \"Informações Gerais\" -> \"Tipo de Condição de Pagamento\". No exemplo, \"Mês Seguinte ao fornecimento\"\n  \"pagVal\": 6, //Dias para o pagamento. Em conjunto com o PagType e PagMesType, gerou um pagamento no 6ºDU do mês seguinte ao fornecimento\n  \"emitInvoiType\": 2,//Mesmo funcionamento do pagamento, porém para a data de emissão da nota.\n  \"emitInvoiCondPerioType\": 2,\n  \"emitInvoiVal\": 1, //Dias para a emissão. Em conjunto com o emitInvoiType e emitInvoiCondPerioType, gerou uma emissão no 1ºDU do mês seguinte ao fornecimento\n  \"submercado\": 2, //Id do \"Informações Gerais\" -> \"Submercados\". No exemplo \"S\"\n  \"energyTipo\": 2, //Id do \"Informações Gerais\" -> \"Tipos de Energia\". No exemplo \"Incentivada 50%\"\n  \"retusd\": 35, // Valor da retusd, quando disponivel\n  \"distType\": { //Tipo de distribuição, objeto presente em \"Informações Gerais\" -> \"Tipos de Distribuição\". Apenas o id \"numDistType\" é necessario. No exemplo, \"Carga\"\n    \"numDistType\": 2\n  },\n  \"dataEntrada\": \"2022-09-20\", //Data de fechamento da boleta\n  \"datSeaso\": \"2023-11-30T03:00:00.000Z\", //Data limite para declaração da Sazo, utilizada para o Zeus enviar notificações\n  \"dataInicio\": \"2023-01-01T03:00:00.000Z\", // Inicio do periodo de fornecimento.\n  \"dataFim\": \"2024-12-01T03:00:00.000Z\", // Fim do periodo de fornecimento\n  \"groupCompId\": 4912, //Id do grupo da contraparte. Dado presente em \"Contrapartes\" -> \"Listar Grupos\"\n  \"unidadeCompId\": 6511, //Id da unidade da contraparte. Dado presente em \"Contrapartes\" -> \"Listar Unidades\". Dado opcional. Para contratos que serão divididos de acordo com o consumo/geração ou distribuidos entre varios CNPJs/NF, este dado não deve ser enviado.\n  \"volumeTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipo de Volume\". Irá impactar os dados dos multiplos valores. No exemplo \"MWmed\"\n  \"volume\": 0, // Sempre enviar volume = 0 para operações multiplos valores\n  \"precoTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipo de Preço\". Irá impactar os dados dos multiplos valores. No exemplo \"Fixo\"\n  \"preco\": 0, // Sempre enviar preço = 0 para operações multiplos valores\n  \"flexMin\": 10, //Limite minimo da flex\n  \"flexMax\": 10, //Limite maximo da flex. No exemplo, uma operação com flex de 90% a 110%\n  \"sazoMin\": 10, //Limite minimo da Sazo\n  \"sazoMax\": 10, //Limite maximo da sazo. No exemplo, uma operação com sazo variando entre 90% a 110% do contratado\n  \"indexId\": 1, //Id do \"Informações Gerais\" -> \"indexadores\". No exemplo, \"IPCA\"\n  \"datIndexBase\": \"2022-09-01T03:00:00.000Z\", //Data base para o calculo do reajuste\n  \"datIndexFirstAdjus\": \"2023-01-01T03:00:00.000Z\", // Data de aplicação do primeiro reajuste, com repetição a cada 12 meses\n  \"registroTipo\": 1, //Id do \"Informações Gerais\" -> \"Tipo de Registro\". No caso, \"Registro contra pagamento\"\n  \"garantiaTipo\": -1, //Id do \"Informações Gerais\" -> \"Garantias\". No caso, \"NA\" (não terá garantia)\n  \"volumeSazoList\": [ // Array com os multiplos valores da operação.\n    {\n      \"dataInicio\": \"2023-01-01T03:00:00.000Z\", //Inicio do fornecimento deste periodo\n      \"dataFim\": \"2023-12-01T03:00:00.000Z\", //Final do fornecimento deste periodo\n      \"volume\": 2, //Volume na unidade de medida escolhida no campo \"volumeTipo\" para este periodo. O campo aceita: para MWmed até 6 casas decimais e MWh até 3 casas decimais;\n      \"preco\": 200 // Preço em R$/MWh para este periodo\n    },\n    {\n      \"dataInicio\": \"2024-01-01T03:00:00.000Z\",\n      \"dataFim\": \"2024-12-01T03:00:00.000Z\",\n      \"volume\": 1,\n      \"preco\": 100\n    }\n  ],\n  \"venda\": true, //Tipo da boleta, compra ou venda. No caso, uma venda. Caso compra, enviar \"venda\": false.\n  \"extension\": { \n    \"representativade\": 100, // No caso da Flex estar travada ao consumo/geração da contraparte, indicar a % de representatividade\n    \"numContratoBBCE\": \"F123458\" // Para as plataformas \"BBCE\" e \"Boleta Eletronica\" o envio deste campo é obrigatorio e será utilizado para validar se o contrato BBCE já foi integrado ou não, para evitar duplicações.\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/boletacapitale",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletacapitale"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Sep 2022 19:23:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<BoletaEnergia>\n    <id>152</id>\n    <dataEntrada>2022</dataEntrada>\n    <dataEntrada>9</dataEntrada>\n    <dataEntrada>20</dataEntrada>\n    <dataInicio>1672542000000</dataInicio>\n    <dataFim>1735614000000</dataFim>\n    <groupCompId>4912</groupCompId>\n    <unidadeCompId>6511</unidadeCompId>\n    <groupVendId/>\n    <unidadeVendId/>\n    <precoTipo>1</precoTipo>\n    <preco>0.0</preco>\n    <valComissao>0.0</valComissao>\n    <valPisoCollar/>\n    <valTetoCollar/>\n    <volumeTipo>1</volumeTipo>\n    <volume>0.0</volume>\n    <flexMin>10.0</flexMin>\n    <flexMax>10.0</flexMax>\n    <sazoMin>10.0</sazoMin>\n    <sazoMax>10.0</sazoMax>\n    <submercado>2</submercado>\n    <energyTipo>2</energyTipo>\n    <numDistType/>\n    <retusd>35.0</retusd>\n    <plataformaId>2</plataformaId>\n    <indexId>1</indexId>\n    <datIndexBase>1662001200000</datIndexBase>\n    <datIndexFirstAdjus>1672542000000</datIndexFirstAdjus>\n    <registroTipo>1</registroTipo>\n    <garantiaTipo>-1</garantiaTipo>\n    <emitInvoiType>2</emitInvoiType>\n    <emitInvoiVal>1</emitInvoiVal>\n    <emitInvoiCondPerioType>2</emitInvoiCondPerioType>\n    <pagType>2</pagType>\n    <pagVal>6</pagVal>\n    <pagMesType>2</pagMesType>\n    <stateIcms_id/>\n    <comentario/>\n    <userId/>\n    <cancelada/>\n    <numRefId/>\n    <representatividade/>\n    <valPriceReaj/>\n    <indReajRealizado/>\n    <valReajRealizado/>\n    <datSeaso>1701313200000</datSeaso>\n    <carteira/>\n    <tblCarteira/>\n    <indReajIniciForneCliente/>\n    <agenteVendedor/>\n    <agenteComprador/>\n    <aprovadoCliente/>\n    <datAprovCliente/>\n    <userAprovCliente/>\n    <precoTipoName/>\n    <volumeTipoName/>\n    <submercadoName/>\n    <energiaTipoName/>\n    <plataformaName/>\n    <registroTipoName/>\n    <garantiaTipoName/>\n    <pagamentoTipoName/>\n    <estadoIcmsName/>\n    <indiceName/>\n    <volumeSazoList>\n        <volumeSazoList>\n            <id/>\n            <dataInicio>1672542000000</dataInicio>\n            <dataFim>1703991600000</dataFim>\n            <volume>2.0</volume>\n            <preco>200.0</preco>\n        </volumeSazoList>\n        <volumeSazoList>\n            <id/>\n            <dataInicio>1704078000000</dataInicio>\n            <dataFim>1735614000000</dataFim>\n            <volume>1.0</volume>\n            <preco>100.0</preco>\n        </volumeSazoList>\n    </volumeSazoList>\n    <userName/>\n    <distType>\n        <numDistType>2</numDistType>\n        <nomDistType/>\n        <nomDistCcee/>\n    </distType>\n    <pagDate/>\n    <emitInvoiDate/>\n    <boletaType>true</boletaType>\n    <vigencia/>\n    <cobertura/>\n    <extension>\n        <idContract>152</idContract>\n        <numContratoBBCE>F123458</numContratoBBCE>\n        <numContratoEnbox/>\n        <nomEmailCliente/>\n        <opeHete>false</opeHete>\n        <encContas>false</encContas>\n        <indReajIniciForne/>\n        <compra>false</compra>\n        <representativade>100.0</representativade>\n        <broker/>\n        <brokerName/>\n        <aprovado>false</aprovado>\n        <nomAprovMsg/>\n        <nomEditMsg/>\n        <datAprov/>\n        <userAprov/>\n        <cancelada>false</cancelada>\n        <datCancel/>\n        <userCancel/>\n        <recusada/>\n        <modulMin/>\n        <modulMax/>\n        <indReajusteHeterodoxo/>\n        <datRecusada/>\n        <potencialDuplicada>false</potencialDuplicada>\n        <boletasOrigemDaDuplicacao/>\n        <parte/>\n        <userRecusada/>\n        <datUpdate>1663642800000</datUpdate>\n        <userUpdate/>\n        <nomOrigem/>\n        <numRefId/>\n        <datEmitInvoi>-2208934412000</datEmitInvoi>\n        <numEmitInvoiMonth>2</numEmitInvoiMonth>\n        <emitInvoiType>\n            <numPaymeType>2</numPaymeType>\n            <nomPaymeType>Dias Uteis</nomPaymeType>\n        </emitInvoiType>\n        <indEntryInvoi/>\n        <contaBancaria/>\n        <contaBancariaParte/>\n        <agenteParte/>\n        <agenteContraparte/>\n        <negocioId/>\n        <perfilBBCECceeContraparte/>\n        <perfilBBCECceeParte/>\n        <oldVersionOfItself/>\n        <nomBBCEStatus/>\n    </extension>\n    <docStatusId/>\n    <docStatusName/>\n    <datDocumUpdat/>\n    <intDocumDays/>\n    <daysBetweenUpdate/>\n    <sazoRealizada/>\n    <parcialmenteCancelada/>\n    <dataInicioReajuste/>\n    <dataFimReajuste/>\n    <indBalancReali/>\n    <editable/>\n    <userUpdate/>\n    <datUpdate/>\n    <siglaEmitInvoi/>\n    <siglaPagamento/>\n    <indBoletaSemTrade/>\n    <dataCriacao/>\n    <comentarioEdicao/>\n    <forceUpdate/>\n    <parte/>\n    <contraparte/>\n    <agenteParte/>\n    <agenteContraparte/>\n    <comercializadora/>\n    <negocioBBCEId/>\n    <agenteParteExport/>\n    <agenteContraparteExport/>\n    <encContas/>\n    <temTradeFaturado/>\n    <indTodosTradesFaturados/>\n    <stateName/>\n    <numCount>0</numCount>\n    <venda>true</venda>\n    <stringPagamento>6 DU MS</stringPagamento>\n    <stringEmitInvoi>1 DU MS</stringEmitInvoi>\n    <compVend>Venda</compVend>\n    <nomCnpj>-</nomCnpj>\n    <groupCName/>\n    <distribuicaoTipo/>\n    <nomFull>-</nomFull>\n    <unidadeCName/>\n    <unidadeVName/>\n    <groupVName/>\n    <cpGroup/>\n    <pagMesName>Mês Seguinte</pagMesName>\n    <cpUnit/>\n    <volumeExport>-0.0</volumeExport>\n    <numberBBCE>F123458</numberBBCE>\n    <carteiraName>-</carteiraName>\n    <reajIniciForne>Não</reajIniciForne>\n    <reajIniciForneCliente>Não</reajIniciForneCliente>\n    <boletaParcialmenteCancelada>Não</boletaParcialmenteCancelada>\n    <operacaoHeterodoxa>Não</operacaoHeterodoxa>\n    <encargoVarejistaTipo>\n        <id>2</id>\n        <nomEncargoVarejistaTipo>\"Parcial\"</nomEncargoVarejistaTipo>\n        <oldVersionOfItself>null</oldVersionOfItself>\n    </encargoVarejistaTipo>\n    <valPisoEncargo>10</valPisoEncargo>\n    <valTetoEncargo>100</valTetoEncargo>\n</BoletaEnergia>"
 						}
 					]
 				},
@@ -466,28 +557,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "003e6d87-f5c7-4fd5-a538-c9872087320d"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "aae86a0a-e0c0-49ce-8554-de143ba01902"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "6cb34077-d131-4cae-8d86-616323ccbf20"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "a50213a7-0597-40d4-af04-f613fb896a07"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "ab34410f-a428-42c1-9e30-9a709c593a96"
 							}
 						],
 						"body": {
@@ -811,28 +902,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "4bd0d1fe-7429-4772-abb9-69f353d6d15a"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "9501722f-4098-4840-af0b-b09c72173020"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "d0849077-b070-4661-bd00-2c839781c34b"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "a1954120-7222-4608-850a-1d86997d4bc4"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "ab3aef5c-2559-4b6b-bfeb-d2a5157c3d4f"
 							}
 						],
 						"body": {
@@ -1553,28 +1644,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "09976f2a-2cbb-4631-8556-fe5d9e64289e"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "8cc090da-90e9-4230-9544-2bacbc93db52"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "fcf163f0-a53f-4ea5-a1e3-c0efbc86005c"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "9ab77202-396a-4515-bb30-6bdbd8fa967b"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "multipart/form-data"
+								"value": "multipart/form-data",
+								"uuid": "e65fa05f-dc54-4f84-a916-98cb211439b1"
 							}
 						],
 						"body": {
@@ -1614,28 +1705,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "9b933f56-8b53-4c9c-a2a3-130e468d1183"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "4cdc295d-5a73-4db7-b31a-c958a9017ebd"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "22f3ea88-fa5b-41ea-9dd5-55be744ce7b8"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "57d318b9-6e77-41bf-9760-ab506cd76ff8"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "f45ce8fb-6a52-4c76-ab72-2d127b051b4f"
 							}
 						],
 						"body": {
@@ -1670,28 +1761,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "9e6f31ce-23d1-4cee-ba24-8238c5c24a39"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "94a22f7d-74f5-4ab9-8066-a8983cb7108e"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "b60019cb-0f4e-4def-9c91-50177b76b84c"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "56f04596-417d-45ca-8214-822d1b64209a"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "07acced6-b454-4604-9d70-9bab50014ce6"
 							}
 						],
 						"body": {
@@ -1729,28 +1820,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "aef218ef-0172-4a14-a763-34112b1606d9"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "7f02490d-4e14-400f-8e52-dd9a95933c3b"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "48773b3b-6657-4c0a-8f8d-a3f011752323"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "a3e33e96-b644-465b-9a2c-656dd9b0098e"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "c46e7af0-3a2b-4b66-8a7f-dc124c94d659"
 									}
 								],
 								"url": {
@@ -1781,28 +1872,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "d6a509f2-ac0b-4e02-bd98-26065162902a"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "4b137116-c1d2-4553-8683-2751e1ed9075"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "a87c6010-6688-4e70-a075-28128a62cf8d"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "bf22b618-95e7-4305-8137-f93c3a28989c"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "6e318532-356c-4144-a732-6a1d3ae9fa46"
 									}
 								],
 								"body": {
@@ -1836,28 +1927,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "eb928036-78a4-4db6-b9d6-7a4c81bcb9bf"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "019c07d7-f811-4485-a1a0-f5d9655636b7"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "4ad3f497-0e11-4726-a970-2d93dc8ba490"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "326452ba-919e-4488-a077-4b521b8b39e3"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "635340b8-9dac-49dc-b753-9f1b914797a0"
 									}
 								],
 								"url": {
@@ -1888,28 +1979,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "0b24833e-b759-4e16-be5f-be55642d8e4b"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "a0b3f245-b260-4b32-a0d7-18bf40e36b4d"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "1272a1ee-9f16-47b6-9844-f4300d60c017"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "1d70aad3-b9dd-440d-8fa0-e9216889d5cd"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "fdf95979-85e0-459d-906c-0aec8cb66910"
 									}
 								],
 								"body": {
@@ -2060,28 +2151,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "2216f087-3408-43ef-bed8-a27f5baeb287"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "d0b94a42-d9f0-4a16-9bed-2bd633d93c9c"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "4b4a24aa-7f93-4879-8a6d-506b355617dd"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "f2e76bfd-2973-4e20-aec8-b05d9f92635e"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "e5794d6c-5afe-45e2-ab19-ba45ac25b69a"
 									}
 								],
 								"url": {
@@ -2107,28 +2198,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "e5f5146a-b818-4bc1-b3ac-571c09294783"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "2dbacd33-5a09-4e78-8f0c-aa732391fe7b"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "66407111-1aa3-4533-add6-f722cc5ff1dd"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "c1a3a701-534e-4a61-8abe-a0e98c01a1a9"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "1833bb3e-610e-4c6b-94ea-18a23686f43c"
 									}
 								],
 								"url": {
@@ -2162,28 +2253,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "5990f435-60f9-48f3-88c6-8ea677bbe02b"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "6d5a68a3-d495-435f-be13-a36445929eee"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "9b6c7135-1650-45ef-be1f-b979a48b6466"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "ff798ca9-a476-4227-b6bd-c49bc4e94f2a"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "bfcda4c9-ba78-4588-92c9-4f26f0c2e8ba"
 									}
 								],
 								"url": {
@@ -2224,28 +2315,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "6c334182-3edc-46f4-b5fe-783c7a91e7cb"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "797ef1ea-6f49-4b1b-a91c-9d36af85e088"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "19e9361c-4bc8-4c72-8d37-2318abee266a"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "165b8abe-f32b-40e1-b4fa-09d62bdd744f"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "e20af705-808b-45c4-b2eb-2bfde4bcd6a5"
 							}
 						],
 						"body": {
@@ -2511,28 +2602,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "24e2b532-4aef-47ca-8270-f9a582cf7a83"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "3afbd097-3c40-4377-82ae-6c3b7cc6db62"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "62a9c2ed-ab5c-4208-8535-99b7b85da3d3"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "0f0649ac-1d99-4f70-bb79-a94b0241dc2e"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "5a559cbe-d9ae-4bca-a111-c7bacfa19e96"
 							}
 						],
 						"body": {
@@ -2569,28 +2660,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "19015a91-a2ee-45d2-a369-8e2a4e3b5bdd"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "ae31660b-94fc-473e-b315-f18a9d3ddd81"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "4bddd530-4ff8-41c0-b34b-e84e0fa5670b"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "f0cffb80-4ad0-462d-afed-65ec7411e2e8"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "4757d2c9-e794-4069-93d2-2e33f66ec177"
 							}
 						],
 						"body": {
@@ -2743,28 +2834,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "ee4050f5-5fdb-4896-9237-6c0507bf55fa"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "73b5ebc3-2c2e-43b4-972c-0b5d4bc1bd9f"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "29b8b7ea-00a4-4b2f-ad48-81e3d7fb1266"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "4fdd7858-c646-417b-845b-d5f01f7741ed"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "c04c96e2-e7b7-4655-af38-4a72ce74f79f"
 							}
 						],
 						"body": {
@@ -2949,55 +3040,68 @@
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/json, text/plain, */*"
+								"value": "application/json, text/plain, */*",
+								"uuid": "5771def8-9a30-4dbf-83db-82454a17abce"
 							},
 							{
 								"key": "Accept-Language",
-								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+								"uuid": "fac92e63-7ca8-4df1-893c-21fa4f70a6d9"
 							},
 							{
 								"key": "Connection",
-								"value": "keep-alive"
+								"value": "keep-alive",
+								"uuid": "9cd96c86-f6ef-432e-9817-c88ecc09e6a6"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json;charset=UTF-8"
+								"value": "application/json;charset=UTF-8",
+								"uuid": "2b2ff1b9-d07c-4669-bde7-e18630fa3c75"
 							},
 							{
 								"key": "Origin",
-								"value": "http://localhost:9000"
+								"value": "http://localhost:9000",
+								"uuid": "9dec2cc7-cc37-4724-b19a-ac2ec45941e0"
 							},
 							{
 								"key": "Referer",
-								"value": "http://localhost:9000/"
+								"value": "http://localhost:9000/",
+								"uuid": "15c63cfd-8b25-42f4-aaa3-5d8867d8bb74"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "d2c5d1d2-8cb6-4e43-bf12-f578f10110ef"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "4b9a24cc-3f7b-4fbd-a9a5-fb6919b64b35"
 							},
 							{
 								"key": "Sec-Fetch-Site",
-								"value": "same-site"
+								"value": "same-site",
+								"uuid": "0be6289b-3219-4763-b8a6-083958ee0c3f"
 							},
 							{
 								"key": "User-Agent",
-								"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+								"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+								"uuid": "68981e12-6357-47b0-bbbf-639f6bcf3470"
 							},
 							{
 								"key": "sec-ch-ua",
-								"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+								"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\"",
+								"uuid": "7453909c-be3b-48ec-ba32-e5842b56f37a"
 							},
 							{
 								"key": "sec-ch-ua-mobile",
-								"value": "?0"
+								"value": "?0",
+								"uuid": "802dd577-61c7-43f3-b923-e4a0ace0677b"
 							},
 							{
 								"key": "sec-ch-ua-platform",
-								"value": "\"Linux\""
+								"value": "\"Linux\"",
+								"uuid": "456d8a32-a136-4a6d-aafa-7d277e5c8175"
 							}
 						],
 						"body": {
@@ -3480,55 +3584,68 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json, text/plain, */*"
+										"value": "application/json, text/plain, */*",
+										"uuid": "9b118a92-0c73-40a2-b0b6-9fa10d8dc6c4"
 									},
 									{
 										"key": "Accept-Language",
-										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+										"uuid": "8124fca0-8613-4f49-8fb2-5e1bb6e81270"
 									},
 									{
 										"key": "Connection",
-										"value": "keep-alive"
+										"value": "keep-alive",
+										"uuid": "ff7bf6a6-25e1-4b5b-b316-841220ff61a8"
 									},
 									{
 										"key": "Content-Type",
-										"value": "application/json;charset=UTF-8"
+										"value": "application/json;charset=UTF-8",
+										"uuid": "17f2abc5-e025-45cb-87e4-dc38d332d88d"
 									},
 									{
 										"key": "Origin",
-										"value": "http://localhost:9000"
+										"value": "http://localhost:9000",
+										"uuid": "726cdb8e-d61e-4050-8957-64acce20bb2b"
 									},
 									{
 										"key": "Referer",
-										"value": "http://localhost:9000/"
+										"value": "http://localhost:9000/",
+										"uuid": "ff40313f-c524-40cd-a69f-0e5d19a82c28"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "d071ec4e-714f-4ea8-be96-2abffe910487"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "3a334b0f-0c33-4178-835f-73dc8ca3c35d"
 									},
 									{
 										"key": "Sec-Fetch-Site",
-										"value": "same-site"
+										"value": "same-site",
+										"uuid": "96e43b0c-7213-4555-879b-a7a5604466ba"
 									},
 									{
 										"key": "User-Agent",
-										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+										"uuid": "bce5f01b-8c14-4ffc-bd6d-31164f5edb87"
 									},
 									{
 										"key": "sec-ch-ua",
-										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\"",
+										"uuid": "8ce89d9d-e1e1-4503-b3cf-1253ef1b289c"
 									},
 									{
 										"key": "sec-ch-ua-mobile",
-										"value": "?0"
+										"value": "?0",
+										"uuid": "8d58ac17-a2b2-4b02-a565-6bbe1f48f1db"
 									},
 									{
 										"key": "sec-ch-ua-platform",
-										"value": "\"Linux\""
+										"value": "\"Linux\"",
+										"uuid": "05ce3a16-ddb0-4118-8a1b-7c5708993dce"
 									}
 								],
 								"body": {
@@ -3701,28 +3818,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "ab036fba-83dd-4157-838a-d854aff7f121"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "df3ba5bd-11ef-4b71-9d59-0779f92c5487"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "edc11ae0-caf6-4f85-94da-a1f8b80f3302"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "cdf84c1e-8769-4148-991f-d7a17ce03959"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "a41b1b88-8413-4bd4-b01c-dc5558a90c23"
 							}
 						],
 						"body": {
@@ -4042,28 +4159,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "a0b0032d-6fcb-4565-b45d-7a66056c5572"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "3c651c69-1198-43be-a36a-804926a5587b"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "870f42ed-23c5-4017-b16b-b1cec0ab6b57"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "53c644dc-f767-4d47-a737-c667a1c71e60"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "c950fc9e-b5ac-4f41-b2fc-5a94cfff3902"
 							}
 						],
 						"body": {
@@ -4092,55 +4209,68 @@
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/json, text/plain, */*"
+								"value": "application/json, text/plain, */*",
+								"uuid": "cb11e716-a7bb-465e-a8ca-d6aaf9944378"
 							},
 							{
 								"key": "Accept-Language",
-								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+								"uuid": "e17789ac-ab8d-4768-b4b3-fc3e084ccb79"
 							},
 							{
 								"key": "Connection",
-								"value": "keep-alive"
+								"value": "keep-alive",
+								"uuid": "66f00a55-b946-4188-9103-d6aa680d8c49"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json;charset=UTF-8"
+								"value": "application/json;charset=UTF-8",
+								"uuid": "5e2a0e04-2f53-4d3c-a7f5-2d62f2d545f3"
 							},
 							{
 								"key": "Origin",
-								"value": "http://localhost:9000"
+								"value": "http://localhost:9000",
+								"uuid": "75ccd34e-a8be-472c-bcc6-fda80f2004fd"
 							},
 							{
 								"key": "Referer",
-								"value": "http://localhost:9000/"
+								"value": "http://localhost:9000/",
+								"uuid": "aa6e8350-3c0f-444f-85b1-4921151c8d37"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "5ac1fe3d-1f78-4d29-b94e-fa2952b0eb34"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "ca70319f-45e7-4cb1-b2eb-3a0a24e457c0"
 							},
 							{
 								"key": "Sec-Fetch-Site",
-								"value": "same-site"
+								"value": "same-site",
+								"uuid": "6354040d-513d-4e3a-84a2-de4317b8c6c6"
 							},
 							{
 								"key": "User-Agent",
-								"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+								"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+								"uuid": "b362f9a8-f777-4d53-867d-fc2078872298"
 							},
 							{
 								"key": "sec-ch-ua",
-								"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+								"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\"",
+								"uuid": "ff82c06d-28df-4439-a768-4636ff50f892"
 							},
 							{
 								"key": "sec-ch-ua-mobile",
-								"value": "?0"
+								"value": "?0",
+								"uuid": "c94a6965-0a4e-46d4-9522-11587aabd281"
 							},
 							{
 								"key": "sec-ch-ua-platform",
-								"value": "\"Linux\""
+								"value": "\"Linux\"",
+								"uuid": "8e95dd2e-e538-47a1-b848-ff3aaef02531"
 							}
 						],
 						"body": {
@@ -4170,23 +4300,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "e73f1f81-ef63-4660-9115-2ebbd37faaaa"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "a826e339-2e97-460f-b6ac-ff00bf447788"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "f623fca4-02b2-45b6-95e1-a44842f76f5d"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"value": "true"
+								"value": "true",
+								"uuid": "fb924657-b992-4d39-a4c1-a0c625eed3c1"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "1cf87c85-93af-4b81-bda2-2b64649a6a7b"
 							}
 						],
 						"url": {
@@ -4212,28 +4347,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "e41708fd-c71d-4688-941a-c9ddbd82e61c"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "4ed64619-639c-40a3-8971-ebc689ac0577"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "af12e7d3-92d9-48d7-918b-d16d44d40cea"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "cd214e05-656a-434c-98ac-a424205b33ad"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "71477e75-0367-4a87-be7f-acaaf8fb9708"
 							}
 						],
 						"body": {
@@ -4262,23 +4397,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "6e00eba0-632a-4452-925f-4dad442e7c14"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "ddf9d7ac-81e6-4da2-89fa-63f591f36d86"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "41b40e17-2e1d-4388-8f31-54abe165dcee"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"value": "true"
+								"value": "true",
+								"uuid": "9e5bca75-2992-44ad-ac7d-5ce6df354711"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "881e39ac-3c8f-498c-9ae2-d945faf5fc5b"
 							}
 						],
 						"url": {
@@ -4309,23 +4449,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "ddf99fa4-06f0-447c-a3c3-f359968a3b7a"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "f709ac15-666e-46e7-9a71-d409ee02a66f"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "f7672a34-4315-4569-9ba7-b521303fceec"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"value": "true"
+								"value": "true",
+								"uuid": "5e1916e9-f3c8-4eb0-bee6-439f51027f7f"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "bd406cdb-0a29-463a-bb06-3cae4e3b1f7a"
 							}
 						],
 						"body": {
@@ -4355,23 +4500,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "4318c7f2-cb90-446c-8de6-f5076c8d94e2"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "acdcd5fa-d0f3-4bf7-aded-0a3868121122"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "8db5a1a6-5f30-47f1-9ad7-14373371bf38"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"value": "true"
+								"value": "true",
+								"uuid": "940e0445-8ed1-49da-b274-b0f0a4502e2e"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "7196fd91-6542-4fbf-908c-2cc19af6638c"
 							}
 						],
 						"body": {
@@ -4401,23 +4551,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "abe7b9f0-da47-4d35-90cb-72c4a0be833e"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "48343de2-a76e-4ec4-b08d-9c544c20213f"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "ef590254-b7d2-4447-872b-d3d4daec251f"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"value": "true"
+								"value": "true",
+								"uuid": "25bc039a-3670-4815-9282-7aa92efd9767"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "dc61417d-f38e-4f0f-b8da-608d8660fe43"
 							}
 						],
 						"body": {
@@ -4457,28 +4612,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "7f60bbe6-ff2d-4bd2-9cbc-ce433b1b7b39"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "7bddf5f9-08f2-44c1-8a18-351087c831dd"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "a64ea591-2885-4fe8-b0fd-8abbe0723e3c"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "23c629f9-17ab-43a7-95df-73fb117ca9e2"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "fe3730fe-d731-46e6-97c2-5c4b2403c297"
 							}
 						],
 						"url": {
@@ -4510,28 +4665,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "da605834-76d9-46a8-9a6a-bac772b0bba2"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "6dd7c5b4-d579-4de5-aff2-6d06ab17ee97"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "92daffea-3cb6-43c3-b9d0-a2dacdd715cd"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "7c41c452-a737-45f2-a21f-b595bce906a3"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "619286b0-3d24-4ded-be89-b1b1137b91d1"
 							}
 						],
 						"url": {
@@ -4556,28 +4711,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "84fca442-fe32-497e-ae91-e497c8dac201"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "86299c77-5939-4694-a64b-34a2f3aa7b7f"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "236ad414-5767-41e8-872d-d23b7dba561f"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "501acf0f-4b45-4368-a601-5212d0ddd41f"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "7224a897-7cdf-464e-80b8-dfe35fc8682f"
 							}
 						],
 						"url": {
@@ -4602,28 +4757,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "e0c05ac3-9025-45a5-b063-8642bfef51b5"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "23a8c11c-72c1-40db-affa-064b718a321d"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "2808e5e1-9444-45e4-b20d-016b5276a9b1"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "7c96b713-6b7f-4de7-89f0-677065fbf541"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "9658e18c-b367-40a5-8847-242ace09b94b"
 							}
 						],
 						"url": {
@@ -4649,28 +4804,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "0f6e5e54-a6fc-4616-8ed1-c11e970eff0b"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "20b4164f-36f0-4303-889f-2498c87cbf4a"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "608e3034-908d-416e-b90b-3cfe3e24d6d7"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "8b3c6b60-7ba9-4a39-9258-d01e840e40f7"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "8af11af0-25dd-4594-8a8c-560047b40f49"
 							}
 						],
 						"url": {
@@ -4716,28 +4871,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "db6bef4d-b884-4547-8dcc-880263dc7582"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "9d513232-37ad-4efb-a56f-35547d52ff1d"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "1e2bc7ac-90be-40bd-9a29-2264d76b691b"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "e204ba51-1b2f-45b9-b703-1df6bbad97c5"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "b68c7758-d6c6-45f9-ab27-a0a99d49f56b"
 							}
 						],
 						"url": {
@@ -4763,28 +4918,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "c38f327b-a882-4878-b0b3-520b5d69f5cf"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "0fb96dc6-08b2-4d69-88d9-5e70b2e52c87"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "b6bd123c-f108-4183-b2df-884438e77ce1"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "7b3ae34d-4f28-482d-9ec2-24b1ea69d0d4"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "23fd641b-e8ec-4009-b426-796570a06086"
 							}
 						],
 						"url": {
@@ -4809,28 +4964,75 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "4cb02b76-f57e-48cb-a135-b19ecaa6eebb"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "e3361428-5b57-4316-a4fa-48ffeb86f1da"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "48496e5c-52cb-4df5-ba91-9e270545b39d"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "02f532f3-9f44-4afa-a791-4b27b8b729f3"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "3f0a7e1a-6aef-432e-a26d-a888e15f0b6b"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosSistema/setor",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosSistema",
+								"setor"
+							]
+						},
+						"description": "API para retornar lista de Setores.\n\n##### Informação Adicional:\n\nSetores com **indConsu** marcado como **true** são setores de consumidor final. Dessa forma, quando está sendo criada uma unidade consumidora final na API **Inserir Unidade** , seu setor deverá ser de consumidor final também."
+					},
+					"response": []
+				},
+				{
+					"name": "Tipo Repasse Encargo Varejista",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin",
+								"uuid": "25103ae7-24f8-448b-b985-1c3f868ea699"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"uuid": "3ed913af-6622-436f-85fb-eb3761db3d76"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty",
+								"uuid": "9cec7c3c-341f-4828-98e4-fb6553c8b513"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"value": "true",
+								"uuid": "df781fc2-cacd-4464-92eb-938a59e96808"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "52f9891e-6de3-4252-88a8-bc6863ae51a6"
 							}
 						],
 						"url": {
@@ -4856,28 +5058,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "8b5a2fa8-c383-42ab-8058-41acef6510fc"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "af4350c3-6399-4507-9a1b-e77b90885fa5"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "708dc95a-cd07-4d09-b768-0963aef47c1a"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "b1b354d7-9646-40de-9ca9-83fed9c0150c"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "81521b83-66df-4549-995e-973a01bdb6a5"
 							}
 						],
 						"url": {
@@ -4903,51 +5105,63 @@
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/json, text/plain, */*"
+								"value": "application/json, text/plain, */*",
+								"uuid": "2427d579-06c7-4fe4-a4a5-541859a13986"
 							},
 							{
 								"key": "Accept-Language",
-								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+								"uuid": "00969c2c-470c-43f3-b696-920e27b6e1de"
 							},
 							{
 								"key": "Connection",
-								"value": "keep-alive"
+								"value": "keep-alive",
+								"uuid": "995f54fe-0e62-46bf-8c62-701a985d1b30"
 							},
 							{
 								"key": "Origin",
-								"value": "http://localhost:9000"
+								"value": "http://localhost:9000",
+								"uuid": "05867a7a-5ad6-4047-a792-c1bac6267ed5"
 							},
 							{
 								"key": "Referer",
-								"value": "http://localhost:9000/"
+								"value": "http://localhost:9000/",
+								"uuid": "a53b3c42-9a99-446f-8205-5d74ee5ab417"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "3b938103-1e68-4fb8-9c79-ddae34d6a630"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "4f5a7566-7d35-4f81-ab44-049fc330fcb0"
 							},
 							{
 								"key": "Sec-Fetch-Site",
-								"value": "same-site"
+								"value": "same-site",
+								"uuid": "5952a674-1932-4470-9d17-e80fb68846e9"
 							},
 							{
 								"key": "User-Agent",
-								"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+								"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+								"uuid": "48153568-f752-4eef-b450-02429684c7b4"
 							},
 							{
 								"key": "sec-ch-ua",
-								"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+								"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\"",
+								"uuid": "c6bbabcc-5a81-45b7-bbf1-7ab571dd8360"
 							},
 							{
 								"key": "sec-ch-ua-mobile",
-								"value": "?0"
+								"value": "?0",
+								"uuid": "916a0af3-ef68-427d-bc47-7eb5374858a5"
 							},
 							{
 								"key": "sec-ch-ua-platform",
-								"value": "\"Linux\""
+								"value": "\"Linux\"",
+								"uuid": "d0267f06-6d23-4ad3-b224-e35a05278108"
 							}
 						],
 						"url": {
@@ -5302,28 +5516,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "369ecd18-2914-487b-9c24-0992d37e36e6"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "f025c9d4-da85-43d0-beca-1749d32caa2b"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "dbcf83ef-4a83-435e-9178-80720ad3a524"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "d4998f2d-69d1-4b73-a8b1-b7952c5104a5"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "c018ef2f-8ba5-45d4-a384-32ed3b8f9892"
 							}
 						],
 						"url": {
@@ -5348,28 +5562,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "d07b10bf-6000-4924-bb91-3b161d1211c3"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "eb33eb6a-af2d-4d16-823b-540944b39ef5"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "726682bd-f2b4-498f-a4bb-3b27e85059a9"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "92b8ea0c-c9d7-4c4a-b241-233d5edf8b53"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "31466cec-dd3c-4623-9c7d-89ad568b5471"
 							}
 						],
 						"url": {
@@ -5396,28 +5610,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "5fdcf921-b87b-4bd4-82e8-e28ad12f5f0b"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "17083bc8-9069-4bb9-b997-605d1d1307b0"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "56d4bc42-5ce3-4344-8840-ac2ce944bde3"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "591472ed-cea9-4e93-87ea-7f8e7a2a3afb"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "83ef807e-325f-4454-81c8-2bf5632bab15"
 							}
 						],
 						"url": {
@@ -5443,28 +5657,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "e5ac4bd1-6c36-4244-ae8d-b0e477be3d42"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "7f957903-bc08-4fb2-9f69-598a7590e853"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "4888d091-5232-496c-b90c-8ece877ee6dd"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "ea020ece-8a39-4ba7-9a81-98670c85b3bd"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "126ad704-bdbb-497c-b1ef-c3dff28cbc0c"
 							}
 						],
 						"url": {
@@ -5490,28 +5704,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "4619c738-058a-4751-a0d2-6da540730241"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "d9a09826-a2ef-495e-b9b1-f0a302b15ff1"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "bcb0909f-fde1-4cc0-8ae3-d234db0ef611"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "e3034699-22cb-4d90-8826-64efebf98b89"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "d7c99b26-8cd1-4662-a82a-d8c58c0fb8f0"
 							}
 						],
 						"url": {
@@ -5537,28 +5751,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "4ce108b3-207e-478e-8ad2-71837ab213bf"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "7e927404-f8dd-4474-a52e-16854324af5f"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "c4c85bdd-65a8-4f6c-8deb-6fc349395752"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "7f2a4f83-e352-40b5-8336-3abe3edfec99"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "a6d60ddb-c875-40a3-b7f8-b702467fc9fc"
 							}
 						],
 						"url": {
@@ -5584,28 +5798,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "735de557-4198-4d23-b7c2-dc600c2ecf3c"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "1d472868-28a5-4a4c-98b5-dca86520ba8d"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "19442ef0-5e00-4889-b877-7513881eef0c"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "da2ff13d-0d29-408d-b42f-3408006d05fa"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "8d635de1-b5e8-4a31-a94d-ce26879320f8"
 							}
 						],
 						"url": {
@@ -5631,28 +5845,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "fd5192b7-05a6-4091-bfa3-342e46b25e77"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "55abf8f3-0ad6-4b7a-a8b4-0136950fadf6"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "d61edf8e-21f9-4dcb-b9d5-c9806728da47"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "78793e0d-a083-42e5-aae3-1e9ad9ef60d6"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "e7faa271-0698-49df-9e95-3247a48abfbd"
 							}
 						],
 						"url": {
@@ -5688,28 +5902,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "967b02c5-255e-47b2-b1af-c78df044c964"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "5677da69-0df5-42ce-9d7d-0864b24e9db5"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "fc958e59-fefa-4dc0-bc7e-153418c9e0fc"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "f1d6cd62-c20f-484f-8da4-c7a3ff99e99d"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "f5ecda8c-7bbc-48fd-be66-ff9c30bf0872"
 							}
 						],
 						"body": {
@@ -5739,28 +5953,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "cb0ad28e-0944-4042-aefb-87ce2130b5cd"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "742c9cdc-6b9a-46a6-965c-fc49072c4f06"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "f5a77e0c-26c2-47a2-b547-47febcf91f9a"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "415f0d82-7e6b-4fde-bd1c-a6570971f2a0"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "2b2bcb18-d324-43b9-b62e-1146ba06e048"
 							}
 						],
 						"url": {
@@ -5799,28 +6013,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "3cf427f9-99fa-4cee-91ef-bcfa6aebcdbe"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "32d7ada1-a6fb-40c8-8c45-577e85ec0b7c"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "fee2faf0-2f40-4324-8447-acd95bdba9e4"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "16289daa-a327-4948-80fa-a85fc8c67402"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"uuid": "bd47a7c3-83bb-40cb-8119-e8fb8be48464"
 							}
 						],
 						"url": {
@@ -5867,51 +6081,63 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json, text/plain, */*"
+										"value": "application/json, text/plain, */*",
+										"uuid": "5970a54d-0acb-4688-8a2d-de37ad01e109"
 									},
 									{
 										"key": "Accept-Language",
-										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+										"uuid": "d80a1ded-2208-4c39-9deb-7eaf82ca87b6"
 									},
 									{
 										"key": "Connection",
-										"value": "keep-alive"
+										"value": "keep-alive",
+										"uuid": "af3eb8c9-800f-455e-90d7-e102964e36da"
 									},
 									{
 										"key": "Origin",
-										"value": "http://localhost:9000"
+										"value": "http://localhost:9000",
+										"uuid": "c73337bd-7922-479a-9991-f877b87d5f43"
 									},
 									{
 										"key": "Referer",
-										"value": "http://localhost:9000/"
+										"value": "http://localhost:9000/",
+										"uuid": "f3fa7eb9-f389-46cf-878b-2b5bd10c8025"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "2d828d1a-38b0-4587-aabd-e233e2b6b425"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "f58ec9ef-cbee-4163-bc6b-6e9030bb22a7"
 									},
 									{
 										"key": "Sec-Fetch-Site",
-										"value": "same-site"
+										"value": "same-site",
+										"uuid": "95703bcb-a9ec-4619-b2b7-ea90503b8a81"
 									},
 									{
 										"key": "User-Agent",
-										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+										"uuid": "63484bfa-085c-4911-95e2-1545c004fcd3"
 									},
 									{
 										"key": "sec-ch-ua",
-										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\"",
+										"uuid": "494a24bc-96be-4071-be9a-585248a830a0"
 									},
 									{
 										"key": "sec-ch-ua-mobile",
-										"value": "?0"
+										"value": "?0",
+										"uuid": "e446b75c-14ac-469d-bb39-59751eb973e5"
 									},
 									{
 										"key": "sec-ch-ua-platform",
-										"value": "\"Linux\""
+										"value": "\"Linux\"",
+										"uuid": "0470a262-4b29-478b-a07e-32917c3927c4"
 									}
 								],
 								"url": {
@@ -6184,55 +6410,68 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json, text/javascript, */*; q=0.01"
+										"value": "application/json, text/javascript, */*; q=0.01",
+										"uuid": "66997992-64d6-4d20-b884-15aebaa3d90d"
 									},
 									{
 										"key": "Accept-Language",
-										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+										"uuid": "c1a549ff-4fea-4006-8270-84c6b8c28043"
 									},
 									{
 										"key": "Connection",
-										"value": "keep-alive"
+										"value": "keep-alive",
+										"uuid": "73035245-3979-4b6b-9756-2d8a87812df5"
 									},
 									{
 										"key": "Content-Type",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "12fa69c2-07ba-4c1f-af05-301f53d19d7a"
 									},
 									{
 										"key": "Origin",
-										"value": "http://localhost:9000"
+										"value": "http://localhost:9000",
+										"uuid": "e2d8cf80-a28d-40ea-9eaa-15d04a9a779f"
 									},
 									{
 										"key": "Referer",
-										"value": "http://localhost:9000/"
+										"value": "http://localhost:9000/",
+										"uuid": "aaf818f2-a020-440d-a9ee-05445b8f9736"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "8dd92863-d0ea-4a3b-904d-c4caac6112cf"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "01e61325-21f0-497c-be82-3b32ed8e8f61"
 									},
 									{
 										"key": "Sec-Fetch-Site",
-										"value": "same-site"
+										"value": "same-site",
+										"uuid": "47312b18-d1ad-47fe-924d-f1981f20e644"
 									},
 									{
 										"key": "User-Agent",
-										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+										"uuid": "74a14f46-a373-4654-98d0-07780b63f034"
 									},
 									{
 										"key": "sec-ch-ua",
-										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\"",
+										"uuid": "6c588cc5-766b-4c9a-8266-ebc599c80f1c"
 									},
 									{
 										"key": "sec-ch-ua-mobile",
-										"value": "?0"
+										"value": "?0",
+										"uuid": "fa28bc17-e969-466c-a0b2-89ec23d4d2af"
 									},
 									{
 										"key": "sec-ch-ua-platform",
-										"value": "\"Linux\""
+										"value": "\"Linux\"",
+										"uuid": "7aff0c2f-de2c-47eb-b10c-6814aaa68fdc"
 									}
 								],
 								"body": {
@@ -6856,55 +7095,68 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json, text/javascript, */*; q=0.01"
+										"value": "application/json, text/javascript, */*; q=0.01",
+										"uuid": "b18d68c5-25bb-47df-ba07-856efdd633d6"
 									},
 									{
 										"key": "Accept-Language",
-										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+										"uuid": "79670c97-0922-4aad-a216-f9cb8229f48d"
 									},
 									{
 										"key": "Connection",
-										"value": "keep-alive"
+										"value": "keep-alive",
+										"uuid": "ae3b285c-0b2a-4fbe-807c-1dbae44bfba6"
 									},
 									{
 										"key": "Content-Type",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "1ec927a4-3204-4312-aa00-d4111d3e58c2"
 									},
 									{
 										"key": "Origin",
-										"value": "http://localhost:9000"
+										"value": "http://localhost:9000",
+										"uuid": "0f666d54-b17d-42d9-b214-037dfe7aeae2"
 									},
 									{
 										"key": "Referer",
-										"value": "http://localhost:9000/"
+										"value": "http://localhost:9000/",
+										"uuid": "d6b8beeb-bb37-49d9-85b7-6dfd74577da3"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "e9c49027-0b08-4805-8b49-de3b6115b1ce"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "7ea89a5b-c1dd-4f0c-8847-1dd7344d3df7"
 									},
 									{
 										"key": "Sec-Fetch-Site",
-										"value": "same-site"
+										"value": "same-site",
+										"uuid": "f94a361f-444f-4e3d-8aea-ae53a1ec93d1"
 									},
 									{
 										"key": "User-Agent",
-										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+										"uuid": "6f804b00-7900-440a-8776-daa3ffaa18eb"
 									},
 									{
 										"key": "sec-ch-ua",
-										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\"",
+										"uuid": "0d88472b-1072-4d91-b9aa-af75de2c2111"
 									},
 									{
 										"key": "sec-ch-ua-mobile",
-										"value": "?0"
+										"value": "?0",
+										"uuid": "5658af94-673d-462e-8318-de46f8236c95"
 									},
 									{
 										"key": "sec-ch-ua-platform",
-										"value": "\"Linux\""
+										"value": "\"Linux\"",
+										"uuid": "7ba3d245-1504-4d7f-b305-5ba37da2792f"
 									}
 								],
 								"body": {
@@ -7385,55 +7637,68 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json, text/javascript, */*; q=0.01"
+										"value": "application/json, text/javascript, */*; q=0.01",
+										"uuid": "4a847839-7a72-4b96-841e-87755311053b"
 									},
 									{
 										"key": "Accept-Language",
-										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+										"uuid": "731c67d7-dada-4162-a960-786046422c72"
 									},
 									{
 										"key": "Connection",
-										"value": "keep-alive"
+										"value": "keep-alive",
+										"uuid": "81ba129f-d6fa-4a86-837b-0bd28272f669"
 									},
 									{
 										"key": "Content-Type",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "5648267d-58b7-46ca-b323-d60006c96f03"
 									},
 									{
 										"key": "Origin",
-										"value": "http://localhost:9000"
+										"value": "http://localhost:9000",
+										"uuid": "7590aa37-a042-4a6f-b393-37c1f22e117a"
 									},
 									{
 										"key": "Referer",
-										"value": "http://localhost:9000/"
+										"value": "http://localhost:9000/",
+										"uuid": "e7ed6ae9-da36-4769-8dbe-91e32fee9adc"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "6176083e-57fe-48ba-8460-1e79a7055cd8"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "200f4fbb-c842-4194-b7d6-44b0cc8bb1d8"
 									},
 									{
 										"key": "Sec-Fetch-Site",
-										"value": "same-site"
+										"value": "same-site",
+										"uuid": "128bb316-cf53-4a95-aec4-77baf58b1ef7"
 									},
 									{
 										"key": "User-Agent",
-										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+										"uuid": "d5c3257c-c45e-4ae1-b65d-c57890b95845"
 									},
 									{
 										"key": "sec-ch-ua",
-										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\"",
+										"uuid": "6795ed35-1e70-4600-86c4-1c380616222c"
 									},
 									{
 										"key": "sec-ch-ua-mobile",
-										"value": "?0"
+										"value": "?0",
+										"uuid": "b6176752-9e52-4ddf-9f4c-2802da73c31d"
 									},
 									{
 										"key": "sec-ch-ua-platform",
-										"value": "\"Linux\""
+										"value": "\"Linux\"",
+										"uuid": "e5c4accc-69d8-481f-bac1-db153e788026"
 									}
 								],
 								"body": {
@@ -8057,28 +8322,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "5bd7719f-f1a3-48d5-a058-21919897536d"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "74a727c0-9c97-4160-9f03-7de9ee3c40bb"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "1b4bdb52-f687-479a-88e2-13374ca5ef67"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "06258d7f-6d96-462f-adf8-5b3e4e1c69a3"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "bb6eb347-372e-4f39-8d9f-dfe471aacb9f"
 									}
 								],
 								"body": {
@@ -8553,28 +8818,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "765bb393-f80a-4101-9953-0affe40efefd"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "0159a8ac-dfcc-407e-81b5-45c2b7dfc7b1"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "32f6b6cb-5f33-408b-971e-8ccf7205c8d6"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "f03ee98f-77e0-4da6-97ab-0f96ec879501"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "25e77508-7c45-45e0-98c4-a8dda5861f03"
 									}
 								],
 								"body": {
@@ -8603,28 +8868,28 @@
 								"header": [
 									{
 										"key": "Sec-Fetch-Site",
-										"type": "text",
-										"value": "same-origin"
+										"value": "same-origin",
+										"uuid": "13ea0167-969e-43c4-bbf6-1ef7fa283223"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"type": "text",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "dc92462d-7afc-44ee-87dc-98110c5281cf"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"type": "text",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "ca90f4b1-caa1-4a5a-8381-18dab35f41c6"
 									},
 									{
 										"key": "X-Login-Ajax-call",
-										"type": "text",
-										"value": "true"
+										"value": "true",
+										"uuid": "3de59eb4-d79d-4e12-be4f-b1478e028f11"
 									},
 									{
 										"key": "Content-Type",
-										"type": "text",
-										"value": "multipart/form-data"
+										"value": "multipart/form-data",
+										"uuid": "e3a2a659-b6f1-45ef-8570-ea9bd9ec1d66"
 									}
 								],
 								"body": {
@@ -8670,7 +8935,7 @@
 									{
 										"key": "",
 										"value": "",
-										"type": "text",
+										"uuid": "3d651279-34c9-44e9-b132-7a8daae400f3",
 										"disabled": true
 									}
 								],
@@ -8804,55 +9069,68 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json, text/javascript, */*; q=0.01"
+										"value": "application/json, text/javascript, */*; q=0.01",
+										"uuid": "b292a819-ba79-409c-a1f7-0bacf4969d3b"
 									},
 									{
 										"key": "Accept-Language",
-										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+										"uuid": "6f5e489f-21a8-44b7-aa2c-dae92e855e56"
 									},
 									{
 										"key": "Connection",
-										"value": "keep-alive"
+										"value": "keep-alive",
+										"uuid": "680bb3b3-a1ae-4770-b5ec-81aa8ed6b7e1"
 									},
 									{
 										"key": "Content-Type",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "c5dbad8c-f1f3-47b6-8844-c7096cd357f4"
 									},
 									{
 										"key": "Origin",
-										"value": "http://localhost:9000"
+										"value": "http://localhost:9000",
+										"uuid": "382d0bac-58ce-4ae7-b0f8-c704a9bc23de"
 									},
 									{
 										"key": "Referer",
-										"value": "http://localhost:9000/"
+										"value": "http://localhost:9000/",
+										"uuid": "edf4a751-6cb7-4a42-a9f5-1cc952ea248e"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "8070103f-5aae-4d23-a29b-8f2a4e1e19a2"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "b20c3e36-096c-4d82-9108-5c9ae0bc7046"
 									},
 									{
 										"key": "Sec-Fetch-Site",
-										"value": "same-site"
+										"value": "same-site",
+										"uuid": "72165312-e101-44ed-bb3e-5c8e46994d39"
 									},
 									{
 										"key": "User-Agent",
-										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+										"uuid": "71f92acd-0a76-4078-b63b-6ab066f13c03"
 									},
 									{
 										"key": "sec-ch-ua",
-										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\"",
+										"uuid": "d355c0b3-e669-4445-b138-acef07b57707"
 									},
 									{
 										"key": "sec-ch-ua-mobile",
-										"value": "?0"
+										"value": "?0",
+										"uuid": "b25fcd2c-e9ab-4f29-90d1-b72d53684344"
 									},
 									{
 										"key": "sec-ch-ua-platform",
-										"value": "\"Linux\""
+										"value": "\"Linux\"",
+										"uuid": "d0a09895-3e50-4509-9e38-6fd371abb7d7"
 									}
 								],
 								"body": {
@@ -8887,55 +9165,68 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json, text/javascript, */*; q=0.01"
+										"value": "application/json, text/javascript, */*; q=0.01",
+										"uuid": "41c56a1f-40ce-4fe2-866b-433a14e879dc"
 									},
 									{
 										"key": "Accept-Language",
-										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+										"uuid": "3c256313-35ba-4dc4-ae87-1dfd64a3e289"
 									},
 									{
 										"key": "Connection",
-										"value": "keep-alive"
+										"value": "keep-alive",
+										"uuid": "8c661c9f-7c2f-4dea-a330-5df65e3afb6d"
 									},
 									{
 										"key": "Content-Type",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "d475e299-5fd2-4b09-b99d-51d039e83d4b"
 									},
 									{
 										"key": "Origin",
-										"value": "http://localhost:9000"
+										"value": "http://localhost:9000",
+										"uuid": "c5a4ed43-16c4-497d-9bbb-90e9123be319"
 									},
 									{
 										"key": "Referer",
-										"value": "http://localhost:9000/"
+										"value": "http://localhost:9000/",
+										"uuid": "d83ae971-c2f2-45d1-a9dc-a3529608cec2"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "a157ac9f-8b3a-4d9f-808d-086c9c2fb012"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "cb168663-97bb-40ed-b7b5-2ff048913338"
 									},
 									{
 										"key": "Sec-Fetch-Site",
-										"value": "same-site"
+										"value": "same-site",
+										"uuid": "1e41d7ba-e6b2-45c4-9b02-1ad1c831e390"
 									},
 									{
 										"key": "User-Agent",
-										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+										"uuid": "93480839-9c53-46e8-b774-a860fe458702"
 									},
 									{
 										"key": "sec-ch-ua",
-										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\"",
+										"uuid": "4d2904a6-55c0-4451-a1e2-8e1931f0ccb1"
 									},
 									{
 										"key": "sec-ch-ua-mobile",
-										"value": "?0"
+										"value": "?0",
+										"uuid": "a0dbf254-77e6-4d70-80f4-474d8f593018"
 									},
 									{
 										"key": "sec-ch-ua-platform",
-										"value": "\"Linux\""
+										"value": "\"Linux\"",
+										"uuid": "3bc11c81-01b8-4569-9c75-ca37d39f2027"
 									}
 								],
 								"body": {
@@ -8965,55 +9256,68 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json, text/javascript, */*; q=0.01"
+										"value": "application/json, text/javascript, */*; q=0.01",
+										"uuid": "0a7dcde0-7558-4e9f-8192-14f5b5b5e766"
 									},
 									{
 										"key": "Accept-Language",
-										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+										"uuid": "7ce3fd73-e0d1-43c5-875b-04d5e0af5714"
 									},
 									{
 										"key": "Connection",
-										"value": "keep-alive"
+										"value": "keep-alive",
+										"uuid": "ff2f7396-648b-46b9-bef8-d77ed1a50c29"
 									},
 									{
 										"key": "Content-Type",
-										"value": "application/json"
+										"value": "application/json",
+										"uuid": "bc685113-491c-4b34-a29f-e3ed7e7041a2"
 									},
 									{
 										"key": "Origin",
-										"value": "http://localhost:9000"
+										"value": "http://localhost:9000",
+										"uuid": "844029ee-7bbc-4266-b1e7-24cc7e535a4f"
 									},
 									{
 										"key": "Referer",
-										"value": "http://localhost:9000/"
+										"value": "http://localhost:9000/",
+										"uuid": "a8f384f3-c639-43ec-9a87-390cab643c3d"
 									},
 									{
 										"key": "Sec-Fetch-Dest",
-										"value": "empty"
+										"value": "empty",
+										"uuid": "fb7fbcae-e5d6-460c-9a03-1c4e1319e4ad"
 									},
 									{
 										"key": "Sec-Fetch-Mode",
-										"value": "cors"
+										"value": "cors",
+										"uuid": "904cfb35-da2a-4baf-891d-5d4d8f508e57"
 									},
 									{
 										"key": "Sec-Fetch-Site",
-										"value": "same-site"
+										"value": "same-site",
+										"uuid": "913f3703-b323-4b5f-bbab-0ae7e2443929"
 									},
 									{
 										"key": "User-Agent",
-										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+										"uuid": "88430d13-383e-416e-802f-c6630236b9fa"
 									},
 									{
 										"key": "sec-ch-ua",
-										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\"",
+										"uuid": "668add93-0904-48cf-ab6f-06da0c175666"
 									},
 									{
 										"key": "sec-ch-ua-mobile",
-										"value": "?0"
+										"value": "?0",
+										"uuid": "2f4cfaec-1d46-44c6-a674-9e3ce8a24693"
 									},
 									{
 										"key": "sec-ch-ua-platform",
-										"value": "\"Linux\""
+										"value": "\"Linux\"",
+										"uuid": "4d62eff5-7f3f-4139-b88e-6cec6089ebbb"
 									}
 								],
 								"body": {
@@ -9196,28 +9500,28 @@
 						"header": [
 							{
 								"key": "Sec-Fetch-Site",
-								"type": "text",
-								"value": "same-origin"
+								"value": "same-origin",
+								"uuid": "43eeb65e-52a3-4a3e-8e37-445def299dca"
 							},
 							{
 								"key": "Sec-Fetch-Mode",
-								"type": "text",
-								"value": "cors"
+								"value": "cors",
+								"uuid": "8fcab0fe-0a5d-413e-b1eb-7924aaa1b1c5"
 							},
 							{
 								"key": "Sec-Fetch-Dest",
-								"type": "text",
-								"value": "empty"
+								"value": "empty",
+								"uuid": "a8e6daf7-9780-40b3-8bd7-0a97da9b3e77"
 							},
 							{
 								"key": "X-Login-Ajax-call",
-								"type": "text",
-								"value": "true"
+								"value": "true",
+								"uuid": "ef5e0d27-18d5-4a79-a2b0-d637a9e8733f"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "7789ed8c-c24c-46b5-af4c-ecfbb4e6dca6"
 							}
 						],
 						"url": {
@@ -9374,27 +9678,27 @@
 					{
 						"key": "Sec-Fetch-Site",
 						"value": "same-origin",
-						"type": "text"
+						"uuid": "3a0f0874-3011-463c-8ad6-f6211bbb3d5a"
 					},
 					{
 						"key": "Sec-Fetch-Mode",
 						"value": "cors",
-						"type": "text"
+						"uuid": "20481186-f0db-447b-8d13-d16c05d58d96"
 					},
 					{
 						"key": "Sec-Fetch-Dest",
 						"value": "empty",
-						"type": "text"
+						"uuid": "55507764-cae9-4fd1-acbe-0443b49f7958"
 					},
 					{
 						"key": "X-Login-Ajax-call",
 						"value": "true",
-						"type": "text"
+						"uuid": "d18d443a-6f5d-4568-b89f-00cfe238386b"
 					},
 					{
 						"key": "Content-Type",
 						"value": "application/x-www-form-urlencoded",
-						"type": "text"
+						"uuid": "46f50b1a-bbd6-470e-a208-ab8bbab898e2"
 					}
 				],
 				"body": {
