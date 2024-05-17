@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "488049ad-f76e-478b-a616-41ef5f940abb",
+		"_postman_id": "37749101-884d-45ab-9e84-a74f310a0776",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34775311"
+		"_exporter_id": "355184"
 	},
 	"item": [
 		{
@@ -1825,8 +1825,8 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{URL}}/rest/contact?unitId=6331",
-									"protocol": "https",
+									"raw": "http://{{URL}}/rest/contact?telefone=11987775987",
+									"protocol": "http",
 									"host": [
 										"{{URL}}"
 									],
@@ -1837,13 +1837,123 @@
 									"query": [
 										{
 											"key": "unitId",
-											"value": "6331"
+											"value": "5659",
+											"disabled": true
+										},
+										{
+											"key": "telefone",
+											"value": "11987775987"
 										}
 									]
 								},
 								"description": "API para retornar lista de Contatos.  \nResultado equivalente a tela Contrapartes -> Unidades -> Editar Unidade do Zeus."
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Listar Contatos por Telefone",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-origin"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "X-Login-Ajax-call",
+												"value": "true"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "http://{{URL}}/rest/contact?telefone=11987775987",
+											"protocol": "http",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"contact"
+											],
+											"query": [
+												{
+													"key": "telefone",
+													"value": "11987775987"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "xml",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/xml;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 17 May 2024 20:04:21 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "<List>\n    <item>\n        <id>787</id>\n        <nome>Alexandre</nome>\n        <email>alexandre.carvalho@zeusenergia.com.br</email>\n        <telefone/>\n        <celular>11987775987</celular>\n        <indInact>false</indInact>\n        <oldVersionOfItself/>\n        <motivo/>\n        <cnpj>21.791.292/0001-06</cnpj>\n        <lstTipo>\n            <lstTipo>\n                <id>1</id>\n                <nomeTipo>Comercial</nomeTipo>\n            </lstTipo>\n        </lstTipo>\n        <unidade>\n            <numCount>6503</numCount>\n            <nomCount>ZEUS</nomCount>\n            <nomCnpj>21.791.292/0001-06</nomCnpj>\n            <nomFull>ZEUS</nomFull>\n            <nomAddre>RUA DOUTOR MONTEIRO VIANA</nomAddre>\n            <nomStateId>ISENTO</nomStateId>\n            <indConsu>false</indConsu>\n            <indVarej/>\n            <nomAddreNumbe>299</nomAddreNumbe>\n            <nomNeigh>VILA MEDEIROS</nomNeigh>\n            <nomAddreSuppl></nomAddreSuppl>\n            <nomZipCode>02204-010</nomZipCode>\n            <indInact>false</indInact>\n            <indExcepIcms>false</indExcepIcms>\n            <indFinanSettl>-1</indFinanSettl>\n            <nomIcms/>\n            <nomCfop/>\n            <nomCst/>\n            <clienteGestao/>\n            <omieId/>\n            <erpFornecedorId>4627</erpFornecedorId>\n            <erpClienteId>4727</erpClienteId>\n            <erpDataAtualizacao/>\n            <nomSuframa/>\n            <nomCnpjFatur/>\n            <nomGroup/>\n            <nomLogoFile/>\n            <parte/>\n            <parteDefault/>\n            <parteVarejistaDefault/>\n            <omieGestaoId/>\n            <nomCityId/>\n            <nomAtividade/>\n            <indMei/>\n            <indSimples/>\n            <indCondominio/>\n            <indEvitarOperacoes/>\n            <indPf/>\n            <numCnae/>\n            <nomCnae/>\n            <valPatrimonioLiquidoAjustado/>\n            <nomCnpjMatriz/>\n            <tblCity>\n                <numCity>3831</numCity>\n                <nomCity>SÃO PAULO   </nomCity>\n                <numCityIbge>3550308</numCityIbge>\n                <numCodMun>5344</numCodMun>\n                <tblState>\n                    <numState>25</numState>\n                    <nomState>\tSÃO PAULO</nomState>\n                    <codState>SP</codState>\n                    <numStateIbge>35</numStateIbge>\n                    <valIcms>0.18</valIcms>\n                    <valFcp>0.0</valFcp>\n                    <valIcmsComerc>0.0</valIcmsComerc>\n                    <valIcmsIndus>0.0</valIcmsIndus>\n                    <indStateIcms>false</indStateIcms>\n                    <nomNotaObs>NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00</nomNotaObs>\n                    <nomNotaObsComercs/>\n                    <tblRegion>\n                        <numRegio>1</numRegio>\n                        <codRegio>SE</codRegio>\n                    </tblRegion>\n                    <submercado/>\n                    <oldVersionOfItself/>\n                </tblState>\n            </tblCity>\n            <tblState>\n                <numState>25</numState>\n                <nomState>\tSÃO PAULO</nomState>\n                <codState>SP</codState>\n                <numStateIbge>35</numStateIbge>\n                <valIcms>0.18</valIcms>\n                <valFcp>0.0</valFcp>\n                <valIcmsComerc>0.0</valIcmsComerc>\n                <valIcmsIndus>0.0</valIcmsIndus>\n                <indStateIcms>false</indStateIcms>\n                <nomNotaObs>NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00</nomNotaObs>\n                <nomNotaObsComercs/>\n                <tblRegion>\n                    <numRegio>1</numRegio>\n                    <codRegio>SE</codRegio>\n                </tblRegion>\n                <submercado/>\n                <oldVersionOfItself/>\n            </tblState>\n            <tblSector>\n                <numSetor>-1</numSetor>\n                <nomSetor>NA</nomSetor>\n                <indConsu/>\n            </tblSector>\n            <createdAt>1698375600000</createdAt>\n            <updatedAt>1698375600000</updatedAt>\n            <dadosGeraisUnidade/>\n            <ratingUnidade/>\n            <indFinanSettlBol/>\n            <indForceUpdate/>\n            <banco/>\n            <agencia/>\n            <conta/>\n            <indUpdateAgentesCCEE/>\n            <oldVersionOfItself/>\n            <economiaTotal/>\n            <lstConsumo/>\n            <lstConsumoHorario/>\n            <lstDemanda/>\n            <lstDri/>\n            <lstEnergiaCusto/>\n            <energiaReserva/>\n            <contribAssoc/>\n            <lstEnergiaContratada/>\n            <lstContratos/>\n            <lstProinfa/>\n            <indBoletas/>\n            <indBalancoEnergetico/>\n            <indAgente/>\n            <indConsumo/>\n            <indProinfa/>\n            <boletaGestao/>\n            <valorDadoCceeProporcionalConsumo/>\n            <lstCalendarioCCEE/>\n            <garantiaFinanceira/>\n            <lstServicoMensal/>\n            <distribuidoraImposto/>\n            <inativo>Não</inativo>\n            <mei>Não</mei>\n            <simples>Não</simples>\n            <evitarOperacoes>Não</evitarOperacoes>\n            <cnpj>21.791.292/0001-06</cnpj>\n            <nomLogoGroup/>\n            <groupName>ZEUS</groupName>\n            <stateIcms>0.18</stateIcms>\n            <groupId>4863</groupId>\n            <rating>A</rating>\n            <cityName>SÃO PAULO   </cityName>\n            <stateName>\tSÃO PAULO</stateName>\n        </unidade>\n        <grupo>\n            <numCountGroup>4863</numCountGroup>\n            <nomCountGroup>ZEUS</nomCountGroup>\n            <indInact>false</indInact>\n            <nomLogoFile/>\n            <indEvitarOperacoes/>\n            <createdAt>1698375600000</createdAt>\n            <updatedAt>1698375600000</updatedAt>\n            <rating>\n                <numRating>3</numRating>\n                <nomRatin>A</nomRatin>\n                <numMesShortInit>0</numMesShortInit>\n                <numMesShortFinal>6</numMesShortFinal>\n                <valShort>0.0</valShort>\n                <numMesMidInit>3</numMesMidInit>\n                <numMesMidFinal>0</numMesMidFinal>\n                <valMid>30.0</valMid>\n                <numMesLongInit>2</numMesLongInit>\n                <numMesLongFinal>0</numMesLongFinal>\n                <valLong>7.0</valLong>\n                <oldVersionOfItself/>\n            </rating>\n            <responsavel/>\n            <justificativa/>\n            <indForceUpdate/>\n            <oldVersionOfItself/>\n            <ratingName>A</ratingName>\n        </grupo>\n        <categorias>Comercial</categorias>\n        <telefoneMontado></telefoneMontado>\n        <celularMontado>(11)98777-5987</celularMontado>\n        <nomCount>ZEUS</nomCount>\n        <groupName>ZEUS</groupName>\n    </item>\n</List>"
+								}
+							]
 						},
 						{
 							"name": "Inserir Contato",
