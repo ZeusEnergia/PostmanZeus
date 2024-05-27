@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "37749101-884d-45ab-9e84-a74f310a0776",
+		"_postman_id": "b8e910c3-8cc2-4ccc-9322-3dd44d4092c7",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "355184"
+		"_exporter_id": "27628360"
 	},
 	"item": [
 		{
@@ -2044,6 +2044,268 @@
 									]
 								},
 								"description": "API para retornar lista de Tipos de Contatos."
+							},
+							"response": []
+						},
+						{
+							"name": "Desativar Contato",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=UTF-8"
+									},
+									{
+										"key": "Cookie",
+										"value": "JSESSIONID=27418F888712804CF0930DE13BA317EE; _ga=GA1.3.1170019851.1716822089; _gid=GA1.3.1340196697.1716822089; _gat_gtag_UA_179859998_1=1; _ga_Z6GDDXG2NZ=GS1.1.1716822088.1.1.1716822159.0.0.0"
+									},
+									{
+										"key": "Origin",
+										"value": "https://zeus.miracleworks.com.br"
+									},
+									{
+										"key": "Referer",
+										"value": "https://zeus.miracleworks.com.br/resources/index.html"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Google Chrome\";v=\"119\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 13,\n    \"nome\": \"Contato Teste\",\n    \"email\": \"um_email@qualquer.com\",\n    \"telefone\": \"11111111111\",\n    \"celular\": \"00000000000\",\n    \"indInact\": true,\n    \"oldVersionOfItself\": null,\n    \"motivo\": null,\n    \"cnpj\": \"21.791.292/0001-06\",\n    \"lstTipo\": [\n        {\n            \"id\": 1,\n            \"nomeTipo\": \"Comercial\"\n        },\n        {\n            \"id\": 3,\n            \"nomeTipo\": \"Financeiro\"\n        }\n    ],\n    \"unidade\": {\n        \"numCount\": 6286\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/contact/{{idContato}}",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"contact",
+										"{{idContato}}"
+									],
+									"query": [
+										{
+											"key": "idContato",
+											"value": "13",
+											"description": "ID do contato a ser desativado",
+											"disabled": true
+										}
+									]
+								},
+								"description": "API para desativar um contato associado a uma unidade cadastrada.\n\nDeve ser informado o ID do contato, que pode ser obtido na consulta \"Listar Contatos\".\n\n| **Campo** | Descrição | **Exemplo** |\n| --- | --- | --- |\n| id | ID do contato. Pode ser obtido na chamada \"Listar Contatos\" indicando o ID da unidade consultada. | 13 |\n| nome | Nome de exibição do contato | Contato Teste |\n| email | Email do contato | [um_email@qualquer.com](https://mailto:um_email@qualquer.com) |\n| telefone | Telefone do contato | 11111111111 |\n| celular | Celular do contato | 00000000000 |\n| indInact | Indicador de contato inativo. Se verdadeiro indica que o contato está desativado. | true |\n| cnpj | CNPJ da unidade à qual o contato está vinculada. | 01.234.567/0001-89 |\n| lstTipo | Lista de tipos de contato associadas a esse contato. A lista completa de tipos pode ser obtida na chamada \"Tipos de Contato\". | \\[{  <br>\"id\": 1,  <br>\"nomeTipo\":Comercial\"  <br>}\\] |\n| unidade | Unidade à qual o contato está vinculado | { \"numCount\": 6286 } |"
+							},
+							"response": []
+						},
+						{
+							"name": "Reativar Contato",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=UTF-8"
+									},
+									{
+										"key": "Cookie",
+										"value": "JSESSIONID=27418F888712804CF0930DE13BA317EE; _ga=GA1.3.1170019851.1716822089; _gid=GA1.3.1340196697.1716822089; _ga_Z6GDDXG2NZ=GS1.1.1716822088.1.1.1716822159.0.0.0"
+									},
+									{
+										"key": "Origin",
+										"value": "https://zeus.miracleworks.com.br"
+									},
+									{
+										"key": "Referer",
+										"value": "https://zeus.miracleworks.com.br/resources/index.html"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Google Chrome\";v=\"119\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 13,\n    \"nome\": \"Contato Teste\",\n    \"email\": \"um_email@qualquer.com\",\n    \"telefone\": \"11111111111\",\n    \"celular\": \"00000000000\",\n    \"indInact\": false,\n    \"oldVersionOfItself\": null,\n    \"motivo\": null,\n    \"cnpj\": \"21.791.292/0001-06\",\n    \"lstTipo\": [\n        {\n            \"id\": 1,\n            \"nomeTipo\": \"Comercial\"\n        },\n        {\n            \"id\": 3,\n            \"nomeTipo\": \"Financeiro\"\n        }\n    ],\n    \"unidade\": {\n        \"numCount\": 6286\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/contact/{{idContato}}",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"contact",
+										"{{idContato}}"
+									],
+									"query": [
+										{
+											"key": "idContato",
+											"value": "13",
+											"description": "ID do contato a ser reativado",
+											"disabled": true
+										}
+									]
+								},
+								"description": "API para reativar um contato associado a uma unidade cadastrada.\n\nDeve ser informado o ID do contato, que pode ser obtido na consulta \"Listar Contatos\".\n\n| **Campo** | Descrição | **Exemplo** |\n| --- | --- | --- |\n| id | ID do contato. Pode ser obtido na chamada \"Listar Contatos\" indicando o ID da unidade consultada. | 13 |\n| nome | Nome de exibição do contato | Contato Teste |\n| email | Email do contato | [um_email@qualquer.com](https://mailto:um_email@qualquer.com) |\n| telefone | Telefone do contato | 11111111111 |\n| celular | Celular do contato | 00000000000 |\n| indInact | Indicador de contato inativo. Se verdadeiro indica que o contato está desativado. | true |\n| cnpj | CNPJ da unidade à qual o contato está vinculada. | 01.234.567/0001-89 |\n| lstTipo | Lista de tipos de contato associadas a esse contato. A lista completa de tipos pode ser obtida na chamada \"Tipos de Contato\". | \\[{  <br>\"id\": 1,  <br>\"nomeTipo\":Comercial\"  <br>}\\] |\n| unidade | Unidade à qual o contato está vinculado | { \"numCount\": 6286 } |"
+							},
+							"response": []
+						},
+						{
+							"name": "Editar Contato",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=UTF-8"
+									},
+									{
+										"key": "Cookie",
+										"value": "JSESSIONID=27418F888712804CF0930DE13BA317EE; _ga=GA1.3.1170019851.1716822089; _gid=GA1.3.1340196697.1716822089; _ga_Z6GDDXG2NZ=GS1.1.1716822088.1.1.1716822159.0.0.0"
+									},
+									{
+										"key": "Origin",
+										"value": "https://zeus.miracleworks.com.br"
+									},
+									{
+										"key": "Referer",
+										"value": "https://zeus.miracleworks.com.br/resources/index.html"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Google Chrome\";v=\"119\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 13,\n    \"nome\": \"Contato Teste\",\n    \"email\": \"um_email@qualquer.com\",\n    \"telefone\": \"11111111111\",\n    \"celular\": \"00000000000\",\n    \"indInact\": false,\n    \"oldVersionOfItself\": null,\n    \"motivo\": null,\n    \"cnpj\": \"21.791.292/0001-06\",\n    \"lstTipo\": [\n        {\n            \"id\": 1,\n            \"nomeTipo\": \"Comercial\"\n        },\n        {\n            \"id\": 3,\n            \"nomeTipo\": \"Financeiro\"\n        },\n        {\n            \"id\": 9,\n            \"nomeTipo\": \"Juridico\"\n        }\n    ],\n    \"unidade\": {\n        \"numCount\": 6286\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/contact/{{idContato}}",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"contact",
+										"{{idContato}}"
+									]
+								},
+								"description": "API para editar um contato associado a uma unidade.\n\n| **Campo** | Descrição | **Exemplo** |\n| --- | --- | --- |\n| id | ID do contato. Pode ser obtido na chamada \"Listar Contatos\" indicando o ID da unidade consultada. | 13 |\n| nome | Nome de exibição do contato | Contato Teste |\n| email | Email do contato | [um_email@qualquer.com](https://mailto:um_email@qualquer.com) |\n| telefone | Telefone do contato | 11111111111 |\n| celular | Celular do contato | 00000000000 |\n| indInact | Indicador de contato inativo. Se verdadeiro indica que o contato está desativado. | true |\n| cnpj | CNPJ da unidade à qual o contato está vinculada. | 01.234.567/0001-89 |\n| lstTipo | Lista de tipos de contato associadas a esse contato. A lista completa de tipos pode ser obtida na chamada \"Tipos de Contato\". | \\[{  <br>\"id\": 1,  <br>\"nomeTipo\":Comercial\"  <br>}\\] |\n| unidade | Unidade à qual o contato está vinculado | { \"numCount\": 6286 } |"
 							},
 							"response": []
 						}
@@ -9511,6 +9773,11 @@
 		{
 			"key": "idGrupo",
 			"value": "4987",
+			"type": "string"
+		},
+		{
+			"key": "idContato",
+			"value": "13",
 			"type": "string"
 		}
 	]
