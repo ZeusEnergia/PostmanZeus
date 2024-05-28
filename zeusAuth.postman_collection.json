@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "8f80f368-2b8d-4cd6-b983-f09fb7bdbca6",
+		"_postman_id": "4195f166-6244-430f-97dc-7e274f931bf9",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28517394"
+		"_exporter_id": "27628360"
 	},
 	"item": [
 		{
@@ -1825,8 +1825,8 @@
 									}
 								],
 								"url": {
-									"raw": "http://{{URL}}/rest/contact?telefone=11987775987",
-									"protocol": "http",
+									"raw": "https://{{URL}}/rest/contact?telefone=11987775987",
+									"protocol": "https",
 									"host": [
 										"{{URL}}"
 									],
