@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "4195f166-6244-430f-97dc-7e274f931bf9",
+		"_postman_id": "d3c329f0-0a71-43aa-822c-0f1de431a4fd",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27628360"
+		"_exporter_id": "28517394"
 	},
 	"item": [
 		{
@@ -2216,9 +2216,9 @@
 									],
 									"query": [
 										{
-											"key": "idContato",
-											"value": "13",
-											"description": "ID do contato a ser desativado",
+											"key": "1",
+											"value": null,
+											"description": "ID da Unidade",
 											"disabled": true
 										}
 									]
