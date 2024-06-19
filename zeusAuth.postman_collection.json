@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d3c329f0-0a71-43aa-822c-0f1de431a4fd",
+		"_postman_id": "e54a9d07-e01e-4a61-abf5-9e5f50393bbd",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28517394"
@@ -4633,6 +4633,65 @@
 							]
 						},
 						"description": "API para informar faturamento externo ao Zeus nos casos de integração com o Omie vinda de outros sistemas.\n\nAbaixo há uma descrição das propriedades a serem preenchidas, bem como onde podem ser obtidos os dados necessários.\n\n| Propriedade | Descrição | Exemplos de Formato |\n| --- | --- | --- |\n| \"idContract\" | Trata-se do ID da boleta que originou a nota. | 2723 |\n| \"numTrade\" | ID do trade mensal que está sendo faturado. Pode ser consultado na chamada \"Listar Mensal\", filtrando por boleta e por mês desejado. | 22302 |\n| \"valInvoi\" | Valor da nota a ser emitida. Os decimais, se houver, devem ser indicados utilizando ponto como separador. | 2976.56  <br>2976 |\n| \"nomInvoi\" | Número da nota fiscal, se já emitida. Caso não tenha sido emitida, deve ser preenchido da forma como apresentado, com um hífen entre aspas duplas -> \"-\" | \"123456789\"  <br>\"-\" |\n| \"datExpir\" | Data de vencimento da nota. Trocar os valores DD, MM e AAAA pelo dia, mês e ano, respectivamente. | \"AAAA-MM-DDT03:00:00.000Z\" |\n| \"datIssua\" | Data de emissão da nota. Trocar os valores DD, MM e AAAA pelo dia, mês e ano, respectivamente. | \"AAAA-MM-DDT03:00:00.000Z\" |\n| \"nomErpCode\" | Código do pedido na integração com o Omie. Trata-se do campo \"codigo_pedido_integracao\" retornado na call \"ListarPedidos\". | \"223021175\" |"
+					},
+					"response": []
+				},
+				{
+					"name": "Anexar Arquivo da Nota ao Contrato",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "Nota Fiscal em PDF.",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "boletaId",
+									"value": "123",
+									"description": "Numero do Contrato",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{URL}}/rest/contractFile/",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"contractFile",
+								""
+							]
+						},
+						"description": "API para inserir nota fiscal (invoice). Resultado equivalente a tela Financeiro -> Faturamento -> Adicionar Nota do Zeus.\n\nInformações Adicionais:\n\nNessa mesma tela, existe a opção de adicionar anexo ao invoice. Para fazer isso aqui na API, é preciso primeiro adicionar esse anexo através da API **Arquivos das boletas** na área de **Boletas**. Nessa API, será retornado algo parecido com o JSON abaixo:\n\n``` json\n{\n    \"id\": 1,\n    \"dataEntrada\": 1663620648024,\n    \"user\": {...},\n    \"nomeOriginal\": \"ARQUIVO.pdf\",\n    \"nome\": \"ARQUIVO.pdf\",\n    \"formato\": \"pdf\",\n    \"path\": \".../ARQUIVO.pdf\",\n    \"contract\": {...}\n}\n\n```\n\nCopie todo esse JSON retornado e coloque em um novo campo chamado **file** dentro da API **Inserir Nota**, ficando dessa forma:\n\n``` json\n{\n  \"idContract\": 4062,\n  \"tblTrade\": {\n    \"numTrade\": 7033\n  },\n  \"datExpir\": 1665370800000,\n  \"grupo\": \"2W ENERGIA\",\n  \"unidade\": \"2W ENERGIA\",\n  \"valInvoi\": 396345.6,\n  \"datIssua\": \"2022-09-16T03:00:00.000Z\",\n  \"valIcms\": 3963.45,\n  \"nomInvoi\": 123,\n  \"file\": {\n    \"id\": 1,\n    \"dataEntrada\": 1663620648024,\n    \"user\": {...},\n    \"nomeOriginal\": \"ARQUIVO.pdf\",\n    \"nome\": \"ARQUIVO.pdf\",\n    \"formato\": \"pdf\",\n    \"path\": \".../ARQUIVO.pdf\",\n    \"contract\": {...}\n  }\n}\n\n```\n\nE assim, o anexo será atrelado a nota fiscal inserida."
 					},
 					"response": []
 				},
