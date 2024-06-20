@@ -169,6 +169,36 @@
 							"response": []
 						},
 						{
+							"name": "Dividir Trade entre Unidades",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"unidadeId\": 6286,\n        \"volume\": 5000\n    },\n    {\n        \"unidadeId\": 9060,\n        \"volume\": 1000\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/tradecapitale/fork/{{idTrade}}",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tradecapitale",
+										"fork",
+										"{{idTrade}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Trade",
 							"request": {
 								"method": "GET",
@@ -2213,14 +2243,6 @@
 										"rest",
 										"contact",
 										"{{idContato}}"
-									],
-									"query": [
-										{
-											"key": "1",
-											"value": null,
-											"description": "ID da Unidade",
-											"disabled": true
-										}
 									]
 								},
 								"description": "API para **deletar** um contato associado a uma unidade cadastrada.\n\nDeve ser informado o ID do contato, que pode ser obtido na consulta \"Listar Contatos\".\n\n| **Campo** | Descrição | **Exemplo** |\n| --- | --- | --- |\n| id | ID do contato. Pode ser obtido na chamada \"Listar Contatos\" indicando o ID da unidade consultada. | 13 |\n| nome | Nome de exibição do contato | Contato Teste |\n| email | Email do contato | [um_email@qualquer.com](https://mailto:um_email@qualquer.com) |\n| telefone | Telefone do contato | 11111111111 |\n| celular | Celular do contato | 00000000000 |\n| indInact | Indicador de contato inativo. Se verdadeiro indica que o contato está desativado. | true |\n| cnpj | CNPJ da unidade à qual o contato está vinculada. | 01.234.567/0001-89 |\n| lstTipo | Lista de tipos de contato associadas a esse contato. A lista completa de tipos pode ser obtida na chamada \"Tipos de Contato\". | \\[{  <br>\"id\": 1,  <br>\"nomeTipo\":Comercial\"  <br>}\\] |\n| unidade | Unidade à qual o contato está vinculado | { \"numCount\": 6286 } |"
