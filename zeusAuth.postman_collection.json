@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "f58eaa7d-9163-4f6b-98c9-13159c462e68",
+		"_postman_id": "1732afff-a62f-45b7-98c7-ff557927172f",
 		"name": "zeusAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37203606"
+		"_exporter_id": "355184"
 	},
 	"item": [
 		{
@@ -9316,15 +9316,24 @@
 						{
 							"name": "Listagem Economia",
 							"request": {
-								"method": "GET",
+								"method": "POST",
 								"header": [
 									{
 										"key": "",
 										"value": ""
 									}
 								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mesDeEnergiaInicio\":\"2024-11-01T03:00:00.000Z\",\n    \"mesDeEnergiaFinal\":\"2024-11-01T03:00:00.000Z\",\n    \"counterId\":8853,\n    \"countGroupId\":6540,\n    \"indValueMonth\":true,\n    \"indPrevia\":null,\n    \"indDescontoGarantido\":null\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": "https://{{URL}}/rest/energiaCusto/getAllRelatorioEconomia/?dtInicio={{aaaa-mm-dd}}T03:00:00.000Z&valueMonth=true",
+									"raw": "https://{{URL}}/rest/energiaCusto/getAllRelatorioEconomia/",
 									"protocol": "https",
 									"host": [
 										"{{URL}}"
@@ -9338,11 +9347,23 @@
 									"query": [
 										{
 											"key": "dtInicio",
-											"value": "{{aaaa-mm-dd}}T03:00:00.000Z"
+											"value": "2024-10-01T03:00:00.000Z",
+											"disabled": true
 										},
 										{
 											"key": "valueMonth",
-											"value": "true"
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "countGroupId",
+											"value": "6540",
+											"disabled": true
+										},
+										{
+											"key": "counterId",
+											"value": "8653",
+											"disabled": true
 										}
 									]
 								}
@@ -9351,16 +9372,24 @@
 								{
 									"name": "Listagem Economia",
 									"originalRequest": {
-										"method": "GET",
+										"method": "POST",
 										"header": [
 											{
 												"key": "",
-												"value": "",
-												"type": "text"
+												"value": ""
 											}
 										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"mesDeEnergiaInicio\":\"2024-11-01T03:00:00.000Z\",\n    \"mesDeEnergiaFinal\":\"2024-11-01T03:00:00.000Z\",\n    \"counterId\":8853,\n    \"countGroupId\":6540,\n    \"indValueMonth\":true,\n    \"indPrevia\":null,\n    \"indDescontoGarantido\":null\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
-											"raw": "https://{{URL}}/rest/energiaCusto/getAllRelatorioEconomia/?dtInicio={{aaaa-mm-dd}}T03:00:00.000Z&valueMonth=true",
+											"raw": "https://{{URL}}/rest/energiaCusto/getAllRelatorioEconomia/",
 											"protocol": "https",
 											"host": [
 												"{{URL}}"
@@ -9374,11 +9403,23 @@
 											"query": [
 												{
 													"key": "dtInicio",
-													"value": "{{aaaa-mm-dd}}T03:00:00.000Z"
+													"value": "2024-10-01T03:00:00.000Z",
+													"disabled": true
 												},
 												{
 													"key": "valueMonth",
-													"value": "true"
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "countGroupId",
+													"value": "6540",
+													"disabled": true
+												},
+												{
+													"key": "counterId",
+													"value": "8653",
+													"disabled": true
 												}
 											]
 										}
@@ -9424,6 +9465,10 @@
 											"value": "0"
 										},
 										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000 ; includeSubDomains"
+										},
+										{
 											"key": "X-Frame-Options",
 											"value": "SAMEORIGIN"
 										},
@@ -9437,7 +9482,15 @@
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 20 Jun 2023 14:06:15 GMT"
+											"value": "Fri, 06 Dec 2024 13:15:21 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
 										}
 									],
 									"cookie": [],
