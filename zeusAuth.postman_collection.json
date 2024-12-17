@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "1732afff-a62f-45b7-98c7-ff557927172f",
-		"name": "zeusAuth",
+		"_postman_id": "5b281283-e336-4477-bf2c-f31a15fbd13c",
+		"name": "zeusAuth Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "355184"
+		"_exporter_id": "27653573"
 	},
 	"item": [
 		{
@@ -5130,6 +5130,59 @@
 								{
 									"key": "stateId",
 									"value": "1"
+								}
+							]
+						},
+						"description": "API para retornar lista de cidades baseada no ID de um Estado. Pode-se encontrar os IDs dos Estados através da API **Estados**."
+					},
+					"response": []
+				},
+				{
+					"name": "Bandeira",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "X-Login-Ajax-call",
+								"value": "true"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/dadosGerais?ano=2024&mes=11",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"dadosGerais"
+							],
+							"query": [
+								{
+									"key": "ano",
+									"value": "2024",
+									"description": "Ano de vigência da bandeira"
+								},
+								{
+									"key": "mes",
+									"value": "11",
+									"description": "Mês de vigência da bandeira"
 								}
 							]
 						},
