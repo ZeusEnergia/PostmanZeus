@@ -8098,7 +8098,7 @@
 					"name": "Contratos de Serviços",
 					"item": [
 						{
-							"name": "Listar Contratos",
+							"name": "Listar Contratos Copy",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -9623,6 +9623,177 @@
 										"rest",
 										"consumo",
 										"datatable"
+									]
+								},
+								"description": "API para retornar o consumo mensal das unidades consumidoras.\n\nPara buscar, basta trocar a datRef com a data de referencia do fornecimento de energia.\n\nA paginação é feita atraves das variaveis \"start\" e \"length\" do objeto \"input\". Length recebe o numero de registros por pagina e start o primeiro registro que deve ser carregado.\n\nA busca por ser feita utilizando o campo \"value\" dentro de input -> search. A busca pode ser tanto por nome da unidade quanto por CNPJ.\n\n**Campos do retorno:**\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| dataUltimoConsumo | date | Ultimo consumo lido. É utilizado para verificar se temos o consumo completo ou parcial |\n| medidor | string | Nome do medidor |\n| unidade_id | Integer | Id da unidade consumidora dentro do Zeus |\n| ano | integer | Ano do consumo |\n| mes | integer | Mês do consumo |\n| valorPontaSCDE /  <br>valorFPontaSCDE | double | Consumo vindo do SCDE considerando a projeção das horas faltantes (caso existam), com perdas |\n| valorPontaSCDESemPerdas / valorFPontaSCDESemPerdas | double | Consumo vindo do SCDE considerando a projeção das horas faltantes (caso existam), sem perdas |\n| valorPontaOriginal /  <br>valorFPontaOriginal | double | Consumo vindo do SCDE desconsiderando a projeção das horas faltantes (caso existam), sem perdas |\n| valorPontaDistr /  <br>valorFPontaDistr | double | Valor do consumo presente na fatura da distribuidora, sem perdas |\n| valorDemandaMedidaPonta / valorDemandaMedidaFPonta | double | Demanda esperada a partir dos dados de consumo do SCDE |\n| valorConsumoEstimadoPonta /  <br>valorConsumoEstimadoFPonta | double | Consumo estimado pelo Zeus até o final do mês, caso o consumo não esteja completo. Com Perdas |\n| horasFaltantes | boolean | Indicativo se o consumo contém ou não horas faltantes |\n| numHorasFaltantes | Integer | Quantidade de horas faltantes |\n| fatorPerda | double | Fator de perdas utilizado no mês |\n| nomOrigem | Strin | Indicativo da origem dos dados, se API da CCEE, Planilha de consumo ou inserção manual diretamente na tela |\n| contraparte | Counterparty | Dados da Unidade consumidora |\n| valProinfa | double | Valor do proinfa do mês, caso exista |\n| contratado | double | Total de energia contratada pela unidade no mês |\n| requisitoFinal | double | Consumo SCDE atual + Perdas - proinfa |\n| totalVolConsumoEstimadoSomPerdas | double | Estimativa do consumo até o final do mês sem perdas |\n| totalVolConsumoEstimadoComPerdasEProinfa | double | Estimativa do consumo até o final do mês com perdas menos proinfa |\n| dataConsumo | date | Data de referencia do consumo |"
+							},
+							"response": []
+						},
+						{
+							"name": "Custos de energia",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/javascript, */*; q=0.01"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:9000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:9000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/energiaCusto/year/?dataBase=2024-11-01T03:00:00.000Z&unitId=8490",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"energiaCusto",
+										"year",
+										""
+									],
+									"query": [
+										{
+											"key": "dataBase",
+											"value": "2024-11-01T03:00:00.000Z",
+											"description": "Data de referência para os dados"
+										},
+										{
+											"key": "unitId",
+											"value": "8490",
+											"description": "Unidade na qual deseja pegar os dados de custo"
+										},
+										{
+											"key": "id",
+											"value": "",
+											"description": "ID da energia custo (Não necessário)",
+											"disabled": true
+										}
+									]
+								},
+								"description": "API para retornar o consumo mensal das unidades consumidoras.\n\nPara buscar, basta trocar a datRef com a data de referencia do fornecimento de energia.\n\nA paginação é feita atraves das variaveis \"start\" e \"length\" do objeto \"input\". Length recebe o numero de registros por pagina e start o primeiro registro que deve ser carregado.\n\nA busca por ser feita utilizando o campo \"value\" dentro de input -> search. A busca pode ser tanto por nome da unidade quanto por CNPJ.\n\n**Campos do retorno:**\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| dataUltimoConsumo | date | Ultimo consumo lido. É utilizado para verificar se temos o consumo completo ou parcial |\n| medidor | string | Nome do medidor |\n| unidade_id | Integer | Id da unidade consumidora dentro do Zeus |\n| ano | integer | Ano do consumo |\n| mes | integer | Mês do consumo |\n| valorPontaSCDE /  <br>valorFPontaSCDE | double | Consumo vindo do SCDE considerando a projeção das horas faltantes (caso existam), com perdas |\n| valorPontaSCDESemPerdas / valorFPontaSCDESemPerdas | double | Consumo vindo do SCDE considerando a projeção das horas faltantes (caso existam), sem perdas |\n| valorPontaOriginal /  <br>valorFPontaOriginal | double | Consumo vindo do SCDE desconsiderando a projeção das horas faltantes (caso existam), sem perdas |\n| valorPontaDistr /  <br>valorFPontaDistr | double | Valor do consumo presente na fatura da distribuidora, sem perdas |\n| valorDemandaMedidaPonta / valorDemandaMedidaFPonta | double | Demanda esperada a partir dos dados de consumo do SCDE |\n| valorConsumoEstimadoPonta /  <br>valorConsumoEstimadoFPonta | double | Consumo estimado pelo Zeus até o final do mês, caso o consumo não esteja completo. Com Perdas |\n| horasFaltantes | boolean | Indicativo se o consumo contém ou não horas faltantes |\n| numHorasFaltantes | Integer | Quantidade de horas faltantes |\n| fatorPerda | double | Fator de perdas utilizado no mês |\n| nomOrigem | Strin | Indicativo da origem dos dados, se API da CCEE, Planilha de consumo ou inserção manual diretamente na tela |\n| contraparte | Counterparty | Dados da Unidade consumidora |\n| valProinfa | double | Valor do proinfa do mês, caso exista |\n| contratado | double | Total de energia contratada pela unidade no mês |\n| requisitoFinal | double | Consumo SCDE atual + Perdas - proinfa |\n| totalVolConsumoEstimadoSomPerdas | double | Estimativa do consumo até o final do mês sem perdas |\n| totalVolConsumoEstimadoComPerdasEProinfa | double | Estimativa do consumo até o final do mês com perdas menos proinfa |\n| dataConsumo | date | Data de referencia do consumo |"
+							},
+							"response": []
+						},
+						{
+							"name": "Listagem Consumo Diário",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/javascript, */*; q=0.01"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:9000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:9000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "// DENTRO DE \"consumo\" É NECESSÁRIO PEGAR UM DOS CONSUMOS ENCONTRADOS EM \"Listagem Consumo Mensal\" e colar dentro do objeto\n\n{\n  \"consumo\": {\n    \"id\": 8455,\n    \"dataEntrada\": 1733194800000,\n    \"dataUltimoConsumo\": 1732935600000,\n    \"nConsolidado\": false,\n    \"agente\": \"EVERGREEN\",\n    \"medidor\": \"CEEGJEENTR101\",\n    \"unidade_id\": 8517,\n    \"ano\": 2024,\n    \"mes\": 11,\n    \"valorPontaSCDE\": 41.396330359999986,\n    \"valorFPontaSCDE\": 422.1901989100004,\n    \"valorPontaOriginal\": 41.396330359999986,\n    \"valorFPontaOriginal\": 422.1901989100004,\n    \"valorPontaDistr\": 0.0,\n    \"valorFPontaDistr\": 0.0,\n    \"valorDemandaMedidaPonta\": 0.0,\n    \"valorDemandaMedidaFPonta\": 1061.806,\n    \"valorConsumoEstimadoPonta\": 41.396330359999986,\n    \"valorConsumoEstimadoFPonta\": 422.1901989100004,\n    \"valorDemandaEstimadaPonta\": 0.0,\n    \"valorDemandaEstimadaFPonta\": 1061.806,\n    \"valorGeracaoPontaSCDE\": 0.0,\n    \"valorGeracaoFPontaSCDE\": 0.0,\n    \"horasFaltantes\": false,\n    \"numHorasFaltantes\": 0,\n    \"fatorPerda\": 3.0,\n    \"fatorPerdaAtual\": 0.0,\n    \"nomOrigem\": \"INTEGRACAO_CCEE\",\n    \"valProinfaRateado\": 0.0,\n    \"oldVersionOfItself\": null,\n    \"contraparte\": {\n      \"numCount\": 8517,\n      \"nomCount\": \"6392 - EVERGREEN\",\n      \"nomCnpj\": \"11.586.009/0001-42\",\n      \"nomFull\": \"EVER GREEN DO NORDESTE INDUSTRIA E COMERCIO LTDA\",\n      \"nomAddre\": \"AV MANOEL MOREIRA LIMA\",\n      \"nomStateId\": \"ISENTO\",\n      \"indConsu\": true,\n      \"indVarej\": null,\n      \"nomAddreNumbe\": \"568\",\n      \"nomNeigh\": \"JENIPAPEIRO\",\n      \"nomAddreSuppl\": \"\",\n      \"nomZipCode\": \"61906-010\",\n      \"indInact\": false,\n      \"indExcepIcms\": false,\n      \"indExcepProinfa\": null,\n      \"indFinanSettl\": -1,\n      \"nomIcms\": null,\n      \"nomCfop\": null,\n      \"nomCst\": null,\n      \"clienteGestao\": true,\n      \"omieId\": 1.0,\n      \"erpFornecedorId\": \"1\",\n      \"erpClienteId\": \"1\",\n      \"erpDataAtualizacao\": 1715001834000,\n      \"nomSuframa\": null,\n      \"indProdesin\": false,\n      \"nomCnpjFatur\": null,\n      \"nomGroup\": null,\n      \"nomLogoFile\": null,\n      \"parte\": null,\n      \"parteDefault\": null,\n      \"parteVarejistaDefault\": null,\n      \"omieGestaoId\": 1.317627752E9,\n      \"nomCityId\": null,\n      \"nomAtividade\": \"Indústria\",\n      \"indMei\": null,\n      \"indSimples\": null,\n      \"indCondominio\": null,\n      \"indEvitarOperacoes\": null,\n      \"indPf\": null,\n      \"numCnae\": \"1742-7/02\",\n      \"nomCnae\": \"Fabricação de absorventes higiênicos\",\n      \"valPatrimonioLiquidoAjustado\": null,\n      \"nomCnpjMatriz\": null,\n      \"tblCity\": {\n        \"numCity\": 994,\n        \"nomCity\": \"MARACANAÚ   \",\n        \"numCityIbge\": 2307650,\n        \"numCodMun\": 722,\n        \"tblState\": {\n          \"numState\": 6,\n          \"nomState\": \"CEARÁ \",\n          \"codState\": \"CE\",\n          \"numStateIbge\": 23,\n          \"valIcms\": 0.2,\n          \"valFcp\": 0.02,\n          \"valIcmsComerc\": 0.0,\n          \"valIcmsIndus\": 0.0,\n          \"valIcmsRural\": 0.0,\n          \"indStateIcms\": true,\n          \"nomNotaObs\": \"\",\n          \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n          \"tblRegion\": {\n            \"numRegio\": 3,\n            \"codRegio\": \"NE\"\n          },\n          \"submercado\": null,\n          \"oldVersionOfItself\": null\n        }\n      },\n      \"tblState\": {\n        \"numState\": 6,\n        \"nomState\": \"CEARÁ \",\n        \"codState\": \"CE\",\n        \"numStateIbge\": 23,\n        \"valIcms\": 0.2,\n        \"valFcp\": 0.02,\n        \"valIcmsComerc\": 0.0,\n        \"valIcmsIndus\": 0.0,\n        \"valIcmsRural\": 0.0,\n        \"indStateIcms\": true,\n        \"nomNotaObs\": \"\",\n        \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n        \"tblRegion\": {\n          \"numRegio\": 3,\n          \"codRegio\": \"NE\"\n        },\n        \"submercado\": null,\n        \"oldVersionOfItself\": null\n      },\n      \"tblSector\": {\n        \"numSetor\": 1,\n        \"nomSetor\": \"INDUSTRIAL\",\n        \"indConsu\": true\n      },\n      \"createdAt\": 1698721200000,\n      \"updatedAt\": 1733776093000,\n      \"dadosGeraisUnidade\": {\n        \"id\": 282,\n        \"dataEntrada\": [\n          2024,\n          11,\n          11\n        ],\n        \"unidade_id\": 8517,\n        \"contratada_ponta\": 0.0,\n        \"contratada_fponta\": 1100.0,\n        \"contratada_ponta_cativo\": 0.0,\n        \"contratada_fponta_cativo\": 0.0,\n        \"fator_perda\": 3.0,\n        \"unidadeConsumidora\": null,\n        \"faixa\": \"A4\",\n        \"cor\": \"Verde\",\n        \"faixaCativo\": null,\n        \"corCativo\": null,\n        \"distribuidora\": {\n          \"id\": 100,\n          \"dataEntrada\": [\n            2023,\n            2,\n            17\n          ],\n          \"distNome\": \"ENEL CE\",\n          \"nomCnpj\": null,\n          \"inicioPonta\": 0.0,\n          \"fimPonta\": 0.0,\n          \"indCance\": false,\n          \"indICMSDemanda\": null,\n          \"indICMSEncargos\": null,\n          \"indPisCofinsSemIcms\": true,\n          \"indBasePisCofinsComIcms\": null,\n          \"indSubvencaoTarifariaIcmsDemanda\": true,\n          \"indSubvencaoTarifariaPisCofinsDemanda\": true,\n          \"indSubvencaoTarifariaIcmsEncargo\": true,\n          \"indSubvencaoTarifariaPisCofinsEncargo\": true,\n          \"indDemandaIsenta\": null,\n          \"indDemandaIsentaPonta\": null,\n          \"indIcmsEnergiaNaFaturaDistribuidora\": false,\n          \"oldVersionOfItself\": null\n        },\n        \"distNome\": \"ENEL CE\",\n        \"medNome\": null,\n        \"nomCceeAtivo\": \"1491818\",\n        \"nomInstalacaoUnidade\": \"9001176\",\n        \"valGeracaoCusto\": null,\n        \"valGeracaoPotencia\": null,\n        \"dtLigacao\": null,\n        \"tensao_kv\": 0.0,\n        \"idUser\": 8,\n        \"dtMigracao\": 1667271600000,\n        \"dtPrevistaMigracao\": null,\n        \"dtEncerramento\": null,\n        \"nomPerfiDevec\": null,\n        \"numPerfiDevec\": null,\n        \"indContaCovid\": null,\n        \"indEscassezHidrica\": null,\n        \"indDemExcepIcms\": null,\n        \"indTusdExcepIcms\": null,\n        \"indDemExcepIcmsCativo\": null,\n        \"indTusdExcepIcmsCativo\": null,\n        \"rep_com\": null,\n        \"tarifaIcms\": null,\n        \"oldVersionOfItself\": null\n      },\n      \"ratingUnidade\": null,\n      \"indFinanSettlBol\": null,\n      \"indForceUpdate\": null,\n      \"banco\": null,\n      \"agencia\": null,\n      \"conta\": null,\n      \"indUpdateAgentesCCEE\": null,\n      \"lstContacts\": null,\n      \"oldVersionOfItself\": null,\n      \"economiaTotal\": null,\n      \"lstConsumo\": null,\n      \"lstConsumoHorario\": null,\n      \"lstDemanda\": null,\n      \"lstDri\": null,\n      \"lstEnergiaCusto\": null,\n      \"energiaReserva\": null,\n      \"contribAssoc\": null,\n      \"lstEnergiaContratada\": null,\n      \"lstContratos\": null,\n      \"lstProinfa\": null,\n      \"indBoletas\": null,\n      \"indBalancoEnergetico\": null,\n      \"indAgente\": null,\n      \"indConsumo\": null,\n      \"indProinfa\": null,\n      \"boletaGestao\": null,\n      \"valorDadoCceeProporcionalConsumo\": null,\n      \"nomPendencyUnit\": null,\n      \"lstCalendarioCCEE\": null,\n      \"garantiaFinanceira\": null,\n      \"lstServicoMensal\": null,\n      \"distribuidoraImposto\": null,\n      \"emailListString\": null,\n      \"stateName\": \"CEARÁ \",\n      \"groupName\": \"EVERGREEN\",\n      \"nomLogoGroup\": null,\n      \"cnpj\": \"11.586.009/0001-42\",\n      \"groupId\": 6392,\n      \"stateIcms\": 0.2,\n      \"rating\": \"A\",\n      \"cityName\": \"MARACANAÚ   \",\n      \"inativo\": \"Não\",\n      \"mei\": \"Não\",\n      \"simples\": \"Não\",\n      \"evitarOperacoes\": \"Não\"\n    },\n    \"consumoAusente\": null,\n    \"valProinfa\": 11.374,\n    \"tipoConsumo\": null,\n    \"lstUnidadesV\": \"COPEL COMERCIALIZAÇÃO, PACIFICO ENERGIA COMERCIALIZADORA LTDA\",\n    \"contratado\": 452.21299999999997,\n    \"consumido\": 450.0840090000003,\n    \"totalComPerdas\": 463.58652927000037,\n    \"totalComPerdaAtual\": null,\n    \"requisitoFinal\": 452.21252927000035,\n    \"totalVolConsumoEstimadoSomPerdas\": 450.0840090000003,\n    \"totalVolConsumoEstimadoComPerdasEProinfa\": 452.21252927000035,\n    \"pendencia\": \"-\",\n    \"contratoTipoValue\": \"EXCLUSIVO\",\n    \"feriadosList\": null,\n    \"indConsolidado\": false,\n    \"indApplyLosses\": null,\n    \"dataConsumo\": 1730490212206,\n    \"valorPontaSCDESemPerdas\": 40.19061199999999,\n    \"valorFPontaSCDESemPerdas\": 409.8933970000004\n  }\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/consumo/dailyPerMonth",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"consumo",
+										"dailyPerMonth"
 									]
 								},
 								"description": "API para retornar o consumo mensal das unidades consumidoras.\n\nPara buscar, basta trocar a datRef com a data de referencia do fornecimento de energia.\n\nA paginação é feita atraves das variaveis \"start\" e \"length\" do objeto \"input\". Length recebe o numero de registros por pagina e start o primeiro registro que deve ser carregado.\n\nA busca por ser feita utilizando o campo \"value\" dentro de input -> search. A busca pode ser tanto por nome da unidade quanto por CNPJ.\n\n**Campos do retorno:**\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| dataUltimoConsumo | date | Ultimo consumo lido. É utilizado para verificar se temos o consumo completo ou parcial |\n| medidor | string | Nome do medidor |\n| unidade_id | Integer | Id da unidade consumidora dentro do Zeus |\n| ano | integer | Ano do consumo |\n| mes | integer | Mês do consumo |\n| valorPontaSCDE /  <br>valorFPontaSCDE | double | Consumo vindo do SCDE considerando a projeção das horas faltantes (caso existam), com perdas |\n| valorPontaSCDESemPerdas / valorFPontaSCDESemPerdas | double | Consumo vindo do SCDE considerando a projeção das horas faltantes (caso existam), sem perdas |\n| valorPontaOriginal /  <br>valorFPontaOriginal | double | Consumo vindo do SCDE desconsiderando a projeção das horas faltantes (caso existam), sem perdas |\n| valorPontaDistr /  <br>valorFPontaDistr | double | Valor do consumo presente na fatura da distribuidora, sem perdas |\n| valorDemandaMedidaPonta / valorDemandaMedidaFPonta | double | Demanda esperada a partir dos dados de consumo do SCDE |\n| valorConsumoEstimadoPonta /  <br>valorConsumoEstimadoFPonta | double | Consumo estimado pelo Zeus até o final do mês, caso o consumo não esteja completo. Com Perdas |\n| horasFaltantes | boolean | Indicativo se o consumo contém ou não horas faltantes |\n| numHorasFaltantes | Integer | Quantidade de horas faltantes |\n| fatorPerda | double | Fator de perdas utilizado no mês |\n| nomOrigem | Strin | Indicativo da origem dos dados, se API da CCEE, Planilha de consumo ou inserção manual diretamente na tela |\n| contraparte | Counterparty | Dados da Unidade consumidora |\n| valProinfa | double | Valor do proinfa do mês, caso exista |\n| contratado | double | Total de energia contratada pela unidade no mês |\n| requisitoFinal | double | Consumo SCDE atual + Perdas - proinfa |\n| totalVolConsumoEstimadoSomPerdas | double | Estimativa do consumo até o final do mês sem perdas |\n| totalVolConsumoEstimadoComPerdasEProinfa | double | Estimativa do consumo até o final do mês com perdas menos proinfa |\n| dataConsumo | date | Data de referencia do consumo |"
