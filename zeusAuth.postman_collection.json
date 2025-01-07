@@ -9855,12 +9855,13 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{URL}}/tradecliente?counterId=6451&dtFornFinal=2024-02-01T03:00:00.000Z&dtFornInicio=2024-02-01T03:00:00.000Z&systemTrades=true",
+									"raw": "https://{{URL}}/rest/tradecliente?counterId=6451&dtFornFinal=2024-02-01T03:00:00.000Z&dtFornInicio=2024-02-01T03:00:00.000Z&systemTrades=true",
 									"protocol": "https",
 									"host": [
 										"{{URL}}"
 									],
 									"path": [
+										"rest",
 										"tradecliente"
 									],
 									"query": [
