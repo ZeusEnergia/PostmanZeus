@@ -1909,6 +1909,216 @@
 						"description": "API para retornar o caminho de uma planilha com os dados do listar boletas.  \nRetorno similar ao do botão \"Exportar\" na tela Boletas -> Listar Boletas.  \nPara realizar o download do arquivo é necessario completar a URL com: https://{{URL}}/resources/planilhas/export/{{nome_do_arquivo}}"
 					},
 					"response": []
+				},
+				{
+					"name": "Buscar boleta comercializadora",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Cookie",
+								"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _ga=GA1.1.2030139120.1736168817; _gat_gtag_UA_179859998_1=1; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736531629.0.0.0"
+							},
+							{
+								"key": "Referer",
+								"value": "https://zeus.miracleworks.com.br/resources/index.html"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Linux\""
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/rest/boletacapitale/{{idBoleta}}",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest",
+								"boletacapitale",
+								"{{idBoleta}}"
+							]
+						},
+						"description": "Busca uma boleta comercializadora específica no Zeus e retorna seus dados.\n\nA variável \"idBoleta\" indica o número da boleta que se deseja retornar."
+					},
+					"response": [
+						{
+							"name": "Buscar boleta comercializadora - Exemplo de Retorno",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Cookie",
+										"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _ga=GA1.1.2030139120.1736168817; _gat_gtag_UA_179859998_1=1; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736531629.0.0.0"
+									},
+									{
+										"key": "Referer",
+										"value": "https://zeus.miracleworks.com.br/resources/index.html"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/boletacapitale/{{idBoleta}}",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletacapitale",
+										"{{idBoleta}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, authorization, content-type"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jan 2025 17:55:19 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 40,\n    \"dataEntrada\": [\n        2020,\n        2,\n        12\n    ],\n    \"dataInicio\": 1577847600000,\n    \"dataFim\": 1580439600000,\n    \"groupCompId\": 4698,\n    \"unidadeCompId\": 6286,\n    \"groupVendId\": 4862,\n    \"unidadeVendId\": 6451,\n    \"precoTipo\": 1,\n    \"preco\": 0.01,\n    \"valComissao\": 0,\n    \"valPisoCollar\": 0,\n    \"valTetoCollar\": 0,\n    \"volumeTipo\": 1,\n    \"volume\": 0.000001,\n    \"flexMin\": 0,\n    \"flexMax\": 0,\n    \"sazoMin\": 0,\n    \"sazoMax\": 0,\n    \"submercado\": 1,\n    \"energyTipo\": 1,\n    \"numDistType\": null,\n    \"retusd\": 0,\n    \"plataformaId\": 1,\n    \"indexId\": -1,\n    \"datIndexBase\": 29348017200000,\n    \"datIndexFirstAdjus\": 29348017200000,\n    \"opcaoReajuste\": null,\n    \"registroTipo\": 1,\n    \"garantiaTipo\": -1,\n    \"emitInvoiType\": null,\n    \"emitInvoiVal\": null,\n    \"emitInvoiCondPerioType\": null,\n    \"pagType\": 2,\n    \"pagVal\": 6,\n    \"pagMesType\": 2,\n    \"stateIcms_id\": -1,\n    \"comentario\": \"\",\n    \"userId\": 1,\n    \"cancelada\": null,\n    \"numRefId\": null,\n    \"representatividade\": null,\n    \"numContrCcee\": null,\n    \"valPriceReaj\": null,\n    \"valPriceContratado\": null,\n    \"indReajRealizado\": null,\n    \"valReajRealizado\": null,\n    \"datSeaso\": 29348017200000,\n    \"carteira\": null,\n    \"encargoVarejistaTipo\": null,\n    \"valPisoEncargo\": null,\n    \"valTetoEncargo\": null,\n    \"tblCarteira\": null,\n    \"indReajIniciForneCliente\": null,\n    \"agenteVendedor\": null,\n    \"agenteComprador\": null,\n    \"aprovadoCliente\": null,\n    \"datAprovCliente\": 1616012117000,\n    \"userAprovCliente\": null,\n    \"paymentModel\": null,\n    \"precoTipoName\": \"Fixo\",\n    \"volumeTipoName\": \"MWmed\",\n    \"submercadoName\": \"SE\",\n    \"energiaTipoName\": \"CONVENCIONAL\",\n    \"plataformaName\": \"Balcão\",\n    \"registroTipoName\": \"Registro contra pagamento\",\n    \"garantiaTipoName\": \"NA\",\n    \"pagamentoTipoName\": \"Dias Uteis\",\n    \"estadoIcmsName\": \"NA\",\n    \"indiceName\": \"NA\",\n    \"volumeSazoList\": null,\n    \"userName\": \"ADMINISTRADOR\",\n    \"distType\": {\n        \"numDistType\": 1,\n        \"nomDistType\": \"FLAT\",\n        \"nomDistCcee\": \"FLAT\"\n    },\n    \"pagDate\": -2208502412000,\n    \"emitInvoiDate\": null,\n    \"boletaType\": false,\n    \"vigencia\": null,\n    \"cobertura\": null,\n    \"extension\": {\n        \"idContract\": 40,\n        \"numContratoBBCE\": null,\n        \"numContratoEnbox\": null,\n        \"nomEmailCliente\": \"\",\n        \"opeHete\": false,\n        \"encContas\": false,\n        \"indReajIniciForne\": null,\n        \"compra\": true,\n        \"representativade\": null,\n        \"broker\": null,\n        \"brokerName\": null,\n        \"aprovado\": true,\n        \"nomAprovMsg\": null,\n        \"nomEditMsg\": null,\n        \"datAprov\": 1616012117000,\n        \"userAprov\": {\n            \"id\": 1,\n            \"name\": \"ADMINISTRADOR\",\n            \"nameBBCE\": \"ZEUS\",\n            \"nameEnbox\": null,\n            \"login\": \"ADMIN\",\n            \"password\": \"b9ba7380b14e8e8343186cc0f09596563b8506b9c0281efce4b1a3485ea086b2\",\n            \"email\": \"ALEXANDRE@MIRACLEWORKS.CO\",\n            \"indCancel\": false,\n            \"indConfi\": true,\n            \"indTrade\": true,\n            \"indApi\": false,\n            \"indAdmin\": true,\n            \"indContr\": true,\n            \"indFinan\": true,\n            \"indCount\": true,\n            \"indLawye\": true,\n            \"indBack\": true,\n            \"signatureUser\": \"\",\n            \"nomFileUserSign\": null,\n            \"indUsing2FA\": false,\n            \"nomSecret\": \"EDZESP43RCEUEVGE\",\n            \"perfil\": {\n                \"id\": 1,\n                \"nomPerfil\": \"Admin\",\n                \"oldVersionOfItself\": null,\n                \"textoPermissoes\": \" <b>Financeiro</b> Visualizar + Inserir + Editar<br> <b>Registro</b> Visualizar + Inserir + Editar<br> <b>PLD</b> Visualizar + Inserir + Editar<br> <b>Contraparte</b> Visualizar + Inserir + Editar<br> <b>Administração</b> Visualizar + Inserir + Editar<br> <b>Relatorio</b> Visualizar + Inserir + Editar<br> <b>Relatorio Externo</b> Visualizar + Inserir + Editar<br> <b>Gestão</b> Visualizar + Inserir + Editar<br> <b>Viabilidade</b> Visualizar + Inserir + Editar<br> <b>Boletas</b> Visualizar + Inserir + Editar<br> <b>Garantias</b> Visualizar + Inserir + Editar<br> <b>Juridico</b> Visualizar + Inserir + Editar<br> <b>Aprovador</b> Visualizar + Inserir + Editar<br> <b>Migração</b> Visualizar + Inserir + Editar<br> <b>Derivativos</b> Visualizar + Inserir + Editar<br> <b>Modelo Migração</b> Visualizar + Inserir + Editar<br> <b>Super Aprovador</b> Visualizar + Inserir + Editar<br> <b>Arquivos</b> Visualizar + Inserir + Editar<br><br>\",\n                \"dashboard\": {\n                    \"id\": 1,\n                    \"nomArea\": \"Boletas\",\n                    \"tipo\": 1,\n                    \"nomStateDash\": \"app.boletacapitale.dashboard\",\n                    \"indCance\": false\n                }\n            },\n            \"dashboard\": null,\n            \"oldVersionOfItself\": null,\n            \"nomQURL\": null,\n            \"nomLogin\": \"ADMIN\"\n        },\n        \"cancelada\": false,\n        \"datCancel\": null,\n        \"userCancel\": null,\n        \"recusada\": false,\n        \"modulMin\": null,\n        \"modulMax\": null,\n        \"indReajusteHeterodoxo\": null,\n        \"datRecusada\": null,\n        \"potencialDuplicada\": false,\n        \"boletasOrigemDaDuplicacao\": null,\n        \"parte\": {\n            \"numCount\": 6286,\n            \"nomCount\": \"ZEUS ENERGIA\",\n            \"nomCnpj\": \"21.791.292/0001-06\",\n            \"nomFull\": \"ZEUS ENERGIA\",\n            \"nomAddre\": \"AVENIDA BRIGADEIRO FARIA LIMA\",\n            \"nomStateId\": \"ISENTO\",\n            \"indConsu\": false,\n            \"indVarej\": null,\n            \"nomAddreNumbe\": \"1912\",\n            \"nomNeigh\": \"JARDIM PAULISTANO \",\n            \"nomAddreSuppl\": \"7 A\",\n            \"nomZipCode\": \"01451-907\",\n            \"indInact\": false,\n            \"indExcepIcms\": false,\n            \"indExcepProinfa\": null,\n            \"indFinanSettl\": -1,\n            \"nomIcms\": null,\n            \"nomCfop\": null,\n            \"nomCst\": null,\n            \"clienteGestao\": false,\n            \"omieId\": null,\n            \"erpFornecedorId\": null,\n            \"erpClienteId\": null,\n            \"erpDataAtualizacao\": null,\n            \"nomSuframa\": null,\n            \"indProdesin\": false,\n            \"nomCnpjFatur\": null,\n            \"nomGroup\": null,\n            \"nomLogoFile\": \"6286_20241128120126.png\",\n            \"parte\": true,\n            \"parteDefault\": true,\n            \"parteVarejistaDefault\": null,\n            \"omieGestaoId\": null,\n            \"nomCityId\": null,\n            \"nomAtividade\": null,\n            \"indMei\": null,\n            \"indSimples\": null,\n            \"indCondominio\": null,\n            \"indEvitarOperacoes\": null,\n            \"indPf\": null,\n            \"numCnae\": null,\n            \"nomCnae\": null,\n            \"valPatrimonioLiquidoAjustado\": null,\n            \"nomCnpjMatriz\": null,\n            \"tblCity\": {\n                \"numCity\": 3831,\n                \"nomCity\": \"SÃO PAULO   \",\n                \"numCityIbge\": 3550308,\n                \"numCodMun\": 5344,\n                \"tblState\": {\n                    \"numState\": 25,\n                    \"nomState\": \"\\tSÃO PAULO\",\n                    \"codState\": \"SP\",\n                    \"numStateIbge\": 35,\n                    \"valIcms\": 0.18,\n                    \"valFcp\": 0,\n                    \"valIcmsComerc\": 0,\n                    \"valIcmsIndus\": 0,\n                    \"valIcmsRural\": 0,\n                    \"indStateIcms\": true,\n                    \"nomNotaObs\": \"Emitida nos termos do inciso I do artigo 14 da Portaria SRE 14/2022\",\n                    \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                    \"tblRegion\": {\n                        \"numRegio\": 1,\n                        \"codRegio\": \"SE\"\n                    },\n                    \"submercado\": null,\n                    \"oldVersionOfItself\": null\n                }\n            },\n            \"tblState\": {\n                \"numState\": 25,\n                \"nomState\": \"\\tSÃO PAULO\",\n                \"codState\": \"SP\",\n                \"numStateIbge\": 35,\n                \"valIcms\": 0.18,\n                \"valFcp\": 0,\n                \"valIcmsComerc\": 0,\n                \"valIcmsIndus\": 0,\n                \"valIcmsRural\": 0,\n                \"indStateIcms\": true,\n                \"nomNotaObs\": \"Emitida nos termos do inciso I do artigo 14 da Portaria SRE 14/2022\",\n                \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                \"tblRegion\": {\n                    \"numRegio\": 1,\n                    \"codRegio\": \"SE\"\n                },\n                \"submercado\": null,\n                \"oldVersionOfItself\": null\n            },\n            \"tblSector\": {\n                \"numSetor\": -1,\n                \"nomSetor\": \"NA\",\n                \"indConsu\": false\n            },\n            \"createdAt\": 1698807600000,\n            \"updatedAt\": 1732806086000,\n            \"dadosGeraisUnidade\": null,\n            \"ratingUnidade\": null,\n            \"indFinanSettlBol\": null,\n            \"indForceUpdate\": null,\n            \"banco\": null,\n            \"agencia\": null,\n            \"conta\": null,\n            \"indUpdateAgentesCCEE\": null,\n            \"lstContacts\": null,\n            \"oldVersionOfItself\": null,\n            \"economiaTotal\": null,\n            \"lstConsumo\": null,\n            \"lstConsumoHorario\": null,\n            \"lstDemanda\": null,\n            \"lstDri\": null,\n            \"lstEnergiaCusto\": null,\n            \"energiaReserva\": null,\n            \"contribAssoc\": null,\n            \"lstEnergiaContratada\": null,\n            \"lstContratos\": null,\n            \"lstProinfa\": null,\n            \"indBoletas\": null,\n            \"indBalancoEnergetico\": null,\n            \"indAgente\": null,\n            \"indConsumo\": null,\n            \"indProinfa\": null,\n            \"boletaGestao\": null,\n            \"valorDadoCceeProporcionalConsumo\": null,\n            \"nomPendencyUnit\": null,\n            \"lstCalendarioCCEE\": null,\n            \"garantiaFinanceira\": null,\n            \"lstServicoMensal\": null,\n            \"distribuidoraImposto\": null,\n            \"emailListString\": null,\n            \"stateName\": \"\\tSÃO PAULO\",\n            \"nomLogoGroup\": null,\n            \"cnpj\": \"21.791.292/0001-06\",\n            \"groupId\": 4698,\n            \"stateIcms\": 0.18,\n            \"rating\": \"A\",\n            \"groupName\": \"ZEUS ENERGIA\",\n            \"cityName\": \"SÃO PAULO   \",\n            \"inativo\": \"Não\",\n            \"mei\": \"Não\",\n            \"simples\": \"Não\",\n            \"evitarOperacoes\": \"Não\"\n        },\n        \"userRecusada\": null,\n        \"datUpdate\": 1581724768000,\n        \"userUpdate\": {\n            \"id\": 1,\n            \"name\": \"ADMINISTRADOR\",\n            \"nameBBCE\": \"ZEUS\",\n            \"nameEnbox\": null,\n            \"login\": \"ADMIN\",\n            \"password\": \"b9ba7380b14e8e8343186cc0f09596563b8506b9c0281efce4b1a3485ea086b2\",\n            \"email\": \"ALEXANDRE@MIRACLEWORKS.CO\",\n            \"indCancel\": false,\n            \"indConfi\": true,\n            \"indTrade\": true,\n            \"indApi\": false,\n            \"indAdmin\": true,\n            \"indContr\": true,\n            \"indFinan\": true,\n            \"indCount\": true,\n            \"indLawye\": true,\n            \"indBack\": true,\n            \"signatureUser\": \"\",\n            \"nomFileUserSign\": null,\n            \"indUsing2FA\": false,\n            \"nomSecret\": \"EDZESP43RCEUEVGE\",\n            \"perfil\": {\n                \"id\": 1,\n                \"nomPerfil\": \"Admin\",\n                \"oldVersionOfItself\": null,\n                \"textoPermissoes\": \" <b>Financeiro</b> Visualizar + Inserir + Editar<br> <b>Registro</b> Visualizar + Inserir + Editar<br> <b>PLD</b> Visualizar + Inserir + Editar<br> <b>Contraparte</b> Visualizar + Inserir + Editar<br> <b>Administração</b> Visualizar + Inserir + Editar<br> <b>Relatorio</b> Visualizar + Inserir + Editar<br> <b>Relatorio Externo</b> Visualizar + Inserir + Editar<br> <b>Gestão</b> Visualizar + Inserir + Editar<br> <b>Viabilidade</b> Visualizar + Inserir + Editar<br> <b>Boletas</b> Visualizar + Inserir + Editar<br> <b>Garantias</b> Visualizar + Inserir + Editar<br> <b>Juridico</b> Visualizar + Inserir + Editar<br> <b>Aprovador</b> Visualizar + Inserir + Editar<br> <b>Migração</b> Visualizar + Inserir + Editar<br> <b>Derivativos</b> Visualizar + Inserir + Editar<br> <b>Modelo Migração</b> Visualizar + Inserir + Editar<br> <b>Super Aprovador</b> Visualizar + Inserir + Editar<br> <b>Arquivos</b> Visualizar + Inserir + Editar<br><br>\",\n                \"dashboard\": {\n                    \"id\": 1,\n                    \"nomArea\": \"Boletas\",\n                    \"tipo\": 1,\n                    \"nomStateDash\": \"app.boletacapitale.dashboard\",\n                    \"indCance\": false\n                }\n            },\n            \"dashboard\": null,\n            \"oldVersionOfItself\": null,\n            \"nomQURL\": null,\n            \"nomLogin\": \"ADMIN\"\n        },\n        \"nomOrigem\": null,\n        \"numRefId\": null,\n        \"datEmitInvoi\": null,\n        \"numEmitInvoiMonth\": null,\n        \"emitInvoiType\": null,\n        \"indEntryInvoi\": null,\n        \"contaBancaria\": null,\n        \"contaBancariaParte\": null,\n        \"agenteParte\": null,\n        \"agenteContraparte\": null,\n        \"negocioId\": null,\n        \"perfilBBCECceeContraparte\": null,\n        \"perfilBBCECceeParte\": null,\n        \"oldVersionOfItself\": null,\n        \"nomBBCEStatus\": null,\n        \"lstBrokers\": null\n    },\n    \"docStatusId\": 11,\n    \"docStatusName\": \"ENVIO MINUTA\",\n    \"datDocumUpdat\": 1642647600000,\n    \"intDocumDays\": 2,\n    \"daysBetweenUpdate\": null,\n    \"sazoRealizada\": null,\n    \"parcialmenteCancelada\": null,\n    \"dataInicioReajuste\": null,\n    \"dataFimReajuste\": null,\n    \"indBalancReali\": null,\n    \"editable\": true,\n    \"userUpdate\": \"ADMINISTRADOR\",\n    \"datUpdate\": 1581724768000,\n    \"siglaEmitInvoi\": null,\n    \"siglaPagamento\": null,\n    \"indBoletaSemTrade\": null,\n    \"dataCriacao\": 1581476400000,\n    \"comentarioEdicao\": null,\n    \"forceUpdate\": null,\n    \"parte\": {\n        \"numCount\": 6286,\n        \"nomCount\": \"ZEUS ENERGIA\",\n        \"nomCnpj\": \"21.791.292/0001-06\",\n        \"nomFull\": \"ZEUS ENERGIA\",\n        \"nomAddre\": \"AVENIDA BRIGADEIRO FARIA LIMA\",\n        \"nomStateId\": \"ISENTO\",\n        \"indConsu\": false,\n        \"indVarej\": null,\n        \"nomAddreNumbe\": \"1912\",\n        \"nomNeigh\": \"JARDIM PAULISTANO \",\n        \"nomAddreSuppl\": \"7 A\",\n        \"nomZipCode\": \"01451-907\",\n        \"indInact\": false,\n        \"indExcepIcms\": false,\n        \"indExcepProinfa\": null,\n        \"indFinanSettl\": -1,\n        \"nomIcms\": null,\n        \"nomCfop\": null,\n        \"nomCst\": null,\n        \"clienteGestao\": false,\n        \"omieId\": null,\n        \"erpFornecedorId\": null,\n        \"erpClienteId\": null,\n        \"erpDataAtualizacao\": null,\n        \"nomSuframa\": null,\n        \"indProdesin\": false,\n        \"nomCnpjFatur\": null,\n        \"nomGroup\": null,\n        \"nomLogoFile\": \"6286_20241128120126.png\",\n        \"parte\": true,\n        \"parteDefault\": true,\n        \"parteVarejistaDefault\": null,\n        \"omieGestaoId\": null,\n        \"nomCityId\": null,\n        \"nomAtividade\": null,\n        \"indMei\": null,\n        \"indSimples\": null,\n        \"indCondominio\": null,\n        \"indEvitarOperacoes\": null,\n        \"indPf\": null,\n        \"numCnae\": null,\n        \"nomCnae\": null,\n        \"valPatrimonioLiquidoAjustado\": null,\n        \"nomCnpjMatriz\": null,\n        \"tblCity\": {\n            \"numCity\": 3831,\n            \"nomCity\": \"SÃO PAULO   \",\n            \"numCityIbge\": 3550308,\n            \"numCodMun\": 5344,\n            \"tblState\": {\n                \"numState\": 25,\n                \"nomState\": \"\\tSÃO PAULO\",\n                \"codState\": \"SP\",\n                \"numStateIbge\": 35,\n                \"valIcms\": 0.18,\n                \"valFcp\": 0,\n                \"valIcmsComerc\": 0,\n                \"valIcmsIndus\": 0,\n                \"valIcmsRural\": 0,\n                \"indStateIcms\": true,\n                \"nomNotaObs\": \"Emitida nos termos do inciso I do artigo 14 da Portaria SRE 14/2022\",\n                \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                \"tblRegion\": {\n                    \"numRegio\": 1,\n                    \"codRegio\": \"SE\"\n                },\n                \"submercado\": null,\n                \"oldVersionOfItself\": null\n            }\n        },\n        \"tblState\": {\n            \"numState\": 25,\n            \"nomState\": \"\\tSÃO PAULO\",\n            \"codState\": \"SP\",\n            \"numStateIbge\": 35,\n            \"valIcms\": 0.18,\n            \"valFcp\": 0,\n            \"valIcmsComerc\": 0,\n            \"valIcmsIndus\": 0,\n            \"valIcmsRural\": 0,\n            \"indStateIcms\": true,\n            \"nomNotaObs\": \"Emitida nos termos do inciso I do artigo 14 da Portaria SRE 14/2022\",\n            \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n            \"tblRegion\": {\n                \"numRegio\": 1,\n                \"codRegio\": \"SE\"\n            },\n            \"submercado\": null,\n            \"oldVersionOfItself\": null\n        },\n        \"tblSector\": {\n            \"numSetor\": -1,\n            \"nomSetor\": \"NA\",\n            \"indConsu\": false\n        },\n        \"createdAt\": 1698807600000,\n        \"updatedAt\": 1732806086000,\n        \"dadosGeraisUnidade\": null,\n        \"ratingUnidade\": null,\n        \"indFinanSettlBol\": null,\n        \"indForceUpdate\": null,\n        \"banco\": null,\n        \"agencia\": null,\n        \"conta\": null,\n        \"indUpdateAgentesCCEE\": null,\n        \"lstContacts\": null,\n        \"oldVersionOfItself\": null,\n        \"economiaTotal\": null,\n        \"lstConsumo\": null,\n        \"lstConsumoHorario\": null,\n        \"lstDemanda\": null,\n        \"lstDri\": null,\n        \"lstEnergiaCusto\": null,\n        \"energiaReserva\": null,\n        \"contribAssoc\": null,\n        \"lstEnergiaContratada\": null,\n        \"lstContratos\": null,\n        \"lstProinfa\": null,\n        \"indBoletas\": null,\n        \"indBalancoEnergetico\": null,\n        \"indAgente\": null,\n        \"indConsumo\": null,\n        \"indProinfa\": null,\n        \"boletaGestao\": null,\n        \"valorDadoCceeProporcionalConsumo\": null,\n        \"nomPendencyUnit\": null,\n        \"lstCalendarioCCEE\": null,\n        \"garantiaFinanceira\": null,\n        \"lstServicoMensal\": null,\n        \"distribuidoraImposto\": null,\n        \"emailListString\": null,\n        \"stateName\": \"\\tSÃO PAULO\",\n        \"nomLogoGroup\": null,\n        \"cnpj\": \"21.791.292/0001-06\",\n        \"groupId\": 4698,\n        \"stateIcms\": 0.18,\n        \"rating\": \"A\",\n        \"groupName\": \"ZEUS ENERGIA\",\n        \"cityName\": \"SÃO PAULO   \",\n        \"inativo\": \"Não\",\n        \"mei\": \"Não\",\n        \"simples\": \"Não\",\n        \"evitarOperacoes\": \"Não\"\n    },\n    \"contraparte\": {\n        \"numCount\": 6451,\n        \"nomCount\": \"EXIBIÇÃO UNIDADE CLIENTE\",\n        \"nomCnpj\": \"17.838.938/0001-88\",\n        \"nomFull\": \"EXIBIÇÃO UNIDADE CLIENTE\",\n        \"nomAddre\": \"RUA ÁLVARES CABRAL\",\n        \"nomStateId\": \"286018768112\",\n        \"indConsu\": true,\n        \"indVarej\": true,\n        \"nomAddreNumbe\": \"1151\",\n        \"nomNeigh\": \"SERRARIA\",\n        \"nomAddreSuppl\": \"\",\n        \"nomZipCode\": \"09980-160\",\n        \"indInact\": false,\n        \"indExcepIcms\": false,\n        \"indExcepProinfa\": null,\n        \"indFinanSettl\": 1,\n        \"nomIcms\": null,\n        \"nomCfop\": null,\n        \"nomCst\": null,\n        \"clienteGestao\": true,\n        \"omieId\": null,\n        \"erpFornecedorId\": null,\n        \"erpClienteId\": null,\n        \"erpDataAtualizacao\": null,\n        \"nomSuframa\": null,\n        \"indProdesin\": false,\n        \"nomCnpjFatur\": null,\n        \"nomGroup\": null,\n        \"nomLogoFile\": null,\n        \"parte\": null,\n        \"parteDefault\": null,\n        \"parteVarejistaDefault\": null,\n        \"omieGestaoId\": null,\n        \"nomCityId\": null,\n        \"nomAtividade\": null,\n        \"indMei\": null,\n        \"indSimples\": null,\n        \"indCondominio\": null,\n        \"indEvitarOperacoes\": null,\n        \"indPf\": null,\n        \"numCnae\": null,\n        \"nomCnae\": null,\n        \"valPatrimonioLiquidoAjustado\": null,\n        \"nomCnpjMatriz\": null,\n        \"tblCity\": {\n            \"numCity\": 3420,\n            \"nomCity\": \"DIADEMA \",\n            \"numCityIbge\": 3513801,\n            \"numCodMun\": 4933,\n            \"tblState\": {\n                \"numState\": 25,\n                \"nomState\": \"\\tSÃO PAULO\",\n                \"codState\": \"SP\",\n                \"numStateIbge\": 35,\n                \"valIcms\": 0.18,\n                \"valFcp\": 0,\n                \"valIcmsComerc\": 0,\n                \"valIcmsIndus\": 0,\n                \"valIcmsRural\": 0,\n                \"indStateIcms\": true,\n                \"nomNotaObs\": \"Emitida nos termos do inciso I do artigo 14 da Portaria SRE 14/2022\",\n                \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n                \"tblRegion\": {\n                    \"numRegio\": 1,\n                    \"codRegio\": \"SE\"\n                },\n                \"submercado\": null,\n                \"oldVersionOfItself\": null\n            }\n        },\n        \"tblState\": {\n            \"numState\": 25,\n            \"nomState\": \"\\tSÃO PAULO\",\n            \"codState\": \"SP\",\n            \"numStateIbge\": 35,\n            \"valIcms\": 0.18,\n            \"valFcp\": 0,\n            \"valIcmsComerc\": 0,\n            \"valIcmsIndus\": 0,\n            \"valIcmsRural\": 0,\n            \"indStateIcms\": true,\n            \"nomNotaObs\": \"Emitida nos termos do inciso I do artigo 14 da Portaria SRE 14/2022\",\n            \"nomNotaObsComercs\": \"NAO INCIDENCIA DO ICMS COM FUNDAMENTO DO ART 7 INCISO VI DO RICMS/00\",\n            \"tblRegion\": {\n                \"numRegio\": 1,\n                \"codRegio\": \"SE\"\n            },\n            \"submercado\": null,\n            \"oldVersionOfItself\": null\n        },\n        \"tblSector\": {\n            \"numSetor\": 1,\n            \"nomSetor\": \"INDUSTRIAL\",\n            \"indConsu\": true\n        },\n        \"createdAt\": 1698807600000,\n        \"updatedAt\": 1709921737000,\n        \"dadosGeraisUnidade\": {\n            \"id\": 63,\n            \"dataEntrada\": [\n                2023,\n                1,\n                13\n            ],\n            \"unidade_id\": 6451,\n            \"contratada_ponta\": 0,\n            \"contratada_fponta\": 500,\n            \"contratada_ponta_cativo\": 0,\n            \"contratada_fponta_cativo\": 500,\n            \"fator_perda\": 3,\n            \"unidadeConsumidora\": \"\",\n            \"faixa\": \"A4\",\n            \"cor\": \"Verde\",\n            \"faixaCativo\": \"A4\",\n            \"corCativo\": \"Verde\",\n            \"distribuidora\": {\n                \"id\": 92,\n                \"dataEntrada\": [\n                    2023,\n                    1,\n                    13\n                ],\n                \"distNome\": \"ELEKTRO\",\n                \"nomCnpj\": null,\n                \"inicioPonta\": 0,\n                \"fimPonta\": 0,\n                \"indCance\": false,\n                \"indICMSDemanda\": false,\n                \"indICMSEncargos\": false,\n                \"indPisCofinsSemIcms\": true,\n                \"indBasePisCofinsComIcms\": null,\n                \"indSubvencaoTarifariaIcmsDemanda\": false,\n                \"indSubvencaoTarifariaPisCofinsDemanda\": false,\n                \"indSubvencaoTarifariaIcmsEncargo\": false,\n                \"indSubvencaoTarifariaPisCofinsEncargo\": false,\n                \"indDemandaIsenta\": null,\n                \"indDemandaIsentaPonta\": null,\n                \"indIcmsEnergiaNaFaturaDistribuidora\": false,\n                \"oldVersionOfItself\": null\n            },\n            \"distNome\": \"ELEKTRO\",\n            \"medNome\": null,\n            \"nomCceeAtivo\": null,\n            \"nomInstalacaoUnidade\": null,\n            \"valGeracaoCusto\": null,\n            \"valGeracaoPotencia\": null,\n            \"dtLigacao\": null,\n            \"tensao_kv\": 13.8,\n            \"idUser\": 4,\n            \"dtMigracao\": null,\n            \"dtPrevistaMigracao\": null,\n            \"dtEncerramento\": null,\n            \"nomPerfiDevec\": null,\n            \"numPerfiDevec\": null,\n            \"indContaCovid\": null,\n            \"indEscassezHidrica\": null,\n            \"indDemExcepIcms\": null,\n            \"indTusdExcepIcms\": null,\n            \"indDemExcepIcmsCativo\": null,\n            \"indTusdExcepIcmsCativo\": null,\n            \"rep_com\": null,\n            \"tarifaIcms\": null,\n            \"oldVersionOfItself\": null\n        },\n        \"ratingUnidade\": null,\n        \"indFinanSettlBol\": null,\n        \"indForceUpdate\": null,\n        \"banco\": null,\n        \"agencia\": null,\n        \"conta\": null,\n        \"indUpdateAgentesCCEE\": null,\n        \"lstContacts\": null,\n        \"oldVersionOfItself\": null,\n        \"economiaTotal\": null,\n        \"lstConsumo\": null,\n        \"lstConsumoHorario\": null,\n        \"lstDemanda\": null,\n        \"lstDri\": null,\n        \"lstEnergiaCusto\": null,\n        \"energiaReserva\": null,\n        \"contribAssoc\": null,\n        \"lstEnergiaContratada\": null,\n        \"lstContratos\": null,\n        \"lstProinfa\": null,\n        \"indBoletas\": null,\n        \"indBalancoEnergetico\": null,\n        \"indAgente\": null,\n        \"indConsumo\": null,\n        \"indProinfa\": null,\n        \"boletaGestao\": null,\n        \"valorDadoCceeProporcionalConsumo\": null,\n        \"nomPendencyUnit\": null,\n        \"lstCalendarioCCEE\": null,\n        \"garantiaFinanceira\": null,\n        \"lstServicoMensal\": null,\n        \"distribuidoraImposto\": null,\n        \"emailListString\": null,\n        \"stateName\": \"\\tSÃO PAULO\",\n        \"nomLogoGroup\": null,\n        \"cnpj\": \"17.838.938/0001-88\",\n        \"groupId\": 4862,\n        \"stateIcms\": 0.18,\n        \"rating\": \"A\",\n        \"groupName\": \"EXIBIÇÃO GRUPO CLIENTE\",\n        \"cityName\": \"DIADEMA \",\n        \"inativo\": \"Não\",\n        \"mei\": \"Não\",\n        \"simples\": \"Não\",\n        \"evitarOperacoes\": \"Não\"\n    },\n    \"agenteParte\": null,\n    \"agenteContraparte\": null,\n    \"comercializadora\": true,\n    \"contratosCliqMensalList\": [],\n    \"negocioBBCEId\": null,\n    \"agenteParteExport\": null,\n    \"agenteContraparteExport\": null,\n    \"encContas\": null,\n    \"temTradeFaturado\": null,\n    \"betNaoCanceladoList\": null,\n    \"indTodosTradesFaturados\": false,\n    \"tradesFaturados\": null,\n    \"stateName\": \"SP\",\n    \"forcarReajuste\": null,\n    \"dataValidade\": null,\n    \"horaValidade\": null,\n    \"periodo\": null,\n    \"reaplicarReajuste\": null,\n    \"reaplicarGarantia\": null,\n    \"reaplicarSazo\": null,\n    \"tradesAtualizar\": null,\n    \"dataEntrega\": null,\n    \"camposPersonalizados\": null,\n    \"idConCpb\": null,\n    \"idCpb\": null,\n    \"valueCpb\": null,\n    \"idRefCpb\": null,\n    \"stringPagamento\": \"6 DU MS\",\n    \"numCount\": 6451,\n    \"compVend\": \"Compra\",\n    \"groupCName\": null,\n    \"unidadeCName\": null,\n    \"groupVName\": \"EXIBIÇÃO GRUPO CLIENTE\",\n    \"unidadeVName\": \"EXIBIÇÃO UNIDADE CLIENTE\",\n    \"cpUnit\": \"EXIBIÇÃO UNIDADE CLIENTE\",\n    \"cpGroup\": \"EXIBIÇÃO GRUPO CLIENTE\",\n    \"nomFull\": \"EXIBIÇÃO UNIDADE CLIENTE\",\n    \"nomCnpj\": \"17.838.938/0001-88\",\n    \"venda\": false,\n    \"stringEmitInvoi\": \"\",\n    \"pagMesName\": \"Mês Seguinte\",\n    \"distribuicaoTipo\": \"FLAT\",\n    \"propostaExtension\": null,\n    \"volumeExport\": 0.000001,\n    \"numberBBCE\": \"-\",\n    \"carteiraName\": \"-\",\n    \"reajIniciForne\": \"Não\",\n    \"reajIniciForneCliente\": \"Não\",\n    \"boletaParcialmenteCancelada\": \"Não\",\n    \"operacaoHeterodoxa\": \"Não\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -8091,6 +8301,216 @@
 									"body": "{\n    \"draw\": 3,\n    \"recordsTotal\": 3078,\n    \"recordsFiltered\": 0,\n    \"data\": [],\n    \"error\": null\n}"
 								}
 							]
+						},
+						{
+							"name": "Buscar boleta de gestão",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Cookie",
+										"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _ga=GA1.1.2030139120.1736168817; _gat_gtag_UA_179859998_1=1; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736532078.0.0.0"
+									},
+									{
+										"key": "Referer",
+										"value": "https://zeus.miracleworks.com.br/resources/index.html"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/boletacliente/{{idBoleta}}",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletacliente",
+										"{{idBoleta}}"
+									]
+								},
+								"description": "Busca uma boleta de gestão específica no Zeus e retorna seus dados.\n\nA variável \"idBoleta\" indica o número da boleta que se deseja retornar."
+							},
+							"response": [
+								{
+									"name": "Buscar boleta de gestão - Exemplo de retorno",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Cookie",
+												"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _ga=GA1.1.2030139120.1736168817; _gat_gtag_UA_179859998_1=1; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736532078.0.0.0"
+											},
+											{
+												"key": "Referer",
+												"value": "https://zeus.miracleworks.com.br/resources/index.html"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-origin"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "https://{{URL}}/rest/boletacliente/{{idBoleta}}",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"boletacliente",
+												"{{idBoleta}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000 ; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Jan 2025 18:02:51 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 144,\n    \"dataEntrada\": [\n        2023,\n        1,\n        16\n    ],\n    \"dataInicio\": 1641006000000,\n    \"dataFim\": 1735614000000,\n    \"groupCompId\": 4862,\n    \"unidadeCompId\": 6451,\n    \"groupVendId\": 25,\n    \"unidadeVendId\": 24,\n    \"precoTipo\": 1,\n    \"preco\": 200,\n    \"valComissao\": 0,\n    \"valPisoCollar\": null,\n    \"valTetoCollar\": null,\n    \"volumeTipo\": 1,\n    \"volume\": 1,\n    \"flexMin\": 10,\n    \"flexMax\": 10,\n    \"sazoMin\": 0,\n    \"sazoMax\": 0,\n    \"submercado\": 1,\n    \"energyTipo\": 2,\n    \"numDistType\": 1,\n    \"retusd\": 35,\n    \"plataformaId\": 1,\n    \"indexId\": 1,\n    \"datIndexBase\": 1672542000000,\n    \"datIndexFirstAdjus\": 1672542000000,\n    \"opcaoReajuste\": null,\n    \"registroTipo\": 1,\n    \"garantiaTipo\": null,\n    \"emitInvoiType\": null,\n    \"emitInvoiVal\": null,\n    \"emitInvoiCondPerioType\": null,\n    \"pagType\": 2,\n    \"pagVal\": 6,\n    \"pagMesType\": 2,\n    \"stateIcms_id\": null,\n    \"comentario\": \"\",\n    \"userId\": 21,\n    \"cancelada\": false,\n    \"numRefId\": 0,\n    \"representatividade\": null,\n    \"numContrCcee\": null,\n    \"valPriceReaj\": null,\n    \"valPriceContratado\": null,\n    \"indReajRealizado\": null,\n    \"valReajRealizado\": null,\n    \"datSeaso\": 29348017200000,\n    \"carteira\": null,\n    \"encargoVarejistaTipo\": null,\n    \"valPisoEncargo\": null,\n    \"valTetoEncargo\": null,\n    \"tblCarteira\": null,\n    \"indReajIniciForneCliente\": null,\n    \"agenteVendedor\": null,\n    \"agenteComprador\": null,\n    \"aprovadoCliente\": true,\n    \"datAprovCliente\": 1673897943000,\n    \"userAprovCliente\": {\n        \"id\": 40,\n        \"name\": \"APOLO ENERGIA\",\n        \"nameBBCE\": null,\n        \"nameEnbox\": null,\n        \"login\": \"APOLOENERGIA\",\n        \"password\": \"626c75401b206fb60be86096122e73ebd53a7895d5f2a843034348b50ee282f9\",\n        \"email\": \"ALEXANDRE@MIRACLEWORKS.CO\",\n        \"indCancel\": true,\n        \"indConfi\": false,\n        \"indTrade\": false,\n        \"indApi\": false,\n        \"indAdmin\": false,\n        \"indContr\": false,\n        \"indFinan\": false,\n        \"indCount\": false,\n        \"indLawye\": false,\n        \"indBack\": false,\n        \"signatureUser\": null,\n        \"nomFileUserSign\": null,\n        \"indUsing2FA\": null,\n        \"nomSecret\": \"LHOAECOFWIO2SLFZ\",\n        \"perfil\": {\n            \"id\": 3,\n            \"nomPerfil\": \"Geral\",\n            \"oldVersionOfItself\": null,\n            \"textoPermissoes\": \" <b>Boletas</b> Visualizar + Inserir + Editar<br> <b>Garantias</b> Visualizar + Inserir + Editar<br> <b>Financeiro</b> Visualizar + Inserir + Editar<br> <b>Registro</b> Visualizar + Inserir + Editar<br> <b>Gestão</b> Visualizar + Inserir + Editar<br> <b>Viabilidade</b> Visualizar + Inserir + Editar<br> <b>PLD</b> Visualizar + Inserir + Editar<br> <b>Contraparte</b> Visualizar + Inserir + Editar<br> <b>Juridico</b> Visualizar + Inserir + Editar<br> <b>Aprovador</b> Visualizar + Inserir + Editar<br> <b>Relatorio</b> Visualizar + Inserir + Editar<br> <b>Relatorio Externo</b> Visualizar + Inserir + Editar<br> <b>Arquivos</b> Visualizar + Inserir + Editar<br> <b>Migração</b> Visualizar + Inserir + Editar<br> <b>Derivativos</b> Visualizar + Inserir + Editar<br> <b>Super Aprovador</b> Visualizar + Inserir + Editar<br><br>\",\n            \"dashboard\": null\n        },\n        \"dashboard\": null,\n        \"oldVersionOfItself\": null,\n        \"nomQURL\": null,\n        \"nomLogin\": \"APOLOENERGIA\"\n    },\n    \"paymentModel\": null,\n    \"precoTipoName\": \"Fixo\",\n    \"volumeTipoName\": \"MWmed\",\n    \"submercadoName\": \"SE\",\n    \"energiaTipoName\": \"INCENTIVADA 50%\",\n    \"plataformaName\": \"Balcão\",\n    \"registroTipoName\": \"Registro contra pagamento\",\n    \"garantiaTipoName\": null,\n    \"pagamentoTipoName\": \"Dias Uteis\",\n    \"estadoIcmsName\": null,\n    \"indiceName\": \"IPCA\",\n    \"volumeSazoList\": null,\n    \"userName\": \"MIGRATIO\",\n    \"distType\": {\n        \"numDistType\": 1,\n        \"nomDistType\": \"FLAT\",\n        \"nomDistCcee\": \"FLAT\"\n    },\n    \"pagDate\": null,\n    \"emitInvoiDate\": null,\n    \"boletaType\": false,\n    \"vigencia\": null,\n    \"cobertura\": null,\n    \"extension\": null,\n    \"docStatusId\": null,\n    \"docStatusName\": null,\n    \"datDocumUpdat\": null,\n    \"intDocumDays\": null,\n    \"daysBetweenUpdate\": null,\n    \"sazoRealizada\": null,\n    \"parcialmenteCancelada\": null,\n    \"dataInicioReajuste\": null,\n    \"dataFimReajuste\": null,\n    \"indBalancReali\": null,\n    \"editable\": true,\n    \"userUpdate\": null,\n    \"datUpdate\": null,\n    \"siglaEmitInvoi\": null,\n    \"siglaPagamento\": null,\n    \"indBoletaSemTrade\": null,\n    \"dataCriacao\": null,\n    \"comentarioEdicao\": null,\n    \"forceUpdate\": null,\n    \"parte\": null,\n    \"contraparte\": null,\n    \"agenteParte\": null,\n    \"agenteContraparte\": null,\n    \"comercializadora\": null,\n    \"contratosCliqMensalList\": [],\n    \"negocioBBCEId\": null,\n    \"agenteParteExport\": null,\n    \"agenteContraparteExport\": null,\n    \"encContas\": null,\n    \"temTradeFaturado\": null,\n    \"betNaoCanceladoList\": null,\n    \"indTodosTradesFaturados\": null,\n    \"tradesFaturados\": null,\n    \"stateName\": null,\n    \"forcarReajuste\": null,\n    \"dataValidade\": null,\n    \"horaValidade\": null,\n    \"periodo\": null,\n    \"reaplicarReajuste\": null,\n    \"reaplicarGarantia\": null,\n    \"reaplicarSazo\": null,\n    \"tradesAtualizar\": null,\n    \"dataEntrega\": null,\n    \"camposPersonalizados\": null,\n    \"idConCpb\": null,\n    \"idCpb\": null,\n    \"valueCpb\": null,\n    \"idRefCpb\": null,\n    \"stringPagamento\": \"6 DU MS\",\n    \"numCount\": 0,\n    \"compVend\": \"Compra\",\n    \"groupCName\": \"EXIBIÇÃO GRUPO CLIENTE\",\n    \"unidadeCName\": \"EXIBIÇÃO UNIDADE CLIENTE\",\n    \"groupVName\": \"CEMIG                                                       \",\n    \"unidadeVName\": \"CEMIG                                                       \",\n    \"cpUnit\": \"CEMIG                                                       \",\n    \"cpGroup\": \"CEMIG                                                       \",\n    \"nomFull\": \"-\",\n    \"nomCnpj\": \"-\",\n    \"venda\": false,\n    \"stringEmitInvoi\": \"\",\n    \"pagMesName\": \"Mês Seguinte\",\n    \"distribuicaoTipo\": \"FLAT\",\n    \"propostaExtension\": null,\n    \"volumeExport\": 1,\n    \"numberBBCE\": \"-\",\n    \"carteiraName\": \"-\",\n    \"reajIniciForne\": \"Não\",\n    \"reajIniciForneCliente\": \"Não\",\n    \"boletaParcialmenteCancelada\": \"Não\",\n    \"operacaoHeterodoxa\": \"Não\"\n}"
+								}
+							]
 						}
 					]
 				},
@@ -9366,6 +9786,1474 @@
 				{
 					"name": "Relatórios",
 					"item": [
+						{
+							"name": "Encargos CCEE",
+							"item": [
+								{
+									"name": "Proinfa",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Cookie",
+												"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+											},
+											{
+												"key": "Referer",
+												"value": "https://zeus.miracleworks.com.br/resources/index.html"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-origin"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "https://{{URL}}/rest/proinfa/?ano=2022&mes=12&unitId=6451",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"proinfa",
+												""
+											],
+											"query": [
+												{
+													"key": "ano",
+													"value": "2022"
+												},
+												{
+													"key": "mes",
+													"value": "12"
+												},
+												{
+													"key": "unitId",
+													"value": "6451"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Proinfa - Exemplo de Retorno",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json, text/plain, */*"
+													},
+													{
+														"key": "Accept-Language",
+														"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+													},
+													{
+														"key": "Connection",
+														"value": "keep-alive"
+													},
+													{
+														"key": "Cookie",
+														"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+													},
+													{
+														"key": "Referer",
+														"value": "https://zeus.miracleworks.com.br/resources/index.html"
+													},
+													{
+														"key": "Sec-Fetch-Dest",
+														"value": "empty"
+													},
+													{
+														"key": "Sec-Fetch-Mode",
+														"value": "cors"
+													},
+													{
+														"key": "Sec-Fetch-Site",
+														"value": "same-origin"
+													},
+													{
+														"key": "User-Agent",
+														"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+													},
+													{
+														"key": "sec-ch-ua",
+														"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+													},
+													{
+														"key": "sec-ch-ua-mobile",
+														"value": "?0"
+													},
+													{
+														"key": "sec-ch-ua-platform",
+														"value": "\"Linux\""
+													}
+												],
+												"url": {
+													"raw": "https://{{URL}}/rest/proinfa/?ano=2022&mes=12&unitId=6451",
+													"protocol": "https",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"rest",
+														"proinfa",
+														""
+													],
+													"query": [
+														{
+															"key": "ano",
+															"value": "2022"
+														},
+														{
+															"key": "mes",
+															"value": "12"
+														},
+														{
+															"key": "unitId",
+															"value": "6451"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Access-Control-Allow-Methods",
+													"value": "POST, GET, OPTIONS, DELETE, PUT"
+												},
+												{
+													"key": "Access-Control-Max-Age",
+													"value": "3600"
+												},
+												{
+													"key": "Access-Control-Allow-Headers",
+													"value": "x-requested-with, authorization, content-type"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, no-store, max-age=0, must-revalidate"
+												},
+												{
+													"key": "Pragma",
+													"value": "no-cache"
+												},
+												{
+													"key": "Expires",
+													"value": "0"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=31536000 ; includeSubDomains"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 10 Jan 2025 17:10:59 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 570,\n    \"dataEntrada\": [\n        2019,\n        4,\n        1\n    ],\n    \"ano\": 2022,\n    \"mes\": 12,\n    \"valor\": 32.972,\n    \"agente\": \"EXIBICAO\",\n    \"unitId\": 6451,\n    \"lstMotivos\": null,\n    \"dadoCCEE\": null,\n    \"date\": null,\n    \"emails\": null,\n    \"oldVersionOfItself\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "DRI",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Cookie",
+												"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+											},
+											{
+												"key": "Referer",
+												"value": "https://zeus.miracleworks.com.br/resources/index.html"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-origin"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "https://{{URL}}/rest/dri/byUnitAndDatRef?ano=2022&indVarej=true&mes=12&unitId=6451",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"dri",
+												"byUnitAndDatRef"
+											],
+											"query": [
+												{
+													"key": "ano",
+													"value": "2022"
+												},
+												{
+													"key": "indVarej",
+													"value": "true"
+												},
+												{
+													"key": "mes",
+													"value": "12"
+												},
+												{
+													"key": "unitId",
+													"value": "6451"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "DRI  - Exemplo de Retorno",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json, text/plain, */*"
+													},
+													{
+														"key": "Accept-Language",
+														"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+													},
+													{
+														"key": "Connection",
+														"value": "keep-alive"
+													},
+													{
+														"key": "Cookie",
+														"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+													},
+													{
+														"key": "Referer",
+														"value": "https://zeus.miracleworks.com.br/resources/index.html"
+													},
+													{
+														"key": "Sec-Fetch-Dest",
+														"value": "empty"
+													},
+													{
+														"key": "Sec-Fetch-Mode",
+														"value": "cors"
+													},
+													{
+														"key": "Sec-Fetch-Site",
+														"value": "same-origin"
+													},
+													{
+														"key": "User-Agent",
+														"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+													},
+													{
+														"key": "sec-ch-ua",
+														"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+													},
+													{
+														"key": "sec-ch-ua-mobile",
+														"value": "?0"
+													},
+													{
+														"key": "sec-ch-ua-platform",
+														"value": "\"Linux\""
+													}
+												],
+												"url": {
+													"raw": "https://{{URL}}/rest/dri/byUnitAndDatRef?ano=2022&indVarej=true&mes=12&unitId=6451",
+													"protocol": "https",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"rest",
+														"dri",
+														"byUnitAndDatRef"
+													],
+													"query": [
+														{
+															"key": "ano",
+															"value": "2022"
+														},
+														{
+															"key": "indVarej",
+															"value": "true"
+														},
+														{
+															"key": "mes",
+															"value": "12"
+														},
+														{
+															"key": "unitId",
+															"value": "6451"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Access-Control-Allow-Methods",
+													"value": "POST, GET, OPTIONS, DELETE, PUT"
+												},
+												{
+													"key": "Access-Control-Max-Age",
+													"value": "3600"
+												},
+												{
+													"key": "Access-Control-Allow-Headers",
+													"value": "x-requested-with, authorization, content-type"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, no-store, max-age=0, must-revalidate"
+												},
+												{
+													"key": "Pragma",
+													"value": "no-cache"
+												},
+												{
+													"key": "Expires",
+													"value": "0"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=31536000 ; includeSubDomains"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 10 Jan 2025 17:12:53 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": null,\n    \"dataEntrada\": null,\n    \"nomeAgente\": null,\n    \"mes\": null,\n    \"ano\": null,\n    \"encargos\": null,\n    \"liminares\": 0,\n    \"preLiquidacao\": null,\n    \"liquidacao\": 0,\n    \"posLiquidacao\": null,\n    \"origem\": null,\n    \"indManualEdit\": false,\n    \"emails\": null,\n    \"numCount\": null,\n    \"valorInadimplencia\": 0,\n    \"type\": null,\n    \"lstFiles\": null,\n    \"oldVersionOfItself\": null,\n    \"mcp\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Ercap",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Cookie",
+												"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+											},
+											{
+												"key": "Referer",
+												"value": "https://zeus.miracleworks.com.br/resources/index.html"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-origin"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "https://{{URL}}/rest/encargoCCEEErcap/byUnitAndDatRef?ano=2022&indVarej=true&mes=12&unitId=6451",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"encargoCCEEErcap",
+												"byUnitAndDatRef"
+											],
+											"query": [
+												{
+													"key": "ano",
+													"value": "2022"
+												},
+												{
+													"key": "indVarej",
+													"value": "true"
+												},
+												{
+													"key": "mes",
+													"value": "12"
+												},
+												{
+													"key": "unitId",
+													"value": "6451"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Ercap - Exemplo de Retorno",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json, text/plain, */*"
+													},
+													{
+														"key": "Accept-Language",
+														"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+													},
+													{
+														"key": "Connection",
+														"value": "keep-alive"
+													},
+													{
+														"key": "Cookie",
+														"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+													},
+													{
+														"key": "Referer",
+														"value": "https://zeus.miracleworks.com.br/resources/index.html"
+													},
+													{
+														"key": "Sec-Fetch-Dest",
+														"value": "empty"
+													},
+													{
+														"key": "Sec-Fetch-Mode",
+														"value": "cors"
+													},
+													{
+														"key": "Sec-Fetch-Site",
+														"value": "same-origin"
+													},
+													{
+														"key": "User-Agent",
+														"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+													},
+													{
+														"key": "sec-ch-ua",
+														"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+													},
+													{
+														"key": "sec-ch-ua-mobile",
+														"value": "?0"
+													},
+													{
+														"key": "sec-ch-ua-platform",
+														"value": "\"Linux\""
+													}
+												],
+												"url": {
+													"raw": "https://{{URL}}/rest/encargoCCEEErcap/byUnitAndDatRef?ano=2022&indVarej=true&mes=12&unitId=6451",
+													"protocol": "https",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"rest",
+														"encargoCCEEErcap",
+														"byUnitAndDatRef"
+													],
+													"query": [
+														{
+															"key": "ano",
+															"value": "2022"
+														},
+														{
+															"key": "indVarej",
+															"value": "true"
+														},
+														{
+															"key": "mes",
+															"value": "12"
+														},
+														{
+															"key": "unitId",
+															"value": "6451"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Access-Control-Allow-Methods",
+													"value": "POST, GET, OPTIONS, DELETE, PUT"
+												},
+												{
+													"key": "Access-Control-Max-Age",
+													"value": "3600"
+												},
+												{
+													"key": "Access-Control-Allow-Headers",
+													"value": "x-requested-with, authorization, content-type"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, no-store, max-age=0, must-revalidate"
+												},
+												{
+													"key": "Pragma",
+													"value": "no-cache"
+												},
+												{
+													"key": "Expires",
+													"value": "0"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=31536000 ; includeSubDomains"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 10 Jan 2025 17:14:48 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": null,\n    \"dataEntrada\": null,\n    \"ano\": null,\n    \"mes\": null,\n    \"valor\": 0,\n    \"valLiquidado\": null,\n    \"nomeAgente\": null,\n    \"nomOrigem\": null,\n    \"nomCodigoAgente\": null,\n    \"nomCodigoEvento\": null,\n    \"nomEvento\": null,\n    \"nomTipoMovimento\": null,\n    \"nomTipoLiquidacao\": null,\n    \"indManualEdit\": false,\n    \"emails\": null,\n    \"numCount\": null,\n    \"type\": null,\n    \"lstFiles\": null,\n    \"oldVersionOfItself\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Garantia Financeira",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Cookie",
+												"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+											},
+											{
+												"key": "Referer",
+												"value": "https://zeus.miracleworks.com.br/resources/index.html"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-origin"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "https://{{URL}}/rest/garantiaFinanceira/byUnitAndDatRef?ano=2022&indVarej=true&mes=12&unitId=6451",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"garantiaFinanceira",
+												"byUnitAndDatRef"
+											],
+											"query": [
+												{
+													"key": "ano",
+													"value": "2022"
+												},
+												{
+													"key": "indVarej",
+													"value": "true"
+												},
+												{
+													"key": "mes",
+													"value": "12"
+												},
+												{
+													"key": "unitId",
+													"value": "6451"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Garantia Financeira - Exemplo de Retorno",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json, text/plain, */*"
+													},
+													{
+														"key": "Accept-Language",
+														"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+													},
+													{
+														"key": "Connection",
+														"value": "keep-alive"
+													},
+													{
+														"key": "Cookie",
+														"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+													},
+													{
+														"key": "Referer",
+														"value": "https://zeus.miracleworks.com.br/resources/index.html"
+													},
+													{
+														"key": "Sec-Fetch-Dest",
+														"value": "empty"
+													},
+													{
+														"key": "Sec-Fetch-Mode",
+														"value": "cors"
+													},
+													{
+														"key": "Sec-Fetch-Site",
+														"value": "same-origin"
+													},
+													{
+														"key": "User-Agent",
+														"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+													},
+													{
+														"key": "sec-ch-ua",
+														"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+													},
+													{
+														"key": "sec-ch-ua-mobile",
+														"value": "?0"
+													},
+													{
+														"key": "sec-ch-ua-platform",
+														"value": "\"Linux\""
+													}
+												],
+												"url": {
+													"raw": "https://{{URL}}/rest/garantiaFinanceira/byUnitAndDatRef?ano=2022&indVarej=true&mes=12&unitId=6451",
+													"protocol": "https",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"rest",
+														"garantiaFinanceira",
+														"byUnitAndDatRef"
+													],
+													"query": [
+														{
+															"key": "ano",
+															"value": "2022"
+														},
+														{
+															"key": "indVarej",
+															"value": "true"
+														},
+														{
+															"key": "mes",
+															"value": "12"
+														},
+														{
+															"key": "unitId",
+															"value": "6451"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Access-Control-Allow-Methods",
+													"value": "POST, GET, OPTIONS, DELETE, PUT"
+												},
+												{
+													"key": "Access-Control-Max-Age",
+													"value": "3600"
+												},
+												{
+													"key": "Access-Control-Allow-Headers",
+													"value": "x-requested-with, authorization, content-type"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, no-store, max-age=0, must-revalidate"
+												},
+												{
+													"key": "Pragma",
+													"value": "no-cache"
+												},
+												{
+													"key": "Expires",
+													"value": "0"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=31536000 ; includeSubDomains"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 10 Jan 2025 17:16:41 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 0,\n    \"dataEntrada\": null,\n    \"nomeAgente\": null,\n    \"mes\": 0,\n    \"ano\": 0,\n    \"preliminares\": 0,\n    \"ajuste\": 0,\n    \"avulsa\": 0,\n    \"avulsaAportada\": 0,\n    \"encargos\": 0,\n    \"mcp\": 0,\n    \"liminares\": 0,\n    \"agente\": null,\n    \"origem\": null,\n    \"codigoAgente\": null,\n    \"codigoEvento\": null,\n    \"nomeEvento\": null,\n    \"nomeOperacaoLiquidacao\": null,\n    \"tipoOperacaoLiquidacao\": null,\n    \"indManualEdit\": false,\n    \"emails\": null,\n    \"numCount\": null,\n    \"type\": null,\n    \"oldVersionOfItself\": null,\n    \"lstFiles\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Energia de Reserva",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Cookie",
+												"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+											},
+											{
+												"key": "Referer",
+												"value": "https://zeus.miracleworks.com.br/resources/index.html"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-origin"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "https://{{URL}}/rest/energiaReserva/byUnitAndDatRef?ano=2022&indVarej=true&mes=12&unitId=6451",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"energiaReserva",
+												"byUnitAndDatRef"
+											],
+											"query": [
+												{
+													"key": "ano",
+													"value": "2022"
+												},
+												{
+													"key": "indVarej",
+													"value": "true"
+												},
+												{
+													"key": "mes",
+													"value": "12"
+												},
+												{
+													"key": "unitId",
+													"value": "6451"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Energia de Reserva - Exemplo de Retorno",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json, text/plain, */*"
+													},
+													{
+														"key": "Accept-Language",
+														"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+													},
+													{
+														"key": "Connection",
+														"value": "keep-alive"
+													},
+													{
+														"key": "Cookie",
+														"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+													},
+													{
+														"key": "Referer",
+														"value": "https://zeus.miracleworks.com.br/resources/index.html"
+													},
+													{
+														"key": "Sec-Fetch-Dest",
+														"value": "empty"
+													},
+													{
+														"key": "Sec-Fetch-Mode",
+														"value": "cors"
+													},
+													{
+														"key": "Sec-Fetch-Site",
+														"value": "same-origin"
+													},
+													{
+														"key": "User-Agent",
+														"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+													},
+													{
+														"key": "sec-ch-ua",
+														"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+													},
+													{
+														"key": "sec-ch-ua-mobile",
+														"value": "?0"
+													},
+													{
+														"key": "sec-ch-ua-platform",
+														"value": "\"Linux\""
+													}
+												],
+												"url": {
+													"raw": "https://{{URL}}/rest/energiaReserva/byUnitAndDatRef?ano=2022&indVarej=true&mes=12&unitId=6451",
+													"protocol": "https",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"rest",
+														"energiaReserva",
+														"byUnitAndDatRef"
+													],
+													"query": [
+														{
+															"key": "ano",
+															"value": "2022"
+														},
+														{
+															"key": "indVarej",
+															"value": "true"
+														},
+														{
+															"key": "mes",
+															"value": "12"
+														},
+														{
+															"key": "unitId",
+															"value": "6451"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Access-Control-Allow-Methods",
+													"value": "POST, GET, OPTIONS, DELETE, PUT"
+												},
+												{
+													"key": "Access-Control-Max-Age",
+													"value": "3600"
+												},
+												{
+													"key": "Access-Control-Allow-Headers",
+													"value": "x-requested-with, authorization, content-type"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, no-store, max-age=0, must-revalidate"
+												},
+												{
+													"key": "Pragma",
+													"value": "no-cache"
+												},
+												{
+													"key": "Expires",
+													"value": "0"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=31536000 ; includeSubDomains"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 10 Jan 2025 17:18:03 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 0,\n    \"dataEntrada\": null,\n    \"ano\": 0,\n    \"mes\": 0,\n    \"valor\": 0,\n    \"valorLiquidado\": 0,\n    \"valorInadimplencia\": 0,\n    \"agente\": null,\n    \"origem\": null,\n    \"codigoAgente\": null,\n    \"codigoEvento\": null,\n    \"nomeEvento\": null,\n    \"nomeOperacaoLiquidacao\": null,\n    \"tipoOperacaoLiquidacao\": null,\n    \"indManualEdit\": false,\n    \"emails\": null,\n    \"numCount\": null,\n    \"type\": null,\n    \"lstFiles\": null,\n    \"oldVersionOfItself\": null,\n    \"nomeAgente\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Contribuição Associativa",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Cookie",
+												"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+											},
+											{
+												"key": "Referer",
+												"value": "https://zeus.miracleworks.com.br/resources/index.html"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-origin"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "https://{{URL}}/rest/contribAssoc/byUnitAndDatRef?ano=2022&indVarej=true&mes=12&unitId=6451",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"contribAssoc",
+												"byUnitAndDatRef"
+											],
+											"query": [
+												{
+													"key": "ano",
+													"value": "2022"
+												},
+												{
+													"key": "indVarej",
+													"value": "true"
+												},
+												{
+													"key": "mes",
+													"value": "12"
+												},
+												{
+													"key": "unitId",
+													"value": "6451"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Contribuição Associativa - Exemplo de Retorno",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json, text/plain, */*"
+													},
+													{
+														"key": "Accept-Language",
+														"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6"
+													},
+													{
+														"key": "Connection",
+														"value": "keep-alive"
+													},
+													{
+														"key": "Cookie",
+														"value": "_gid=GA1.3.2039010675.1736512877; JSESSIONID=3C19CEA089FF2AD268D4205B535ED579; _gat_gtag_UA_179859998_1=1; _ga=GA1.1.2030139120.1736168817; _ga_Z6GDDXG2NZ=GS1.1.1736528747.4.1.1736528760.0.0.0"
+													},
+													{
+														"key": "Referer",
+														"value": "https://zeus.miracleworks.com.br/resources/index.html"
+													},
+													{
+														"key": "Sec-Fetch-Dest",
+														"value": "empty"
+													},
+													{
+														"key": "Sec-Fetch-Mode",
+														"value": "cors"
+													},
+													{
+														"key": "Sec-Fetch-Site",
+														"value": "same-origin"
+													},
+													{
+														"key": "User-Agent",
+														"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+													},
+													{
+														"key": "sec-ch-ua",
+														"value": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\""
+													},
+													{
+														"key": "sec-ch-ua-mobile",
+														"value": "?0"
+													},
+													{
+														"key": "sec-ch-ua-platform",
+														"value": "\"Linux\""
+													}
+												],
+												"url": {
+													"raw": "https://{{URL}}/rest/contribAssoc/byUnitAndDatRef?ano=2022&indVarej=true&mes=12&unitId=6451",
+													"protocol": "https",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"rest",
+														"contribAssoc",
+														"byUnitAndDatRef"
+													],
+													"query": [
+														{
+															"key": "ano",
+															"value": "2022"
+														},
+														{
+															"key": "indVarej",
+															"value": "true"
+														},
+														{
+															"key": "mes",
+															"value": "12"
+														},
+														{
+															"key": "unitId",
+															"value": "6451"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Access-Control-Allow-Methods",
+													"value": "POST, GET, OPTIONS, DELETE, PUT"
+												},
+												{
+													"key": "Access-Control-Max-Age",
+													"value": "3600"
+												},
+												{
+													"key": "Access-Control-Allow-Headers",
+													"value": "x-requested-with, authorization, content-type"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, no-store, max-age=0, must-revalidate"
+												},
+												{
+													"key": "Pragma",
+													"value": "no-cache"
+												},
+												{
+													"key": "Expires",
+													"value": "0"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=31536000 ; includeSubDomains"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 10 Jan 2025 17:20:25 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 0,\n    \"dataEntrada\": null,\n    \"ano\": 0,\n    \"mes\": 0,\n    \"grupo_id\": 0,\n    \"nom_group\": null,\n    \"valor\": 0,\n    \"nomeAgente\": null,\n    \"codigoAgente\": null,\n    \"origem\": null,\n    \"indManualEdit\": false,\n    \"emails\": null,\n    \"numCount\": null,\n    \"type\": null,\n    \"lstFiles\": null,\n    \"oldVersionOfItself\": null\n}"
+										}
+									]
+								}
+							],
+							"description": "Requisições para retorno das informações referentes aos encargos CCEE: DRI, Energia de Reserva, Proinfa, Contribuição Associativa, Ercap, Garantia Financeira"
+						},
 						{
 							"name": "Listagem Economia",
 							"request": {
