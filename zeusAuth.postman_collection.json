@@ -3,7 +3,7 @@
 		"_postman_id": "3bf4fd34-9bd3-4229-bd87-793f0c8b310d",
 		"name": "zeusAuth 01/25",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27653573"
+    "_exporter_id": "27653573"
 	},
 	"item": [
 		{
@@ -213,6 +213,131 @@
 										"rest",
 										"tradecapitale",
 										"{{idTrade}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Campos Personalizados",
+					"item": [
+						{
+							"name": "Inserção de Campo Personalizado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nomName\": \"Campo Novo\",\n    \"nomType\": \"Double\",\n    \"inactive\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/boletasCamposPersonalizados",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletasCamposPersonalizados"
+									]
+								},
+								"description": "API para inserir um novo tipo de Campo Personalizado.  \nResultado equivalente a tela Boletas -> Campos Personalizados -> Criar Novo Campo Personalizado do Zeus.\n\nAlgumas informações adicionais:\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| nomName | String | Nome do Campo |\n| nomType | String | Tipo do Campo |\n| inactive | boolean | Indicador de Campo Ativo/Inativo |\n\nTipos de Campos:\n- Caixa de Seleção\n- Data\n- Número Decimal\n- Número Inteiro\n- Opções\n- Texto\n- Verdadeiro/Falso"
+							},
+							"response": []
+						},
+						{
+							"name": "Listagem Campos Personalizados",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"list\",\n    \"input\": {\n        \"draw\": 1,\n        \"columns\": [\n            {\n                \"data\": \"nomName\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": \"nomType\",\n                \"name\": \"\",\n                \"searchable\": true,\n                \"orderable\": true,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            },\n            {\n                \"data\": null,\n                \"name\": \"\",\n                \"searchable\": false,\n                \"orderable\": false,\n                \"search\": {\n                    \"value\": \"\",\n                    \"regex\": false\n                }\n            }\n        ],\n        \"order\": [\n            {\n                \"column\": 0,\n                \"dir\": \"asc\"\n            }\n        ],\n        \"start\": 0,\n        \"length\": 12,\n        \"search\": {\n            \"value\": \"\",\n            \"regex\": false\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/boletasCamposPersonalizados/datatable/",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletasCamposPersonalizados",
+										"datatable",
+										""
+									]
+								},
+								"description": "API para listar os Campos Personalizados.  \nResultado equivalente a tela Boletas -> Campos Personalizados do Zeus."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Campos Personalizados da Boleta",
+					"item": [
+						{
+							"name": "Adicionar/Atualizar Campo Personalizado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idConCpb\": 9468,\n    \"camposPersonalizados\": [\n        {\n            \"idCpb\": 1,\n            \"valueCpb\": 5\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/boletacapitale/atualizarCamposPersonalizados",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletacapitale",
+										"atualizarCamposPersonalizados"
+									]
+								},
+								"description": "API para inserir novo Campo Personalizado.  \nResultado equivalente a tela Boletas -> Curto/Longo Prazo *ou* Listar Boletas -> Edição de Boleta do Zeus.\n\nAlgumas informações adicionais:\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| idConCpb | Integer | Id da Boleta |\n| idCpb | Integer | Id do Campo Personalizado |\n| valueCpb | Double | Valor do Campo Personalizado |\n\nTipos de Campos:\n- Caixa de Seleção\n- Data\n- Número Decimal\n- Número Inteiro\n- Opções\n- Texto\n- Verdadeiro/Falso"
+							},
+							"response": []
+						},
+						{
+							"name": "Listagem Campos Personalizados",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{URL}}/rest/boletasCamposPersonalizadosValues?contrId=9468",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletasCamposPersonalizadosValues"
+									],
+									"query": [
+										{
+											"key": "contrId",
+											"value": "9468"
+										}
 									]
 								}
 							},
