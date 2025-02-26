@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "3bf4fd34-9bd3-4229-bd87-793f0c8b310d",
-		"name": "zeusAuth 01/25",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "27653573"
+		"_postman_id": "e3fd0c90-d70d-4897-b7d9-76dd6c390e69",
+		"name": "zeusAuth 02/25",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -5287,6 +5286,538 @@
 			"name": "Informações Gerais",
 			"item": [
 				{
+					"name": "Dados das Distribuidoras",
+					"item": [
+						{
+							"name": "Distribuidora",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/dist",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"dist"
+									]
+								},
+								"description": "API para retornar lista de Distribuidoras.  \nResultado equivalente a tela Gestão -> Dados Esporádicos -> Distribuidoras do Zeus."
+							},
+							"response": []
+						},
+						{
+							"name": "Lista de Tarifas da Distribuidora",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:9000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:9000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/tarifaDist?cor=Verde&dataInicio=2022-08-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tarifaDist"
+									],
+									"query": [
+										{
+											"key": "cor",
+											"value": "Verde"
+										},
+										{
+											"key": "dataInicio",
+											"value": "2022-08-01T03:00:00.000Z"
+										},
+										{
+											"key": "distNome",
+											"value": "LIGHT"
+										},
+										{
+											"key": "faixa",
+											"value": "A4"
+										}
+									]
+								},
+								"description": "API para retornar lista de tarifas ANEEL referentes a uma determinada distribuidora, tensão e horo-sazo.\n\nCaso se deseje obter as tarifas de uma unidade em específico, seus dados podem ser obtidos na chamada **Informações UC**.\n\nCorresponde à tela Gestão > Relatórios > Gerencial UC's.\n\nA API retorna uma lista de valores que corresponde às tarifas abaixo indicadas:\n\n## Azul\n\n| Retorno da API |  |  |  |\n| --- | --- | --- | --- |\n| valor1 | Ponta | kW | TUSD |\n| valor2 | Fora Ponta | kW | TUSD |\n| valor3 | Fora Ponta | MWh | TUSD |\n| valor4 | Ponta | MWh | TE |\n| valor5 | Fora Ponta | MWh | TE |\n\n## Verde\n\n| Retorno da API |  |  |  |\n| --- | --- | --- | --- |\n| valor1 | NA | kW | TUSD |\n| valor2 | Ponta | MWh | TUSD |\n| valor3 | Fora Ponta | MWh | TUSD |\n| valor4 | Ponta | MWh | TE |\n| valor5 | Fora Ponta | MWh | TE |\n| valor6 | Fora Ponta | MWh | TUSD |"
+							},
+							"response": []
+						},
+						{
+							"name": "Tarifas da Distribuidora",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:9000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:9000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/tarifaDist/tarifa?cor=Verde&dataInicio=2022-08-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"tarifaDist",
+										"tarifa"
+									],
+									"query": [
+										{
+											"key": "cor",
+											"value": "Verde"
+										},
+										{
+											"key": "dataInicio",
+											"value": "2022-08-01T03:00:00.000Z"
+										},
+										{
+											"key": "distNome",
+											"value": "LIGHT"
+										},
+										{
+											"key": "faixa",
+											"value": "A4"
+										}
+									]
+								},
+								"description": "API para retornar lista de tarifas ANEEL referentes a uma determinada distribuidora, tensão e horo-sazo.\n\nCaso se deseje obter as tarifas de uma unidade em específico, seus dados podem ser obtidos na chamada **Informações UC**.\n\nCorresponde à tela Gestão > Relatórios > Gerencial UC's.\n\nA API retorna uma lista de valores que corresponde às tarifas abaixo indicadas:\n\n## Azul\n\n| Retorno da API |  |  |  |\n| --- | --- | --- | --- |\n| valor1 | Ponta | kW | TUSD |\n| valor2 | Fora Ponta | kW | TUSD |\n| valor3 | Fora Ponta | MWh | TUSD |\n| valor4 | Ponta | MWh | TE |\n| valor5 | Fora Ponta | MWh | TE |\n\n## Verde\n\n| Retorno da API |  |  |  |\n| --- | --- | --- | --- |\n| valor1 | NA | kW | TUSD |\n| valor2 | Ponta | MWh | TUSD |\n| valor3 | Fora Ponta | MWh | TUSD |\n| valor4 | Ponta | MWh | TE |\n| valor5 | Fora Ponta | MWh | TE |\n| valor6 | Fora Ponta | MWh | TUSD |"
+							},
+							"response": [
+								{
+									"name": "Exemplo - Verde",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "http://localhost:9000"
+											},
+											{
+												"key": "Referer",
+												"value": "http://localhost:9000/"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-site"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "http://{{URL}}/rest/tarifaDist/tarifa?cor=Verde&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
+											"protocol": "http",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"tarifaDist",
+												"tarifa"
+											],
+											"query": [
+												{
+													"key": "cor",
+													"value": "Verde"
+												},
+												{
+													"key": "dataInicio",
+													"value": "2023-07-01T03:00:00.000Z"
+												},
+												{
+													"key": "distNome",
+													"value": "LIGHT"
+												},
+												{
+													"key": "faixa",
+													"value": "A4"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "JSESSIONID=2C45E58F28D3FD0E4F8936BC8981EEEC; Path=/zeus; HttpOnly"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 31 Aug 2023 19:15:01 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 105008,\n    \"dataEntrada\": [\n        2023,\n        7,\n        2\n    ],\n    \"cor\": \"Verde\", // Obtida na chamada \"Informações UC\"\n    \"faixa\": \"A4\", // Obtida na chamada \"Informações UC\"\n    \"distNome\": \"LIGHT\", // Obtida na chamada \"Informações UC\"\n    \"inicioVigencia\": [\n        2023,\n        3,\n        15\n    ],\n    \"reajuste\": [\n        2024,\n        3,\n        15\n    ],\n    \"resolucao\": \"RESOLUÇÃO HOMOLOGATÓRIA Nº 3.176, DE 14 DE MARÇO DE 2023\",\n    \"distribuidora\": {\n        \"id\": 110,\n        \"dataEntrada\": [\n            2023,\n            1,\n            25\n        ],\n        \"distNome\": \"LIGHT\",\n        \"inicioPonta\": 0,\n        \"fimPonta\": 0,\n        \"indCance\": false,\n        \"indICMSDemanda\": false,\n        \"indICMSEncargos\": false,\n        \"indPisCofinsSemIcms\": true,\n        \"indBasePisCofinsComIcms\": null,\n        \"indSubvencaoTarifariaIcmsDemanda\": null,\n        \"indSubvencaoTarifariaPisCofinsDemanda\": null,\n        \"indSubvencaoTarifariaIcmsEncargo\": null,\n        \"indSubvencaoTarifariaPisCofinsEncargo\": null,\n        \"indDemandaIsenta\": false,\n        \"indDemandaIsentaPonta\": null,\n        \"indIcmsEnergiaNaFaturaDistribuidora\": null,\n        \"oldVersionOfItself\": null\n    },\n    \"valor1\": 22.78, // NA kW TUSD\n    \"valor2\": 945.56, // Ponta MWh TUSD\n    \"valor3\": 161.87, // Fora Ponta MWh TUSD\n    \"valor4\": 530.28, // Ponta MWh TE\n    \"valor5\": 346.72, // Fora Ponta MWh TE\n    \"valor6\": 161.87, // Fora Ponta MWh TUSD\n    \"valContaCovid\": 20.07,\n    \"valEscassezHidrica\": null,\n    \"demandaPonta\": 0,\n    \"demandaFPonta\": 0,\n    \"encargoPonta\": 0,\n    \"encargoFPonta\": 0,\n    \"energiaPonta\": 0,\n    \"energiaFPonta\": 0,\n    \"custoGesracaoUnidade\": 0,\n    \"demandaPontaDescTusd\": 0,\n    \"demandaFPontaDescTusd\": 0,\n    \"encargoPontaDescTusd\": 0,\n    \"encargoFPontaDescTusd\": 0,\n    \"demandaPontaImpostos\": 0,\n    \"demandaFPontaImpostos\": 0,\n    \"demandaIsentaPontaImpostos\": 0,\n    \"demandaIsentaFPontaImpostos\": 0,\n    \"encargoPontaImpostos\": 0,\n    \"encargoFPontaImpostos\": 0,\n    \"energiaPontaImpostos\": 0,\n    \"energiaFPontaImpostos\": 0\n}"
+								},
+								{
+									"name": "Exemplo - Azul",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "http://localhost:9000"
+											},
+											{
+												"key": "Referer",
+												"value": "http://localhost:9000/"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-site"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"url": {
+											"raw": "http://{{URL}}/rest/tarifaDist/tarifa?cor=Azul&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
+											"protocol": "http",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"tarifaDist",
+												"tarifa"
+											],
+											"query": [
+												{
+													"key": "cor",
+													"value": "Azul"
+												},
+												{
+													"key": "dataInicio",
+													"value": "2023-07-01T03:00:00.000Z"
+												},
+												{
+													"key": "distNome",
+													"value": "LIGHT"
+												},
+												{
+													"key": "faixa",
+													"value": "A4"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "POST, GET, OPTIONS, DELETE, PUT"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "3600"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-requested-with, authorization, content-type"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 31 Aug 2023 19:18:27 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 105007,\n    \"dataEntrada\": [\n        2023,\n        7,\n        2\n    ],\n    \"cor\": \"Azul\", // Obtida na chamada \"Informações UC\"\n    \"faixa\": \"A4\", // Obtida na chamada \"Informações UC\"\n    \"distNome\": \"LIGHT\", // Obtida na chamada \"Informações UC\"\n    \"inicioVigencia\": [\n        2023,\n        3,\n        15\n    ],\n    \"reajuste\": [\n        2024,\n        3,\n        15\n    ],\n    \"resolucao\": \"RESOLUÇÃO HOMOLOGATÓRIA Nº 3.176, DE 14 DE MARÇO DE 2023\",\n    \"distribuidora\": {\n        \"id\": 110,\n        \"dataEntrada\": [\n            2023,\n            1,\n            25\n        ],\n        \"distNome\": \"LIGHT\",\n        \"inicioPonta\": 0,\n        \"fimPonta\": 0,\n        \"indCance\": false,\n        \"indICMSDemanda\": false,\n        \"indICMSEncargos\": false,\n        \"indPisCofinsSemIcms\": true,\n        \"indBasePisCofinsComIcms\": null,\n        \"indSubvencaoTarifariaIcmsDemanda\": null,\n        \"indSubvencaoTarifariaPisCofinsDemanda\": null,\n        \"indSubvencaoTarifariaIcmsEncargo\": null,\n        \"indSubvencaoTarifariaPisCofinsEncargo\": null,\n        \"indDemandaIsenta\": false,\n        \"indDemandaIsentaPonta\": null,\n        \"indIcmsEnergiaNaFaturaDistribuidora\": null,\n        \"oldVersionOfItself\": null\n    },\n    \"valor1\": 32.37, // Ponta kW TUSD\n    \"valor2\": 22.78, // Fora Ponta kW TUSD\n    \"valor3\": 161.87, // Fora Ponta MWh TUSD\n    \"valor4\": 530.28, // Ponta MWh TE\n    \"valor5\": 346.72, // Fora Ponta MWh TE\n    \"valor6\": 0,\n    \"valContaCovid\": 20.07,\n    \"valEscassezHidrica\": null,\n    \"demandaPonta\": 0,\n    \"demandaFPonta\": 0,\n    \"encargoPonta\": 0,\n    \"encargoFPonta\": 0,\n    \"energiaPonta\": 0,\n    \"energiaFPonta\": 0,\n    \"custoGesracaoUnidade\": 0,\n    \"demandaPontaDescTusd\": 0,\n    \"demandaFPontaDescTusd\": 0,\n    \"encargoPontaDescTusd\": 0,\n    \"encargoFPontaDescTusd\": 0,\n    \"demandaPontaImpostos\": 0,\n    \"demandaFPontaImpostos\": 0,\n    \"demandaIsentaPontaImpostos\": 0,\n    \"demandaIsentaFPontaImpostos\": 0,\n    \"encargoPontaImpostos\": 0,\n    \"encargoFPontaImpostos\": 0,\n    \"energiaPontaImpostos\": 0,\n    \"energiaFPontaImpostos\": 0\n}"
+								}
+							]
+						}
+					]
+				},
+				{
 					"name": "Cidades",
 					"request": {
 						"method": "GET",
@@ -5384,47 +5915,6 @@
 							]
 						},
 						"description": "API para retornar lista de cidades baseada no ID de um Estado. Pode-se encontrar os IDs dos Estados através da API **Estados**."
-					},
-					"response": []
-				},
-				{
-					"name": "Distribuidora",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Sec-Fetch-Site",
-								"value": "same-origin"
-							},
-							{
-								"key": "Sec-Fetch-Mode",
-								"value": "cors"
-							},
-							{
-								"key": "Sec-Fetch-Dest",
-								"value": "empty"
-							},
-							{
-								"key": "X-Login-Ajax-call",
-								"value": "true"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "https://{{URL}}/rest/dist",
-							"protocol": "https",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"rest",
-								"dist"
-							]
-						},
-						"description": "API para retornar lista de Distribuidoras.  \nResultado equivalente a tela Gestão -> Dados Esporádicos -> Distribuidoras do Zeus."
 					},
 					"response": []
 				},
@@ -5781,405 +6271,6 @@
 						"description": "Listagem dos tipos de energia utilizados no Zeus."
 					},
 					"response": []
-				},
-				{
-					"name": "Tarifas da Distribuidora",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
-							},
-							{
-								"key": "Connection",
-								"value": "keep-alive"
-							},
-							{
-								"key": "Origin",
-								"value": "http://localhost:9000"
-							},
-							{
-								"key": "Referer",
-								"value": "http://localhost:9000/"
-							},
-							{
-								"key": "Sec-Fetch-Dest",
-								"value": "empty"
-							},
-							{
-								"key": "Sec-Fetch-Mode",
-								"value": "cors"
-							},
-							{
-								"key": "Sec-Fetch-Site",
-								"value": "same-site"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
-							},
-							{
-								"key": "sec-ch-ua",
-								"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
-							},
-							{
-								"key": "sec-ch-ua-mobile",
-								"value": "?0"
-							},
-							{
-								"key": "sec-ch-ua-platform",
-								"value": "\"Linux\""
-							}
-						],
-						"url": {
-							"raw": "https://{{URL}}/rest/tarifaDist/tarifa?cor=Verde&dataInicio=2022-08-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
-							"protocol": "https",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"rest",
-								"tarifaDist",
-								"tarifa"
-							],
-							"query": [
-								{
-									"key": "cor",
-									"value": "Verde"
-								},
-								{
-									"key": "dataInicio",
-									"value": "2022-08-01T03:00:00.000Z"
-								},
-								{
-									"key": "distNome",
-									"value": "LIGHT"
-								},
-								{
-									"key": "faixa",
-									"value": "A4"
-								}
-							]
-						},
-						"description": "API para retornar lista de tarifas ANEEL referentes a uma determinada distribuidora, tensão e horo-sazo.\n\nCaso se deseje obter as tarifas de uma unidade em específico, seus dados podem ser obtidos na chamada **Informações UC**.\n\nCorresponde à tela Gestão > Relatórios > Gerencial UC's.\n\nA API retorna uma lista de valores que corresponde às tarifas abaixo indicadas:\n\n## Azul\n\n| Retorno da API |  |  |  |\n| --- | --- | --- | --- |\n| valor1 | Ponta | kW | TUSD |\n| valor2 | Fora Ponta | kW | TUSD |\n| valor3 | Fora Ponta | MWh | TUSD |\n| valor4 | Ponta | MWh | TE |\n| valor5 | Fora Ponta | MWh | TE |\n\n## Verde\n\n| Retorno da API |  |  |  |\n| --- | --- | --- | --- |\n| valor1 | NA | kW | TUSD |\n| valor2 | Ponta | MWh | TUSD |\n| valor3 | Fora Ponta | MWh | TUSD |\n| valor4 | Ponta | MWh | TE |\n| valor5 | Fora Ponta | MWh | TE |\n| valor6 | Fora Ponta | MWh | TUSD |"
-					},
-					"response": [
-						{
-							"name": "Exemplo - Verde",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json, text/plain, */*"
-									},
-									{
-										"key": "Accept-Language",
-										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
-									},
-									{
-										"key": "Connection",
-										"value": "keep-alive"
-									},
-									{
-										"key": "Origin",
-										"value": "http://localhost:9000"
-									},
-									{
-										"key": "Referer",
-										"value": "http://localhost:9000/"
-									},
-									{
-										"key": "Sec-Fetch-Dest",
-										"value": "empty"
-									},
-									{
-										"key": "Sec-Fetch-Mode",
-										"value": "cors"
-									},
-									{
-										"key": "Sec-Fetch-Site",
-										"value": "same-site"
-									},
-									{
-										"key": "User-Agent",
-										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
-									},
-									{
-										"key": "sec-ch-ua",
-										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
-									},
-									{
-										"key": "sec-ch-ua-mobile",
-										"value": "?0"
-									},
-									{
-										"key": "sec-ch-ua-platform",
-										"value": "\"Linux\""
-									}
-								],
-								"url": {
-									"raw": "http://{{URL}}/rest/tarifaDist/tarifa?cor=Verde&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
-									"protocol": "http",
-									"host": [
-										"{{URL}}"
-									],
-									"path": [
-										"rest",
-										"tarifaDist",
-										"tarifa"
-									],
-									"query": [
-										{
-											"key": "cor",
-											"value": "Verde"
-										},
-										{
-											"key": "dataInicio",
-											"value": "2023-07-01T03:00:00.000Z"
-										},
-										{
-											"key": "distNome",
-											"value": "LIGHT"
-										},
-										{
-											"key": "faixa",
-											"value": "A4"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Vary",
-									"value": "Origin"
-								},
-								{
-									"key": "Access-Control-Allow-Credentials",
-									"value": "true"
-								},
-								{
-									"key": "Access-Control-Allow-Methods",
-									"value": "POST, GET, OPTIONS, DELETE, PUT"
-								},
-								{
-									"key": "Access-Control-Max-Age",
-									"value": "3600"
-								},
-								{
-									"key": "Access-Control-Allow-Headers",
-									"value": "x-requested-with, authorization, content-type"
-								},
-								{
-									"key": "Set-Cookie",
-									"value": "JSESSIONID=2C45E58F28D3FD0E4F8936BC8981EEEC; Path=/zeus; HttpOnly"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "1; mode=block"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, no-store, max-age=0, must-revalidate"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Expires",
-									"value": "0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json;charset=UTF-8"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 31 Aug 2023 19:15:01 GMT"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": 105008,\n    \"dataEntrada\": [\n        2023,\n        7,\n        2\n    ],\n    \"cor\": \"Verde\", // Obtida na chamada \"Informações UC\"\n    \"faixa\": \"A4\", // Obtida na chamada \"Informações UC\"\n    \"distNome\": \"LIGHT\", // Obtida na chamada \"Informações UC\"\n    \"inicioVigencia\": [\n        2023,\n        3,\n        15\n    ],\n    \"reajuste\": [\n        2024,\n        3,\n        15\n    ],\n    \"resolucao\": \"RESOLUÇÃO HOMOLOGATÓRIA Nº 3.176, DE 14 DE MARÇO DE 2023\",\n    \"distribuidora\": {\n        \"id\": 110,\n        \"dataEntrada\": [\n            2023,\n            1,\n            25\n        ],\n        \"distNome\": \"LIGHT\",\n        \"inicioPonta\": 0,\n        \"fimPonta\": 0,\n        \"indCance\": false,\n        \"indICMSDemanda\": false,\n        \"indICMSEncargos\": false,\n        \"indPisCofinsSemIcms\": true,\n        \"indBasePisCofinsComIcms\": null,\n        \"indSubvencaoTarifariaIcmsDemanda\": null,\n        \"indSubvencaoTarifariaPisCofinsDemanda\": null,\n        \"indSubvencaoTarifariaIcmsEncargo\": null,\n        \"indSubvencaoTarifariaPisCofinsEncargo\": null,\n        \"indDemandaIsenta\": false,\n        \"indDemandaIsentaPonta\": null,\n        \"indIcmsEnergiaNaFaturaDistribuidora\": null,\n        \"oldVersionOfItself\": null\n    },\n    \"valor1\": 22.78, // NA kW TUSD\n    \"valor2\": 945.56, // Ponta MWh TUSD\n    \"valor3\": 161.87, // Fora Ponta MWh TUSD\n    \"valor4\": 530.28, // Ponta MWh TE\n    \"valor5\": 346.72, // Fora Ponta MWh TE\n    \"valor6\": 161.87, // Fora Ponta MWh TUSD\n    \"valContaCovid\": 20.07,\n    \"valEscassezHidrica\": null,\n    \"demandaPonta\": 0,\n    \"demandaFPonta\": 0,\n    \"encargoPonta\": 0,\n    \"encargoFPonta\": 0,\n    \"energiaPonta\": 0,\n    \"energiaFPonta\": 0,\n    \"custoGesracaoUnidade\": 0,\n    \"demandaPontaDescTusd\": 0,\n    \"demandaFPontaDescTusd\": 0,\n    \"encargoPontaDescTusd\": 0,\n    \"encargoFPontaDescTusd\": 0,\n    \"demandaPontaImpostos\": 0,\n    \"demandaFPontaImpostos\": 0,\n    \"demandaIsentaPontaImpostos\": 0,\n    \"demandaIsentaFPontaImpostos\": 0,\n    \"encargoPontaImpostos\": 0,\n    \"encargoFPontaImpostos\": 0,\n    \"energiaPontaImpostos\": 0,\n    \"energiaFPontaImpostos\": 0\n}"
-						},
-						{
-							"name": "Exemplo - Azul",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json, text/plain, */*"
-									},
-									{
-										"key": "Accept-Language",
-										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
-									},
-									{
-										"key": "Connection",
-										"value": "keep-alive"
-									},
-									{
-										"key": "Origin",
-										"value": "http://localhost:9000"
-									},
-									{
-										"key": "Referer",
-										"value": "http://localhost:9000/"
-									},
-									{
-										"key": "Sec-Fetch-Dest",
-										"value": "empty"
-									},
-									{
-										"key": "Sec-Fetch-Mode",
-										"value": "cors"
-									},
-									{
-										"key": "Sec-Fetch-Site",
-										"value": "same-site"
-									},
-									{
-										"key": "User-Agent",
-										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
-									},
-									{
-										"key": "sec-ch-ua",
-										"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
-									},
-									{
-										"key": "sec-ch-ua-mobile",
-										"value": "?0"
-									},
-									{
-										"key": "sec-ch-ua-platform",
-										"value": "\"Linux\""
-									}
-								],
-								"url": {
-									"raw": "http://{{URL}}/rest/tarifaDist/tarifa?cor=Azul&dataInicio=2023-07-01T03:00:00.000Z&distNome=LIGHT&faixa=A4",
-									"protocol": "http",
-									"host": [
-										"{{URL}}"
-									],
-									"path": [
-										"rest",
-										"tarifaDist",
-										"tarifa"
-									],
-									"query": [
-										{
-											"key": "cor",
-											"value": "Azul"
-										},
-										{
-											"key": "dataInicio",
-											"value": "2023-07-01T03:00:00.000Z"
-										},
-										{
-											"key": "distNome",
-											"value": "LIGHT"
-										},
-										{
-											"key": "faixa",
-											"value": "A4"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Vary",
-									"value": "Origin"
-								},
-								{
-									"key": "Access-Control-Allow-Credentials",
-									"value": "true"
-								},
-								{
-									"key": "Access-Control-Allow-Methods",
-									"value": "POST, GET, OPTIONS, DELETE, PUT"
-								},
-								{
-									"key": "Access-Control-Max-Age",
-									"value": "3600"
-								},
-								{
-									"key": "Access-Control-Allow-Headers",
-									"value": "x-requested-with, authorization, content-type"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "1; mode=block"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, no-store, max-age=0, must-revalidate"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Expires",
-									"value": "0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json;charset=UTF-8"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 31 Aug 2023 19:18:27 GMT"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": 105007,\n    \"dataEntrada\": [\n        2023,\n        7,\n        2\n    ],\n    \"cor\": \"Azul\", // Obtida na chamada \"Informações UC\"\n    \"faixa\": \"A4\", // Obtida na chamada \"Informações UC\"\n    \"distNome\": \"LIGHT\", // Obtida na chamada \"Informações UC\"\n    \"inicioVigencia\": [\n        2023,\n        3,\n        15\n    ],\n    \"reajuste\": [\n        2024,\n        3,\n        15\n    ],\n    \"resolucao\": \"RESOLUÇÃO HOMOLOGATÓRIA Nº 3.176, DE 14 DE MARÇO DE 2023\",\n    \"distribuidora\": {\n        \"id\": 110,\n        \"dataEntrada\": [\n            2023,\n            1,\n            25\n        ],\n        \"distNome\": \"LIGHT\",\n        \"inicioPonta\": 0,\n        \"fimPonta\": 0,\n        \"indCance\": false,\n        \"indICMSDemanda\": false,\n        \"indICMSEncargos\": false,\n        \"indPisCofinsSemIcms\": true,\n        \"indBasePisCofinsComIcms\": null,\n        \"indSubvencaoTarifariaIcmsDemanda\": null,\n        \"indSubvencaoTarifariaPisCofinsDemanda\": null,\n        \"indSubvencaoTarifariaIcmsEncargo\": null,\n        \"indSubvencaoTarifariaPisCofinsEncargo\": null,\n        \"indDemandaIsenta\": false,\n        \"indDemandaIsentaPonta\": null,\n        \"indIcmsEnergiaNaFaturaDistribuidora\": null,\n        \"oldVersionOfItself\": null\n    },\n    \"valor1\": 32.37, // Ponta kW TUSD\n    \"valor2\": 22.78, // Fora Ponta kW TUSD\n    \"valor3\": 161.87, // Fora Ponta MWh TUSD\n    \"valor4\": 530.28, // Ponta MWh TE\n    \"valor5\": 346.72, // Fora Ponta MWh TE\n    \"valor6\": 0,\n    \"valContaCovid\": 20.07,\n    \"valEscassezHidrica\": null,\n    \"demandaPonta\": 0,\n    \"demandaFPonta\": 0,\n    \"encargoPonta\": 0,\n    \"encargoFPonta\": 0,\n    \"energiaPonta\": 0,\n    \"energiaFPonta\": 0,\n    \"custoGesracaoUnidade\": 0,\n    \"demandaPontaDescTusd\": 0,\n    \"demandaFPontaDescTusd\": 0,\n    \"encargoPontaDescTusd\": 0,\n    \"encargoFPontaDescTusd\": 0,\n    \"demandaPontaImpostos\": 0,\n    \"demandaFPontaImpostos\": 0,\n    \"demandaIsentaPontaImpostos\": 0,\n    \"demandaIsentaFPontaImpostos\": 0,\n    \"encargoPontaImpostos\": 0,\n    \"encargoFPontaImpostos\": 0,\n    \"energiaPontaImpostos\": 0,\n    \"energiaFPontaImpostos\": 0\n}"
-						}
-					]
 				},
 				{
 					"name": "Tipo de Condição de pagamento",
@@ -12654,17 +12745,15 @@
 		},
 		{
 			"key": "password",
-			"value": "senha123#"
+			"value": "iB5e0xv2e1i0wyDys9t3eS4Zu#"
 		},
 		{
 			"key": "username",
-			"value": "USERAPI",
-			"type": "string"
+			"value": "USERAPI"
 		},
 		{
 			"key": "idUnidade",
-			"value": "1",
-			"type": "string"
+			"value": "1"
 		},
 		{
 			"key": "idMigracao",
@@ -12676,23 +12765,19 @@
 		},
 		{
 			"key": "idTrade",
-			"value": "1159",
-			"type": "string"
+			"value": "1159"
 		},
 		{
 			"key": "idBoleta",
-			"value": "165",
-			"type": "string"
+			"value": "165"
 		},
 		{
 			"key": "idGrupo",
-			"value": "4987",
-			"type": "string"
+			"value": "4987"
 		},
 		{
 			"key": "idContato",
-			"value": "13",
-			"type": "string"
+			"value": "13"
 		}
 	]
 }
