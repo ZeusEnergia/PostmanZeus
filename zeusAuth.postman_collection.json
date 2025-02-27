@@ -2455,7 +2455,7 @@
 										"contact"
 									]
 								},
-								"description": "API para inserir novo Contato.  \nResultado equivalente a tela Contrapartes -> Unidades -> Editar Unidade do Zeus.\n\nInformação Adicional:  \n**lstTipo** é preenchido com os tipos de contatos, encontrados na API **Tipos de Contato**."
+								"description": "API para inserir novo Contato.  \nResultado equivalente a tela Contrapartes -> Unidades -> Editar Unidade do Zeus.\n\nInformação Adicional:  \n**lstTipo** é preenchido com os tipos de contatos, encontrados na API **Tipos de Contato**.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| grupo | Objeto | Objeto com os dados do Grupo da Unidade | Contrapartes > Listar Grupos |\n| unidade | Objeto | Objeto com os dados da Unidade | Contrapartes > Listar Unidades |\n| nome | String | Nome do Contato | --- |\n| telefone | String | Número de telefone do contato | --- |\n| celular | String | Número de celular do contato | --- |\n| email | String | Email do contato | --- |\n| lstTipo |\tLista Objeto | Array com tipos do contato | Contrapartes > Contatos > Tipos de Contato |"
 							},
 							"response": []
 						},
@@ -2896,7 +2896,7 @@
 										"dadosUnidade"
 									]
 								},
-								"description": "API para inserir dados adicionais da unidade.  \nResultado equivalente a tela Contrapartes -> Unidades -> Editar Unidade do Zeus.\n\nAlgumas informações adicionais:\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| contratada_ponta | double | Demanda Contratada Ponta |\n| contratada_fponta | double | Demanda Contratada Fora Ponta |\n| medNome | String | Nome Medidor (SCDE) |\n| nomCceeAtivo | String | Número do Contrato Proinfa |"
+								"description": "API para inserir dados adicionais da unidade.  \nResultado equivalente a tela Contrapartes -> Unidades -> Editar Unidade do Zeus.\n\nAlgumas informações adicionais:\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| id | Integer | Id dos Dados Gerais da Unidade |  --- |\n| dataEntrada | Date | Data de cadastro dos Dados Gerais da Unidade |  --- |\n| unidade_id | Integer | Id da Unidade | Contraparte > Localizar unidade pelo ID |  --- |\n| contratada_ponta | Double | Contratado ponta |  --- |\n| contratada_fponta | Double | Contratado fora ponta |  --- |\n| contratada_ponta_cativo | Double | Contratado ponta cativo |  --- |\n| contratada_fponta_cativo | Double | Contratado fora ponta cativo |  --- |\n| fator_perda | Double | Valor em porcentagem do fator de perda |  --- |\n| unidadeConsumidora | String | Texto com número da unidade consumidora |  --- |\n| faixa | String | Texto com Faixa | Contraparte > Dados Geridos > Faixa |\n| cor |\tString | Texto com Cor | Contraparte > Dados Geridos > Cor |\n| faixaCativo | String | Texto com a Faixa no Cativo | Contraparte > Dados Geridos > Faixa |\n| corCativo | String | Texto com a cor no Cativo | Contraparte > Dados Geridos > Cor |\n| distribuidora | Objeto | Objeto com dados da Distribuidora | Informações Gerais > Distribuidora |\n| distNome | String | Campo transiente com Nome da distribuidora | Informações Gerais > Distribuidora |\n| nomCceeAtivo | String | Número do contrato do Proinfa |  --- |\n| nomInstalacaoUnidade | String | Número da Instalação da unidade com a distribuidora |  --- |\n| valGeracaoCusto | Double | Custo de geração própria/diesel |  --- |\n| valGeracaoPotencia | Double | Carga de geração própria/diesel |  --- |\n| dtMigracao | Date | Data de migração da unidade |  --- |\n| dtPrevistaMigracao | Date | Data prevista de migração da unidade |  --- |\n| dtEncerramento | Date | Data de encerramento da unidade |  --- |\n| nomPerfiDevec | String | Texto com nome de perfil Devec da unidade |  --- |\n| numPerfiDevec | String | Número do perfil Devec |  --- |\n| indContaCovid | Boolean | Booleano que indica se conta covid é aplicável à unidade |  --- |\n| indEscassezHidrica | Boolean | Booleano que indica se escassez Hídrica é aplicável à unidade |  --- |\n| indDemExcepIcms | Boolean | Booleano que indica se a unidade tem demanda isenta de icms |  --- |\n| indTusdExcepIcms | Boolean | Booleano que indica se TUSD tem isenção de ICMS |  --- |\n| indDemExcepIcmsCativo | Boolean | Booleano que indica se a unidade tem demanda isenta de icms |  --- |\n| indTusdExcepIcmsCativo | Boolean | Booleano que indica se TUSD tem isenção de ICMS no cativo |  --- |\n| rep_com | Objeto | Objeto com dados de usuário representante comercial da Unidade | Informações Gerais > Usuários |"
 							},
 							"response": [
 								{
@@ -3018,6 +3018,32 @@
 							]
 						},
 						{
+							"name": "Dados Gerais da Unidade por Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{URL}}/rest/dadosUnidade?unidade_id=idUnidade",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"dadosUnidade"
+									],
+									"query": [
+										{
+											"key": "unidade_id",
+											"value": "idUnidade"
+										}
+									]
+								},
+								"description": "API para retornar Dados Gerais da Unidade pelo  id da unidade. Resultado equivalente ao bloco Dados Gerais da Unidade no cadastro da unidade, em Contraparte > Unidades > Editar Dados Cadastrais"
+							},
+							"response": []
+						},
+						{
 							"name": "Cor",
 							"request": {
 								"method": "GET",
@@ -3100,6 +3126,26 @@
 								"description": "API para retornar lista de Faixas."
 							},
 							"response": []
+						},
+						{
+							"name": "Inserir Medidor (Dados de Energia)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{URL}}/rest/dadosEnergiaUnidade",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"dadosEnergiaUnidade"
+									]
+								},
+								"description": "API para inserir Dados de Energia por unidade.\n\nEquivale ai campo Medidores na tela Contraparte > Unidades > Editar Dados Cadastrais > Dados Gerais da Unidade no Zeus.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| dataType | String | Tipo do Dado de Energia Inserido | --- |\n| dataValue | String | Valor do Dado de Energia | --- |\n| unidade | Objeto | Objeto com dados da unidade |  Contrapartes > Listar Unidades |"
+							},
+							"response": []
 						}
 					]
 				},
@@ -3161,6 +3207,99 @@
 									]
 								},
 								"description": "API para retornar os valores dos agentes de uma unidade (unitId), grupo(groupId) ou com nome próximo ao preenchido(nomAgent)\nResultado equivalente a tela Contrapartes -> Editar Contraparte do Zeus."
+							},
+							"response": []
+						},
+						{
+							"name": "Inserir Agente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{URL}}/rest/unitCliq",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"unitCliq"
+									]
+								},
+								"description": "API para inseri Agente Cliq. Resultado equivalente a tela Contrapartes > Editar Contraparte do Zeus > CliqCCEE > Novo.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| tblCounterparty | Objeto | Objeto com os dados da contraparte | Contraparte > Localizar unidade pelo ID |\n| agenteDefault | Boolean | Booleano que indica se este é o agente padrão | --- |\n| perfilPrincipal | Boolean | Booleano que indica se este é o perfil principal na CCEE | --- |\n| comercializadorVarejista | Boolean | Booleano que indica se este é um Perfil comercializador varejista | --- |\n| agenteDefaultRateioProinfa | Boolean | Booleano que indica se este é o agente de rateio do Proinfa | --- |\n| tblEnergyType | Objeto | Objeto com os dados dos tipos de energia | Informações Gerais > Tipos de Energia |\n| numCliqId | Integer | Código do Perfil | --- |\n| nomCliq | String | Texto com o nome do perfil | --- |"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dados Bancários",
+					"item": [
+						{
+							"name": "Listar Bancos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{URL}}/rest/dadosSistema/bancos",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"dadosSistema",
+										"bancos"
+									]
+								},
+								"description": "API para listar Bancos. Equivale ao Campo Bancos em Contraparte > Unidades> Editar Dados Cadastrais > Dados Bancários > Novo > Campo Banco do formulário."
+							},
+							"response": []
+						},
+						{
+							"name": "Inserir Dados Bancários",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{URL}}/rest/cpBank",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"cpBank"
+									]
+								},
+								"description": "API para inserir Dados Bancários para a unidade. Equivale à tela Contraparte > Unidades> Editar Dados Cadastrais > Dados Bancários > Novo no Zeus.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| unidade | Objeto | Objeto com os dados da Unidade | Contrapartes > Listar Unidades |\n| grupo | Objeto | Objeto com os dados do Grupo da Unidade | Contrapartes > Listar Grupos\n| banco | Objeto | Objeto com os dados do Banco | Contrapartes > Dados Bancários > Listar Bancos\n| nomeAgencia | String | Nome da Agência bancária | --- |\n| agencia | String | Número da agência bancária | --- |\n| conta | String | Número da conta bancária | --- |\n| nomChavePix | String | Chave Pix da Conta | --- |\n| nomCnpj | String | CNPJ dá conta bancária | --- |\n| indCadasBanco | Boolean | Booleano que indica se a conta já está cadastrada na conta bancária da empresa | --- |\n| contaDefault | Boolean | Booleano que indica se essa é a conta padrão | --- |"
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Dados Bancários por Unidade",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{URL}}/zeus/rest/cpBank?unitId=IdUnidade",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"zeus",
+										"rest",
+										"cpBank"
+									],
+									"query": [
+										{
+											"key": "unitId",
+											"value": "IdUnidade"
+										}
+									]
+								},
+								"description": "API para listar Dados Bancários da Unidade. Equivale ao Campo Bancos na tela Contraparte > Unidades> Editar Dados Cadastrais > Dados Bancários no Zeus."
 							},
 							"response": []
 						}
@@ -3494,7 +3633,7 @@
 								"group"
 							]
 						},
-						"description": "API para inserir novo grupo.  \nResultado equivalente a tela Contrapartes -> Grupos -> Novo Grupo do Zeus."
+						"description": "API para inserir novo grupo.  \nResultado equivalente a tela Contrapartes -> Grupos -> Novo Grupo do Zeus.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| numCountGroup | Integer | id do grupo |  --- |\n| nomCountGroup | String | Nome do grupo |  --- |\n| indInact | Boolean | Booleano que indica se o grupo está inativo |  --- |\n| nomLogoFile | String | Url logo do grupo |  --- |\n| indEvitarOperacoes | Boolean | Booleano que indica se novas operações com o grupo sejam evitadas |  --- |\n| createdAt | Date | Data e criação do grupo |  --- |\n| updatedAt | Date | Data da última atualização do grupo |  --- |\n| rating | Objeto | Objeto com os dados do rating do grupo | Informações Gerais > Rating |\n| listOfTblCounterparty | Lista Objetos | Lista com Contrapartes que pertencem ao grupo |  --- |\n| responsavel | Objeto | Objeto com os dados do usuário responsável pelo grupo | Informações Gerais > Usuários |\n| justificativa | String | Texto com justificativa de edição |  --- |\n| indForceUpdate | Boolean | Booleano que indica se o sistema deve forçar atualização do grupo |  --- |\n| oldVersionOfItself | Objeto | Objeto com versão antiga do grupo |  --- |\n| ratingName | String | Texto com o nome do Rating |  --- |"
 					},
 					"response": []
 				},
@@ -3716,7 +3855,7 @@
 								"unit"
 							]
 						},
-						"description": "API para inserir nova unidade.  \nResultado equivalente a tela Contrapartes -> Unidades do Zeus.\n\nAlgumas informações adicionais:\n\n| **Chave** | **Valor** | **Descrição** |\n| --- | --- | --- |\n| nomStateId | String | Inscrição Estadual |\n| indConsu | boolean | Indicador Consumidor Final |\n| clienteGestao | boolean | Indicador Unidade Representada |\n| nomSuframa | String | Número Suframa (Apenas para unidade do Amazonas) |\n| nomCityId | String | Inscrição Municipal |\n| indFinanSettlBol | boolean | Indicador Encontro de Contas |\n| inativo | String | Indicador de Unidade Inativa |"
+						"description": "API para inserir nova unidade.  \nResultado equivalente a tela Contrapartes -> Unidades do Zeus.\n\nAlgumas informações adicionais:\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| numCount | Integer | Id da Unidade | --- |\n| nomCount | String | Nome da Unidade | --- |\n| nomCnpj | String | CNPJ da Unidade | --- |\n| nomFull | String | Razão Social da Unidade | --- |\n| nomAddre | String | Endereço da Unidade | --- |\n| nomStateId | String | Inscrição Estadual da Unidade | --- |\n| indConsu | Boolean | Booleano que indica se a Unidade é Consumidora | --- |\n| indVarej | Boolean | Booleano que indica se a unidade é Varejista | --- |\n| nomAddreNumbe | String | Número do endereço da Unidade | --- |\n| nomNeigh | String | Bairro do endereço da Unidade | --- |\n| nomAddreSuppl | String | Complemento do endereço da Unidade | --- |\n| nomZipCode | String | CEP da Unidade | --- |\n| indInact | Boolean | Booleano que indica se a unidade está inativa | --- |\n| indExcepIcms | Boolean | Booleano que indica se Unidade é isenta de ICMS | --- |\n| indExcepProinfa | Boolean | Booleano que indica se Unidade é isenta de Proinfa | --- |\n| indFinanSettl | Boolean | Booleano que indica se Unidade faz encontro de contas | --- |\n| nomIcms | Double | Valor em porcentagem do do ICMS da Unidade | --- |\n| nomCfop | String | CFOP da Unidade | --- |\n| nomCst | String | CST da Unidade | --- |\n| clienteGestao | Boolean | Booleano que indica se a unidade é Representada | --- |\n| omieId | Double | Id da unidade no Omie | --- |\n| erpFornecedorId | String | Id de fornecedor ERP | --- |\n| erpClienteId | String | Id de cliente ERP | --- |\n| erpDataAtualizacao | Date | Data da última atualização no ERP | --- |\n| nomSuframa | String | Texto com Suframa da unidade | --- |\n| indProdesin | Boolean | Booleano que indica se unidade tem Prodesin | --- |\n| nomCnpjFatur | String | CNPJ de Fatura da unidade | --- |\n| nomGroup | String | Nome do Grupo da Unidade | --- |\n| nomLogoFile | String | Url de logo da unidade | --- |\n| parte | Boolean | Booleano que indica se unidade é uma Parte | --- |\n| parteDefault | Boolean | Booleano que indica se unidade é a Parte padrão do sistema | --- |\n| parteVarejistaDefault | Boolean | Booleano que indica se unidade é Parte padrão de unidades varejistas | --- |\n| omieGestaoId | Double | Id de gestão do Omie | --- |\n| nomCityId | String | Id da cidade da Unidade | Informações Gerais > Cidades |\n| nomAtividade | String | Texto com descrição de atividades da Unidade | --- |\n| indMei | Boolean | Booleano que indica se a Unidade é MEI | --- |\n| indSimples | Boolean | Booleano que indica se unidade é Simples Nascional | --- |\n| indCondominio | Boolean | Booleano que indica se unidade é um Condominio | --- |\n| indEvitarOperacoes | Boolean | Booleano que indica se o sistema deve evitar operações com esta unidade | --- |\n| indPf | Boolean | Booleano que indica se unidade é Pessoa Física | --- |\n| numCnae | String | Numero de CNAE da Unidade | --- |\n| nomCnae | String | Descrição de CNAE da Unidade | --- |\n| valPatrimonioLiquidoAjustado | Double | Valor de Patrimonio Liquido Ajustado da Unidade | --- |\n| nomCnpjMatriz | String | Numero de CNPJ da Matriz da Unidade | --- |\n| tblCity | Objeto | Objeto com dados da Cidade da Unidade | Informações Gerais > Cidades |\n| tblState | Objeto | Objeto com dados do Estado da Unidade | Informações Gerais > Estados |\n| tblSector | Objeto | Objeto com dados do Setor da Unidade | Informações Gerais > Setor |\n| createdAt | Date | Data de criação da unidade | --- |\n| updatedAt | Date | Data da última atualização da unidade | --- |\n| dadosGeraisUnidade | Objeto | Objeto com Dados Gerais da Unidade | Contraparte > Dados Geridos > Dados Gerais da Unidade por Id |\n| ratingUnidade | Objeto | Objeto com dados do Rating da Unidade | Informações Gerais > Rating |\n| indFinanSettlBol | Boolean | Boleano que indica se unidade faz Encontro de Contas no sistema | --- |\n| indForceUpdate | Boolean | Booleano que indica se sistema deve forçar atualização da unidade | --- |\n| banco | String | Campo transiente com Texto com nome do banco | --- |\n| agencia | String | Campo transiente com Texto com numero da agencia bancária | --- |\n| conta | String | Campo transiente com Texto com numero da conta bancária | --- |\n| indUpdateAgentesCCEE | Boolean | Campo transiente com booleano utilizado pelo sistema durante atualizações de agentes Cliq através da integração CCEE | --- |\n| lstContacts | Lista Objetos | Lista de contatos da unidade | Contraparte > Contatos > Listar Contatos |\n| oldVersionOfItself | Objeto | Campo transiente com versão antiga da unidade | --- |\n| economiaTotal | Double | Campo transiente com valor de economia total da unidade | --- |\n| lstConsumo | Lista Objetos | Campo transiente com Lista de Consumo da unidade | --- |\n| lstConsumoHorario | Lista Objetos | Campo transiente com Lista de ConsumoHorario da Unidade | --- |\n| lstDemanda | Lista Objetos | Campo transiente com Lista de Demanda da Unidade | --- |\n| lstDri | Lista Objetos | Campo transiente com Lista de Liquidação DRI da Unidade | --- |\n| lstEnergiaCusto | Lista Objetos | Campo transiente com Lista de Energia Custo da Unidade | --- |\n| energiaReserva | Objeto | Campo transiente com Objeto de Energia de Reserva da Unidade | --- |\n| contribAssoc | Objeto | Campo transiente com objeto de Contribuição Associativa da unidade | --- |\n| lstEnergiaContratada | Lista Objetos | Campo transiente com Lista de Energia Contratada | --- |\n| lstContratos | Lista Objetos | Campo transiente com lista de contratos da unidade | --- |\n| lstProinfa | Lista Objetos | Campo transiente com com lista de Proinfa da unidade | --- |\n| indBoletas | Boolean | Booleano transiente utilizado pelo sistema | --- |\n| indBalancoEnergetico | Boolean | Booleano transiente utilizado pelo sistema | --- |\n| indAgente | Boolean | Booleano transiente utilizado pelo sistema | --- |\n| indConsumo | Boolean | Booleano transiente utilizado pelo sistema | --- |\n| indProinfa | Boolean | Booleano transiente utilizado pelo sistema | --- |\n| boletaGestao | Boolean | Booleano transiente utilizado pelo sistema | --- |\n| valorDadoCceeProporcionalConsumo | Double | Campo transiente temporário que armazena Consumo proporcional da unidade | --- |\n| nomPendencyUnit | String | Campo transiente com texto de pendências da unidade | --- |\n| lstCalendarioCCEE | Lista Objetos | Campo transiente com Lista de Calendário CCEE | --- |\n| garantiaFinanceira | Objeto | Campo transiente com objeto de Garantia Financeira | --- |\n| lstServicoMensal | Lista Objetos | Campo transiente com lista de trades mensais de serviço da unidade | --- |\n| distribuidoraImposto | Objeto | Campo transiente com objeto de Impostos de Distribuidora | --- |\n| emailListString | String | Campo transiente com emails para uso interno do sistema | --- |\n| rating | String | Texto com nome do Rating da unidade | --- |\n| nomLogoGroup | String | Campo transiente de Texto com nome do arquivo de imagem do logo da unidade | --- |\n| cityName | String | Texto com nome da Cidade da Unidade | --- |\n| inativo | String | Campo com texto que indica se unidade está inativa | --- |\n| mei | String | Campo com texto que indica se unidade é MEI | --- |\n| simples | String | Campo com texto que indica se unidade é Simples Nacional | --- |\n| evitarOperacoes | String | Campo com texto que indica se o sistema dev evitar operações com esta unidade | --- |\n| groupName | String | Campo de texto com o nome do Grupo | --- |\n| groupId | Integer | Id do grupo da unidade | --- |\n| cnpj | String | Campo de texto com cnpj da unidade | --- |\n| stateIcms | double | Valor em porcentagem do ICMS da unidade | --- |\n| stateName | String | Campo de texto com nome do Estado da Unidade | --- |\n| tblCounterpartyGroup | Objeto | Objeto com dados do grupo da unidade | Contraparte > Listar Grupos |\n| atividade_principal | String | código de atividade principal da unidade (http://www2.maringa.pr.gov.br/sistema/arquivos/geo/leis/codigo_cnae.pdf) | --- |\n| atividade_secundaria | String | código de atividade secundaria da unidade (http://www2.maringa.pr.gov.br/sistema/arquivos/geo/leis/codigo_cnae.pdf) | --- |"
 					},
 					"response": [
 						{
@@ -8589,6 +8728,27 @@
 									"body": "{\n    \"id\": 144,\n    \"dataEntrada\": [\n        2023,\n        1,\n        16\n    ],\n    \"dataInicio\": 1641006000000,\n    \"dataFim\": 1735614000000,\n    \"groupCompId\": 4862,\n    \"unidadeCompId\": 6451,\n    \"groupVendId\": 25,\n    \"unidadeVendId\": 24,\n    \"precoTipo\": 1,\n    \"preco\": 200,\n    \"valComissao\": 0,\n    \"valPisoCollar\": null,\n    \"valTetoCollar\": null,\n    \"volumeTipo\": 1,\n    \"volume\": 1,\n    \"flexMin\": 10,\n    \"flexMax\": 10,\n    \"sazoMin\": 0,\n    \"sazoMax\": 0,\n    \"submercado\": 1,\n    \"energyTipo\": 2,\n    \"numDistType\": 1,\n    \"retusd\": 35,\n    \"plataformaId\": 1,\n    \"indexId\": 1,\n    \"datIndexBase\": 1672542000000,\n    \"datIndexFirstAdjus\": 1672542000000,\n    \"opcaoReajuste\": null,\n    \"registroTipo\": 1,\n    \"garantiaTipo\": null,\n    \"emitInvoiType\": null,\n    \"emitInvoiVal\": null,\n    \"emitInvoiCondPerioType\": null,\n    \"pagType\": 2,\n    \"pagVal\": 6,\n    \"pagMesType\": 2,\n    \"stateIcms_id\": null,\n    \"comentario\": \"\",\n    \"userId\": 21,\n    \"cancelada\": false,\n    \"numRefId\": 0,\n    \"representatividade\": null,\n    \"numContrCcee\": null,\n    \"valPriceReaj\": null,\n    \"valPriceContratado\": null,\n    \"indReajRealizado\": null,\n    \"valReajRealizado\": null,\n    \"datSeaso\": 29348017200000,\n    \"carteira\": null,\n    \"encargoVarejistaTipo\": null,\n    \"valPisoEncargo\": null,\n    \"valTetoEncargo\": null,\n    \"tblCarteira\": null,\n    \"indReajIniciForneCliente\": null,\n    \"agenteVendedor\": null,\n    \"agenteComprador\": null,\n    \"aprovadoCliente\": true,\n    \"datAprovCliente\": 1673897943000,\n    \"userAprovCliente\": {\n        \"id\": 40,\n        \"name\": \"APOLO ENERGIA\",\n        \"nameBBCE\": null,\n        \"nameEnbox\": null,\n        \"login\": \"APOLOENERGIA\",\n        \"password\": \"626c75401b206fb60be86096122e73ebd53a7895d5f2a843034348b50ee282f9\",\n        \"email\": \"ALEXANDRE@MIRACLEWORKS.CO\",\n        \"indCancel\": true,\n        \"indConfi\": false,\n        \"indTrade\": false,\n        \"indApi\": false,\n        \"indAdmin\": false,\n        \"indContr\": false,\n        \"indFinan\": false,\n        \"indCount\": false,\n        \"indLawye\": false,\n        \"indBack\": false,\n        \"signatureUser\": null,\n        \"nomFileUserSign\": null,\n        \"indUsing2FA\": null,\n        \"nomSecret\": \"LHOAECOFWIO2SLFZ\",\n        \"perfil\": {\n            \"id\": 3,\n            \"nomPerfil\": \"Geral\",\n            \"oldVersionOfItself\": null,\n            \"textoPermissoes\": \" <b>Boletas</b> Visualizar + Inserir + Editar<br> <b>Garantias</b> Visualizar + Inserir + Editar<br> <b>Financeiro</b> Visualizar + Inserir + Editar<br> <b>Registro</b> Visualizar + Inserir + Editar<br> <b>Gestão</b> Visualizar + Inserir + Editar<br> <b>Viabilidade</b> Visualizar + Inserir + Editar<br> <b>PLD</b> Visualizar + Inserir + Editar<br> <b>Contraparte</b> Visualizar + Inserir + Editar<br> <b>Juridico</b> Visualizar + Inserir + Editar<br> <b>Aprovador</b> Visualizar + Inserir + Editar<br> <b>Relatorio</b> Visualizar + Inserir + Editar<br> <b>Relatorio Externo</b> Visualizar + Inserir + Editar<br> <b>Arquivos</b> Visualizar + Inserir + Editar<br> <b>Migração</b> Visualizar + Inserir + Editar<br> <b>Derivativos</b> Visualizar + Inserir + Editar<br> <b>Super Aprovador</b> Visualizar + Inserir + Editar<br><br>\",\n            \"dashboard\": null\n        },\n        \"dashboard\": null,\n        \"oldVersionOfItself\": null,\n        \"nomQURL\": null,\n        \"nomLogin\": \"APOLOENERGIA\"\n    },\n    \"paymentModel\": null,\n    \"precoTipoName\": \"Fixo\",\n    \"volumeTipoName\": \"MWmed\",\n    \"submercadoName\": \"SE\",\n    \"energiaTipoName\": \"INCENTIVADA 50%\",\n    \"plataformaName\": \"Balcão\",\n    \"registroTipoName\": \"Registro contra pagamento\",\n    \"garantiaTipoName\": null,\n    \"pagamentoTipoName\": \"Dias Uteis\",\n    \"estadoIcmsName\": null,\n    \"indiceName\": \"IPCA\",\n    \"volumeSazoList\": null,\n    \"userName\": \"MIGRATIO\",\n    \"distType\": {\n        \"numDistType\": 1,\n        \"nomDistType\": \"FLAT\",\n        \"nomDistCcee\": \"FLAT\"\n    },\n    \"pagDate\": null,\n    \"emitInvoiDate\": null,\n    \"boletaType\": false,\n    \"vigencia\": null,\n    \"cobertura\": null,\n    \"extension\": null,\n    \"docStatusId\": null,\n    \"docStatusName\": null,\n    \"datDocumUpdat\": null,\n    \"intDocumDays\": null,\n    \"daysBetweenUpdate\": null,\n    \"sazoRealizada\": null,\n    \"parcialmenteCancelada\": null,\n    \"dataInicioReajuste\": null,\n    \"dataFimReajuste\": null,\n    \"indBalancReali\": null,\n    \"editable\": true,\n    \"userUpdate\": null,\n    \"datUpdate\": null,\n    \"siglaEmitInvoi\": null,\n    \"siglaPagamento\": null,\n    \"indBoletaSemTrade\": null,\n    \"dataCriacao\": null,\n    \"comentarioEdicao\": null,\n    \"forceUpdate\": null,\n    \"parte\": null,\n    \"contraparte\": null,\n    \"agenteParte\": null,\n    \"agenteContraparte\": null,\n    \"comercializadora\": null,\n    \"contratosCliqMensalList\": [],\n    \"negocioBBCEId\": null,\n    \"agenteParteExport\": null,\n    \"agenteContraparteExport\": null,\n    \"encContas\": null,\n    \"temTradeFaturado\": null,\n    \"betNaoCanceladoList\": null,\n    \"indTodosTradesFaturados\": null,\n    \"tradesFaturados\": null,\n    \"stateName\": null,\n    \"forcarReajuste\": null,\n    \"dataValidade\": null,\n    \"horaValidade\": null,\n    \"periodo\": null,\n    \"reaplicarReajuste\": null,\n    \"reaplicarGarantia\": null,\n    \"reaplicarSazo\": null,\n    \"tradesAtualizar\": null,\n    \"dataEntrega\": null,\n    \"camposPersonalizados\": null,\n    \"idConCpb\": null,\n    \"idCpb\": null,\n    \"valueCpb\": null,\n    \"idRefCpb\": null,\n    \"stringPagamento\": \"6 DU MS\",\n    \"numCount\": 0,\n    \"compVend\": \"Compra\",\n    \"groupCName\": \"EXIBIÇÃO GRUPO CLIENTE\",\n    \"unidadeCName\": \"EXIBIÇÃO UNIDADE CLIENTE\",\n    \"groupVName\": \"CEMIG                                                       \",\n    \"unidadeVName\": \"CEMIG                                                       \",\n    \"cpUnit\": \"CEMIG                                                       \",\n    \"cpGroup\": \"CEMIG                                                       \",\n    \"nomFull\": \"-\",\n    \"nomCnpj\": \"-\",\n    \"venda\": false,\n    \"stringEmitInvoi\": \"\",\n    \"pagMesName\": \"Mês Seguinte\",\n    \"distribuicaoTipo\": \"FLAT\",\n    \"propostaExtension\": null,\n    \"volumeExport\": 1,\n    \"numberBBCE\": \"-\",\n    \"carteiraName\": \"-\",\n    \"reajIniciForne\": \"Não\",\n    \"reajIniciForneCliente\": \"Não\",\n    \"boletaParcialmenteCancelada\": \"Não\",\n    \"operacaoHeterodoxa\": \"Não\"\n}"
 								}
 							]
+						},
+						{
+							"name": "Inserir Boleta Cliente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{URL}}/rest/boletacliente/",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"boletacliente",
+										""
+									]
+								},
+								"description": "API para inserir boleta dos clientes de gestão.\n\nEquivale à tela do Zeus: Gestão -> Boletas Clientes -> Longo Prazo.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| plataformaId | Integer | Id da plataforma de comercialização da energia | Informações Gerais > Plataformas |\n| submercado | Integer | Id do Submercado do contrato | Informações Gerais > Submercados |\n| energyTipo | Integer | Id do tipo de energia | Informações Gerais > Tipo de Energia |\n| retusd | Double | Valor do retusd do contrato | --- |\n| pagType | Integer | Id do tipo de pagamento (Data, dias úteis ou dias corridos) | Informações Gerais > Tipo de Pagamento |\n| pagVal | Long | Numero de dias para o pagamento (em caso de dias uteis ou corridos) | --- |\n| pagMesType | Integer | Período para o pagamento | --- |\n| dataInicio | Date | Data de início do contrato | --- |\n| dataFim | Date | Data de termino do contrato | --- |\n| groupCompId | Integer | Id do grupo da unidade compradora | Contrapartes > Listar Grupo |\n| unidadeCompId | Integer | Id da unidade compradora | Contrapartes > Listar Unidade |\n| unidadeCName | String | Nome da unidade de compra | Contrapartes > Listar Unidade |\n| groupCName | String | Nome do grupo da unidade de compra | Contrapartes > Listar Grupo |\n| groupVendId | Integer | Id do grupo da unidade vendedora | Contrapartes > Listar Grupo |\n| unidadeVendId | Integer | Id da unidade vendedora | Contrapartes > Listar Unidade |\n| unidadeVName | String | Nome da unidade de venda | Contrapartes > Listar Unidade |\n| groupVName | String | Nome do grupo da unidade de venda | Contrapartes > Listar Grupo |\n| volumeTipo| Integer | Id do tipo de volume do contrato (1 = Mwmed, 2 = MWh) | Informações Gerais > Tipo de Volume |\n| volume | Double | Montante de energia do contrato | --- |\n| precoTipo| Integer | Id do tipo de preço do contrato | Informações Gerais > Tipo de Preço |\n| valPisoCollar | Double | Valor do Piso quando o tipo de preço é COLLAR, null em caso de outro tipo de preço | --- |\n| valTetoCollar |Double | Valor do Teto quando o tipo de preço é COLLAR, null em caso de outro tipo de preço | --- |\n| preco | Double | Valor do montante do contrato | --- |\n| flexMin | Double | Porcentagem mínima da Flexibilidade do contrato | --- |\n| flexMax | Double | Porcentagem máxima da Flexibilidade do contrato | --- |\n| sazoMin | Double | Porcentagem mínima da Sazonalidade do contrato | --- |\n| sazoMax | Double | Porcentagem máxima da Sazonalidade do contrato | --- |\n| representatividade | Double | Valor em porcentagem da representatividade | --- |\n| datSeaso | Date | Data limite para a realização da sazonalidade do contrato | --- |\n| indexId | Integer | Id do índice de reajuste do contrato | Informações Gerais > Indexadores |\n| datIndexBase | Date | Data base base cujo o valor será usado no calculo do reajuste | --- |\n| datIndexFirstAdjus | Date | Data do primeiro reajuste do contrato | --- |\n| registroTipo | Integer | Id do tipo de registro da boleta | Informações Gerais > Tipo de Registro |\n| garantiaTipo | Integer | Id do tipo de garantia no caso de registro do tipo Registro antecipado | Informações Gerais > Garantias |\n| distType | Objeto | Objeto com os dados do tipo de distribuição | Informações Gerais > Tipo de Distribuição |\n| boleta | String | Texto com o tipo da boleta | --- |\n| aprovadoCliente | Boolean | Booleano que indica se a boleta foi aprovada | --- |"
+							},
+							"response": []
 						}
 					]
 				},
@@ -8596,7 +8756,7 @@
 					"name": "Contratos de Serviços",
 					"item": [
 						{
-							"name": "Listar Contratos Copy",
+							"name": "Listar Contratos",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -9856,6 +10016,69 @@
 									]
 								},
 								"description": "API para inclusão de um arquivo atrelado a um contrato de serviço no Zeus."
+							},
+							"response": []
+						},
+						{
+							"name": "Tipo de Renovação",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"url": {
+									"raw": "https://{{URL}}/rest/dadosSistema/payment",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"dadosSistema",
+										"payment"
+									]
+								},
+								"description": "Listagem dos tipos de pagamento utilizados no Zeus."
+							},
+							"response": []
+						},
+						{
+							"name": "Inserir Contrato de Serviço",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://{{URL}}/rest/servico/",
+									"protocol": "http",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"servico",
+										""
+									]
+								},
+								"description": "API para inserir boleta de serviço. Resultado equivalente a tela Gestão -> Boletas Serviços-> Cadastrar do Zeus.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| dataEntrada | Date | Data de entrada da boleta no sistema | --- |\n| dataInicio | Date | Data de início da boleta | --- |\n| dataFim | Date | Data de término da boleta | --- |\n| group_id | Integer | Id do grupo da unidadeno | Contrapartes > Listar Grupo |\n| unidade_id | Integer | id da unidade | Contrapartes > Listar Unidade |\n| unidade_name | String | Nome da unidade | Contrapartes > Listar Unidade |\n| group_name | String | Nome do grupo da unidade | Contrapartes > Listar Grupo |\n| priceType | Integer | Id do tipo de preço da boleta | Informações Gerais > Tipo de Preço |\n| valPiso | Double | Valor do piso quando o tipo de preço dor \"Piso + Porcentagem\" ou \"Piso ou Porcentagem\" | --- |\n| nomObsPrice | String | Descrição de regra para o tipo de preço \"Personalizado\" | --- |\n| indSemImps | Boolean | Booleano que indica se a boleta tem economia sem impostos | --- |\n| valPrice | Double | Valor do preço da boleta | --- |\n| pagType | Integer | Id do tipo de pagamento | Informações Gerais > Tipo de Pagamento |\n| pagVal | Integer | Número de dias úteis ou corridos dependendo do tipo de pagamento | --- |\n| inicioPagamento | Objeto | Objeto com dados do inicio do pagamento | --- |\n| pagMesType | Integer | Id do tipo de mês em que pagamento será efetuado | Informações Gerais > Tipo de Condição de Pagamento |\n| paymentModel | Objeto | Objeto com do dados do Modelo de Pagamento |  --- |\n| fatType | Integer | Id do tipo de emissão da nota fiscal | Informações Gerais > Tipo de Pagamento |\n| fatVal | Integer | Número de dias para emissão, úteis ou corridos dependendo do tipo de emissão da nota fiscal |  --- |\n| fatMesType | Integer | Id do tipo de mês em que a nota fiscal será emitida | Informações Gerais > Tipo de Condição de Pagamento |\n| indexId | Integer | Id do tipo de reajuste | Informações Gerais > Indexadores |\n| tipoRenovacao | Objeto | Objeto com os dados do tipo de renovação da boleta de serviço | Contratos de Serviços > Tipo de Renovação |\n| datIndexBase | Date | Data base do calculo do reajuste |  --- |\n| datIndexFirstAdjus | Date | Data do primeiro reajuste |  --- |\n| prazoRenovacao | Integer | Prazo em dias para renovação da boleta |  --- |\n| mesesRenovacao | Integer | Quantidade de meses de renovação |  --- |\n| regraContrato | String | Texto com regras da boleta |  --- |\n| regraReajuste | String | Texto com regras de reajuste da boleta |  --- |\n| comentario | String | Texto com informações sobre a boleta |  --- |\n| observacao | String | Texto com Descrição que será adicionada à nota fiscal do trade mensal em caso de ausência de descrição |  --- |\n| newPagType | String | Nome do tipo de pagamento |  --- |\n| newPriceType | String | Nome do tipo de preço |  --- |\n| newIndex | String | Nome do índice de reajuste |  --- |\n| newTipoRenovacao | String | Nome do tipo de renovação |  --- |\n| newValPrice | String | Texto com preço da boleta formatado com a moeda |  --- |\n| newPagStart | String | Nome do tipo de inicio do pagamento |  --- |\n| aprovadoServico | Boolean | Booleano que indica se a boleta foi aprovada |  --- |"
 							},
 							"response": []
 						}
