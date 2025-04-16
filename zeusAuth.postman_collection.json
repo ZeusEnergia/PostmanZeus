@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "dafe226f-e2d1-447e-aa1f-0519536ad77c",
-		"name": "zeusAuth 02/25",
+		"name": "zeusAuth 04/25",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -2445,8 +2445,8 @@
 									}
 								},
 								"url": {
-									"raw": "https://{{URL}}/rest/contact",
-									"protocol": "https",
+									"raw": "http://{{URL}}/rest/contact",
+									"protocol": "http",
 									"host": [
 										"{{URL}}"
 									],
@@ -2457,7 +2457,60 @@
 								},
 								"description": "API para inserir novo Contato.  \nResultado equivalente a tela Contrapartes -> Unidades -> Editar Unidade do Zeus.\n\nInformação Adicional:  \n**lstTipo** é preenchido com os tipos de contatos, encontrados na API **Tipos de Contato**.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| grupo | Objeto | Objeto com os dados do Grupo da Unidade | Contrapartes > Listar Grupos |\n| unidade | Objeto | Objeto com os dados da Unidade | Contrapartes > Listar Unidades |\n| nome | String | Nome do Contato | --- |\n| telefone | String | Número de telefone do contato | --- |\n| celular | String | Número de celular do contato | --- |\n| email | String | Email do contato | --- |\n| lstTipo |\tLista Objeto | Array com tipos do contato | Contrapartes > Contatos > Tipos de Contato |"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Inserir Contato",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-origin"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "X-Login-Ajax-call",
+												"value": "true"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"grupo\": {\n        \"numCountGroup\": 1\n    },\n    \"unidade\": {\n        \"numCount\": 1\n    },\n    \"nome\": \"Contato Teste\",\n    \"telefone\": \"11111111111\",\n    \"email\": \"um_email@qualquer.com\",\n    \"celular\": \"00000000000\",\n    \"lstTipo\": [\n        {\n            \"id\": 1\n        },\n        {\n            \"id\": 3\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{URL}}/rest/contact",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"contact"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
 						},
 						{
 							"name": "Tipos de Contato",
@@ -3132,6 +3185,15 @@
 							"request": {
 								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dataType\": \"medidor\",\n  \"dataValue\": \"NOMEMEDIDOR_101\",\n  \"unidade\": {\n    \"numCount\": 6530\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "https://{{URL}}/rest/dadosEnergiaUnidade",
 									"protocol": "https",
@@ -3143,9 +3205,48 @@
 										"dadosEnergiaUnidade"
 									]
 								},
-								"description": "API para inserir Dados de Energia por unidade.\n\nEquivale ai campo Medidores na tela Contraparte > Unidades > Editar Dados Cadastrais > Dados Gerais da Unidade no Zeus.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| dataType | String | Tipo do Dado de Energia Inserido | --- |\n| dataValue | String | Valor do Dado de Energia | --- |\n| unidade | Objeto | Objeto com dados da unidade |  Contrapartes > Listar Unidades |"
+								"description": "API para inserir Dados de Energia por unidade.\n\nEquivale ai campo Medidores na tela Contraparte > Unidades > Editar Dados Cadastrais > Dados Gerais da Unidade no Zeus.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| dataType | String | Tipo do Dado de Energia inserido. Para medidores, inserir o valor \"medidor\" | --- |\n| dataValue | String | Valor do Dado de Energia. Para medidores, inserir o nome do medidor | --- |\n| unidade | Objeto | Objeto com dados da unidade |  Contrapartes > Listar Unidades |"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Inserir Medidor (Dados de Energia)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"dataType\": \"medidor\",\n  \"dataValue\": \"MEDIDOR_101\",\n  \"unidade\": {\n    \"numCount\": 6530\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{URL}}/rest/dadosEnergiaUnidade",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"dadosEnergiaUnidade"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
 						}
 					]
 				},
@@ -3215,6 +3316,15 @@
 							"request": {
 								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"tblCounterparty\": {\n    \"numCount\": 9308\n  },\n  \"agenteDefault\": true,\n  \"tblEnergyType\": {\n    \"numEnergType\": 1\n    },\n  \"numCliqId\": \"106856\",\n  \"nomCliq\": \"Teste Cliq Conv.\",\n  \"perfilPrincipal\": true,\n  \"comercializadorVarejista\": true,\n  \"agenteDefaultRateioProinfa\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "https://{{URL}}/rest/unitCliq",
 									"protocol": "https",
@@ -3228,7 +3338,46 @@
 								},
 								"description": "API para inseri Agente Cliq. Resultado equivalente a tela Contrapartes > Editar Contraparte do Zeus > CliqCCEE > Novo.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| tblCounterparty | Objeto | Objeto com os dados da contraparte | Contraparte > Localizar unidade pelo ID |\n| agenteDefault | Boolean | Booleano que indica se este é o agente padrão | --- |\n| perfilPrincipal | Boolean | Booleano que indica se este é o perfil principal na CCEE | --- |\n| comercializadorVarejista | Boolean | Booleano que indica se este é um Perfil comercializador varejista | --- |\n| agenteDefaultRateioProinfa | Boolean | Booleano que indica se este é o agente de rateio do Proinfa | --- |\n| tblEnergyType | Objeto | Objeto com os dados dos tipos de energia | Informações Gerais > Tipos de Energia |\n| numCliqId | Integer | Código do Perfil | --- |\n| nomCliq | String | Texto com o nome do perfil | --- |"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Inserir Agente",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"tblCounterparty\": {\n    \"numCount\": 9308\n  },\n  \"agenteDefault\": true,\n  \"tblEnergyType\": {\n    \"numEnergType\": 1\n    },\n  \"numCliqId\": \"106856\",\n  \"nomCliq\": \"Teste Cliq Conv.\",\n  \"perfilPrincipal\": true,\n  \"comercializadorVarejista\": true,\n  \"agenteDefaultRateioProinfa\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{URL}}/rest/unitCliq",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"unitCliq"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
 						}
 					]
 				},
@@ -3261,6 +3410,15 @@
 							"request": {
 								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"unidade\": {\n    \"numCount\": 9308\n  },\n  \"grupo\": {\n    \"numCountGroup\": 6752\n  },\n  \"banco\": {\n    \"id\": 116\n  },\n  \"nomeAgencia\": \"Agencia Nome\",\n  \"agencia\": \"0001\",\n  \"conta\": \"010209-4\",\n  \"nomChavePix\": \"12345678999\",\n  \"nomCnpj\": \"21791292000106\",\n  \"contaDefault\": true,\n  \"indCadasBanco\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "https://{{URL}}/rest/cpBank",
 									"protocol": "https",
@@ -3274,7 +3432,46 @@
 								},
 								"description": "API para inserir Dados Bancários para a unidade. Equivale à tela Contraparte > Unidades> Editar Dados Cadastrais > Dados Bancários > Novo no Zeus.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| unidade | Objeto | Objeto com os dados da Unidade | Contrapartes > Listar Unidades |\n| grupo | Objeto | Objeto com os dados do Grupo da Unidade | Contrapartes > Listar Grupos\n| banco | Objeto | Objeto com os dados do Banco | Contrapartes > Dados Bancários > Listar Bancos\n| nomeAgencia | String | Nome da Agência bancária | --- |\n| agencia | String | Número da agência bancária | --- |\n| conta | String | Número da conta bancária | --- |\n| nomChavePix | String | Chave Pix da Conta | --- |\n| nomCnpj | String | CNPJ dá conta bancária | --- |\n| indCadasBanco | Boolean | Booleano que indica se a conta já está cadastrada na conta bancária da empresa | --- |\n| contaDefault | Boolean | Booleano que indica se essa é a conta padrão | --- |"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Inserir Dados Bancários",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"unidade\": {\n    \"numCount\": 9308\n  },\n  \"grupo\": {\n    \"numCountGroup\": 6752\n  },\n  \"banco\": {\n    \"id\": 116\n  },\n  \"nomeAgencia\": \"Agencia Nome\",\n  \"agencia\": \"0001\",\n  \"conta\": \"010209-4\",\n  \"nomChavePix\": \"12345678999\",\n  \"nomCnpj\": \"21791292000106\",\n  \"contaDefault\": true,\n  \"indCadasBanco\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{URL}}/rest/cpBank",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"cpBank"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
 						},
 						{
 							"name": "Listar Dados Bancários por Unidade",
@@ -3615,7 +3812,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nomCountGroup\": \"Teste Grupo\",\n    \"rating\": {\n        \"numRating\": 1\n    }\n}",
+							"raw": "{\n  \"nomCountGroup\": \"Nome Grupo\",\n  \"nomLogoFile\": null,\n  \"rating\": {\n    \"numRating\": 1\n  },\n  \"responsavel\": {\n    \"user\": {\n      \"id\": 1\n    }\n  },\n  \"ratingName\": \"-\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8787,6 +8984,15 @@
 							"request": {
 								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dataInicio\": \"2025-05-01T03:00:00.000Z\",\n  \"dataFim\": \"2025-12-01T03:00:00.000Z\",\n  \"groupCompId\": 3,\n  \"unidadeCompId\": 3,\n  \"groupVendId\": 4,\n  \"unidadeVendId\": 4,\n  \"volumeTipo\": 1,\n  \"volume\": 0.001,\n  \"flexMin\": 10,\n  \"flexMax\": 10,\n  \"sazoMin\": 10,\n  \"sazoMax\": 10,\n  \"representatividade\": 100,\n  \"datSeaso\": \"2025-05-14T03:00:00.000Z\",\n  \"precoTipo\": 1,\n  \"valPisoCollar\": null,\n  \"valTetoCollar\": null,\n  \"preco\": 200,\n  \"distType\": {\n    \"numDistType\": 1\n  },\n  \"submercado\": 1,\n  \"energyTipo\": 1,\n  \"retusd\": 0,\n  \"plataformaId\": 1,\n  \"pagType\": 2,\n  \"pagDate\": null,\n  \"pagVal\": 6,\n  \"pagMesType\": 2,\n  \"indexId\": 1,\n  \"indReajIniciForneCliente\": true,\n  \"datIndexBase\": \"2024-01-01T03:00:00.000Z\",\n  \"datIndexFirstAdjus\": \"2025-08-01T03:00:00.000Z\",\n  \"registroTipo\": 1,\n  \"aprovadoCliente\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "https://{{URL}}/rest/boletacliente/",
 									"protocol": "https",
@@ -8799,9 +9005,49 @@
 										""
 									]
 								},
-								"description": "API para inserir boleta dos clientes de gestão.\n\nEquivale à tela do Zeus: Gestão -> Boletas Clientes -> Longo Prazo.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| plataformaId | Integer | Id da plataforma de comercialização da energia | Informações Gerais > Plataformas |\n| submercado | Integer | Id do Submercado do contrato | Informações Gerais > Submercados |\n| energyTipo | Integer | Id do tipo de energia | Informações Gerais > Tipo de Energia |\n| retusd | Double | Valor do retusd do contrato | --- |\n| pagType | Integer | Id do tipo de pagamento (Data, dias úteis ou dias corridos) | Informações Gerais > Tipo de Pagamento |\n| pagVal | Long | Numero de dias para o pagamento (em caso de dias uteis ou corridos) | --- |\n| pagMesType | Integer | Período para o pagamento | --- |\n| dataInicio | Date | Data de início do contrato | --- |\n| dataFim | Date | Data de termino do contrato | --- |\n| groupCompId | Integer | Id do grupo da unidade compradora | Contrapartes > Listar Grupo |\n| unidadeCompId | Integer | Id da unidade compradora | Contrapartes > Listar Unidade |\n| unidadeCName | String | Nome da unidade de compra | Contrapartes > Listar Unidade |\n| groupCName | String | Nome do grupo da unidade de compra | Contrapartes > Listar Grupo |\n| groupVendId | Integer | Id do grupo da unidade vendedora | Contrapartes > Listar Grupo |\n| unidadeVendId | Integer | Id da unidade vendedora | Contrapartes > Listar Unidade |\n| unidadeVName | String | Nome da unidade de venda | Contrapartes > Listar Unidade |\n| groupVName | String | Nome do grupo da unidade de venda | Contrapartes > Listar Grupo |\n| volumeTipo| Integer | Id do tipo de volume do contrato (1 = Mwmed, 2 = MWh) | Informações Gerais > Tipo de Volume |\n| volume | Double | Montante de energia do contrato | --- |\n| precoTipo| Integer | Id do tipo de preço do contrato | Informações Gerais > Tipo de Preço |\n| valPisoCollar | Double | Valor do Piso quando o tipo de preço é COLLAR, null em caso de outro tipo de preço | --- |\n| valTetoCollar |Double | Valor do Teto quando o tipo de preço é COLLAR, null em caso de outro tipo de preço | --- |\n| preco | Double | Valor do montante do contrato | --- |\n| flexMin | Double | Porcentagem mínima da Flexibilidade do contrato | --- |\n| flexMax | Double | Porcentagem máxima da Flexibilidade do contrato | --- |\n| sazoMin | Double | Porcentagem mínima da Sazonalidade do contrato | --- |\n| sazoMax | Double | Porcentagem máxima da Sazonalidade do contrato | --- |\n| representatividade | Double | Valor em porcentagem da representatividade | --- |\n| datSeaso | Date | Data limite para a realização da sazonalidade do contrato | --- |\n| indexId | Integer | Id do índice de reajuste do contrato | Informações Gerais > Indexadores |\n| datIndexBase | Date | Data base base cujo o valor será usado no calculo do reajuste | --- |\n| datIndexFirstAdjus | Date | Data do primeiro reajuste do contrato | --- |\n| registroTipo | Integer | Id do tipo de registro da boleta | Informações Gerais > Tipo de Registro |\n| garantiaTipo | Integer | Id do tipo de garantia no caso de registro do tipo Registro antecipado | Informações Gerais > Garantias |\n| distType | Objeto | Objeto com os dados do tipo de distribuição | Informações Gerais > Tipo de Distribuição |\n| boleta | String | Texto com o tipo da boleta | --- |\n| aprovadoCliente | Boolean | Booleano que indica se a boleta foi aprovada | --- |"
+								"description": "API para inserir boleta dos clientes de gestão.\n\nEquivale à tela do Zeus: Gestão -> Boletas Clientes -> Longo Prazo.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| plataformaId | Integer | Id da plataforma de comercialização da energia | Informações Gerais > Plataformas |\n| submercado | Integer | Id do Submercado do contrato | Informações Gerais > Submercados |\n| energyTipo | Integer | Id do tipo de energia | Informações Gerais > Tipo de Energia |\n| retusd | Double | Valor do retusd do contrato | --- |\n| pagType | Integer | Id do tipo de pagamento (Data, dias úteis ou dias corridos) | Informações Gerais > Tipo de Pagamento |\n| pagVal | Long | Numero de dias para o pagamento (em caso de dias uteis ou corridos) | --- |\n| pagMesType | Integer | Período para o pagamento | --- |\n| pagDate | Date | Data de pagamento caso o tipo de pagamento seja Data | --- |\n| dataInicio | Date | Data de início do contrato | --- |\n| dataFim | Date | Data de termino do contrato | --- |\n| groupCompId | Integer | Id do grupo da unidade compradora | Contrapartes > Listar Grupo |\n| unidadeCompId | Integer | Id da unidade compradora | Contrapartes > Listar Unidade |\n| groupVendId | Integer | Id do grupo da unidade vendedora | Contrapartes > Listar Grupo |\n| unidadeVendId | Integer | Id da unidade vendedora | Contrapartes > Listar Unidade |\n| volumeTipo| Integer | Id do tipo de volume do contrato (1 = Mwmed, 2 = MWh) | Informações Gerais > Tipo de Volume |\n| volume | Double | Montante de energia do contrato | --- |\n| precoTipo| Integer | Id do tipo de preço do contrato | Informações Gerais > Tipo de Preço |\n| valPisoCollar | Double | Valor do Piso quando o tipo de preço é COLLAR, null em caso de outro tipo de preço | --- |\n| valTetoCollar |Double | Valor do Teto quando o tipo de preço é COLLAR, null em caso de outro tipo de preço | --- |\n| preco | Double | Valor do montante do contrato | --- |\n| flexMin | Double | Porcentagem mínima da Flexibilidade do contrato | --- |\n| flexMax | Double | Porcentagem máxima da Flexibilidade do contrato | --- |\n| sazoMin | Double | Porcentagem mínima da Sazonalidade do contrato | --- |\n| sazoMax | Double | Porcentagem máxima da Sazonalidade do contrato | --- |\n| representatividade | Double | Valor em porcentagem da representatividade | --- |\n| datSeaso | Date | Data limite para a realização da sazonalidade do contrato | --- |\n| indexId | Integer | Id do índice de reajuste do contrato | Informações Gerais > Indexadores |\n| datIndexBase | Date | Data base cujo o valor será usado no calculo do reajuste | --- |\n| datIndexFirstAdjus | Date | Data do primeiro reajuste do contrato | --- |\n| registroTipo | Integer | Id do tipo de registro da boleta | Informações Gerais > Tipo de Registro |\n| garantiaTipo | Integer | Id do tipo de garantia no caso de registro do tipo Registro antecipado | Informações Gerais > Garantias |\n| distType | Objeto | Objeto com os dados do tipo de distribuição | Informações Gerais > Tipo de Distribuição |\n| aprovadoCliente | Boolean | Booleano que indica se a boleta foi aprovada | --- |\n| indReajIniciForneCliente | Boolean | Booleano que indica se haverá reajuste no inicio do fornecimento | --- |\n| pagCondPerioType | Objeto | Objeto com os dados do tipo de condições de pagamento | Informações Gerais > Tipo de Condição de pagamento |"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Inserir Boleta Cliente",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"dataInicio\": \"2025-05-01T03:00:00.000Z\",\n  \"dataFim\": \"2025-12-01T03:00:00.000Z\",\n  \"groupCompId\": 3,\n  \"unidadeCompId\": 3,\n  \"groupVendId\": 4,\n  \"unidadeVendId\": 4,\n  \"volumeTipo\": 1,\n  \"volume\": 0.001,\n  \"flexMin\": 10,\n  \"flexMax\": 10,\n  \"sazoMin\": 10,\n  \"sazoMax\": 10,\n  \"representatividade\": 100,\n  \"datSeaso\": \"2025-05-14T03:00:00.000Z\",\n  \"precoTipo\": 1,\n  \"valPisoCollar\": null,\n  \"valTetoCollar\": null,\n  \"preco\": 200,\n  \"distType\": {\n    \"numDistType\": 1\n  },\n  \"submercado\": 1,\n  \"energyTipo\": 1,\n  \"retusd\": 0,\n  \"plataformaId\": 1,\n  \"pagType\": 2,\n  \"pagDate\": null,\n  \"pagVal\": 6,\n  \"pagMesType\": 2,\n  \"indexId\": 1,\n  \"indReajIniciForneCliente\": true,\n  \"datIndexBase\": \"2024-01-01T03:00:00.000Z\",\n  \"datIndexFirstAdjus\": \"2025-08-01T03:00:00.000Z\",\n  \"registroTipo\": 1,\n  \"aprovadoCliente\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{URL}}/rest/boletacliente/",
+											"protocol": "https",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"boletacliente",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
 						}
 					]
 				},
@@ -10073,6 +10319,76 @@
 							"response": []
 						},
 						{
+							"name": "Inserir Contrato de Serviço",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dataInicio\": \"2025-05-01T03:00:00.000Z\",\n  \"dataFim\": \"2025-12-01T03:00:00.000Z\",\n  \"group_id\": 3,\n  \"unidade_id\": 3,\n  \"priceType\": 1,\n  \"valPiso\": null,\n  \"nomObsPrice\": null,\n  \"indSemImps\": null,\n  \"valPrice\": 2000,\n  \"tipoRenovacao\": {\n    \"id\": 1\n  },\n  \"paymentModel\": {\n    \"numPaymeModel\": 1\n  },\n  \"pagMesType\": 1,\n  \"pagType\": 2,\n  \"pagVal\": 6,\n  \"inicioPagamento\": {\n    \"id\": 2\n  },\n  \"fatType\": 2,\n  \"fatVal\": 6,\n  \"fatMesType\": 1,\n  \"indexId\": 1,\n  \"datIndexBase\": \"2024-01-01T03:00:00.000Z\",\n  \"datIndexFirstAdjus\": \"2025-04-01T03:00:00.000Z\",\n  \"prazoRenovacao\": 15,\n  \"mesesRenovacao\": 12,\n  \"regraContrato\": \"Texto Regra Contrato\",\n  \"regraReajuste\": \"Texto Regra Reajuste\",\n  \"comentario\": \"Texto Informações\",\n  \"observacao\": \"Texto Descrição\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/servico/",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"servico",
+										""
+									]
+								},
+								"description": "API para inserir boleta de serviço. Resultado equivalente a tela Gestão -> Boletas Serviços-> Cadastrar do Zeus.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| dataEntrada | Date | Data de entrada da boleta no sistema | --- |\n| dataInicio | Date | Data de início da boleta | --- |\n| dataFim | Date | Data de término da boleta | --- |\n| group_id | Integer | Id do grupo da unidadeno | Contrapartes > Listar Grupo |\n| unidade_id | Integer | id da unidade | Contrapartes > Listar Unidade |\n| priceType | Integer | Id do tipo de preço da boleta | Informações Gerais > Tipo de Preço |\n| valPiso | Double | Valor do piso quando o tipo de preço \"Piso + Porcentagem\" ou \"Piso ou Porcentagem\" | --- |\n| nomObsPrice | String | Descrição de regra para o tipo de preço \"Personalizado\" | --- |\n| indSemImps | Boolean | Booleano que indica se a boleta tem economia sem impostos para tipos de preço  | --- |\n| valPrice | Double | Valor do preço da boleta | --- |\n| pagType | Integer | Id do tipo de pagamento | Informações Gerais > Tipo de Pagamento |\n| pagVal | Integer | Número de dias úteis ou corridos dependendo do tipo de pagamento | --- |\n| inicioPagamento | Objeto | Objeto com dados do inicio do pagamento | Contratos de Serviços > Tipo de Inicio de Pagamento |\n| pagMesType | Integer | Id do tipo de mês em que pagamento será efetuado | Informações Gerais > Tipo de Condição de Pagamento |\n| paymentModel | Objeto | Objeto com do dados do Modelo de Pagamento |  --- |\n| fatType | Integer | Id do tipo de emissão da nota fiscal | Informações Gerais > Tipo de Pagamento |\n| fatVal | Integer | Número de dias para emissão, úteis ou corridos dependendo do tipo de emissão da nota fiscal |  --- |\n| fatMesType | Integer | Id do tipo de mês em que a nota fiscal será emitida | Informações Gerais > Tipo de Condição de Pagamento |\n| indexId | Integer | Id do tipo de reajuste | Informações Gerais > Indexadores |\n| tipoRenovacao | Objeto | Objeto com os dados do tipo de renovação da boleta de serviço | Contratos de Serviços > Tipo de Renovação |\n| datIndexBase | Date | Data base do calculo do reajuste |  --- |\n| datIndexFirstAdjus | Date | Data do primeiro reajuste |  --- |\n| prazoRenovacao | Integer | Prazo em dias para renovação da boleta |  --- |\n| mesesRenovacao | Integer | Quantidade de meses de renovação |  --- |\n| regraContrato | String | Texto com regras da boleta |  --- |\n| regraReajuste | String | Texto com regras de reajuste da boleta |  --- |\n| comentario | String | Texto com informações sobre a boleta |  --- |\n| observacao | String | Texto com Descrição que será adicionada à nota fiscal do trade mensal em caso de ausência de descrição |  --- |\n| aprovadoServico | Boolean | Booleano que indica se a boleta foi aprovada |  --- |"
+							},
+							"response": [
+								{
+									"name": "Inserir Contrato de Serviço",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"dataInicio\": \"2025-05-01T03:00:00.000Z\",\n  \"dataFim\": \"2025-12-01T03:00:00.000Z\",\n  \"group_id\": 3,\n  \"unidade_id\": 3,\n  \"priceType\": 1,\n  \"valPiso\": null,\n  \"nomObsPrice\": null,\n  \"indSemImps\": null,\n  \"valPrice\": 2000,\n  \"tipoRenovacao\": {\n    \"id\": 1\n  },\n  \"paymentModel\": {\n    \"numPaymeModel\": 1\n  },\n  \"pagMesType\": 1,\n  \"pagType\": 2,\n  \"pagVal\": 6,\n  \"inicioPagamento\": {\n    \"id\": 2\n  },\n  \"fatType\": 2,\n  \"fatVal\": 6,\n  \"fatMesType\": 1,\n  \"indexId\": 1,\n  \"datIndexBase\": \"2024-01-01T03:00:00.000Z\",\n  \"datIndexFirstAdjus\": \"2025-04-01T03:00:00.000Z\",\n  \"prazoRenovacao\": 15,\n  \"mesesRenovacao\": 12,\n  \"regraContrato\": \"Texto Regra Contrato\",\n  \"regraReajuste\": \"Texto Regra Reajuste\",\n  \"comentario\": \"Texto Informações\",\n  \"observacao\": \"Texto Descrição\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://{{URL}}/rest/servico/",
+											"protocol": "http",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"servico",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
 							"name": "Tipo de Renovação",
 							"request": {
 								"method": "GET",
@@ -10115,23 +10431,43 @@
 							"response": []
 						},
 						{
-							"name": "Inserir Contrato de Serviço",
+							"name": "Tipo de Inicio de Pagamento",
 							"request": {
-								"method": "POST",
-								"header": [],
+								"method": "GET",
+								"header": [
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "X-Login-Ajax-call",
+										"value": "true"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
 								"url": {
-									"raw": "http://{{URL}}/rest/servico/",
-									"protocol": "http",
+									"raw": "https://{{URL}}/rest/boletaServicoPaymeStart",
+									"protocol": "https",
 									"host": [
 										"{{URL}}"
 									],
 									"path": [
 										"rest",
-										"servico",
-										""
+										"boletaServicoPaymeStart"
 									]
 								},
-								"description": "API para inserir boleta de serviço. Resultado equivalente a tela Gestão -> Boletas Serviços-> Cadastrar do Zeus.\n\n| **Chave** |\t**Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| dataEntrada | Date | Data de entrada da boleta no sistema | --- |\n| dataInicio | Date | Data de início da boleta | --- |\n| dataFim | Date | Data de término da boleta | --- |\n| group_id | Integer | Id do grupo da unidadeno | Contrapartes > Listar Grupo |\n| unidade_id | Integer | id da unidade | Contrapartes > Listar Unidade |\n| unidade_name | String | Nome da unidade | Contrapartes > Listar Unidade |\n| group_name | String | Nome do grupo da unidade | Contrapartes > Listar Grupo |\n| priceType | Integer | Id do tipo de preço da boleta | Informações Gerais > Tipo de Preço |\n| valPiso | Double | Valor do piso quando o tipo de preço dor \"Piso + Porcentagem\" ou \"Piso ou Porcentagem\" | --- |\n| nomObsPrice | String | Descrição de regra para o tipo de preço \"Personalizado\" | --- |\n| indSemImps | Boolean | Booleano que indica se a boleta tem economia sem impostos | --- |\n| valPrice | Double | Valor do preço da boleta | --- |\n| pagType | Integer | Id do tipo de pagamento | Informações Gerais > Tipo de Pagamento |\n| pagVal | Integer | Número de dias úteis ou corridos dependendo do tipo de pagamento | --- |\n| inicioPagamento | Objeto | Objeto com dados do inicio do pagamento | --- |\n| pagMesType | Integer | Id do tipo de mês em que pagamento será efetuado | Informações Gerais > Tipo de Condição de Pagamento |\n| paymentModel | Objeto | Objeto com do dados do Modelo de Pagamento |  --- |\n| fatType | Integer | Id do tipo de emissão da nota fiscal | Informações Gerais > Tipo de Pagamento |\n| fatVal | Integer | Número de dias para emissão, úteis ou corridos dependendo do tipo de emissão da nota fiscal |  --- |\n| fatMesType | Integer | Id do tipo de mês em que a nota fiscal será emitida | Informações Gerais > Tipo de Condição de Pagamento |\n| indexId | Integer | Id do tipo de reajuste | Informações Gerais > Indexadores |\n| tipoRenovacao | Objeto | Objeto com os dados do tipo de renovação da boleta de serviço | Contratos de Serviços > Tipo de Renovação |\n| datIndexBase | Date | Data base do calculo do reajuste |  --- |\n| datIndexFirstAdjus | Date | Data do primeiro reajuste |  --- |\n| prazoRenovacao | Integer | Prazo em dias para renovação da boleta |  --- |\n| mesesRenovacao | Integer | Quantidade de meses de renovação |  --- |\n| regraContrato | String | Texto com regras da boleta |  --- |\n| regraReajuste | String | Texto com regras de reajuste da boleta |  --- |\n| comentario | String | Texto com informações sobre a boleta |  --- |\n| observacao | String | Texto com Descrição que será adicionada à nota fiscal do trade mensal em caso de ausência de descrição |  --- |\n| newPagType | String | Nome do tipo de pagamento |  --- |\n| newPriceType | String | Nome do tipo de preço |  --- |\n| newIndex | String | Nome do índice de reajuste |  --- |\n| newTipoRenovacao | String | Nome do tipo de renovação |  --- |\n| newValPrice | String | Texto com preço da boleta formatado com a moeda |  --- |\n| newPagStart | String | Nome do tipo de inicio do pagamento |  --- |\n| aprovadoServico | Boolean | Booleano que indica se a boleta foi aprovada |  --- |"
+								"description": "Listagem dos tipos de pagamento utilizados no Zeus."
 							},
 							"response": []
 						}
