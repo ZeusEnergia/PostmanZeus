@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "dafe226f-e2d1-447e-aa1f-0519536ad77c",
-		"name": "zeusAuth 04/25",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "ae71224c-30d5-4bda-b776-9f2257f03d8c",
+		"name": "zeusAuth 08/25",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27653573"
 	},
 	"item": [
 		{
@@ -2505,10 +2506,10 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"_postman_previewlanguage": "Text",
+									"header": [],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						},
@@ -3241,10 +3242,10 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"_postman_previewlanguage": "Text",
+									"header": [],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						}
@@ -3372,10 +3373,10 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"_postman_previewlanguage": "Text",
+									"header": [],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						}
@@ -3466,10 +3467,10 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"_postman_previewlanguage": "Text",
+									"header": [],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						},
@@ -3880,8 +3881,8 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"_postman_previewlanguage": "Text",
+							"header": [],
 							"cookie": [],
 							"body": ""
 						}
@@ -6604,15 +6605,14 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{URL}}/rest/dadosSistema/setor",
+							"raw": "https://{{URL}}/rest/encargoVarejistaTipo",
 							"protocol": "https",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"rest",
-								"dadosSistema",
-								"setor"
+								"encargoVarejistaTipo"
 							]
 						},
 						"description": "API para retornar lista de Setores.\n\n##### Informação Adicional:\n\nSetores com **indConsu** marcado como **true** são setores de consumidor final. Dessa forma, quando está sendo criada uma unidade consumidora final na API **Inserir Unidade** , seu setor deverá ser de consumidor final também."
@@ -9042,10 +9042,10 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"_postman_previewlanguage": "Text",
+									"header": [],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						}
@@ -10381,10 +10381,10 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"_postman_previewlanguage": "Text",
+									"header": [],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						},
