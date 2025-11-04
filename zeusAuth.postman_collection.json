@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "ae71224c-30d5-4bda-b776-9f2257f03d8c",
-		"name": "zeusAuth 08/25",
+		"_postman_id": "14cabfb2-c493-4f5c-a687-061f126b92ee",
+		"name": "zeusAuth 08/25 Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27653573"
+		"_exporter_id": "13960053"
 	},
 	"item": [
 		{
@@ -3262,8 +3262,8 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"name": "Content-Type",
 												"value": "application/json",
+												"name": "Content-Type",
 												"type": "text"
 											}
 										],
@@ -3393,8 +3393,8 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"name": "Content-Type",
 												"value": "application/json",
+												"name": "Content-Type",
 												"type": "text"
 											}
 										],
@@ -3487,8 +3487,8 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"name": "Content-Type",
 												"value": "application/json",
+												"name": "Content-Type",
 												"type": "text"
 											}
 										],
@@ -9153,8 +9153,8 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"name": "Content-Type",
 												"value": "application/json",
+												"name": "Content-Type",
 												"type": "text"
 											}
 										],
@@ -10492,8 +10492,8 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"name": "Content-Type",
 												"value": "application/json",
+												"name": "Content-Type",
 												"type": "text"
 											}
 										],
@@ -12078,6 +12078,84 @@
 											"body": "{\n    \"id\": 0,\n    \"dataEntrada\": null,\n    \"ano\": 0,\n    \"mes\": 0,\n    \"grupo_id\": 0,\n    \"nom_group\": null,\n    \"valor\": 0,\n    \"nomeAgente\": null,\n    \"codigoAgente\": null,\n    \"origem\": null,\n    \"indManualEdit\": false,\n    \"emails\": null,\n    \"numCount\": null,\n    \"type\": null,\n    \"lstFiles\": null,\n    \"oldVersionOfItself\": null\n}"
 										}
 									]
+								},
+								{
+									"name": "Listagem Proinfa",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/javascript, */*; q=0.01"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Origin",
+												"value": "http://localhost:9000"
+											},
+											{
+												"key": "Referer",
+												"value": "http://localhost:9000/"
+											},
+											{
+												"key": "Sec-Fetch-Dest",
+												"value": "empty"
+											},
+											{
+												"key": "Sec-Fetch-Mode",
+												"value": "cors"
+											},
+											{
+												"key": "Sec-Fetch-Site",
+												"value": "same-site"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+											},
+											{
+												"key": "sec-ch-ua",
+												"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+											},
+											{
+												"key": "sec-ch-ua-mobile",
+												"value": "?0"
+											},
+											{
+												"key": "sec-ch-ua-platform",
+												"value": "\"Linux\""
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"dtIniFornInicio\": \"2025-09-01T03:00:00.000Z\",\n\t\"input\": {\n\t\t\"columns\": [\n\t\t\t{\n\t\t\t\t\"data\": null,\n\t\t\t\t\"name\": \"\",\n\t\t\t\t\"orderable\": false,\n\t\t\t\t\"search\": {\n\t\t\t\t\t\"regex\": false,\n\t\t\t\t\t\"value\": \"\"\n\t\t\t\t},\n\t\t\t\t\"searchable\": false\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"data\": \"agente\",\n\t\t\t\t\"name\": \"\",\n\t\t\t\t\"orderable\": true,\n\t\t\t\t\"search\": {\n\t\t\t\t\t\"regex\": false,\n\t\t\t\t\t\"value\": \"\"\n\t\t\t\t},\n\t\t\t\t\"searchable\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"data\": \"valor\",\n\t\t\t\t\"name\": \"\",\n\t\t\t\t\"orderable\": true,\n\t\t\t\t\"search\": {\n\t\t\t\t\t\"regex\": false,\n\t\t\t\t\t\"value\": \"\"\n\t\t\t\t},\n\t\t\t\t\"searchable\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"data\": null,\n\t\t\t\t\"name\": \"\",\n\t\t\t\t\"orderable\": false,\n\t\t\t\t\"search\": {\n\t\t\t\t\t\"regex\": false,\n\t\t\t\t\t\"value\": \"\"\n\t\t\t\t},\n\t\t\t\t\"searchable\": false\n\t\t\t}\n\t\t],\n\t\t\"draw\": 2,\n\t\t\"length\": 12,\n\t\t\"order\": [\n\t\t\t{\n\t\t\t\t\"column\": 1,\n\t\t\t\t\"dir\": \"asc\"\n\t\t\t}\n\t\t],\n\t\t\"search\": {\n\t\t\t\"regex\": false,\n\t\t\t\"value\": \"\"\n\t\t},\n\t\t\"start\": 0\n\t}\n}"
+										},
+										"url": {
+											"raw": "http://{{URL}}/rest/proinfa/datatable",
+											"protocol": "http",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"rest",
+												"proinfa",
+												"datatable"
+											]
+										},
+										"description": "Filtros disponíveis:\n\n| **Filtro** | Tipo | Formato | **Descrição** |\n| --- | --- | --- | --- |\n| input | Objeto | \"input\": {  <br>\"columns\": \\[  <br>{  <br>\"data\": null,  <br>\"name\": \"\",  <br>\"orderable\": false,  <br>\"search\": {  <br>\"regex\": false,  <br>\"value\": \"\"  <br>},  <br>\"searchable\": false  <br>},  <br>{  <br>\"data\": \"agente\",  <br>\"name\": \"\",  <br>\"orderable\": true,  <br>\"search\": {  <br>\"regex\": false,  <br>\"value\": \"\"  <br>},  <br>\"searchable\": true  <br>},  <br>{  <br>\"data\": \"valor\",  <br>\"name\": \"\",  <br>\"orderable\": true,  <br>\"search\": {  <br>\"regex\": false,  <br>\"value\": \"\"  <br>},  <br>\"searchable\": true  <br>},  <br>{  <br>\"data\": null,  <br>\"name\": \"\",  <br>\"orderable\": false,  <br>\"search\": {  <br>\"regex\": false,  <br>\"value\": \"\"  <br>},  <br>\"searchable\": false  <br>}  <br>\\],  <br>\"draw\": 2,  <br>\"length\": 12,  <br>\"order\": \\[  <br>{  <br>\"column\": 1,  <br>\"dir\": \"asc\"  <br>}  <br>\\],  <br>\"search\": {  <br>\"regex\": false,  <br>\"value\": \"\"  <br>},  <br>\"start\": 0  <br>} | Manter o objeto \"input\" com a configuração original, mudando apenas as propriedades \"start\" e \"length\" para fins de controle de paginação e a propriedade \"order\" para alterar a coluna considerada para ordenação dos resultados |\n| dtIniFornInicio | Data | 2025-09-01T03:00:00.000Z | Data que determina o mês e ano dos Proinfas que serão retornados |"
+									},
+									"response": []
 								}
 							],
 							"description": "Requisições para retorno das informações referentes aos encargos CCEE: DRI, Energia de Reserva, Proinfa, Contribuição Associativa, Ercap, Garantia Financeira"
