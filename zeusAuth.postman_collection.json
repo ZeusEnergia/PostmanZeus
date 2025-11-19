@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "14cabfb2-c493-4f5c-a687-061f126b92ee",
-		"name": "zeusAuth 08/25 Copy",
+		"_postman_id": "e06df528-a00a-4acb-a31e-861d6ebbf77d",
+		"name": "zeusAuth 08/25",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "13960053"
 	},
@@ -13491,6 +13491,94 @@
 							"header": [],
 							"cookie": [],
 							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Administração",
+			"item": [
+				{
+					"name": "Controle de E-mail",
+					"item": [
+						{
+							"name": "Listagem de e-mails",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/javascript, */*; q=0.01"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:9000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:9000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Linux\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"input\": {\n\t\t\"columns\": [],\n\t\t\"draw\": 0,\n\t\t\"length\": 12,\n\t\t\"order\": [],\n\t\t\"search\": {\n\t\t\t\"regex\": false,\n\t\t\t\"value\": \"\"\n\t\t},\n\t\t\"start\": 0\n\t},\n    \"find\": \"Notas de Atualização (zeus-2025-09)\"\n}"
+								},
+								"url": {
+									"raw": "http://{{URL}}/rest/emailList/datatable",
+									"protocol": "http",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"emailList",
+										"datatable"
+									]
+								},
+								"description": "API para buscar e-mails confeccionados no Zeus\n\n**Propriedades do objeto de paginação \"input\" para buscas paginadas**\n\n| **Propriedade** | **Formato** | **Descrição** |\n| --- | --- | --- |\n| input.columns | \\[{  <br>\"data\": \"id\",  <br>\"name\": \"\",  <br>\"orderable\": true,  <br>\"search\": {  <br>\"regex\": false,  <br>\"value\": \"\"  <br>},  <br>\"searchable\": true  <br>}\\] | Mais utilizado para a exibição das colunas da tabela de dados na tela do Zeus. Recomendado enviar um array vazio para preencher o valor desse objeto em uma requisição direta via API |\n| input.draw | 0 | Versionamento interno da requisição paginada. Mais utilizado em requisições via tela do Zeus |\n| input.length | 12 | Quantidade máxima de registros a serem retornados na requisição realizada |\n| input.search | \"search\": {  <br>\"regex\": false,  <br>\"value\": \"\"  <br>} | Objeto interno utilizado para buscas em tela. Recomendado enviar um objeto vazio para buscas realizadas diretamente via API |\n| input.start | 0 | Número da página inicial a ser retornada, começando a partir de 0. |\n\n**Filtros disponíveis**\n\n| **Nome do filtro** | **Tipo** | Descrição | Exemplo |\n| --- | --- | --- | --- |\n| find | Cadeia de caracteres (String) | Propriedade que possibilita filtrar e-mails por palavras contidas em seus assuntos e corpo | \"DEVEC - 08/25\" |\n| status | Número inteiro | Representa o estado atual do e-mail  <br>  <br>AGUARDANDO NA FILA = 0  <br>PROCESSANDO = 1  <br>ENVIANDO = 2  <br>ENVIADO = 3  <br>ERRO NO ENVIO = 9  <br>CANCELADO = 10  <br>ERRO DE AUTENTICAÇÃO DO USUÁRIO = 11 | \"3\" |\n| dataEntrada | Data | Data de envio do e-mail  <br>  <br>Obs.: Os registros de envio estão com horário de envio salvos no banco em UTC-3 | \"2025-08-01T00:00:00-03:00\" |\n\n**Principais propriedades de retorno**\n\n| **Nome da propriedade** | **Tipo** | **Descrição** | **Exemplo** |\n| --- | --- | --- | --- |\n| dataEnvio | Número inteiro longo (Long) | Data de envio do e-mail em millisegundos | 1754046493000 |\n| user | Objeto | Dados do usuário remetente | {\"id\": 1, \"name\": \"Administrador\"...} |\n| options | Cadeia de caracteres (String) | Opções de destinatários para o e-mail (Geralmente tem valor igual aos destinatários) | \"SERGIO.LOPES@XPTO.COM.BR;[NATHALIA.SANTOS@XPTO.COM.BR](https://mailto:NATHALIA.SANTOS@XPTO.COM.BR)\" |\n| replyTo | Cadeia de caracteres (String) | Destinatários em cópia | \"suporte@zeusenergia.com.br\" |\n| sendTo | Cadeia de caracteres (String) | Destinatários | \"SERGIO.LOPES@XPTO.COM.BR;[NATHALIA.SANTOS@XPTO.COM.BR](https://mailto:NATHALIA.SANTOS@XPTO.COM.BR)\" |\n| status | Número inteiro | Estado do e-mail  <br>  <br>AGUARDANDO NA FILA = 0  <br>PROCESSANDO = 1  <br>ENVIANDO = 2  <br>ENVIADO = 3  <br>ERRO NO ENVIO = 9  <br>CANCELADO = 10  <br>ERRO DE AUTENTICAÇÃO DO USUÁRIO = 11 | 3 |\n| tentativas | Número inteiro | Número de tentativas de envio do e-mail | 1 |\n| templateEmailOriginal | Cadeia de caracteres (String) | Corpo do e-mail em HTML |  |\n| lstEmailListAttachments | Objeto | Array de objetos com propriedades referentes aos anexos enviados no e-mail | \\[  <br>{  <br>\"id\": 3,  <br>\"idEmailList\": 114,  <br>\"uniqueId\": \"1763578077697.2227\",  <br>\"fileName\": \"export_20250915101005xlsx_1.ods\",  <br>\"filePath\": \"resources/planilhas/emails/anexos/export_20250915101005xlsx_1.ods\",  <br>\"dataEntrada\": \\[  <br>2025,  <br>11,  <br>19  <br>\\],  <br>\"files\": null  <br>}  <br>\\] |"
+							},
+							"response": []
 						}
 					]
 				}
