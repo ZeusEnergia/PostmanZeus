@@ -10637,6 +10637,36 @@
 								"description": "Listagem dos tipos de pagamento utilizados no Zeus."
 							},
 							"response": []
+						},
+						{
+							"name": "Editar Boleta de Serviço",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 165,\n  \"dataEntrada\": \"2023-05-29\",\n  \"dataInicio\": \"2020-06-01T03:00:00.000Z\",\n  \"dataFim\": \"2024-06-01T03:00:00.000Z\",\n  \"group_id\": 3,\n  \"unidade_id\": 5,\n  \"matriz_id\": null,\n  \"unidadeParteId\": 1,\n\n  \"faturType\": null,\n\n  \"valPrice\": 15,\n  \"indexId\": 2,\n  \"datIndexBase\": \"2020-01-01T03:00:00.000Z\",\n  \"datIndexFirstAdjus\": \"2020-06-01T03:00:00.000Z\",\n\n  \"pagType\": 3,\n  \"pagVal\": 5,\n  \"pagMesType\": 4,\n\n  \"fatType\": 2,\n  \"fatVal\": 1,\n  \"fatMesType\": 1,\n\n  \"userId\": 1,\n  \"indCance\": false,\n\n  \"priceType\": 1,\n\n  \"inicioPagamento\": {\n    \"id\": 2\n  },\n\n  \"tipoRenovacao\": {\n    \"id\": 2\n  },\n\n  \"paymentModel\": {\n    \"numPaymeModel\": 1\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{URL}}/rest/servico/{{idBoleta}}",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"rest",
+										"servico",
+										"{{idBoleta}}"
+									]
+								},
+								"description": "API para edição de boleta de serviço. Resultado equivalente a tela Gestão -> Boletas Serviços-> Listar Boletas -> Editar do Zeus.\n\n| **Chave** | **Valor** | **Descrição** | **API** |\n| --- | --- | --- | --- |\n| dataEntrada | Date | Data de entrada da boleta no sistema | \\--- |\n| dataInicio | Date | Data de início da boleta | \\--- |\n| dataFim | Date | Data de término da boleta | \\--- |\n| group_id | Integer | Id do grupo da unidadeno | Contrapartes > Listar Grupo |\n| unidade_id | Integer | id da unidade | Contrapartes > Listar Unidade |\n| priceType | Integer | Id do tipo de preço da boleta | Informações Gerais > Tipo de Preço |\n| valPiso | Double | Valor do piso quando o tipo de preço \"Piso + Porcentagem\" ou \"Piso ou Porcentagem\" | \\--- |\n| nomObsPrice | String | Descrição de regra para o tipo de preço \"Personalizado\" | \\--- |\n| indSemImps | Boolean | Booleano que indica se a boleta tem economia sem impostos para tipos de preço | \\--- |\n| valPrice | Double | Valor do preço da boleta | \\--- |\n| pagType | Integer | Id do tipo de pagamento | Informações Gerais > Tipo de Pagamento |\n| pagVal | Integer | Número de dias úteis ou corridos dependendo do tipo de pagamento | \\--- |\n| inicioPagamento | Objeto | Objeto com dados do inicio do pagamento | Contratos de Serviços > Tipo de Inicio de Pagamento |\n| pagMesType | Integer | Id do tipo de mês em que pagamento será efetuado | Informações Gerais > Tipo de Condição de Pagamento |\n| paymentModel | Objeto | Objeto com do dados do Modelo de Pagamento | \\--- |\n| fatType | Integer | Id do tipo de emissão da nota fiscal | Informações Gerais > Tipo de Pagamento |\n| fatVal | Integer | Número de dias para emissão, úteis ou corridos dependendo do tipo de emissão da nota fiscal | \\--- |\n| fatMesType | Integer | Id do tipo de mês em que a nota fiscal será emitida | Informações Gerais > Tipo de Condição de Pagamento |\n| indexId | Integer | Id do tipo de reajuste | Informações Gerais > Indexadores |\n| tipoRenovacao | Objeto | Objeto com os dados do tipo de renovação da boleta de serviço | Contratos de Serviços > Tipo de Renovação |\n| datIndexBase | Date | Data base do calculo do reajuste | \\--- |\n| datIndexFirstAdjus | Date | Data do primeiro reajuste | \\--- |\n| prazoRenovacao | Integer | Prazo em dias para renovação da boleta | \\--- |\n| mesesRenovacao | Integer | Quantidade de meses de renovação | \\--- |\n| regraContrato | String | Texto com regras da boleta | \\--- |\n| regraReajuste | String | Texto com regras de reajuste da boleta | \\--- |\n| comentario | String | Texto com informações sobre a boleta | \\--- |\n| observacao | String | Texto com Descrição que será adicionada à nota fiscal do trade mensal em caso de ausência de descrição | \\--- |\n| aprovadoServico | Boolean | Booleano que indica se a boleta foi aprovada | \\--- |"
+							},
+							"response": []
 						}
 					]
 				},
